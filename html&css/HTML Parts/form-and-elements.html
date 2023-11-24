@@ -7,6 +7,7 @@
     <style>
       .container {
         background-color: rgb(236, 90, 37);
+        width: 300px;
       }
       .header {
         background-color: grey;
@@ -24,15 +25,15 @@
   <body>
     <div class="container">
       <div class="header">
-        <img src="../Assets/avatar-men.png" alt="" width="20%" />
+        <img src="./images/avatar-men.png" alt="" width="20%" />
         <h4>PERSONEL TANIMA FORMU</h4>
       </div>
 
-      <form action="result.html">
+      <form action="./result.html">
         <div>
           <label for="ad">Adınız:</label>
           <br />
-          <input type="text" id="ad" name="AD" />
+          <input type="text" id="ad" name="AD" placeholder="Ad giriniz" />
         </div>
         <br />
         <div>
@@ -43,12 +44,12 @@
         <br />
         <div>
           <label for="sifre">Şifreniz:</label> <br />
-          <input type="password" name="SIFRE" id="sifre" required />
+          <input type="password" name="SIFRE" id="sifre" />
         </div>
         <br />
         <div>
           <label for="email">Email:</label> <br />
-          <input type="email" name="EMAIL" id="email" required />
+          <input type="email" name="EMAIL" id="email" />
         </div>
         <br />
 
@@ -108,9 +109,111 @@
         </div>
 
         <br />
+        <div>
+          <label for="tarih">Doğum Tarihiniz:</label> <br />
+          <input
+            type="date"
+            name="DOGUM_TARIHI"
+            id="tarih"
+            min="2020-01-01"
+            max="2024-01-01"
+          />
+        </div>
+        <br />
+        <div>
+          <label for="foto">Fotograf:</label> <br />
+          <input type="file" name="FOTOGRAF" id="foto" />
+        </div>
+        <br />
+        <div>
+          <label for="tel">Telefon:</label> <br />
+          <input
+            type="tel"
+            name="TELEFON"
+            id="tel"
+            placeholder="XXX-XXX-XX-XX"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+          />
+        </div>
+        <br />
+        <!-- ------------------------------------------------ -->
+        <!--                      SELECT                      -->
+        <!-- ---------------------------------------------- -->
+        <div>
+          <label for="hobi">Hobinizi Seçin:</label>
+          <br />
+          <select name="HOBI" id="">
+            <option value="" selected>Bir Hobi Seçin</option>
+            <option value="muzik">Müzik</option>
+            <option value="resim">Resim</option>
+            <option value="yuzme">Yüzme</option>
+            <option value="satranc">Satranç</option>
+          </select>
+        </div>
+        <!-- ----------------------------------------------------- -->
+        <br />
+        <div>
+          <label for="spor">Sevdiğiniz Spor Dalı:</label> <br />
+          <select name="" id="">
+            <optgroup label="Su Sporları">
+              <option value="yuzme">Yüzme</option>
+              <option value="dalis">Dalış</option>
+              <option value="sörf">Sörf</option>
+            </optgroup>
+
+            <optgroup label="Dövüş Sporları">
+              <option value="Karete">Karete</option>
+              <option value="Judo">Judo</option>
+            </optgroup>
+          </select>
+        </div>
+        <br />
+        <!-- ------------------------------------ -->
+        <div>
+          <label for="yorum">Yorum:</label> <br />
+          <textarea
+            name="YORUM"
+            id="yorum"
+            cols="35"
+            rows="5"
+            style="resize: none"
+          ></textarea>
+        </div>
+        <br />
+
+        <!-- -------------------------------------------------------------- -->
+        <!--                                datalist                      -->
+        <!-- ---------------------------------------------------------------- -->
+        <div>
+          <label for="ulke">Görmek İstediğiniz Ülkeler:</label>
+          <br />
+          <input type="text" list="ulke" />
+          <datalist name="ULKE" id="ulke">
+            <option value="Almanya"></option>
+            <option value="USA"></option>
+            <option value="Amerika"></option>
+            <option value="Polonya"></option>
+            <option value="Japonya"></option>
+          </datalist>
+        </div>
+        <br />
+        <div>
+          <fieldset>
+            <legend>ID ve Vize Bilgisi</legend>
+            <label for="id">ID:</label><br />
+            <input type="text" />
+            <br />
+            <br />
+            <label for="vizeTuru">Vize Türü: </label><br />
+            <input type="text" />
+          </fieldset>
+        </div>
+
+        <br />
         <input type="submit" value="KAYDET" />
       </form>
     </div>
+
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </body>
 </html>
