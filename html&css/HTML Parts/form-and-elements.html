@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM ELEMENTS</title>
+    <style>
+      .container {
+        background-color: rgb(236, 90, 37);
+      }
+      .header {
+        background-color: grey;
+        display: flex;
+        align-items: center;
+      }
+      .header img {
+        padding: 10px;
+      }
+      form {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="../Assets/avatar-men.png" alt="" width="20%" />
+        <h4>PERSONEL TANIMA FORMU</h4>
+      </div>
+
+      <form action="result.html">
+        <div>
+          <label for="ad">Adınız:</label>
+          <br />
+          <input type="text" id="ad" name="AD" />
+        </div>
+        <br />
+        <div>
+          <label for="soyad">Soyadınız:</label>
+          <br />
+          <input type="text" id="soyad" name="SOYAD" />
+        </div>
+        <br />
+        <div>
+          <label for="sifre">Şifreniz:</label> <br />
+          <input type="password" name="SIFRE" id="sifre" required />
+        </div>
+        <br />
+        <div>
+          <label for="email">Email:</label> <br />
+          <input type="email" name="EMAIL" id="email" required />
+        </div>
+        <br />
+
+        <div>
+          <label for="yas">Yaşınız:</label> <br />
+          <input type="number" name="YAS" id="yas" />
+        </div>
+        <br />
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                                  Radio                                  -->
+        <!-- ----------------------------------------------------------------------- -->
+        <div>
+          <label for="cinsiyet">Cinsiyet:</label> <br />
+
+          <input type="radio" name="cinsiyet" id="kadin" value="Kadın" />
+          <label for="kadin">Kadın</label>
+          <br />
+          <input
+            type="radio"
+            name="cinsiyet"
+            id="erkek"
+            value="Erkek"
+            checked
+          />
+          <label for="erkek">Erkek</label>
+        </div>
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                                Checkbox                                 -->
+        <!-- ----------------------------------------------------------------------- -->
+        <br />
+        <div>
+          <label for="">Müsait günleriniz:</label>
+          <br />
+          <input type="checkbox" name="gün" id="" value="Pazartesi" />
+          <label for="">Pazartesi</label>
+          <br />
+          <input type="checkbox" name="gün" id="" value="Salı" />
+          <label for="">Salı</label>
+          <br />
+          <input type="checkbox" name="gün" id="" value="Çarşamba" />
+          <label for="">Çarşamba</label>
+          <br />
+          <input type="checkbox" name="gün" id="" value="Perşembe" />
+          <label for="">Perşembe</label>
+          <br />
+          <input type="checkbox" name="gün" id="" value="Cuma" checked />
+          <label for="">Cuma</label>
+        </div>
+
+        <!-- ----------------------------------------------------------------------- -->
+        <!--                                  color                                  -->
+        <!-- ----------------------------------------------------------------------- -->
+        <br />
+        <div>
+          <label for="renk">Sevdiğiniz Renk:</label>
+          <input type="color" name="RENK:" id="renk" value="#458767" />
+        </div>
+
+        <br />
+        <input type="submit" value="KAYDET" />
+      </form>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>
