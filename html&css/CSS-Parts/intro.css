@@ -1,0 +1,10 @@
+p {
+  background-color: darkcyan;
+}
+
+.ext {
+  background-color: rgb(192, 124, 182);
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}

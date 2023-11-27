@@ -4,17 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="" />
+    <!-- Internal styling -->
+
+    <link rel="stylesheet" href="../CSS-Parts/intro.css" />
+
     <style>
-      h1 {
-        background-color: bisque;
+      #baslik {
+        background-color: crimson;
+      }
+      .parag {
+        background-color: coral !important;
       }
     </style>
   </head>
   <body>
-    <h1>CSS Intro</h1>
-    <p style="background-color: bisque; color: white; padding: 5px">
+    <h1>CSS INTRO</h1>
+    <!-- * Inline CSS, HTML elementlerine style keyword'u ile eklenir.
+    * style kelimesinin ici aslinda CSS alanidir.
+    * Sadece eklenen element icin bir stillendirme gerceklestirir.
+    * Bu sebeple cok pratik bir yontem degildir.
+    * HTML kodlarini kalabaliklastirdigi icin kodun gorunumunu karmasiklastirir. -->
+
+    <!-- Inline styling Style attribute(özelliği) ile sağlıyoruz -->
+    <p style="background-color: blueviolet; color: azure; padding: 5px">
       Inline Styling
     </p>
+
+    <!-- Internal styling -->
+    <p id="baslik" class="parag">Internal styling</p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, iste!
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, iste.
+    </p>
+
+    <!-- External Styling -->
+    <p class="ext">External Styling</p>
   </body>
 </html>
