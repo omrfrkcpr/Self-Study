@@ -1,0 +1,11 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  background-color: #272626;
+  margin: auto;
+  border-radius: 20px;
+}
