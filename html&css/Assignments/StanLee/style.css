@@ -9,3 +9,25 @@ body {
   margin: auto;
   border-radius: 20px;
 }
+
+.heading {
+  font-family: "Lobster", sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 60px;
+}
+
+span {
+  color: rgb(174, 55, 55);
+}
+
+.imgContainer {
+  text-align: center;
+}
+
+img {
+  border-radius: 40px;
+  box-shadow: 5px 5px 500px red;
+}
