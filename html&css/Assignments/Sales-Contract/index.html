@@ -19,30 +19,31 @@
             <input type="checkbox" id="checkbox" name="Checkbox" />
             <label for="checkbox">
               I accept the accuracy of the following information and approve the
-              contract. </label
-            ><br />
+              contract.</label
+            >
+            <br />
             <input type="submit" id="submit" name="Submit" value="SUBMIT" />
             <input type="reset" id="reset" name="Reset" value="RESET" />
           </fieldset>
 
           <fieldset class="personalInformation">
             <legend>Personal Information</legend>
-            <label for="formSecurityID">Form Security ID </label>
+            <label class="test" for="formSecurityID">Form Security ID </label>
             <input
               type="text"
               id="formSecurityID"
               name="formSecurityID"
               placeholder="asdfg"
             /><br /><br />
-            <label for="firstName">Firstname </label>
+            <label class="test" for="firstName">Firstname </label>
             <input type="text" id="firstName" name="Firstname" /><br /><br />
-            <label for="lastName">Lastname </label>
+            <label class="test" for="lastName">Lastname </label>
             <input type="text" id="lastName" name="Lastname" /><br /><br />
-            <label for="age">Age </label>
+            <label class="test" for="age">Age </label>
             <input type="text" id="age" name="Age" /><br /><br />
-            <label for="mail">Mail Address</label>
+            <label class="test" for="mail">Mail Address</label>
             <input type="mail" id="mail" name="Mail" /><br /><br />
-            <label for="photo">Upload Photo</label>
+            <label class="test" for="photo">Upload Photo</label>
             <input type="file" id="photo" name="Photo" />
           </fieldset>
 
@@ -50,36 +51,41 @@
             <legend>Other Information</legend>
             <h4>These Areas Cover Professional Experience</h4>
             <div class="Entry">
-              <label for="entry">Date of Entry Into The Industry</label>
+              <label class="test3" for="entry"
+                >Date of Entry Into The Industry</label
+              >
               <input type="date" name="entry" id="entry" /><br /><br />
             </div>
             <div class="experience">
-              <label for="experience">Industry Experience</label><br />
-              <input type="radio" name="experience" id="1-5 years" checked />
-              <label for="1-5 years">1-5 years</label><br />
-              <input type="radio" name="experience" id="6-10 years" />
-              <label for="6-10 years">6-10 years</label><br />
-              <input type="radio" name="experience" id="11-15 years" />
-              <label for="11-15 years">11-15 years</label><br />
-              <input type="radio" name="experience" id="15+ years" />
-              <label for="15+ years">15+ years</label><br />
+              <div class="test1">
+                <label class="test3" for="experience"
+                  >Industry Experience</label
+                >
+              </div>
+              <div class="test2">
+                <input type="radio" name="experience" id="1-5 years" checked />
+                <label for="1-5 years">1-5 years</label><br />
+                <input type="radio" name="experience" id="6-10 years" />
+                <label for="6-10 years">6-10 years</label><br />
+                <input type="radio" name="experience" id="11-15 years" />
+                <label for="11-15 years">11-15 years</label><br />
+                <input type="radio" name="experience" id="15+ years" />
+                <label for="15+ years">15+ years</label><br />
+              </div>
             </div>
             <br />
             <section class="softwareLanguage">
-              <label for="softwareLanguage">Software Languages</label>
-              <input
-                type="search"
-                placeholder="Select a Language"
-                list="softwareLanguage"
-              />
-              <datalist id="softwareLanguage">
-                <option value="C#" />
-                <option value="PHP" />
-                <option value="Java" />
-                <option value="JavaScript" />
-                <option value="Python" />
-                <option value="C++" />
-              </datalist>
+              <label class="test3" for="softwareLanguage"
+                >Software Languages</label
+              >
+              <select id="softwareLanguage" size="5">
+                <option value="C#">C#</option>
+                <option value="PHP">PHP</option>
+                <option value="Java">Java</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="C++">C++</option>
+              </select>
             </section>
           </fieldset>
 

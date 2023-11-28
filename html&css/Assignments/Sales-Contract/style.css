@@ -5,3 +5,30 @@ h1 {
 .subscription span {
   font-weight: bold;
 }
+
+.test {
+  /* border: 2px solid red; */
+  display: inline-block;
+  width: 150px;
+}
+
+h4 {
+  margin-top: 0;
+}
+
+.experience {
+  /* border: 2px solid red; */
+}
+.test1 {
+  /* border: 2px solid blue; */
+  display: inline-block;
+}
+.test2 {
+  /* border: 2px solid green; */
+  display: inline-block;
+}
+
+.test3 {
+  display: inline-block;
+  width: 250px;
+}
