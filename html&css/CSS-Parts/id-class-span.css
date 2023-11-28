@@ -1,0 +1,11 @@
+#specific .item {
+  color: red;
+}
+
+span.item {
+  color: green;
+}
+
+.item {
+  color: blue;
+}
