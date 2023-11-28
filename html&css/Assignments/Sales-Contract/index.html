@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="result.html" method="get">
+        <header>
+          <h1>ABC Design Program Installation and Sales Contract :)</h1>
+        </header>
+
+        <section class="fields">
+          <fieldset class="contractApproval">
+            <legend>Contract Approval</legend>
+            <input type="checkbox" id="checkbox" name="Checkbox" />
+            <label for="checkbox">
+              I accept the accuracy of the following information and approve the
+              contract. </label
+            ><br />
+            <input type="submit" id="submit" name="Submit" value="SUBMIT" />
+            <input type="reset" id="reset" name="Reset" value="RESET" />
+          </fieldset>
+
+          <fieldset class="personalInformation">
+            <legend>Personal Information</legend>
+            <label for="formSecurityID">Form Security ID </label>
+            <input
+              type="text"
+              id="formSecurityID"
+              name="formSecurityID"
+              placeholder="asdfg"
+            /><br /><br />
+            <label for="firstName">Firstname </label>
+            <input type="text" id="firstName" name="Firstname" /><br /><br />
+            <label for="lastName">Lastname </label>
+            <input type="text" id="lastName" name="Lastname" /><br /><br />
+            <label for="age">Age </label>
+            <input type="text" id="age" name="Age" /><br /><br />
+            <label for="mail">Mail Address</label>
+            <input type="mail" id="mail" name="Mail" /><br /><br />
+            <label for="photo">Upload Photo</label>
+            <input type="file" id="photo" name="Photo" />
+          </fieldset>
+
+          <fieldset class="otherInformation">
+            <legend>Other Information</legend>
+            <h4>These Areas Cover Professional Experience</h4>
+            <div class="Entry">
+              <label for="entry">Date of Entry Into The Industry</label>
+              <input type="date" name="entry" id="entry" /><br /><br />
+            </div>
+            <div class="experience">
+              <label for="experience">Industry Experience</label><br />
+              <input type="radio" name="experience" id="1-5 years" checked />
+              <label for="1-5 years">1-5 years</label><br />
+              <input type="radio" name="experience" id="6-10 years" />
+              <label for="6-10 years">6-10 years</label><br />
+              <input type="radio" name="experience" id="11-15 years" />
+              <label for="11-15 years">11-15 years</label><br />
+              <input type="radio" name="experience" id="15+ years" />
+              <label for="15+ years">15+ years</label><br />
+            </div>
+            <br />
+            <section class="softwareLanguage">
+              <label for="softwareLanguage">Software Languages</label>
+              <input
+                type="search"
+                placeholder="Select a Language"
+                list="softwareLanguage"
+              />
+              <datalist id="softwareLanguage">
+                <option value="C#" />
+                <option value="PHP" />
+                <option value="Java" />
+                <option value="JavaScript" />
+                <option value="Python" />
+                <option value="C++" />
+              </datalist>
+            </section>
+          </fieldset>
+
+          <fieldset class="copyOfContract">
+            <legend>Copy of Contract</legend>
+            <textarea
+              name="copyOfContract"
+              id="copyOfContract"
+              cols="40"
+              rows="5"
+            >
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore nihil accusantium totam sit, ducimus, temporibus ipsam cum deserunt perspiciatis amet consequuntur, facilis dolore vitae? Officia id temporibus quia eligendi.
+            </textarea>
+          </fieldset>
+
+          <fieldset class="mailingList">
+            <legend>Mailing List</legend>
+            <div class="subscription">
+              <label for="subscribed"
+                ><span>Subscribe</span> to the mailing list</label
+              >
+              <input
+                type="radio"
+                name="subscription"
+                id="subscribed"
+                checked
+              /><br />
+              <label for="unsubscribed"
+                ><span style="text-decoration: underline">Unsubscribe</span>
+                from the mailing list</label
+              >
+              <input type="radio" name="subscription" id="unsubscribed" />
+            </div>
+          </fieldset>
+        </section>
+      </form>
+    </div>
+  </body>
+</html>
