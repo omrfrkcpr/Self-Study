@@ -31,3 +31,41 @@ img {
   border-radius: 40px;
   box-shadow: 5px 5px 500px red;
 }
+
+.info {
+  width: 80%;
+  margin: auto;
+  text-align: justify;
+}
+
+.marvel {
+  color: red;
+  margin-left: 10%;
+}
+
+.comics {
+  width: 80%;
+  margin: auto;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(174, 113, 1);
+}
+
+.link:hover {
+  background-color: #272626;
+  transition-duration: 0.5s;
+  color: red;
+}

@@ -1,0 +1,40 @@
+
+/* browserın font boyutu 16px  */
+*{
+    margin:0;
+    padding:0;
+    border:1px solid red;
+}
+html{
+    font-size: 20px;
+}
+h1{
+    font-size: 3rem;  
+    /* 16x3=48px > 20x3=60px*/
+}
+p{
+    font-size:2rem;
+    /* 16x2=32px  > 20x2 =40px*/
+}
+img{
+    width: 20rem;
+    border:0.3rem solid gray;
+    padding:0.5rem;
+}
+.imagess{
+    width: 300px;
+}
+
+.endis{
+    font-size: 10px;
+    width: 50%;
+}
+
+.yazi{
+    font-size:2em;
+}
+
+.icdiv img{
+    /* View width ekran genişliği 100vwdir */
+    width: 80%;
+}
