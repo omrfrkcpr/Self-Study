@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+body {
+  background-image: url(background_image.jpg);
+  height: auto;
+}
+
+.container {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 20px 40px;
+  height: 810px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  border: 0;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+main {
+  background-color: rgba(0, 0, 0, 0.9);
+  display: block;
+  width: 350px;
+  margin: auto;
+  height: 700px;
+  padding: 20px;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.name,
+.age,
+.email,
+.contenttype,
+.movie,
+.gender,
+.feedBack,
+.button {
+  padding: 5px;
+}
+
+header {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  height: 60px;
+  text-align: center;
+}
+
+span {
+  color: red;
+}
+
+p {
+  font-weight: bold;
+  text-align: center;
+}
+
+label {
+  /* padding-bottom: 10px; */
+  display: inline-block;
+}
+
+.button input {
+  width: 100px;
+  height: 30px;
+  margin: auto;
+  display: block;
+  background-color: red;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button input:hover {
+  background-color: rgb(202, 82, 82);
+  transition-duration: 0.5s;
+}
+
+.name input,
+.age input,
+.email input {
+  width: 270px;
+  height: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.contenttype select {
+  margin-top: 10px;
+  width: 280px;
+  height: 30px;
+}
+
+.contenttype select {
+  padding-left: 5px;
+}
