@@ -1,0 +1,47 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css);
+
+.container{
+    border: 1px solid red;
+    /* margin: 50px; */padding: 50px; 
+}
+
+a{
+    margin: 50px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: olive;
+    color: white;
+    border-radius: 10px;
+}
+
+a:hover{
+    background-color: rgb(224, 224, 196);
+    color: olive;
+}
+a:active{
+    background-color: yellow;
+    color: blue;
+}
+a:visited{
+    /* background-color: purple; */
+}
+
+a:hover i{
+    color: red;
+}
+
+
+/* .btn1{
+    border: 1px solid red;
+    
+}
+
+.btn2{
+    border: 1px solid red;
+
+}
+
+.btn3{
+    border: 1px solid red;
+
+} */
