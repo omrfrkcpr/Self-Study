@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +8,10 @@
 
 body {
   background-image: url(img/bg-01.jpg);
-  height: 100vh;
-  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 60px;
+  height: 100vh;
+  margin-top: 100px;
 }
 
 .container {
@@ -18,4 +19,142 @@ body {
   width: 500px;
   margin: auto;
   padding: 65px 55px 54px;
+}
+
+#title {
+  text-align: center;
+  padding-bottom: 49px;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-info {
+  margin: auto;
+  width: 100%;
+}
+
+.placeholder {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.fa-regular,
+.fa-solid {
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.placeholder input {
+  width: 80%;
+  font-size: 16px;
+}
+
+.login-info input {
+  border: none;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.username label,
+.password label {
+  font-size: 16px;
+}
+
+.forgot {
+  margin-top: 5px;
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  margin: 10px 0;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.forgot:hover {
+  color: purple;
+  transition-duration: 0.5s;
+}
+
+.login {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.login input {
+  width: 100%;
+  background-image: url(img/bg-01.jpg);
+  border-radius: 50px;
+  color: white;
+}
+
+#submit:hover {
+  cursor: pointer;
+  color: black;
+  transition-duration: 0.5s;
+}
+
+.login-with {
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.fa-brands {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding-top: 12px;
+  margin: 5px;
+}
+
+.fa-facebook-f {
+  background-color: #3b5998;
+}
+
+.fa-twitter {
+  background-color: #1da1f2;
+}
+
+.fa-google {
+  background-color: #ea4335;
+}
+
+.fa-brands:hover {
+  background-color: black;
+  transition-duration: 0.8s;
+}
+
+.placeholder input:focus {
+  outline: none;
+}
+
+.sign-up {
+  text-align: center;
+  padding: 10px;
+}
+
+.sign-up p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.sign-up a {
+  text-decoration: none;
+  color: white;
+  background-image: url(img/bg-01.jpg);
+  padding: 5px;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.sign-up a:hover {
+  color: black;
+  transition-duration: 0.5s;
 }

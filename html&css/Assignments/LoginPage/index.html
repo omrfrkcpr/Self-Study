@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -11,57 +11,50 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <form action="result.html" method="get">
-        <head>
-          <h2 id="title">Login</h2>
-        </head>
-
-        <section class="loginInfo">
+      <header>
+        <h1 id="title">Login</h1>
+      </header>
+      <section class="login-info">
+        <form action="result.html" method="get">
           <div class="username">
-            <label for="">Username</label><br />
-            <div class="user1">
+            <label for="">Username</label>
+            <br />
+            <div class="placeholder">
               <i class="fa-regular fa-user"></i>
               <input type="text" placeholder="Type your username" />
             </div>
           </div>
-
           <div class="password">
-            <label for="">Password</label><br />
-            <div class="password1">
+            <label for="">Password</label>
+            <br />
+            <div class="placeholder">
               <i class="fa-solid fa-lock"></i>
-              <input type="text" placeholder="Type your password" />
+              <input type="password" placeholder="Type your password" />
             </div>
-          </div>
 
-          <div class="forgot">
-            <a href="http://">Forgot password</a>
+            <a href="#" class="forgot">Forgot password?</a>
           </div>
-
           <div class="login">
-            <input type="submit" name="submit" id="login" value="LOGIN" />
+            <input type="submit" name="" id="submit" value="LOGIN" />
           </div>
-        </section>
-
-        <section class="loginwith">
-          <p>Or Login Using</p>
-          <div class="btn">
-            <a href="" class="facebook"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
-            <a href="" class="twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="" class="google"><i class="fa-brands fa-google"></i></a>
-          </div>
-        </section>
-
-        <section class="signup">
-          <p>Or Sign Up Using</p>
-          <a href="http://">SIGN UP</a>
-        </section>
-      </form>
+        </form>
+      </section>
+      <div class="login-with">
+        <p>Or Login Using</p>
+        <div class="btn">
+          <a href="" class="face"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="" class="twt"><i class="fa-brands fa-twitter"></i></a>
+          <a href="" class="gg"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="sign-up">
+        <p>Or Sign Up Using</p>
+        <a href="#">SIGN UP</a>
+      </div>
     </div>
   </body>
 </html>
