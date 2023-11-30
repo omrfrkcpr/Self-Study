@@ -1,0 +1,30 @@
+.test {
+  background-color: aqua;
+  text-align: center;
+  width: 100px;
+}
+
+.test1 {
+  background-color: aquamarine;
+  width: 80px;
+  display: block;
+  margin: auto;
+}
+
+.test2 {
+  background-color: red;
+  width: 50px;
+  margin: auto;
+}
+
+.test3 {
+  background-color: pink;
+  width: 50px;
+  margin-right: auto;
+}
+
+img {
+  width: 50px;
+  /* display: block; */
+  margin: auto;
+}
