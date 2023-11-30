@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(img/bg-01.jpg);
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 60px;
+}
+
+.container {
+  background-color: white;
+  width: 500px;
+  margin: auto;
+  padding: 65px 55px 54px;
+}
