@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+}
+
+div {
+  /* border: 2px solid red; */
+  /* background-color: aqua; */
+}
+.img-float {
+  width: 200px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.par1 {
+  background-color: coral;
+  margin: 10px;
+}
+
+.clear {
+  clear: both;
+}
+
+.box1 {
+  background-color: hotpink;
+  float: left;
+  width: 33%;
+  height: 300px;
+}
+
+.box2 {
+  background-color: olive;
+  float: left;
+  width: 33%;
+  height: 200px;
+  background-image: url("https://picsum.photos/id/237/600/400");
+  background-size: cover;
+  background-position: center;
+}
+
+.box3 {
+  background-color: crimson;
+  float: left;
+  width: 33%;
+  height: 100px;
+}
