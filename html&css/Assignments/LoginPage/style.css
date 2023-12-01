@@ -19,6 +19,7 @@ body {
   width: 500px;
   margin: auto;
   padding: 65px 55px 54px;
+  border-radius: 25px;
 }
 
 #title {
@@ -41,6 +42,7 @@ body {
 .fa-solid {
   font-size: 15px;
   margin-top: 20px;
+  color: gray;
 }
 
 .placeholder input {
@@ -57,6 +59,7 @@ body {
 .username label,
 .password label {
   font-size: 16px;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .forgot {
@@ -83,7 +86,8 @@ body {
 .login input {
   width: 100%;
   background-image: url(img/bg-01.jpg);
-  border-radius: 50px;
+  background-size: cover;
+  border-radius: 25px;
   color: white;
 }
 
@@ -127,7 +131,7 @@ body {
 
 .fa-brands:hover {
   background-color: black;
-  transition-duration: 0.8s;
+  transition-duration: 0.5s;
 }
 
 .placeholder input:focus {
@@ -149,9 +153,10 @@ body {
   text-decoration: none;
   color: white;
   background-image: url(img/bg-01.jpg);
+  background-size: cover;
   padding: 5px;
   padding: 5px 15px;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .sign-up a:hover {
