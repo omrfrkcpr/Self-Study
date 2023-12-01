@@ -10,6 +10,20 @@
   background-color: darkviolet;
   width: 100px;
   height: 100px;
+  position: relative;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.inside {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .box2 {
@@ -21,6 +35,7 @@
   left: 30px;
   margin: auto;
   margin-bottom: 50px;
+  text-align: right;
 }
 
 .box3 {
@@ -37,6 +52,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  text-align: center;
 }
 
 .child3 {
@@ -54,7 +70,8 @@
   height: 50px;
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
+  text-align: center;
 }
 
 p {
