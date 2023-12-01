@@ -1,0 +1,51 @@
+body,
+header,
+main,
+article,
+aside,
+footer {
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+header {
+  background-color: seagreen;
+  margin-top: 10px;
+}
+
+main {
+  background-color: skyblue;
+  /* padding: 10px; */
+  /* height: 300px; */
+  /* overflow: auto; */
+}
+
+aside {
+  background-color: darkgoldenrod;
+  width: 25%;
+  height: 300px;
+  float: left;
+  margin-left: 10px;
+}
+
+article {
+  background-color: greenyellow;
+  width: 70%;
+  height: 300px;
+  float: left;
+}
+
+footer {
+  background-color: coral;
+}
+
+/* .clear {
+  clear: both;
+} */
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
