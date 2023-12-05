@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/gfavicon.png" type="image/png" />
+  </head>
+  <body>
+    <form action="https://www.google.com/search" method="get">
+      <header>
+        <nav class="header-left">
+          <a href="#" class="header-links">About</a>
+          <a href="#" class="header-links">Store</a>
+        </nav>
+
+        <nav class="header-right">
+          <a href="#" class="header-links">Gmail</a>
+          <a href="#" class="header-links">Images</a>
+          <!-- App icon is a CSS background image -->
+          <a href="#" class="header-links" id="appicon"
+            ><img src="images/appicon.png" alt="application_icon"
+          /></a>
+          <button class="header-links" id="sign-in-btn">Sign In</button>
+        </nav>
+        <div class="clear"></div>
+      </header>
+
+      <img
+        id="google"
+        src="images/noticia-1545589353-doodle-google-navidad.png"
+        alt="google logo"
+      />
+
+      <div class="searchbar">
+        <input type="text" id="search" />
+        <img
+          id="mag"
+          src="images/magnifying_glass.jpg"
+          alt="magnifying-glass"
+        />
+        <a href="#"
+          ><img
+            src="images/google_microphone.png"
+            alt="microphone"
+            id="microphone"
+        /></a>
+      </div>
+      <div class="btn-container">
+        <button id="btn1" type="button" name="button">Google Search</button>
+        <button id="btn2" type="button" name="button">I'm Feeling Lucky</button>
+      </div>
+      <div class="lang">
+        <p id="language">
+          Other Languages you can use Google:
+          <select name="languages" id="languages">
+            <option value="English"><a href="#">English</a></option>
+            <option value="Deutsch"><a href="#">Deutsch</a></option>
+            <option value="Turkish"><a href="#">Turkish</a></option>
+          </select>
+        </p>
+      </div>
+
+      <footer>
+        <div class="country">
+          <select name="countries" id="countries">
+            <option value="Country">Choose a Country</option>
+            <option value="Germany">Germany</option>
+            <option value="USA">USA</option>
+            <option value="Turkey">Turkey</option>
+          </select>
+        </div>
+        <nav class="footer-left">
+          <a href="#" class="footer-links">Advertising</a>
+          <a href="#" class="footer-links">Business</a>
+          <a href="#" class="footer-links">How Search Works</a>
+        </nav>
+
+        <nav class="footer-right">
+          <a href="#" class="footer-links">Privacy</a>
+          <a href="#" class="footer-links">Terms</a>
+          <a href="#" class="footer-links">Settings</a>
+        </nav>
+      </footer>
+    </form>
+  </body>
+</html>
