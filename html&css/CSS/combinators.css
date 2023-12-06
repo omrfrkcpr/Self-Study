@@ -1,0 +1,56 @@
+/* ! group selector */
+
+div p {
+  /* background-color: magenta; */
+}
+
+.container div p {
+  /* background-color: red; */
+}
+
+.box p {
+  /* background-color: olivedrab; */
+}
+
+div + p {
+  /* The paragraph elements after every div elements closing */
+  /* background-color: fuchsia; */
+}
+
+p + div {
+  /* background-color: darkgoldenrod; */
+}
+
+.container ~ p {
+  /* background-color: forestgreen; */
+}
+
+/* ! Attribute selector */
+
+h2[title="baslik1"] {
+  background-color: olive;
+}
+
+p[title="par1"] {
+  background-color: fuchsia;
+}
+
+a[target="_blank"] {
+  background-color: darkorange;
+}
+
+/* ! Psudu selector */
+
+p[title="par2"]::first-line {
+  font-size: 2rem;
+  color: aquamarine;
+}
+
+p[title="par1"]::first-letter {
+  font-size: 3rem;
+  color: yellow;
+}
+
+p[title="par1"]::after {
+  content: "1";
+}
