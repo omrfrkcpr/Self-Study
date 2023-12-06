@@ -1,0 +1,64 @@
+body {
+  /* ! CSS gradient io - background */
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  background-repeat: no-repeat;
+  height: 500px;
+  background-size: cover;
+}
+
+.container {
+  /* border: 2px solid red; */
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  /* background-image: url(../Assets/resim-2.jpg); */
+  background: linear-gradient(40deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../Assets/resim-2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: auto;
+  text-align: justify;
+  padding: 10px;
+  box-sizing: border-box;
+  color: yellow;
+  text-shadow: 0 0 10px orange;
+}
+
+/* Scrollbar i gizleme */
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  width: 20%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+#img1,
+#img2,
+#img3,
+#img4 {
+  opacity: 0.7;
+}
+
+#img1:hover,
+#img2:hover,
+#img3:hover,
+#img4:hover {
+  opacity: 1;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+}
+
+.images {
+  text-align: center;
+}
