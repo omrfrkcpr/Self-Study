@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@600;700&family=Open+Sans:wght@500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  /* font-family: "DynaPuff", sans-serif; */
+}
+
+/* ! ---------------------------------------------------------------------------------*/
+/* ! -------------------------------------HEADER--------------------------------------*/
+/* ! -------------------------------------------------------------------------------- */
+
+header {
+  background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+  padding: 1rem;
+}
+
+header a img {
+  width: 60px;
+}
+
+.sign-in {
+  float: right;
+  padding-top: 1.7rem;
+  padding-right: 0.5rem;
+  color: #920101;
+}
+
+.sign-in a {
+  color: #920101;
+  text-decoration: none;
+}
+
+.sign-in a:hover {
+  border-bottom: 2px solid #920101;
+}
+
+/* ! ---------------------------------------------------------------------------------*/
+/* ! ----------------------------------NAV-Sticky-------------------------------------*/
+/* ! -------------------------------------------------------------------------------- */
+
+nav.sticky {
+  background-color: #fbda61;
+  background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
+  padding: 2rem;
+  text-align: center;
+}
+
+nav.sticky a {
+  text-decoration: none;
+  color: black;
+  font-family: "DynaPuff", sans-serif;
+  margin: 0.8rem;
+}
+
+nav.sticky a:hover {
+  color: white;
+}
+
+/* ! ---------------------------------------------------------------------------------*/
+/* ! ----------------------------------NAV-Banner-------------------------------------*/
+/* ! -------------------------------------------------------------------------------- */
+
+nav.banner {
+  /* border: 2px solid blue; */
+  position: relative;
+  line-height: 3rem;
+}
+
+nav.banner img {
+  width: 100%;
+  max-height: calc(100vh - 202px);
+}
+
+nav.banner .hero {
+  /* border: 2px solid red; */
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+nav.banner .hero h2 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 0 2px 4px black;
+}
+
+nav.banner .hero h3 {
+  color: red;
+  font-size: 1rem;
+  text-shadow: 0 2px 4px black;
+}
+
+nav.banner button {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  background-color: #d9afd9;
+}
+
+nav.banner button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+/* ! ---------------------------------------------------------------------------------*/
+/* ! -------------------------------------MAIN----------------------------------------*/
+/* ! -------------------------------------------------------------------------------- */
+
+main {
+  padding: 2rem;
+  text-align: justify;
+}
+
+/* ! ---------------------------------------------------------------------------------*/
+/* ! -------------------------------------SLACK---------------------------------------*/
+/* ! -------------------------------------------------------------------------------- */
+
+.slack {
+  font-size: 2rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #920101;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  padding-top: 0.12rem;
+}
+
+.slack:hover {
+  cursor: pointer;
+  outline: 2px solid #920101;
+  outline-offset: 3px;
+  color: black;
+}
