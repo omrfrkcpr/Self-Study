@@ -1,0 +1,105 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+.yazi {
+  width: 50vw;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 2rem;
+}
+/* ******** TRANSFORM-ROTATE ************ */
+/* rotate içinde ... degree (deg) olarak değer verilir */
+/* 90 ve 270 deerelecelerde yazılar tam dik olduklarından ve 3 boyutlu olarak bakamadığımız için gözükmezler */
+
+.yazi1 {
+  background-color: darkcyan;
+  transform: rotateX(180deg);
+}
+.yazi2 {
+  background-color: cornflowerblue;
+}
+.yazi2:active {
+  background-color: cornflowerblue;
+  transform: rotateY(-180deg);
+}
+.yazi3 {
+  background-color: fuchsia;
+
+}
+.yazi3:active {
+  background-color: fuchsia;
+  transform: rotate(-45deg);
+  /* transform-origin: 25%; */
+}
+
+/*! ******** TRANSFORM-SCALE ************ */
+/* scale boyutlandırma için kullanılır */
+
+.yazi4 {
+  background-color: seagreen;
+  transform: rotate(-45deg) scaleX(1.5);
+
+}
+.yazi5 {
+  background-color: violet;
+}
+.yazi5:active {
+  background-color: violet;
+  transform: scaleY(3);
+}
+.yazi6 {
+  background-color: darkgoldenrod;
+}
+
+.yazi6:active {
+  background-color: darkgoldenrod;
+  transform: rotate(-45deg) scale(1.5);
+  cursor: pointer;
+}
+
+img {
+  transform: skew(20deg, 20deg);
+}
+
+/* ************* -TRANSFORM- TRANSLATE ********* */
+/* Translate öteleme,hareket ettirmek için kullanılır. */
+
+.box {
+  width: 100px;
+  height: 50px;
+  background-color: crimson;
+  margin: 2px;
+}
+
+.x {
+  transform: translateX(50px);
+}
+.y {
+}
+.y:active {
+  transform: translateY(150px);
+  background-color: magenta;
+  transition: all ease-in-out 1s;
+}
+
+.xy:active {
+  transform: translate(50px, 50px);
+  background-color: orange;
+}
+
+.dis{
+    width: 400px;
+    height: 400px;
+    background-color: aqua;
+    position: relative;
+}
+
+.ic{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
