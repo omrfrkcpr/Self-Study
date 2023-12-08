@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2rem;
+}
+
+ul {
+  background-color: olive;
+  padding: 1rem;
+  height: 50vh;
+  list-style-type: none;
+  display: flex;
+  /* flex-direction: row (default); */
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  /* gap: column row */
+  gap: 1rem 3rem;
+  padding: 1rem 0;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+li {
+  background-color: fuchsia;
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.first {
+  order: 0;
+}
+
+.second {
+  order: -1;
+}
