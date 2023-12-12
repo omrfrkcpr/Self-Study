@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Open+Sans:wght@400;500;600;700;800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;1,100;1,400;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+
+:root {
+  /* Asil renklerin koyu tonlari */
+  --mavi-1: hsl(205, 86%, 30%);
+  --mavi-2: hsl(205, 77%, 27%);
+  --mavi-3: hsl(205, 72%, 37%);
+  --mavi-4: hsl(205, 63%, 48%);
+  --mavi-5: hsl(205, 78%, 60%);
+
+  /* asil renklerin acik tonlari */
+  --mavi-6: hsl(205, 89%, 70%);
+  --mavi-7: hsl(205, 90%, 76%);
+  --mavi-8: hsl(205, 86%, 81%);
+  --mavi-9: hsl(205, 90%, 88%);
+  --mavi-10: hsl(205, 100%, 96%);
+  --mavi-11: hsl(205, 3%, 95%);
+
+  /* Basliklar icin kullanilan koyu tonlar */
+  --gri-1: hsl(209, 61%, 16%);
+  --gri-2: hsl(211, 39%, 23%);
+  --gri-3: hsl(209, 34%, 30%);
+  --gri-4: hsl(209, 28%, 39%);
+
+  /* Paragraflar icin kullanililan renkler */
+  --gri-5: hsl(210, 22%, 49%);
+  --gri-6: hsl(209, 23%, 60%);
+  --gri-7: hsl(211, 27%, 70%);
+  --gri-8: hsl(210, 31%, 80%);
+  --gri-9: hsl(212, 33%, 89%);
+  --gri-10: hsl(210, 36%, 96%);
+
+  --mor-1: hsl(276, 85%, 49%);
+
+  --beyaz: #fff;
+  --koyu-kirmizi: hsl(360, 67%, 44%);
+  --acik-kirmizi: hsl(360, 71%, 66%);
+  --koyu-yesil: hsl(125, 67%, 44%);
+  --acik-yesil: hsl(125, 71%, 66%);
+  --siyah: #222;
+
+  --koyu-golge: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  --acik-golge: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
+  --ff-monteserrat: "Montserrat", sans-serif;
+  --ff-lato: "Lato", sans-serif;
+  --ff-open: "Open", sans-serif;
+
+  /* font-size tanımlama */
+  --fs-sm: 0.5rem;
+  --fs-m: 1rem;
+  --fs-lg: 2rem;
+  --fs-xlg: 3rem;
+
+  /*! https://color.adobe.com/  */
+  /*? Mavinin tonlari */
+  --blue-1: hsl(205, 100%, 30%);
+  --blue-2: hsl(205, 100%, 40%);
+  --blue-3: hsl(205, 100%, 50%);
+  --blue-4: hsl(205, 100%, 60%);
+  --blue-5: hsl(205, 100%, 70%);
+
+  /*? Daha acik mavi tonlari */
+  --blue-light-1: hsl(205, 89%, 70%);
+  --blue-light-2: hsl(205, 90%, 76%);
+  --blue-light-3: hsl(205, 86%, 81%);
+  --blue-light-4: hsl(205, 90%, 88%);
+  --blue-light-5: hsl(205, 100%, 96%);
+
+  /*? Grimin koyu tonlari */
+  --grey-1: hsl(209, 61%, 16%);
+  --grey-2: hsl(211, 39%, 23%);
+  --grey-3: hsl(209, 34%, 30%);
+  --grey-4: hsl(209, 28%, 39%);
+
+  /*? Grinin acik tonlari */
+  --grey-5: hsl(210, 22%, 49%);
+  --grey-6: hsl(209, 23%, 60%);
+  --grey-7: hsl(211, 27%, 70%);
+  --grey-8: hsl(210, 31%, 80%);
+  --grey-9: hsl(212, 33%, 89%);
+  --grey-10: hsl(210, 36%, 96%);
+
+  /*? Diger renkler */
+  --purple: hsl(276, 85%, 49%);
+  --white: #fff;
+  --red-dark: #a62440;
+  --red-light: hsl(360, 67%, 66%);
+  --black: #222;
+
+  --green-dark: hsl(168, 66%, 22%);
+  --green: hsl(115, 34%, 37%);
+  --green-light: hsl(75, 51%, 60%);
+  --yellow: hsl(52, 100%, 68%);
+  --orange: hsl(11, 100%, 59%);
+  --orange-light: hsl(11, 100%, 67%);
+  --orange-dark: hsl(11, 100%, 50%);
+  /*? Font families */
+  --ff-monteserrat: "Montserrat", sans-serif;
+  --ff-lato: "Lato", sans-serif;
+  --ff-open: "Open", sans-serif;
+
+  /*? Font Size */
+  --fs-3xl: 3rem;
+  --fs-2xl: 2rem;
+  --fs-xl: 1.8rem;
+  --fs-lg: 1.4rem;
+  --fs-md: 1rem;
+  --fs-sm: 0.8rem;
+  --fs-xs: 0.6rem;
+
+  /*? Line Height */
+  --line-h-xl: 2;
+  --line-h-lg: 1.5;
+
+  /*? Shadows */
+  --shadow-dark: 0 0 10px rgba(0, 0, 0, 0.4);
+  --shadow-light: 0 0 10px rgba(0, 0, 0, 0.15);
+}
