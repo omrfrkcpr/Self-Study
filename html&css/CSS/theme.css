@@ -23,18 +23,18 @@
   --blue-11: hsl(205, 3%, 95%);
 
   /* Basliklar icin kullanilan dark tonlar */
-  --grey-1: hsl(209, 61%, 16%);
-  --grey-2: hsl(211, 39%, 23%);
-  --grey-3: hsl(209, 34%, 30%);
-  --grey-4: hsl(209, 28%, 39%);
+  --gray-1: hsl(209, 61%, 16%);
+  --gray-2: hsl(211, 39%, 23%);
+  --gray-3: hsl(209, 34%, 30%);
+  --gray-4: hsl(209, 28%, 39%);
 
   /* Paragraflar icin kullanililan renkler */
-  --grey-5: hsl(210, 22%, 49%);
-  --grey-6: hsl(209, 23%, 60%);
-  --grey-7: hsl(211, 27%, 70%);
-  --grey-8: hsl(210, 31%, 80%);
-  --grey-9: hsl(212, 33%, 89%);
-  --grey-10: hsl(210, 36%, 96%);
+  --gray-5: hsl(210, 22%, 49%);
+  --gray-6: hsl(209, 23%, 60%);
+  --gray-7: hsl(211, 27%, 70%);
+  --gray-8: hsl(210, 31%, 80%);
+  --gray-9: hsl(212, 33%, 89%);
+  --gray-10: hsl(210, 36%, 96%);
 
   --purple-1: hsl(276, 85%, 49%);
 
@@ -63,19 +63,19 @@
   --blue-light-4: hsl(205, 90%, 88%);
   --blue-light-5: hsl(205, 100%, 96%);
 
-  /*? greymin dark tonlari */
-  --grey-1: hsl(209, 61%, 16%);
-  --grey-2: hsl(211, 39%, 23%);
-  --grey-3: hsl(209, 34%, 30%);
-  --grey-4: hsl(209, 28%, 39%);
+  /*? graymin dark tonlari */
+  --gray-1: hsl(209, 61%, 16%);
+  --gray-2: hsl(211, 39%, 23%);
+  --gray-3: hsl(209, 34%, 30%);
+  --gray-4: hsl(209, 28%, 39%);
 
-  /*? greynin acik tonlari */
-  --grey-5: hsl(210, 22%, 49%);
-  --grey-6: hsl(209, 23%, 60%);
-  --grey-7: hsl(211, 27%, 70%);
-  --grey-8: hsl(210, 31%, 80%);
-  --grey-9: hsl(212, 33%, 89%);
-  --grey-10: hsl(210, 36%, 96%);
+  /*? graynin acik tonlari */
+  --gray-5: hsl(210, 22%, 49%);
+  --gray-6: hsl(209, 23%, 60%);
+  --gray-7: hsl(211, 27%, 70%);
+  --gray-8: hsl(210, 31%, 80%);
+  --gray-9: hsl(212, 33%, 89%);
+  --gray-10: hsl(210, 36%, 96%);
 
   /*? Diger renkler */
   --purple: hsl(276, 85%, 49%);
