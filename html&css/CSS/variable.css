@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300&family=Dancing+Script:wght@600&family=Raleway:ital,wght@1,200&display=swap");
+
+:root {
+  --primary-color: rgb(51, 130, 179);
+  --secondary-color: rgb(138, 9, 9);
+  --fontColor: rgb(50, 53, 42);
+
+  --color1: #003547;
+  --color2: #005e54;
+  --color3: #c2bb00;
+  --color4: #e1523d;
+  --color5: #ed8b16;
+
+  /* Font-family Defining */
+  --ff-bricolage: "Bricolage Grotesque", sans-serif;
+  --ff-dancing: "Dancing Script", cursive;
+  --ff-raleway: "Raleway", sans-serif;
+
+  /* font-size Defining */
+  --fs-sm: 0.5rem;
+  --fs-m: 1rem;
+  --fs-lg: 2rem;
+  --fs-xlg: 3rem;
+}
+
+/* Normal CSS Rules */
+h1 {
+  background-color: var(--primary-color);
+  color: var(--fontColor);
+  font-family: var(--ff-dancing);
+  font-size: var(--fs-xlg);
+}
+
+p {
+  color: var(--secondary-color);
+  font-family: var(--ff-dancing);
+}
+
+h2 {
+  color: var(--primary-color);
+  font-family: var(--ff-raleway);
+}
+
+h3 {
+  color: var(--color5);
+}
+
+button {
+  background-color: var(--color4);
+  color: var(--color3);
+  font-size: var(--fs-lg);
+  font-family: var(--ff-raleway);
+}
