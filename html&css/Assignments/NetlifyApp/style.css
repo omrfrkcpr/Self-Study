@@ -1,11 +1,29 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 :root {
   /* Font Family */
 
   /* Color */
+  --btn-main-color: #bb2d3b;
+  --btn-second-color: #ffca2c;
+  --bg-main-color: #f8f9fa;
+  --bg-color: #212529;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition-duration: 0.5s;
+}
+
+.card {
+  margin: 1rem 5px;
+}
+
+.card-links a i:hover {
+  opacity: 0.5;
+  transition-duration: 0.5s;
 }
