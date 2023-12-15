@@ -1,29 +1,75 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
 :root {
-  /* Font Family */
-
-  /* Color */
-  --btn-main-color: #bb2d3b;
-  --btn-second-color: #ffca2c;
-  --bg-main-color: #f8f9fa;
-  --bg-color: #212529;
+  --red: #dc3545;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  transition-duration: 0.5s;
+/*! -------------- 1- NAVBAR ----------------------- */
+.navbar-nav {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.card {
-  margin: 1rem 5px;
+.navbar .nav-link:hover {
+  color: var(--red) !important;
+}
+/*! -------------- 2- CAROUSEL --------------------- */
+.carousel-item {
+  max-height: calc(100vh - 88px);
 }
 
-.card-links a i:hover {
+.carousel-caption .btn {
+  width: 7rem;
+}
+.carousel-caption h5 {
+  color: var(--red);
+  font-size: 2.4rem;
+  text-shadow: 3px 3px 3px black;
+}
+
+.carousel-caption p {
+  text-shadow: 3px 3px 3px black;
+  font-weight: 600;
+}
+
+.carousel-caption {
+  bottom: 5rem;
+  /* border: 2px solid red; */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.carousel-indicators button {
+  background-color: var(--red) !important;
+  padding: 0.1rem !important;
+  width: 3rem !important;
+}
+/*! -------------- 3- ABOUT SECTION ---------------- */
+.bi {
+  font-size: 3rem;
+}
+
+/*! -------------- 4- INSTRUCTORS ------------------ */
+.card .bi {
+  font-size: 2rem;
+  color: var(--red);
+  transition: all 0.5s;
+}
+.card .bi:hover {
   opacity: 0.5;
-  transition-duration: 0.5s;
 }
+
+section#instructor .card {
+  transition: all 0.5s;
+}
+section#instructor .card:hover {
+  transform: scale(1.03);
+}
+
+/*! -------------- 4- STUDENTS SECTION ------------- */
+
+/*! -------------- 5- COURSES SECTION -------------- */
+
+/*! -------------- 6- CONTACT SECTION -------------- */
+
+/*! -------------- 7- FOOTER ----------------------- */
