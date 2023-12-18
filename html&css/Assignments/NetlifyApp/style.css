@@ -1,8 +1,20 @@
 :root {
   --red: #dc3545;
 }
+* {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 85px;
+}
 
 /*! -------------- 1- NAVBAR ----------------------- */
+.navbar {
+  top: 0;
+  /* box-shadow: 1 1 100px red !important; */
+  background-color: rgba(234, 232, 232, 0.797) !important;
+}
 .navbar-nav {
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -66,10 +78,70 @@ section#instructor .card:hover {
   transform: scale(1.03);
 }
 
+.card-text::-webkit-scrollbar {
+  display: none;
+}
+
 /*! -------------- 4- STUDENTS SECTION ------------- */
+.st-left {
+  /* border: 2px solid red; */
+  flex: 3;
+}
+.st-right {
+  /* border: 2px solid red; */
+  flex: 2;
+  /* text-align: left; */
+}
 
 /*! -------------- 5- COURSES SECTION -------------- */
 
+section#courses .nav-link.active {
+  background-color: var(--red);
+}
+
+section#courses .nav-link {
+  color: white;
+}
+
+section#courses .nav-pills {
+  font-size: 0.8rem;
+}
+
 /*! -------------- 6- CONTACT SECTION -------------- */
 
+section#contact i {
+  color: var(--red) !important;
+}
+section#contact a {
+  color: var(--red) !important;
+  text-decoration: none;
+}
+
+/* .btn-submit{
+  background-color: var(--red);
+  color: white;
+}
+.btn-submit:hover{
+  background-color: #c2414d;
+  color: white;
+} */
+
 /*! -------------- 7- FOOTER ----------------------- */
+
+footer i {
+  color: white;
+  font-size: 2rem;
+  margin-right: 0.8rem;
+  transition: color 0.6s;
+}
+footer i:hover {
+  color: var(--red);
+}
+
+/*! -------------- 7- BUTTON ----------------------- */
+
+.btn-up {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
