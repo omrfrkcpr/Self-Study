@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+/* ---------------------------------- */
+/*               NAVBAR               */
+/* ---------------------------------- */
+
+nav .nav-link a:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* ---------------------------------- */
+/*               BANNER               */
+/* ---------------------------------- */
+
+.banner {
+  background-image: url(assets/banner.jpeg);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 30%;
+  color: purple;
+}
+
+.banner button:hover {
+  opacity: 0.8;
+}
+
+/* ---------------------------------- */
+/*              SERVICES              */
+/* ---------------------------------- */
+
+.circle {
+  display: flex;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+}
+
+/* ---------------------------------- */
+/*              PORTFOLIO             */
+/* ---------------------------------- */
