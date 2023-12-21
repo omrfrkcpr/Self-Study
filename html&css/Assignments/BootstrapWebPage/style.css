@@ -50,3 +50,60 @@ nav .nav-link a:hover {
 /* ---------------------------------- */
 /*              PORTFOLIO             */
 /* ---------------------------------- */
+
+/* ---------------------------------- */
+/*                STAFF               */
+/* ---------------------------------- */
+
+section#staff .row img {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 10px solid lightgray;
+}
+
+section#staff .row .socials a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  background-color: #333;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+
+section#staff .row .socials a:hover {
+  opacity: 0.8;
+}
+
+section#staff .row {
+  max-width: 850px;
+  margin: auto;
+}
+
+/* ---------------------------------- */
+/*              SPONSERS              */
+/* ---------------------------------- */
+
+section#sponsers a img {
+  height: auto;
+  max-height: 50px;
+}
+
+/* ---------------------------------- */
+/*               CONTACT              */
+/* ---------------------------------- */
+
+section#contact .container-fluid {
+  background-image: url(assets/map.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  color: #eee;
+}
