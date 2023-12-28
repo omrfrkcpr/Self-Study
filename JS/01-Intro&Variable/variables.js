@@ -24,6 +24,10 @@ console.log(x);
 
 console.log(x * 5); // the result is 225, not 75 !!!
 
+var petDog = "Rex";
+var petCat = "Pepper";
+console.log(petDog, petCat);
+
 /* ---------------------------------- */
 /*    CONST (CONSTANT / KONSTANTE)    */
 /* ---------------------------------- */
