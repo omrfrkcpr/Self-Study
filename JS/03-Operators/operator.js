@@ -152,9 +152,19 @@ let d1 = true; // karakter sayisi 16 dan buyuk mu
 let y = a1 && b1 && c1;
 console.log(y); // false
 
+console.log(true && true) // output: true 
+console.log(true && false) // output: false 
+console.log(false && true) // output: false 
+console.log(false && false) // output: false
+
 //& || - OR
 
 let z = d1 || (b1 && c1);
 console.log(z); // true
+
+console.log(true || true) // output: true 
+console.log(true || false) // output: true  
+console.log(false || true) // output: true  
+console.log(false || false) // output: false
 
 //& ! OLUMSUZLUK
