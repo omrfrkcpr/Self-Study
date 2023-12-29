@@ -1,4 +1,4 @@
-//Global Area
+// Global Area
 variableName = "JavaScript";
 variableNumber = 56;
 console.log(variableName);

@@ -7,6 +7,13 @@
 //!        ARITHMETIC OPERATORS       */
 /* ---------------------------------- */
 
+/*
+  + addition
+  - substraction
+  * multiplication
+  / division
+*/
+
 let a = 10;
 let b = 2;
 
@@ -93,6 +100,12 @@ console.log(j); // 2 - j nin degeri i degisti diye degismez
 /* ---------------------------------- */
 //!       COMPRASSION OPERATORS       */
 /* ---------------------------------- */
+
+/*
+  > greater than
+  < less than
+  == equal to
+*/
 
 let k = 2;
 let l = "2";
