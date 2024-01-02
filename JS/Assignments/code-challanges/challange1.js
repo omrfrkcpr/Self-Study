@@ -1,3 +1,5 @@
+// Body Mass INdex (BMI) Calculator
+
 let a = prompt("Enter your weight in kilograms");
 console.log("Your weight is :", a, "kg");
 let b = prompt("Enter your height in meters");
