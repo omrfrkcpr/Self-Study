@@ -15,6 +15,7 @@ console.log("-------------------------------------");
 //!propmt a girilen değerler string olarak algılanır. sayı olsun istiyorsak önüne ya Number yazmalıyız ya da + koymalıyız
 //?Tek satir (1 durum) bir if-else icin { } koymak zorunda degiliz.
 
+/*
 const num1 = +prompt("Enter your first number: ");
 const operator = prompt("Select an operator between +,-,*,/");
 const num2 = Number(prompt("Enter your second number: "));
@@ -45,3 +46,35 @@ if (result) {
 //! 3.Print
 //Ikisi de true ise yazdirir
 result && console.log(result);
+*/
+
+// //************************ TERNARY ***********************
+
+console.log("-------------------------------------");
+console.log("==TERNARY");
+console.log("-------------------------------------");
+
+// EXAMPLE 1
+/*
+const age = +prompt("Enter your age: ");
+const gender = prompt("Enter your gender: ");
+const health = prompt("Are you healthy?");
+
+//! 1.Alternative
+if (age >= 20 && gender == "male" && health == "yes") {
+  console.log("You are allowed to be a soldier!");
+} else {
+  console.log("You are now allowed to be a soldier!");
+}
+
+//! 2.Alternative
+age >= 20 && gender == "male" && health == "yes"
+  ? console.log("You are allowed to be a soldier!")
+  : console.log("You are now allowed to be a soldier!");
+*/
+
+// EXAMPLE 2
+
+const grade1 = prompt("Please enter your grade: ");
+
+grade1 >= 50 ? console.log("SUCCESS!") : console.log("FAIL!");
