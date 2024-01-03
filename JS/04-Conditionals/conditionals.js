@@ -49,12 +49,13 @@ result && console.log(result);
 */
 
 // //************************ TERNARY ***********************
+//? Nested ternary yazmak aslinda anlasilabilirligi azaltiyor. Bu sebeple, sadece 2 durum var ise, Ternary kullanmak daha mantiklidir
 
 console.log("-------------------------------------");
 console.log("==TERNARY");
 console.log("-------------------------------------");
 
-// EXAMPLE 1
+//* EXAMPLE 1
 /*
 const age = +prompt("Enter your age: ");
 const gender = prompt("Enter your gender: ");
@@ -73,8 +74,30 @@ age >= 20 && gender == "male" && health == "yes"
   : console.log("You are now allowed to be a soldier!");
 */
 
-// EXAMPLE 2
-
+//* EXAMPLE 2
+/*
 const grade1 = prompt("Please enter your grade: ");
 
 grade1 >= 50 ? console.log("SUCCESS!") : console.log("FAIL!");
+*/
+
+//* EXAMPLE 3
+/*
+const speed = 110;
+
+speed > 120
+  ? console.log("Speedy")
+  : speed >= 90
+  ? console.log("Normal Speed")
+  : console.log("Low Speed");
+
+//! Alternative
+
+if (speed > 120) {
+  console.log("Speedy");
+} else if (speed >= 90) {
+  console.log("Normal");
+} else {
+  console.log("Low Speed");
+}
+*/
