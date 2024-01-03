@@ -48,6 +48,19 @@ if (result) {
 result && console.log(result);
 */
 
+//* EXAMPLE 2 - EXAM RESULT
+/*
+const score = +prompt("Enter your score: ");
+
+if (score < 0 || score > 100) alert("Please enter a valid score");
+else if (score >= 0 && score <= 25) console.log("FF");
+else if (score >= 26 && score <= 45) console.log("DD");
+else if (score >= 46 && score <= 65) console.log("CC");
+else if (score >= 66 && score <= 75) console.log("BB");
+else if (score >= 76 && score <= 90) console.log("BA");
+else console.log("AA");
+*/
+
 // //************************ TERNARY ***********************
 //? Nested ternary yazmak aslinda anlasilabilirligi azaltiyor. Bu sebeple, sadece 2 durum var ise, Ternary kullanmak daha mantiklidir
 
