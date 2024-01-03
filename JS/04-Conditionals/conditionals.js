@@ -112,6 +112,16 @@ const raisedSalary = salary <= minimumWage ? salary * 1.25 : salary * 1.1;
 console.log(raisedSalary);
 */
 
+//* EXAMPLE 5 - CREDIT
+
+const salary = +prompt("Enter your salary: ");
+const loan = +prompt("Enter your loan: ");
+
+const credit =
+  5000 <= salary * 10 - loan
+    ? console.log("you can apply for a credit🎉")
+    : console.log("You cannot apply for a credit😞");
+
 // //************************ SWITCH-CASE ***********************
 console.log("-------------------------------------");
 console.log("==SWITCH-CASE");
