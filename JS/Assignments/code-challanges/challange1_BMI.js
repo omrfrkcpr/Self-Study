@@ -1,4 +1,4 @@
-// Body Mass INdex (BMI) Calculator
+// Body Mass Index (BMI) Calculator
 
 let a = prompt("Enter your weight in kilograms");
 console.log("Your weight is :", a, "kg");
