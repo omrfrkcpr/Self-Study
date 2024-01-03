@@ -113,7 +113,7 @@ console.log(raisedSalary);
 */
 
 //* EXAMPLE 5 - CREDIT
-
+/*
 const salary = +prompt("Enter your salary: ");
 const loan = +prompt("Enter your loan: ");
 
@@ -121,6 +121,47 @@ const credit =
   5000 <= salary * 10 - loan
     ? console.log("you can apply for a credit🎉")
     : console.log("You cannot apply for a credit😞");
+*/
+
+//* EXAMPLE 6 - THE BIGGEST NUMBER
+/*
+const num1 = +prompt("Enter your first number: ");
+const num2 = +prompt("Enter your second number: ");
+const num3 = +prompt("Enter your third number: ");
+let x = " is the biggest number";
+
+//! 1.Alternative
+if (num1 > num2 && num1 > num3) {
+  console.log(num1 + x);
+} else if (num2 > num1 && num2 > num3) {
+  console.log(num2 + x);
+} else if (num3 > num1 && num3 > num2) {
+  console.log(num3 + x);
+} else {
+  console.log("All numbers are equal");
+}
+
+//! 2.Alternative
+console.log(
+  num1 > num2 && num1 > num3
+    ? "num1 is biggest"
+    : num2 > num3
+    ? "num2 is biggest"
+    : "num3 is biggest"
+);
+
+//! 3.Alternative
+let biggest = num1;
+
+if (num2 > biggest) {
+  biggest = num2;
+}
+if (num3 > biggest) {
+  biggest = num3;
+}
+
+console.log(biggest + x);
+*/
 
 // //************************ SWITCH-CASE ***********************
 console.log("-------------------------------------");
