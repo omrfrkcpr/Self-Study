@@ -159,7 +159,8 @@ console.log(v1); // 12.6
 const v2 = false || 0 || null || undefined || NaN; // (Not a Number)
 console.log(v2); // NaN - sona kadar gider true bulabilmek icin!
 
-const v3 = 
+const v3 = 5 && true && true && 0 && "";
+console.log(v3); // 0 - ancak hepsi true ise sondakini gosterir. Bir tanesi false ise onu gosterir
 
 // && - AND
 // tum sartlari saglamali ki dogru ciksin
