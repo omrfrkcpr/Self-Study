@@ -137,9 +137,29 @@ console.log(p >= q); // true
 
 console.log("A" > "a"); // false - ASCII degerine bakar = A:65, a:97
 
-/* ---------------------------------- */
-//!         LOGICAL OPERATORS         */
-/* ---------------------------------- */
+// * =======================================================
+// !         MANTIKSAL OPERATORLER (logical operators)
+// * =======================================================
+
+//? TRUE
+console.log(Boolean(5)); //true
+console.log(Boolean(-5)); //true
+console.log(Boolean(-15.5)); //true
+
+//? 5 falsy
+console.log(Boolean(0)); //false
+console.log(Boolean(null)); //false
+console.log(Boolean("")); //false
+console.log(Boolean(undefined)); //false
+console.log(Boolean(NaN)); //false
+
+const v1 = false || 0 || 12.6 || true || false || null;
+console.log(v1); // 12.6
+
+const v2 = false || 0 || null || undefined || NaN; // (Not a Number)
+console.log(v2); // NaN - sona kadar gider true bulabilmek icin!
+
+const v3 = 
 
 // && - AND
 // tum sartlari saglamali ki dogru ciksin
@@ -152,19 +172,19 @@ let d1 = true; // karakter sayisi 16 dan buyuk mu
 let y = a1 && b1 && c1;
 console.log(y); // false
 
-console.log(true && true) // output: true 
-console.log(true && false) // output: false 
-console.log(false && true) // output: false 
-console.log(false && false) // output: false
+console.log(true && true); // output: true
+console.log(true && false); // output: false
+console.log(false && true); // output: false
+console.log(false && false); // output: false
 
 //& || - OR
 
 let z = d1 || (b1 && c1);
 console.log(z); // true
 
-console.log(true || true) // output: true 
-console.log(true || false) // output: true  
-console.log(false || true) // output: true  
-console.log(false || false) // output: false
+console.log(true || true); // output: true
+console.log(true || false); // output: true
+console.log(false || true); // output: true
+console.log(false || false); // output: false
 
 //& ! OLUMSUZLUK
