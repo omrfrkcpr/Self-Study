@@ -102,7 +102,20 @@ if (speed > 120) {
 }
 */
 
+//* EXAMPLE 4 - SALARY
+/*
+const minimumWage = 1650;
+const salary = +prompt("Enter your monthly salary");
+
+const raisedSalary = salary <= minimumWage ? salary * 1.25 : salary * 1.1;
+
+console.log(raisedSalary);
+*/
+
 // //************************ SWITCH-CASE ***********************
+console.log("-------------------------------------");
+console.log("==SWITCH-CASE");
+console.log("-------------------------------------");
 
 //* EXAMPLE 1 - Week Day
 /*
@@ -139,7 +152,7 @@ console.log(day);
 */
 
 //* EXAMPLE 2 - Calculator
-
+/*
 let num1 = +prompt("Enter your first number");
 let operator = prompt("Enter your operator between +,-,*,/");
 let num2 = +prompt("Enter your second number");
@@ -165,3 +178,4 @@ switch (operator) {
 }
 
 console.log(`${num1} ${operator} ${num2} = ${result}`);
+*/
