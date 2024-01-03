@@ -55,7 +55,7 @@ console.log("-------------------------------------");
 console.log("==TERNARY");
 console.log("-------------------------------------");
 
-//* EXAMPLE 1
+//* EXAMPLE 1 - Becoming Soldier
 /*
 const age = +prompt("Enter your age: ");
 const gender = prompt("Enter your gender: ");
@@ -74,14 +74,14 @@ age >= 20 && gender == "male" && health == "yes"
   : console.log("You are now allowed to be a soldier!");
 */
 
-//* EXAMPLE 2
+//* EXAMPLE 2 - Grade
 /*
 const grade1 = prompt("Please enter your grade: ");
 
 grade1 >= 50 ? console.log("SUCCESS!") : console.log("FAIL!");
 */
 
-//* EXAMPLE 3
+//* EXAMPLE 3 - Speed
 /*
 const speed = 110;
 
@@ -101,3 +101,67 @@ if (speed > 120) {
   console.log("Low Speed");
 }
 */
+
+// //************************ SWITCH-CASE ***********************
+
+//* EXAMPLE 1 - Week Day
+/*
+const dayOfWeek = 4;
+let day;
+
+switch (dayOfWeek) {
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+    break;
+  case 7:
+    day = "Sunday";
+    break;
+  default:
+    alert("Enter a number between 1 and 7");
+    break;
+}
+console.log(day);
+*/
+
+//* EXAMPLE 2 - Calculator
+
+let num1 = +prompt("Enter your first number");
+let operator = prompt("Enter your operator between +,-,*,/");
+let num2 = +prompt("Enter your second number");
+
+let result = 0;
+
+switch (operator) {
+  case "+":
+    result = num1 + num2;
+    break;
+  case "-":
+    result = num1 - num2;
+    break;
+  case "*":
+    result = num1 * num2;
+    break;
+  case "/":
+    result = num1 / num2;
+    break;
+  default:
+    alert("Wrong operator!");
+    break;
+}
+
+console.log(`${num1} ${operator} ${num2} = ${result}`);
