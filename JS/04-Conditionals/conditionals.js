@@ -243,3 +243,25 @@ switch (operator) {
 
 console.log(`${num1} ${operator} ${num2} = ${result}`);
 */
+
+//=====================================================//
+//?=================GENERAL KNOWLADGE==================//
+//=====================================================//
+
+//!Binary Number
+
+console.log(Number(0b101 + 15)); // b = binary 2 lik taban
+
+// 0b101 = 2^0*1 + 2^1*0 + 2^2*1 = 5
+
+//! Oktal Number
+
+console.log(Number(0o75 + 3)); // o = oktal 8 lik taban
+
+// 0o75 = 8^0*5 + 8^1*7 = 61
+
+//! Hexa Number
+
+console.log(Number(0x201 + 9)); // x = hexa 16 lik taban
+
+// 0x201 = 16^0*1 + 16^1*0 + 16^2*2 = 513
