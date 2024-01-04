@@ -114,4 +114,64 @@ header ul li a {
   align-items: center;
 }
 
+.flex, .articles .article1, .articles .article2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articles {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+.articles .article1, .articles .article2 {
+  background-color: gray;
+  width: 50%;
+  height: 10rem;
+  border-radius: 10px;
+  border: 2px solid brown;
+}
+.articles .article2 {
+  background-color: purple;
+}
+
+footer p {
+  background-color: olive;
+}
+footer .social-icons {
+  display: flex;
+  height: 10rem;
+}
+footer .social-icons .social1 {
+  width: 25%;
+  background-color: #1a1aff;
+  font-size: 1rem;
+  color: #990000;
+}
+footer .social-icons .social2 {
+  width: 25%;
+  background-color: #3333ff;
+  font-size: 2rem;
+  color: #55004e;
+}
+footer .social-icons .social3 {
+  width: 25%;
+  background-color: #4d4dff;
+  font-size: 3rem;
+  color: #0fa8a1;
+}
+footer .social-icons .social4 {
+  width: 25%;
+  background-color: #6666ff;
+  font-size: 4rem;
+  color: #dcacf1;
+}
+footer .social-icons .social5 {
+  width: 25%;
+  background-color: #8080ff;
+  font-size: 5rem;
+  color: #64c217;
+}
+
 /*# sourceMappingURL=style.css.map */

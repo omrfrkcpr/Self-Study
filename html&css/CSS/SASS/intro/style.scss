@@ -103,7 +103,7 @@ header {
 //?              CARDS                 */
 //? ---------------------------------- */
 
-//! MIXIN
+//! @MIXIN
 
 @mixin myBox($backColor, $backFontColor) {
   background-color: $backColor;
@@ -132,5 +132,74 @@ header {
   }
   .card4 {
     @include myBox(red, yellow);
+  }
+}
+
+//? ---------------------------------- */
+//?             ARTICLES               */
+//? ---------------------------------- */
+
+//! @EXTEND
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articles {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+
+  .article1 {
+    background-color: gray;
+    width: 50%;
+    height: 10rem;
+    border-radius: 10px;
+    border: $myBorder;
+    @extend .flex;
+  }
+
+  .article2 {
+    @extend .article1;
+    background-color: purple;
+  }
+}
+
+//? ---------------------------------- */
+//?              FOOTER                */
+//? ---------------------------------- */
+
+//! IF-ELSE
+//! FOR LOOP
+
+footer {
+  $back: 5;
+
+  p {
+    @if $back == 1 {
+      background-color: gray;
+    } @else if $back == 2 {
+      background-color: orange;
+    } @else {
+      background-color: olive;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    height: 10rem;
+    $textColor: #990000, #55004e, #0fa8a1, #dcacf1, #64c217;
+
+    @for $i from 1 through 5 {
+      .social#{$i} {
+        width: 25%;
+        background-color: lighten(blue, $i * 5);
+        //background-color: lighten(blue, $i * 5);
+        font-size: 1rem * $i;
+        color: nth($textColor, $i);
+      }
+    }
   }
 }
