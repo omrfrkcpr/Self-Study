@@ -11,9 +11,11 @@
 $bgColor: pink;
 $fontFamily: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 $fontColor: white;
+$hoverColor: rgb(227, 22, 45);
 $navBgColor: #30a7c3;
 $fontSize: 1.2rem;
 $myBorder: 2px solid brown;
+$bannerBgColor: hotpink;
 
 //? ---------------------------------- */
 //?               BODY                 */
@@ -57,5 +59,42 @@ header {
         text-decoration: none;
       }
     }
+  }
+}
+
+//? ---------------------------------- */
+//?              BANNER                */
+//? ---------------------------------- */
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bannerBgColor;
+  padding: 1rem;
+  line-height: 2rem;
+
+  aside {
+    button {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: $bgColor;
+      margin-top: 1rem;
+      margin-left: 0.5rem;
+      &:hover {
+        background-color: $hoverColor;
+        color: $fontColor;
+        cursor: pointer;
+        transform: scale(0.97);
+        transition-duration: 0.3s;
+      }
+    }
+  }
+
+  img {
+    width: 30%;
+    max-width: 400px;
+    min-width: 250px;
   }
 }

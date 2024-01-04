@@ -39,4 +39,33 @@ header ul li a {
   text-decoration: none;
 }
 
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hotpink;
+  padding: 1rem;
+  line-height: 2rem;
+}
+.banner aside button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: pink;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+.banner aside button:hover {
+  background-color: rgb(227, 22, 45);
+  color: white;
+  cursor: pointer;
+  transform: scale(0.97);
+  transition-duration: 0.3s;
+}
+.banner img {
+  width: 30%;
+  max-width: 400px;
+  min-width: 250px;
+}
+
 /*# sourceMappingURL=style.css.map */
