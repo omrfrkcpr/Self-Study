@@ -4,6 +4,58 @@
   box-sizing: border-box;
 }
 
+//* ---------------------------------- */
+//*        VARIABLE DECLARATION        */
+//* ---------------------------------- */
+
+$bgColor: pink;
+$fontFamily: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+$fontColor: white;
+$navBgColor: #30a7c3;
+$fontSize: 1.2rem;
+$myBorder: 2px solid brown;
+
+//? ---------------------------------- */
+//?               BODY                 */
+//? ---------------------------------- */
+
 body {
-  background-color: pink;
+  background-color: $bgColor;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $fontColor;
+}
+
+//? ---------------------------------- */
+//?               HEADER               */
+//? ---------------------------------- */
+
+header {
+  background-color: $navBgColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  img {
+    width: 80px;
+    border: $myBorder;
+    border-radius: 1rem;
+    padding: 5px;
+  }
+  ul {
+    list-style-type: none;
+    li {
+      display: inline-block;
+      padding: 0.5rem;
+      &:hover {
+        text-decoration: underline;
+      }
+
+      a {
+        color: $fontColor;
+        text-decoration: none;
+      }
+    }
+  }
 }

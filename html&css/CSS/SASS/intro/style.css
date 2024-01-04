@@ -6,6 +6,37 @@
 
 body {
   background-color: pink;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  color: white;
+}
+
+header {
+  background-color: #30a7c3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+header img {
+  width: 80px;
+  border: 2px solid brown;
+  border-radius: 1rem;
+  padding: 5px;
+}
+header ul {
+  list-style-type: none;
+}
+header ul li {
+  display: inline-block;
+  padding: 0.5rem;
+}
+header ul li:hover {
+  text-decoration: underline;
+}
+header ul li a {
+  color: white;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */
