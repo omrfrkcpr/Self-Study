@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+button, .button-warning, .button-success, .button-error {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: pink;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+button:hover, .button-warning:hover, .button-success:hover, .button-error:hover {
+  background-color: rgb(227, 22, 45);
+  color: white;
+  cursor: pointer;
+  transform: scale(0.97);
+  transition-duration: 0.3s;
+}
+
+.button-error {
+  background-color: red;
+}
+
+.button-success {
+  background-color: green;
+}
+
+.button-warning {
+  background-color: yellow;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  float: left;
+  bottom: gray;
+  color: black;
+  padding: 1rem;
+}
+
+.dard {
+  background-color: black;
+  color: white;
+}
+
+.light {
+  background-color: white;
+  color: black;
+}
+
+/*# sourceMappingURL=main.css.map */

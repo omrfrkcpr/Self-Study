@@ -1,0 +1,10 @@
+@mixin myBox($backColor, $backFontColor) {
+  background-color: $backColor;
+  width: 25%;
+  height: 15rem;
+  border-radius: 10px;
+  color: $backFontColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
