@@ -1,0 +1,84 @@
+main.scss
+|
+|--abstracts
+|      _variables.scss           // Tüm global değişkenler bu dosyada tutulur
+|      _functions.scss           // Tüm fonksiyonlar bu dosyada tutulur. 
+|      _mixins.scss              // Tüm mixin tanımlamaları bu klasörde yapılır.
+|
+|--base
+|       _reset.scss               // HTML taglarının stil resetleri bu dosyada yapılır.
+|       _typography.scss          // Tipografi yani yazı fontu tanımlamaları
+|      ...
+|
+|--components
+|       _buttons.scss             // Buton stilleri burada tanımlanır.
+|       _dropdown.scss            // Dropdown (Açılır Menü) stilleri burada tanımlanır. 
+|       _carousel.scss            // Carousel, slider stilleri burada tanımlanır. 
+|       ...
+|
+|--layout
+|      _header.scss              // header'a ait stil tanımlamaları 
+|      _footer.scss              // footer'a ait stil tanımlamaları
+|      _navigation.scss          // navigasyon yani menülere ait stil tanımlamaları
+|      _forms.scss               // kullandığınız formlara ait stil tanımlamaları
+|      _sidebar.scss             // varsa sidebar'a ait stil tanımlamaları
+|      _grid.scss                // kendi grid sisteminize ait stil tanımlamaları 
+|      ...
+|
+|--pages
+|      _home.scss                // anasayfaya ait stil tanımlamaları.
+|      _about.scss               // hakkımızda/kurumsal sayfasına ait stil tanımlamaları
+|      _contact.scss             // iletişim sayfasına ait stil tanımlamaları
+|      _products.scss            // (varsa) ürünler sayfasına ait stil tanımlamaları
+|      ...
+|
+|--themes
+|      _default.scss             // varsayılan temaya ait stil tanımlamaları
+|      _dark.scss                // (varsa) koyu temanıza ait stil tanımlamalaarı
+|      _light.scss               // (varsa) açık temanıza ait stil tanımlamaları
+|      ...
+|
+|--vendors
+|      _bootstrap.scss            // Bootstrap kullanıyorsanız, ona ait scss dosyası
+|      ...
+
+
+-/-/-/-/-/-/--/-/-/-/-//-/-/-/-/-/-/-/-/-/-/-/-/-/--/--/-/-/-/-/-/-/-/-/-/-/
+
+// Abstract 
+@import "abstracts/variables"
+@import "abstracts/functions"
+@import "abstracts/minins"
+
+// Base 
+@import "base/reset"             
+@import "base/typography"        
+
+// Components 
+@import "components/buttons"
+@import "components/dropdown"
+@import "components/carousel"
+
+// Layouts 
+@import "layout/header"
+@import "layout/footer"
+@import "layout/navigation"
+@import "layout/forms "
+@import "layout/sidebar"
+@import "layout/grid"
+
+// Pages 
+
+@import "pages/home"                
+@import "pages/about"               
+@import "pages/contact"             
+@import "pages/products"            
+
+// Themes 
+@import "themes/default"             
+@import "themes/dark"                
+@import "themes/light"               
+
+|
+// Vendors
+@import "vendors/bootsrap.scss"
