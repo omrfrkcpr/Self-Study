@@ -4,6 +4,8 @@
 //! - The program should prompt the user for two numbers, a and b.
 //! - Display the calculated GCD on the console.
 
+//* The greatest common divisor is the greatest integer that divides both number1 and number2 without a remainder.
+
 // take input
 let number1 = prompt("Enter a first positive number: ");
 let number2 = prompt("Enter a second positive number: ");
