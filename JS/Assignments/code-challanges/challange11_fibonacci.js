@@ -4,3 +4,17 @@
 //! - The program should prompt the user for the value of n.
 //! - Display the first n Fibonacci numbers.
 //! Example: For n = 7, the Fibonacci sequence would be: 0, 1, 1, 2, 3, 5, 8
+
+const n = parseInt(prompt("Enter the value of n: "));
+let n1 = 0,
+  n2 = 1,
+  nextValue;
+
+console.log("Fibonacci Series: ");
+
+for (let i = 1; i <= n; i++) {
+  console.log(n1);
+  nextValue = n1 + n2;
+  n1 = n2;
+  n2 = nextValue;
+}
