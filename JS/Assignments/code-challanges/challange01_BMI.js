@@ -9,9 +9,9 @@ let bmi = a / (b * b);
 
 if (bmi < 18.5) {
   console.log(c, "Low Weight");
-} else if (bmi > 18.5 && bmi < 24.99) {
+} else if (bmi >= 18.5 && bmi <= 24.99) {
   console.log(c, "Normal Weight");
-} else if (bmi > 25.0 && bmi < 29.99) {
+} else if (bmi >= 25.0 && bmi <= 29.99) {
   console.log(c, "High Weight");
 } else if (bmi >= 30) {
   console.log(c, "obesity");
