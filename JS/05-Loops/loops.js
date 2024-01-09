@@ -21,7 +21,7 @@ for (let x = 1; x <= N; x++) {
 console.log(sum);
 */
 
-//? Write a program that detects whether the number entered from outside is prime or not and prints the result. (FLAG)
+//? Write a program that detects whether the number entered from outside is prime or not and prints the result. (FRAG)
 /*
 const num = +prompt("Enter a number to check:");
 let prime = true;
@@ -46,7 +46,8 @@ console.log(
 //This static method returns the integer part of a number by removing any fractional digits.
 //*Math.floor()
 //This static method always rounds down and returns the largest integer less than or equal to a given number.
-
+/*
 for (let i = 0; i < 7; i++) {
   console.log(Math.ceil(Math.random() * 100));
 }
+*/
