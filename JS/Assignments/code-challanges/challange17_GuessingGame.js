@@ -14,6 +14,8 @@ do {
     if (guess == random) {
       console.log("Cogratulations! 🥳", guess);
       break;
+    } else if (guess > 20) {
+      console.log(`Please guess between 1-20, You have ${remain} left`);
     } else if (guess < random) {
       console.log(`Increase 📈, You have ${remain} left`);
     } else {
