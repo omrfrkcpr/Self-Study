@@ -51,3 +51,26 @@ for (let i = 0; i < 7; i++) {
   console.log(Math.ceil(Math.random() * 100));
 }
 */
+
+//****************** */ WHİLE*************
+
+//? Write a program that ask for a number between 1-100. Otherwise, give the error message and ask for the number again. (While)
+/*
+let num = +prompt("Please enter a number:");
+while (num < 1 || num > 100) {
+  console.error("Opsss!. It should be between 1-100");
+  num = +prompt("Please enter another number:");
+}
+console.log("Congratulations!", num);
+*/
+
+//? Write a program that ask for a number between 1-100. Otherwise, give the error message and ask for the number again. (Do-While)
+
+let num;
+
+do {
+  num = +prompt("Please enter a number between 1-100:");
+  num < 1 || (num > 100 && alert("Opsss!. It should be between 1-100"));
+} while (num < 1 || num > 100);
+
+console.log("Congratulations!", num);
