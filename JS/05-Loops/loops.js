@@ -37,4 +37,16 @@ console.log(
 );
 */
 
-//? Write a program that generates 7 random integer numbers between 0-100
+//? Write a program that generates 7 random integer numbers between 0-100. (For-Loop)
+//*Math.ceil()
+//This static method always rounds up and returns the smallest integer greater than or equal to a given number.
+//*Math.random()
+//This static method returns a floating-point, pseudo-random number that's greater than or equal to 0 and less than 1, with approximately uniform distribution over that range — which you can then scale to your desired range.
+//*Math.trunc()
+//This static method returns the integer part of a number by removing any fractional digits.
+//*Math.floor()
+//This static method always rounds down and returns the largest integer less than or equal to a given number.
+
+for (let i = 0; i < 7; i++) {
+  console.log(Math.ceil(Math.random() * 100));
+}
