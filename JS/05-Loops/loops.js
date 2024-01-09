@@ -65,12 +65,44 @@ console.log("Congratulations!", num);
 */
 
 //? Write a program that ask for a number between 1-100. Otherwise, give the error message and ask for the number again. (Do-While)
-
+/*
 let num;
 
 do {
   num = +prompt("Please enter a number between 1-100:");
-  num < 1 || (num > 100 && alert("Opsss!. It should be between 1-100"));
+  num < 1 || num > 100 && alert("Opsss!. It should be between 1-100");
 } while (num < 1 || num > 100);
 
 console.log("Congratulations!", num);
+*/
+
+//? Write a program that asks the user for Midterm and Final scores and calculates the passing score by taking 40% of the midterm + 60% of the final. After each calculation, the program will ask again whether the calculation should be made for someone else, and if the answer is 'e' or 'E', it will ask for a note again and repeat the process.
+/*
+let go;
+
+do {
+  let midTerm = +prompt("Please enter your midterm score:");
+  let final = +prompt("Please enter your final score:");
+
+  let result = midTerm * 0.4 + final * 0.6;
+  console.log(
+    result >= 60 ? "Congratulations, you passed!" : "Sorry!, you failed!"
+  );
+
+  go = prompt(
+    "Please enter e/E to continue to calculate or enter any other keyboard key to finish"
+  );
+} while (go.toUpperCase() == "E");
+
+console.log("Finished!");
+*/
+
+//? Write a program using a loop that inputs numbers until the character q is entered from the keyboard.
+/*
+let num1;
+do {
+  num1 = prompt("Please enter a number:");
+} while (num1 != "q");
+
+console.log("Finished!");
+*/
