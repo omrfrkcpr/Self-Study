@@ -20,3 +20,29 @@ if (sum === +num) {
 } else {
   console.log(`${num} is not an armstrong number`);
 }
+
+//& Alternative with While-Loop
+/*
+let num = parseInt(prompt("Enter a number:"));
+let originalNumber = num;
+let digitCount = 0;
+let sum = 0;
+
+//Finding digit
+while(originalNumber !== 0){
+    originalNumber = Math.floor(originalNumber / 10)
+    console.log(originalNumber)
+    digitCount++
+}
+
+originalNumber = num;
+
+while (originalNumber > 0) {
+ let digit = originalNumber % 10;
+ sum += digit ** digitCount;
+ originalNumber = Math.floor(originalNumber / 10)
+}
+
+sum === num ? console.log(num + " is an Armstrong number.") : console.log(num + " is not an Armstrong number."
+)
+*/
