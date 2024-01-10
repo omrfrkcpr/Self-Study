@@ -4,3 +4,19 @@
 //! - You can only use conditional statements (if, else if, else) and loops (for, while, do while).
 //! - The program should prompt the user for a number.
 //! - Display whether the entered number is an Armstrong number or not.
+
+"use strict";
+
+const num = prompt("Please enter a number");
+const n = num.lenght;
+let sum = 0;
+
+for (let i = 0; i < n; i++) {
+  sum += num[i] ** n;
+}
+
+if (sum === +num) {
+  console.log(`${num} is an armstrong number`);
+} else {
+  console.log(`${num} is not an armstrong number`);
+}
