@@ -21,3 +21,18 @@ while (number1 != number2) {
 
 // display the gcd
 console.log(`GCD is ${number1}`);
+
+//& Alternative with For-Loop
+/*
+const num1 = +prompt("Please enter first number");
+const num2 = +prompt("Please enter second number");
+let gcd = 1;
+
+for (let i = num1 < num2 ? num1 : num2; i <= num1 && i <= num2; i--) {
+  if (num1 % i === 0 && num2 % i === 0) {
+    gcd = i;
+    break;
+  }
+}
+console.log("The GCD of the entered numbers is: " + gcd);
+*/
