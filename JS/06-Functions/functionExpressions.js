@@ -21,29 +21,35 @@ alert(isEvenOdd(3));
 //* Example2: biggest number
 //**********************************************************/
 
-const biggestNum = function () {
+const bigSmallNum = function () {
+  console.log(arguments);
   let biggest = arguments[0];
+  let smallest = arguments[0];
   for (let i = 1; i < arguments.length; i++) {
     if (arguments[i] > biggest) {
       biggest = arguments[i];
     }
+    if (arguments[i] < smallest) {
+      smallest = arguments[i];
+    }
   }
-  return biggest;
+  //   const minMax = [smallest, biggest];
+  return `Smallest: ${smallest} | Biggest: ${biggest}`;
 };
 
-console.log(biggestNum(90, 345, 123, 23, 545, 112, 5454, 76767, 22));
+console.log(bigSmallNum(90, 345, 123, 999999, 545, 112, 5454, 76767, 22));
 
 //& Alternative Method
 /*
-const buyukBul = function (a, b, c) {
-  let enBuyuk;
+const biggestNum = function (a, b, c) {
+  let biggest;
 
-  if (a > b && a > c) enBuyuk = a;
-  else if (b > a && b > c) enBuyuk = b;
-  else enBuyuk = c;
+  if (a > b && a > c) biggest = a;
+  else if (b > a && b > c) biggest = b;
+  else biggest = c;
 
-  return enBuyuk;
+  return biggest;
 };
 
-alert(buyukBul(3, 5, 9));
+alert(biggestNum(3, 5, 9));
 */
