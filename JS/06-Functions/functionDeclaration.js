@@ -63,10 +63,26 @@ console.log((omer + kaan + fatma + emre) / 4); // 37 - Daten aus der Rücksendun
 //*Example4:*******************************************************/
 //? odd even number
 
-console.log(isEvenOdd(5));
+console.log(isEvenOdd(5)); // call invoke
 
 function isEvenOdd(num) {
   return num % 2 == 0 ? `${num} : Even Number` : `${num} : Odd Number`;
 }
 
-console.log(isEvenOdd(36));
+console.log(isEvenOdd(36)); // call invoke
+
+//*Example5:*******************************************************/
+//? arguments keyword
+
+function sumAll() {
+  console.log(arguments);
+  console.log(arguments[2]);
+  let sum = 0;
+
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
+  return sum;
+}
+
+console.log(sumAll(25, 34, 56, 78, 12, 45, 67, 87, 23));
