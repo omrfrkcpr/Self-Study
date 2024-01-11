@@ -59,3 +59,14 @@ const emre = calculateAge("emre", 1975); // My name is emre and i am 49 years ol
 
 // Average Age
 console.log((omer + kaan + fatma + emre) / 4); // 37 - Daten aus der Rücksendung (Return)
+
+//*Example4:*******************************************************/
+//? odd even number
+
+console.log(isEvenOdd(5));
+
+function isEvenOdd(num) {
+  return num % 2 == 0 ? `${num} : Even Number` : `${num} : Odd Number`;
+}
+
+console.log(isEvenOdd(36));
