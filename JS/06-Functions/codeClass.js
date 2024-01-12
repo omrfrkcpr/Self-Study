@@ -76,3 +76,40 @@ let divide = (num3) => {
 };
 
 divide(num3); // 4
+
+//------------------------------------------------------//
+
+const ucgenTipi = (a, b, c) => {
+  if (a == b && b == c) {
+    console.log("Eskenar Ucgen");
+  } else if (a == b || b == c || a == c) {
+    console.log("Ikizkenar Ucgen");
+  } else console.log("Cesitkenar Ucgen");
+};
+
+ucgenTipi(3, 4, 5); // Cesitkenar Ucgen
+ucgenTipi(4, 4, 4); // Eskenar Ucgen
+ucgenTipi(4, 4, 5); // Ikizkenar Ucgen
+ucgenTipi(5, 4, 4); // Ikizkenar Ucgen
+
+//-----------------------------------------------------//
+
+const minuteToSeconds = (minute) => minute * 60;
+const hourToSeconds = (hour) => hour * 60 * 60;
+
+const convertToSeconds = (second, minute, hour) => {
+  console.log(
+    `${hour} hours ${minute} minutes ${second} seconds : ${
+      second + minuteToSeconds(minute) + hourToSeconds(hour)
+    } seconds`
+  );
+};
+
+convertToSeconds(27, 48, 5);
+
+//& Alternative
+
+const convertToSeconds2 = (hour, minute, second) =>
+  console.log(hour * 3600 + minute * 60 + second);
+
+convertToSeconds2(5, 48, 27);
