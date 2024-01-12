@@ -23,25 +23,45 @@ for (let i = 1; i <= n; i++) {
 }
 */
 
-//& Alternative
+//& Alternative with If-Else
 
-let num = +prompt("Enter the repeat time:");
+// let num = +prompt("Enter the repeat time:");
 
-if (num === 1) {
-  console.log("First", num, "of Fibonacci Series = ", "0");
-} else if (num === 2) {
-  console.log("First", num, "of Fibonacci Series = ", "0,1");
-} else if (isNaN(num) || num == "") {
-  console.error("Please enter repeatable time");
-} else {
-  let a = 0;
-  let b = 1;
-  let output = "0,1";
-  for (let i = 3; i <= num; i++) {
-    let c = a + b;
-    output += "," + c;
-    a = b;
-    b = c;
+// if (num === 1) {
+//   console.log("First", num, "of Fibonacci Series = ", "0");
+// } else if (num === 2) {
+//   console.log("First", num, "of Fibonacci Series = ", "0,1");
+// } else if (isNaN(num) || num == "") {
+//   console.error("Please enter repeatable time");
+// } else {
+//   let a = 0;
+//   let b = 1;
+//   let output = "0,1";
+//   for (let i = 3; i <= num; i++) {
+//     let c = a + b;
+//     output += "," + c;
+//     a = b;
+//     b = c;
+//   }
+//   console.log("First", num, "of Fibonacci Series = ", output);
+// }
+
+//& Alternative with using Function
+
+const fibonacci = (n) => {
+  let fiboL = 1;
+  let fiboR = 1;
+  let newFibo = 0;
+  let sum = 0;
+  for (let i = 1; i < n - 1; i++) {
+    newFibo = fiboL + fiboR;
+    sum += newFibo;
+    fiboL = fiboR;
+    fiboR = newFibo;
   }
-  console.log("First", num, "of Fibonacci Series = ", output);
-}
+  return `${n}.term of Fibonacci: ${newFibo} / The summary of ${n} terms: ${
+    sum + 2
+  }`;
+};
+
+console.log(fibonacci(8));
