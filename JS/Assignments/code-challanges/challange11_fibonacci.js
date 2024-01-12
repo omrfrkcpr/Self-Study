@@ -64,4 +64,17 @@ const fibonacci = (n) => {
   }`;
 };
 
-console.log(fibonacci(8));
+console.log(fibonacci(8)); // 21 cunku 1 den baslattik
+
+//& Alternative with using recursive
+//? in the fibonacci sequence n. term finding function
+//? FIBONACCI series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ...
+
+const fibo = (n) => {
+  if (n == 3 || n == 2) return 1;
+  else if (n == 1) return 0;
+  else if (n < 0) return alert("Please enter a positive number of terms");
+  else return fibo(n - 1) + fibo(n - 2);
+};
+
+console.log(fibo(8)); // 13
