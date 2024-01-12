@@ -47,4 +47,4 @@ const fibo = (n) => {
   else return fibo(n - 1) + fibo(n - 2);
 };
 
-console.log(fibo(8));
+console.log(fibo(8)); // 13
