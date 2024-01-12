@@ -67,17 +67,17 @@ console.log(num1); // 46
 
 num2 = 100;
 
-var num2; //? hoisted (wird hochgezogen)
+var num2; // hoisted (wird hochgezogen)
 console.log(num2);
 
 var result = "Hallo";
 
 if (num2 == 100) {
   let result = "Hi";
-  console.log(result); //? local(blocked)
+  console.log(result); // local(blocked)
 } else {
   result = "Salut";
-  console.log(result); //? global
+  console.log(result); // global
 }
 
-console.log(result); //? global
+console.log(result); // global
