@@ -113,3 +113,16 @@ const convertToSeconds2 = (hour, minute, second) =>
   console.log(hour * 3600 + minute * 60 + second);
 
 convertToSeconds2(5, 48, 27);
+
+//-----------------------------------------------------//
+
+const returnNegative = (num) => {
+  if (num <= 0) return num;
+  return -num;
+};
+
+console.log(returnNegative(100)); // -100
+console.log(returnNegative(-100)); // -100
+console.log(returnNegative(0)); // 0
+
+printMultiplicationTable;
