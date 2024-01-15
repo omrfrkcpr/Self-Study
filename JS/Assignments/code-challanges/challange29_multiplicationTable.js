@@ -1,6 +1,7 @@
 //! Write a function that displays the multiplication table of the number
 
 const printMultiplicationTable = (num, n) => {
+  let result;
   for (let i = 1; i <= n; i++) {
     result = console.log(`${num} * ${i} = ${num * i}`);
   }
