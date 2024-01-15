@@ -10,6 +10,23 @@ if ((year % 4 === 0 && year % 100 != 0) || year % 400 === 0) {
 
 */
 
+//& Alternative with function
+
+const specialYear = (year) => {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    console.log(year + " bir artık yıldır.");
+  } else {
+    console.log(year + " bir artık yıl değildir.");
+  }
+};
+specialYear(2020);
+specialYear(2021);
+specialYear(2022);
+specialYear(2023);
+specialYear(2024);
+
+//& extra with using switch-case
+/*
 let year = +prompt("Enter a year:");
 let month = +prompt("Enter a valid month:");
 let day;
@@ -52,3 +69,4 @@ while (!positive) {
     positive = true;
   }
 }
+*/
