@@ -4,7 +4,7 @@
 
 const numberOfFeet = (chicken, cow, duck, goat) => {
   let sum = (chicken + duck) * 2 + (cow + goat) * 4;
-  console.log(sum);
+  return sum;
 };
 
-numberOfFeet(5, 3, 2, 10); // 66
+console.log(numberOfFeet(5, 3, 2, 10)); // 66
