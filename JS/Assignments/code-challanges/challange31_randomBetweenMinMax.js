@@ -4,4 +4,7 @@ const randomBetweenMinMax = (min, max) => {
   console.log(Math.floor(Math.random() * (max - min * 1)) + min);
 };
 
+// (max - min * 1) = less than max
+// + min = more than min
+
 randomBetweenMinMax(10, 20);
