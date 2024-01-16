@@ -62,3 +62,16 @@ console.log(course.length); // 9
 
 //? Stringler,primitive bir tür olduğu için parça olarak değiştiremezsiniz
 //? immutable - not mutable
+
+// -------------------------------------------------------- */
+//*              concat() immutable=değiştirmez             */
+//    Joins two or more strings, and returns a new string.  */
+// -------------------------------------------------------- */
+
+//! it doesnt change the original value! We need to assign it to another element
+const s1 = "hello";
+const s2 = "world";
+console.log(s1.concat(s2));
+console.log(s1);
+const s3 = s1.concat(s2);
+console.log(s3);
