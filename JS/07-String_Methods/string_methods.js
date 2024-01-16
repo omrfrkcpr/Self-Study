@@ -240,18 +240,18 @@ console.log(list.split(";", 3)); // ['Harry Trump ', 'Fred Barney', ' Helen Rigb
 let newList = list.split(";");
 console.log(newList); // ['Harry Trump ', 'Fred Barney', ' Helen Rigby ', ' Bill Abel ', 'Chris Hand']
 
-// ----------------------------------------------------------------*/
-//*                         join(seperator)                        */
-//                      converts array to string                   */
-// --------------------------------------------------------------- */
+// ---------------------------------------------------*/
+//*               join(seperator)                     */
+//           converts array to string                 */
+// ---------------------------------------------------*/
 
 console.log(newList.join()); // Harry Trump ,Fred Barney, Helen Rigby , Bill Abel ,Chris Hand
 console.log(newList.join("-")); // Harry Trump -Fred Barney- Helen Rigby - Bill Abel -Chris Hand
 
-// ----------------------------------------------------------------*/
-//*                            reverse()                           */
-//                    prints the string in reverse                 */
-// --------------------------------------------------------------- */
+// ----------------------------------------------------*/
+//*                 reverse()                          */
+//           prints the string in reverse              */
+// --------------------------------------------------- */
 
 let polindrome = "hey, how are you?";
 
@@ -264,3 +264,20 @@ console.log(reverseEqual); // ey edip adanada pide ye
 
 if (equal === reverseEqual) console.log("polindrome"); // polindrome
 else console.log("not a polindrome");
+
+// -----------------------------------------------------*/
+//*                    trim()                           */
+//    Removes whitespace from both ends of a string.    */
+// ---------------------------------------------------- */
+
+const ramazan = "                Hosgeldin ya Sehr-i Ramazan   ";
+console.log(ramazan);
+console.log(ramazan.length); // 46
+console.log(ramazan.trim());
+console.log(ramazan.trim().length); // 27
+
+//! Example - Chaining
+
+let abc = "       Clarusway Full Stack ";
+console.log(abc.trim().split(" ")[0].toUpperCase()); // CLARUSWAY
+console.log(abc.trim().slice(0, 9).toUpperCase()); // CLARUSWAY
