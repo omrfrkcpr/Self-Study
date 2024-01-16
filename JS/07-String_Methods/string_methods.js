@@ -90,7 +90,7 @@ console.log(myName.toUpperCase()); // ASHLEY MILLER
 console.log(myName.toLocaleUpperCase("tr")); // ASHLEY MİLLER
 
 // -------------------------------------------------------- */
-//*              charAt() immutable=değiştirmez             */
+//*                         charAt()                        */
 //       Returns the character at the specified index.      */
 // -------------------------------------------------------- */
 
@@ -99,3 +99,19 @@ const s4 = "primitive \n veri tiplerinin \n property ya \n da methodu olmaz.";
 console.log(s4);
 console.log(s4.charAt(5)); // t
 console.log(s4.charAt(s4.length - 1)); // .
+
+// -------------------------------------------------------- */
+//*                includes() - case sensitive              */
+// Checks whether a string contains the specified substring */
+// -------------------------------------------------------- */
+
+const text = "to be or not to be, that is The questions.";
+
+console.log(text.includes("TO BE")); // false
+console.log(text.toUpperCase().includes("TO BE")); // true
+console.log(text.includes("to be")); // true
+console.log(text.includes("to be", 14)); // false = 14.indexten sonraki to be yok
+console.log(text.includes("quest")); // true
+console.log(text.includes(" ")); // true
+
+
