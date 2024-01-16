@@ -247,3 +247,20 @@ console.log(newList); // ['Harry Trump ', 'Fred Barney', ' Helen Rigby ', ' Bill
 
 console.log(newList.join()); // Harry Trump ,Fred Barney, Helen Rigby , Bill Abel ,Chris Hand
 console.log(newList.join("-")); // Harry Trump -Fred Barney- Helen Rigby - Bill Abel -Chris Hand
+
+// ----------------------------------------------------------------*/
+//*                            reverse()                           */
+//                    prints the string in reverse                 */
+// --------------------------------------------------------------- */
+
+let polindrome = "hey, how are you?";
+
+let reverse = polindrome.split("").reverse().join("");
+console.log(reverse); // reverse: ?uoy era woh ,yeh
+
+let equal = "ey edip adanada pide ye";
+let reverseEqual = equal.split("").reverse().join("");
+console.log(reverseEqual); // ey edip adanada pide ye
+
+if (equal === reverseEqual) console.log("polindrome"); // polindrome
+else console.log("not a polindrome");
