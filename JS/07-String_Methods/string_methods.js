@@ -114,4 +114,18 @@ console.log(text.includes("to be", 14)); // false = 14.indexten sonraki to be yo
 console.log(text.includes("quest")); // true
 console.log(text.includes(" ")); // true
 
+// -------------------------------------------------------- */
+//*        indexOf() / lastIndexOf() - case sensitive       */
+//      Returns the index of the first occurrence of the    */
+//                specified value in a string.              */
+// -------------------------------------------------------- */
 
+const text2 = "to be or not to be, that is The questions.";
+
+console.log(text2.indexOf("be")); // 3
+console.log(text2.lastIndexOf("be")); // 16
+
+console.log(text2.indexOf("the")); // returns -1 if there isnt
+
+console.log(text2.indexOf("be", 4)); // 16
+console.log(text2.indexOf("be", text2.indexOf("be") + 1)); // 16
