@@ -210,3 +210,18 @@ console.log(veysel.slice(-10, -6)); // UNDU
 
 console.log(veysel.substring(veysel.length - 4)); // GECE
 console.log(veysel.substring(veysel.length - 4, veysel.length - 2)); // GE
+
+// ----------------------------------------------------------------*/
+//*                    split(seperator, limit)                     */
+//          Splits a string into an array of substrings.           */
+//    split("x") => x lerden ayirir. Returns new array, doesnt     */
+//                     change the original array                   */
+// --------------------------------------------------------------- */
+
+const tarkan = "Gel gunduzle gece olalim";
+
+console.log(tarkan.split()); // ['Gel gunduzle gece olalim'] - 1 elemanli dizi
+console.log(tarkan.split(" ")); // ['Gel', 'gunduzle', 'gece', 'olalim'] - 4 elemanli dizi
+console.log(tarkan.split("")); // ['G', 'e', 'l', ' ', 'g', 'u', 'n', 'd', 'u', 'z', 'l', 'e', ' ', 'g', 'e', 'c', 'e', ' ', 'o', 'l', 'a', 'l', 'i', 'm'] - 24 elemanli dizi
+console.log(tarkan.split("e")); // ['G', 'l gunduzl', ' g', 'c', ' olalim'] - 5 elemanli dizi
+console.log(tarkan); // Gel gunduzle gece olalim
