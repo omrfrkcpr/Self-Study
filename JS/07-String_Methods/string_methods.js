@@ -190,3 +190,23 @@ console.log(read.replace(/SAF/i, "fakir")); // Oku Johny gibi basarili ol fakir 
 
 console.log(read.replace(/SAF/gi, "fakir")); // Oku Johny gibi basarili ol fakir olma fakir olma
 console.log(read.replaceAll("saf", "fakir")); // Oku Johny gibi basarili ol fakir olma fakir olma
+
+// ----------------------------------------------------------------*/
+//*                 slice(beginIndex, endIndex)                    */
+//  Extracts a portion of a string and returns it as a new string. */
+//*               substring(beginIndex, endIndex)                  */
+// Extracts the part of a string between the start and end indexes */
+// --------------------------------------------------------------- */
+
+//! Substringlerde - index yazdirilmaz.
+
+const veysel = "UZUN INCE BIR YOLDAYIM GIDIYORUM GUNDUZ GECE";
+
+console.log(veysel.slice(10)); // BIR YOLDAYIM GIDIYORUM GUNDUZ GECE
+console.log(veysel.slice(17, 22)); // DAYIM == (17 dahil, 22 dahil degil)
+console.log(veysel.substring(17, 22)); // DAYIM (not preferred in js)
+console.log(veysel.slice(-10)); // UNDUZ GECE (0 dahil degil)
+console.log(veysel.slice(-10, -6)); // UNDU
+
+console.log(veysel.substring(veysel.length - 4)); // GECE
+console.log(veysel.substring(veysel.length - 4, veysel.length - 2)); // GE
