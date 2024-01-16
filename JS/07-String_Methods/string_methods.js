@@ -129,3 +129,27 @@ console.log(text2.indexOf("the")); // returns -1 if there isnt
 
 console.log(text2.indexOf("be", 4)); // 16
 console.log(text2.indexOf("be", text2.indexOf("be") + 1)); // 16
+
+// -------------------------------------------------------- */
+//*                search() - case sensitive                */
+//    Searches a string against a regular expression,and    */
+//          returns the index of the first match.           */
+// -------------------------------------------------------- */
+
+const text3 = "to be or not to be, 5 that is The questions.";
+
+//! REGEX - regular expression
+
+console.log(text3.search(/[A-Z]/)); // 30.index
+console.log(text3.search(/[a-z]/)); // 0
+console.log(text3.search(/[0-9]/)); // 20.index
+console.log(text3.search(/[.]/)); // 43.index
+console.log(text3.search(/[.]/)); // 43.index
+console.log(text3.indexOf(".")); // 43.index
+
+console.log(text3.search(/[^a-z]/)); // 2.index (space)
+console.log(text3.search(/[^0-9a-zA-Z]/)); // 2.index - rakam kucuk ve buyuk harf disindaki ilk karakteri dondur (space)
+console.log(text3.search(" ")); // 2.index (space)
+console.log(text3.search(/[aeuüıioö]/)); // 1.index (o)
+
+console.log(text3.toUpperCase().search(/[aeuüıioö]/i)); // 1.index // i = incase sensitive / ignore case sensitive
