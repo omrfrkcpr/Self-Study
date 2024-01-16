@@ -88,3 +88,14 @@ console.log(myName.toUpperCase()); // ASHLEY MILLER
 
 //! toLocaleUpperCase("tr") = convert it to uppercase in turkish rules!
 console.log(myName.toLocaleUpperCase("tr")); // ASHLEY MİLLER
+
+// -------------------------------------------------------- */
+//*              charAt() immutable=değiştirmez             */
+//       Returns the character at the specified index.      */
+// -------------------------------------------------------- */
+
+const s4 = "primitive \n veri tiplerinin \n property ya \n da methodu olmaz.";
+
+console.log(s4);
+console.log(s4.charAt(5)); // t
+console.log(s4.charAt(s4.length - 1)); // .
