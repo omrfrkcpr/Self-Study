@@ -153,3 +153,18 @@ console.log(text3.search(" ")); // 2.index (space)
 console.log(text3.search(/[aeuüıioö]/)); // 1.index (o)
 
 console.log(text3.toUpperCase().search(/[aeuüıioö]/i)); // 1.index // i = incase sensitive / ignore case sensitive
+
+// -------------------------------------------------------- */
+//*        startsWith(), endsWith() - case sensitive        */
+//   Checks whether a string begins/ends with a specified   */
+//                        substring.                        */
+// -------------------------------------------------------- */
+
+const text4 = "Salina salina sinsice olurum sana!";
+
+console.log(text4.startsWith("sa")); // false
+console.log(text4.startsWith("Sa")); // true
+console.log(text4.endsWith("sana!")); // true
+console.log(text4.startsWith("salina", 7)); // true - incl. 7.index
+console.log(text4.endsWith("salina", 13)); // true - incl. 12.index
+
