@@ -52,7 +52,7 @@ console.log(str4, typeof str4); // {new String} object
 //? Ek Açıklama için : https://javascript.info/primitives-methods
 
 // -------------------------------------------------------- */
-//                STRING YAPISI VE INDEXLEME                */
+//*               STRING YAPISI VE INDEXLEME                */
 // -------------------------------------------------------- */
 
 let course = "clarusway";
@@ -75,3 +75,16 @@ console.log(s1.concat(s2));
 console.log(s1);
 const s3 = s1.concat(s2);
 console.log(s3);
+
+// -------------------------------------------------------- */
+//*   toLowerCase() toUpperCase() immutable=değiştirmez     */
+//    Converts a string to lowercase or uppercase letters.  */
+// -------------------------------------------------------- */
+
+const myName = "Ashley Miller";
+
+console.log(myName.toLowerCase()); // ashley miller
+console.log(myName.toUpperCase()); // ASHLEY MILLER
+
+//! toLocaleUpperCase("tr") = convert it to uppercase in turkish rules!
+console.log(myName.toLocaleUpperCase("tr")); // ASHLEY MİLLER
