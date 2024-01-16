@@ -225,3 +225,19 @@ console.log(tarkan.split(" ")); // ['Gel', 'gunduzle', 'gece', 'olalim'] - 4 ele
 console.log(tarkan.split("")); // ['G', 'e', 'l', ' ', 'g', 'u', 'n', 'd', 'u', 'z', 'l', 'e', ' ', 'g', 'e', 'c', 'e', ' ', 'o', 'l', 'a', 'l', 'i', 'm'] - 24 elemanli dizi
 console.log(tarkan.split("e")); // ['G', 'l gunduzl', ' g', 'c', ' olalim'] - 5 elemanli dizi
 console.log(tarkan); // Gel gunduzle gece olalim
+
+let months =
+  "Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec";
+console.log(months.split("/")); // ['Jan ', ' Feb ', ' Mar ', ' Apr ', ' May ', ' Jun ', ' Jul ', ' Aug ', ' Sep ', ' Oct ', ' Nov ', ' Dec']
+
+let date = "16.01.2024";
+console.log(date.split(".")); // ['16', '01', '2024']
+console.log(`bugun ayin ${date.split(".")[0]} si`); // bugun ayin 16 si
+
+let list = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand";
+console.log(list.split(";", 3)); // ['Harry Trump ', 'Fred Barney', ' Helen Rigby ']
+
+let newList = list.split(";");
+console.log(newList); // ['Harry Trump ', 'Fred Barney', ' Helen Rigby ', ' Bill Abel ', 'Chris Hand']
+
+
