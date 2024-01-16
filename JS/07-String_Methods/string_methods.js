@@ -168,3 +168,25 @@ console.log(text4.endsWith("sana!")); // true
 console.log(text4.startsWith("salina", 7)); // true - incl. 7.index
 console.log(text4.endsWith("salina", 13)); // true - incl. 12.index
 
+// -------------------------------------------------------- */
+//*       replace(searchFor, replaceWith) - immutable       */
+// Replaces the occurrences of a string or pattern inside a */
+//    string with another string, and return a new string   */
+//        without modifying the original string.            */
+// -------------------------------------------------------- */
+//! i = incase sensitive / ignore case sensitive
+//! g = apply for all that element == replaceAll()
+//! gi = g + i
+
+let read = "Oku Johny gibi saf olma saf olma saf olma";
+
+read.replace("saf olma", "basarili ol");
+console.log(read); // Oku Johny gibi saf olma saf olma saf olma
+
+read = read.replace("saf olma", "basarili ol");
+console.log(read); // Oku Johny gibi basarili ol saf olma saf olma
+
+console.log(read.replace(/SAF/i, "fakir")); // Oku Johny gibi basarili ol fakir olma saf olma
+
+console.log(read.replace(/SAF/gi, "fakir")); // Oku Johny gibi basarili ol fakir olma fakir olma
+console.log(read.replaceAll("saf", "fakir")); // Oku Johny gibi basarili ol fakir olma fakir olma

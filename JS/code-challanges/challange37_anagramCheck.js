@@ -17,10 +17,11 @@ console.log(areAnagrams("race", "racing")); // Should print false
 */
 
 //& replace(/\s/g, "") === The \s meta character in JavaScript regular expressions matches any whitespace character: spaces, tabs, newlines and Unicode spaces. And the g flag tells JavaScript to replace it multiple times. If you miss it, it will only replace the first occurrence of the white space.
+//& replaceAll(" ", "")
 
 const areAnagrams = (text1, text2) => {
   function sorted(str) {
-    return str.replace(/\s/g, "").toLowerCase().split("").sort().join("");
+    return str.replaceAll(" ", "").toLowerCase().split("").sort().join("");
   }
   text1 = sorted(text1);
   text2 = sorted(text2);
