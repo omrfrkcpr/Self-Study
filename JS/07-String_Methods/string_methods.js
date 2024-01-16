@@ -240,4 +240,10 @@ console.log(list.split(";", 3)); // ['Harry Trump ', 'Fred Barney', ' Helen Rigb
 let newList = list.split(";");
 console.log(newList); // ['Harry Trump ', 'Fred Barney', ' Helen Rigby ', ' Bill Abel ', 'Chris Hand']
 
+// ----------------------------------------------------------------*/
+//*                         join(seperator)                        */
+//                      converts array to string                   */
+// --------------------------------------------------------------- */
 
+console.log(newList.join()); // Harry Trump ,Fred Barney, Helen Rigby , Bill Abel ,Chris Hand
+console.log(newList.join("-")); // Harry Trump -Fred Barney- Helen Rigby - Bill Abel -Chris Hand
