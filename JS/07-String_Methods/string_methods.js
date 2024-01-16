@@ -211,6 +211,13 @@ console.log(veysel.slice(-10, -6)); // UNDU
 console.log(veysel.substring(veysel.length - 4)); // GECE
 console.log(veysel.substring(veysel.length - 4, veysel.length - 2)); // GE
 
+//! Example
+
+let mySecondName = "Antony Harold";
+mySecondName = mySecondName.slice(8);
+mySecondName.toLowerCase();
+console.log(mySecondName);
+
 // ----------------------------------------------------------------*/
 //*                    split(seperator, limit)                     */
 //          Splits a string into an array of substrings.           */
