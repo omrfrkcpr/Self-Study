@@ -52,7 +52,7 @@ console.log(str4, typeof str4); // {new String} object
 //? Ek Açıklama için : https://javascript.info/primitives-methods
 
 // -------------------------------------------------------- */
-//*               STRING YAPISI VE INDEXLEME                */
+//*               STRING STRUCTURE AND INDEX                */
 // -------------------------------------------------------- */
 
 let course = "clarusway";
@@ -99,6 +99,46 @@ const s4 = "primitive \n veri tiplerinin \n property ya \n da methodu olmaz.";
 console.log(s4);
 console.log(s4.charAt(5)); // t
 console.log(s4.charAt(s4.length - 1)); // .
+
+//! Example - Lorem
+
+let lorem =
+  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
+console.log(lorem.length); // 591
+console.log(lorem[200]); // e
+console.log(lorem.charAt(20)); // t
+
+if (lorem.charAt(20) === "y") console.log("yes");
+else console.log("no"); // no
+
+//! Example - Caesar Chipher - Encryption
+
+const caesar = (str, shift) => {
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    newStr = str.charCodeAt(i) + shift;
+    result += String.fromCharCode(newStr);
+  }
+  console.log(result);
+};
+
+caesar("abc", 3); // def
+
+//& Decryption
+
+const caesarDecrypt = (str, shift) => {
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    newStr = str.charCodeAt(i) - shift;
+    result += String.fromCharCode(newStr);
+  }
+  console.log(result);
+};
+
+caesarDecrypt("def", 3); // abc
 
 // -------------------------------------------------------- */
 //*                includes() - case sensitive              */
