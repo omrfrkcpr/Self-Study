@@ -94,6 +94,9 @@ console.log(myName.toLocaleUpperCase("tr")); // ASHLEY MİLLER
 //       Returns the character at the specified index.      */
 // -------------------------------------------------------- */
 
+//& charCodeAt() converts string to unicode
+//& fromCharCode() converts unicode to string
+
 const s4 = "primitive \n veri tiplerinin \n property ya \n da methodu olmaz.";
 
 console.log(s4);
