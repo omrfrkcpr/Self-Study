@@ -170,6 +170,27 @@ console.log(text2.indexOf("the")); // returns -1 (if there isnt)
 console.log(text2.indexOf("be", 4)); // 16
 console.log(text2.indexOf("be", text2.indexOf("be") + 1)); // 16
 
+//! Example findIndex
+
+let lrm2 =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+
+const findIndex = (text, char) => {
+  let index = 0;
+
+  if (text.indexOf(char, index) == -1) {
+    console.log(`There isn't any ${letter} in ${text}`);
+    return;
+  }
+
+  while (text.indexOf(char, index) !== -1) {
+    console.log(text.indexOf(char, index));
+    index = text.indexOf(char, index) + 1;
+  }
+};
+
+findIndex(lrm2, "e"); // 3 29 38 56 58
+
 // -------------------------------------------------------- */
 //*                search() - case sensitive                */
 //    Searches a string against a regular expression,and    */
