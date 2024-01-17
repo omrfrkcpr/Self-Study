@@ -157,6 +157,17 @@ console.log(text.includes("to be", 14)); // false = 14.indexten sonraki to be yo
 console.log(text.includes("quest")); // true
 console.log(text.includes(" ")); // true
 
+//! Example - Valid Email
+
+let email1 = "mark@gmail.com";
+
+const validEmail = (email1) => {
+  if (email1.includes("@")) console.log(`${email1} is a valid email`);
+  else console.log(`${email1} is a valid Email`);
+};
+
+validEmail(email1);
+
 // -------------------------------------------------------- */
 //*        indexOf() / lastIndexOf() - case sensitive       */
 //      Returns the index of the first occurrence of the    */
