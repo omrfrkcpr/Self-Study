@@ -165,7 +165,7 @@ const text2 = "to be or not to be, that is The questions.";
 console.log(text2.indexOf("be")); // 3
 console.log(text2.lastIndexOf("be")); // 16
 
-console.log(text2.indexOf("the")); // returns -1 if there isnt
+console.log(text2.indexOf("the")); // returns -1 (if there isnt)
 
 console.log(text2.indexOf("be", 4)); // 16
 console.log(text2.indexOf("be", text2.indexOf("be") + 1)); // 16
@@ -207,6 +207,12 @@ console.log(text4.startsWith("Sa")); // true
 console.log(text4.endsWith("sana!")); // true
 console.log(text4.startsWith("salina", 7)); // true - incl. 7.index
 console.log(text4.endsWith("salina", 13)); // true - incl. 12.index
+
+let lrm =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+
+console.log(lrm.startsWith("Lorem", 1)); // false
+console.log(lrm.startsWith("dummy", 22)); // true
 
 // -------------------------------------------------------- */
 //*       replace(searchFor, replaceWith) - immutable       */
