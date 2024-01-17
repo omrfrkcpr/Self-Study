@@ -272,6 +272,26 @@ console.log(read.replace(/SAF/i, "fakir")); // Oku Johny gibi basarili ol fakir 
 console.log(read.replace(/SAF/gi, "fakir")); // Oku Johny gibi basarili ol fakir olma fakir olma
 console.log(read.replaceAll("saf", "fakir")); // Oku Johny gibi basarili ol fakir olma fakir olma
 
+//! Example - creditCardNumber
+
+//& Alternative1
+// const creditCardNumber = (numbers) => {
+//   result = numbers.replaceAll("-", "");
+//   return result.replace(result.slice(6, 12), "******");
+// };
+
+//& Alternative2
+const creditCardNumber = (numbers) => {
+  return numbers.replace(numbers.slice(7, 14), "******").replaceAll("-", "");
+};
+
+//& Alternative3
+// const creditCardNumber = (numbers) => {
+//   return numbers.split("-").join("").slice(0, 6) + "******" + numbers.slice(-4);
+// };
+
+console.log(creditCardNumber("1234-5678-9012-3456")); // 123456******3456
+
 // ----------------------------------------------------------------*/
 //*                 slice(beginIndex, endIndex)                    */
 //  Extracts a portion of a string and returns it as a new string. */
@@ -298,6 +318,17 @@ let mySecondName = "Antony Harold";
 mySecondName = mySecondName.slice(8);
 mySecondName.toLowerCase();
 console.log(mySecondName);
+
+//! Example2
+
+let lorem1 =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+
+let lorem2 = lorem1.indexOf("Ipsum"); // 6
+let lorem3 = lorem1.slice(lorem2); // Ipsum is simply dummy text of the printing and typesetting industry.
+
+console.log(lorem2);
+console.log(lorem3);
 
 // ----------------------------------------------------------------*/
 //*                    split(seperator, limit)                     */
