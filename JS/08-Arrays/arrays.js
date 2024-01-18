@@ -219,3 +219,35 @@ console.log(newArr); /* [
     'green'
   ]
 */
+
+/* ----------------------------------- */
+//*           array.indexOf()          */
+/* ----------------------------------- */
+//? returns the position of a specific element in an array from the beginning. IF the element is not found, then returns -1
+
+const index = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+console.log(index.indexOf("Green")); // 2
+console.log(index.indexOf("Green", 3)); // 5
+console.log(index.indexOf("green")); // -1
+
+if (index.indexOf("green") == -1) {
+  index.push("green");
+  console.log(index); /* [
+    'Red',   'Yellow',
+    'Green', 'Blue',
+    'Pink',  'Green',
+    'green'
+  ] */
+} else console.log('There is already "green" element');
+
+/* ----------------------------------- */
+//*        array.lastIndexOf()         */
+/* ----------------------------------- */
+//? returns the position of a specific element in an array from the end. IF the element is not found, then returns -1
+
+const lastIndex = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+console.log(lastIndex.lastIndexOf("Green")); // 5
+console.log(lastIndex.lastIndexOf("Green", 3)); // 2
+console.log(lastIndex.lastIndexOf("green")); // -1
