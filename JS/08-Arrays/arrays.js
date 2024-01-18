@@ -161,3 +161,19 @@ console.log(elements2); /* [
     'Yellow'
   ]
 */
+
+/* ----------------------------------- */
+//*            array.shift()           */
+/* ----------------------------------- */
+//? to remove the first element of an array and return removed Element
+
+const newColors2 = ["White", "Brown", "Red", "Green", "Blue", "Yellow"];
+
+const removedColor = newColors2.shift();
+
+console.log(newColors2); // [ 'Brown', 'Red', 'Green', 'Blue', 'Yellow' ]
+console.log(removedColor); // White
+
+delete newColors2[2]; //! not preferred
+
+console.log(newColors2); // [ 'Brown', 'Red', <empty item>, 'Blue', 'Yellow' ]
