@@ -96,3 +96,24 @@ const colors4 = colors.slice(-4, -1);
 console.log(colors4); // [ 'purple', 'white', 'orange' ]
 const colors5 = colors.slice(2, -2);
 console.log(colors5); // [ 'purple', 'white' ]
+
+/* ----------------------------------- */
+//*            array.push()            */
+/* ----------------------------------- */
+//? to add an element to the end  of array (new array)
+
+const value = ["green", "blue", "grey"];
+
+value.push("blue");
+console.log(value); // [ 'green', 'blue', 'grey', 'blue' ]
+
+console.log(value.push("Yellow")); // 5 - we get the length of the array
+console.log(value.push() == value.length); // true
+console.log(value.push() === value.length); // true
+
+const newColors = ["Blue", "Yellow"];
+console.log(newColors.push(value)); // 3
+newColors.push(value);
+console.log(newColors); // [ 'Blue', 'Yellow', [ 'green', 'blue', 'grey', 'blue', 'Yellow' ] ]
+newColors.push(...value);
+console.log(newColors); // ['Blue','Yellow',[ 'green', 'blue', 'grey', 'blue', 'Yellow' ],[ 'green', 'blue', 'grey', 'blue', 'Yellow' ],'green','blue','grey','blue','Yellow'] == array olarak degil, tek tek ekler icindekileri (spread parameter: ...)
