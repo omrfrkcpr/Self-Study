@@ -264,3 +264,17 @@ console.log(reverse); // ["Green", "Pink", "Blue", "Green", "Yellow", "Red"];
 reverse.reverse();
 console.log(reverse); // ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
 console.log(reverse.reverse()); // [ 'Green', 'Pink', 'Blue', 'Green', 'Yellow', 'Red' ]
+
+/* ----------------------------------- */
+//*       array.join([separator])      */
+/* ----------------------------------- */
+//? to combine all elements in an array to create a string.
+//! doesnt mutates the original array
+
+const join = ["C", "l", "a", "r", "u", "s", "w", "a", "y"];
+console.log(join.join()); // "C,l,a,r,u,s,w,a,y"
+console.log(join.join("")); // "Clarusway"
+console.log(join.join("-")); // "C-l-a-r-u-s-w-a-y"
+
+const join2 = ["C", "l", "a", "r", "u", "s", ["w", "a"], "y"];
+console.log(join2.join(",")); // C,l,a,r,u,s,w,a,y
