@@ -198,3 +198,24 @@ const arrys1 = ["red", "blue", "yellow", "brown"];
 arrys1.splice(3, 1, "white");
 console.log(arrys1); // [ 'red', 'blue', 'yellow', 'white' ]
 console.log(arrys1.splice(1, 3, "white", "pink")); // [ 'blue', 'yellow', 'white' ]
+
+/* ----------------------------------- */
+//*            array.concat()          */
+/* ----------------------------------- */
+//? to combine two or more arrays
+
+const a1 = ["red", "green"];
+const a2 = ["blue", "yellow"];
+const a3 = [10, true];
+
+console.log(a1.concat(a2, a3)); // [ 'red', 'green', 'blue', 'yellow', 10, true ]
+
+const newArr = a1.concat("yellow", a3, a2, a1);
+console.log(newArr); /* [
+    'red',    'green',
+    'yellow', 10,
+    true,     'blue',
+    'yellow', 'red',
+    'green'
+  ]
+*/
