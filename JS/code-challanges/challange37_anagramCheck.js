@@ -23,6 +23,7 @@ const areAnagrams = (text1, text2) => {
   function sorted(str) {
     return str.replaceAll(" ", "").toLowerCase().split("").sort().join("");
   }
+
   text1 = sorted(text1);
   text2 = sorted(text2);
 
