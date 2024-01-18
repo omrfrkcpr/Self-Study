@@ -117,3 +117,18 @@ newColors.push(value);
 console.log(newColors); // [ 'Blue', 'Yellow', [ 'green', 'blue', 'grey', 'blue', 'Yellow' ] ]
 newColors.push(...value);
 console.log(newColors); // ['Blue','Yellow',[ 'green', 'blue', 'grey', 'blue', 'Yellow' ],[ 'green', 'blue', 'grey', 'blue', 'Yellow' ],'green','blue','grey','blue','Yellow'] == array olarak degil, tek tek ekler icindekileri (spread parameter: ...)
+
+/* ----------------------------------- */
+//*            array.pop()             */
+/* ----------------------------------- */
+//? to remove an element to the end  of array (new array)
+
+const elements = ["Red", "Green", "Blue", "Yellow"];
+
+const removedItem = elements.pop();
+
+console.log(elements); // [ 'Red', 'Green', 'Blue' ]
+console.log(removedItem); // Yellow
+console.log(elements.pop()); // Blue
+
+
