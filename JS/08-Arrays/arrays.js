@@ -121,7 +121,7 @@ console.log(newColors); // ['Blue','Yellow',[ 'green', 'blue', 'grey', 'blue', '
 /* ----------------------------------- */
 //*            array.pop()             */
 /* ----------------------------------- */
-//? to remove an element to the end  of array (new array)
+//? to remove an element to the end  of array (new length)
 
 const elements = ["Red", "Green", "Blue", "Yellow"];
 
@@ -131,4 +131,33 @@ console.log(elements); // [ 'Red', 'Green', 'Blue' ]
 console.log(removedItem); // Yellow
 console.log(elements.pop()); // Blue
 
+/* ----------------------------------- */
+//*           array.unshift()          */
+/* ----------------------------------- */
+//? to add an element to the beginnning of an array (new length)
 
+const elements2 = ["Blue", "Yellow"];
+
+const newLen = elements2.unshift("Red", "Green");
+
+console.log(elements2); // [ 'Red', 'Green', 'Blue', 'Yellow' ]
+console.log(newLen); // 4
+console.log(elements.unshift()); // length of elements2 = 2
+
+elements2.unshift(elements);
+console.log(elements2); // [ [ 'Red', 'Green' ], 'Red', 'Green', 'Blue', 'Yellow' ]
+
+elements2.unshift(...elements2);
+console.log(elements2); /* [
+    [ 'Red', 'Green' ],
+    'Red',
+    'Green',
+    'Blue',
+    'Yellow',
+    [ 'Red', 'Green' ],
+    'Red',
+    'Green',
+    'Blue',
+    'Yellow'
+  ]
+*/
