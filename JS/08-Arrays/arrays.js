@@ -278,3 +278,17 @@ console.log(join.join("-")); // "C-l-a-r-u-s-w-a-y"
 
 const join2 = ["C", "l", "a", "r", "u", "s", ["w", "a"], "y"];
 console.log(join2.join(",")); // C,l,a,r,u,s,w,a,y
+
+/* ----------------------------------- */
+//*          array.sort([type]         */
+/* ----------------------------------- */
+//? to display an array in order. As default it uses string
+//! mutates the original array
+
+const sort = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+sort.sort();
+console.log(sort); // [ 'Blue', 'Green', 'Green', 'Pink', 'Red', 'Yellow' ]
+
+const sort2 = sort2.sort(); // [1, 4, 6, 7, 8, 2, 5];
+console.log(sort2); // [1, 2, 4, 5,6, 7, 8]
