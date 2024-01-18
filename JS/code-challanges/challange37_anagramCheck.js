@@ -37,6 +37,8 @@ console.log(areAnagrams("debit card", "bad credit")); // true
 console.log(areAnagrams("Dormitory", "dirty room")); // true
 console.log(areAnagrams("The Morse Code", "Here come dots")); // true
 console.log(areAnagrams("Astronomer", "Moon starer")); // true
+console.log(areAnagrams("Garten", "tragen")); // true
+
 
 console.log(areAnagrams("hello", "world")); // false
 console.log(areAnagrams("apple", "banana")); // false
