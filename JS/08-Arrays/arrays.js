@@ -251,3 +251,16 @@ const lastIndex = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
 console.log(lastIndex.lastIndexOf("Green")); // 5
 console.log(lastIndex.lastIndexOf("Green", 3)); // 2
 console.log(lastIndex.lastIndexOf("green")); // -1
+
+/* ----------------------------------- */
+//*           array.reverse()          */
+/* ----------------------------------- */
+//? to reverse an array and mutates the array in-place
+//! (new Array)
+
+const reverse = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+reverse.reverse();
+console.log(reverse); // ["Green", "Pink", "Blue", "Green", "Yellow", "Red"];
+reverse.reverse();
+console.log(reverse); // ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+console.log(reverse.reverse()); // [ 'Green', 'Pink', 'Blue', 'Green', 'Yellow', 'Red' ]
