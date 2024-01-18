@@ -177,3 +177,12 @@ console.log(removedColor); // White
 delete newColors2[2]; //! not preferred
 
 console.log(newColors2); // [ 'Brown', 'Red', <empty item>, 'Blue', 'Yellow' ]
+
+const array1 = ["red", "blue", "purple", "white", "orange"];
+
+let first = array1.shift();
+let last = array1.pop();
+array1.push(first);
+array1.unshift(last);
+
+console.log(array1); // [ 'orange', 'blue', 'purple', 'white', 'red' ]
