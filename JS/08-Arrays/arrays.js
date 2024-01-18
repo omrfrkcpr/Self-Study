@@ -186,3 +186,15 @@ array1.push(first);
 array1.unshift(last);
 
 console.log(array1); // [ 'orange', 'blue', 'purple', 'white', 'red' ]
+
+/* ----------------------------------- */
+//*            array.splice()          */
+/* ----------------------------------- */
+//? to change/remove/add an element or elements of an array
+
+const arrys1 = ["red", "blue", "yellow", "brown"];
+
+// arrys1.splice(0); // []
+arrys1.splice(3, 1, "white");
+console.log(arrys1); // [ 'red', 'blue', 'yellow', 'white' ]
+console.log(arrys1.splice(1, 3, "white", "pink")); // [ 'blue', 'yellow', 'white' ]
