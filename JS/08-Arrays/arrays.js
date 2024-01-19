@@ -280,7 +280,7 @@ const join2 = ["C", "l", "a", "r", "u", "s", ["w", "a"], "y"];
 console.log(join2.join(",")); // C,l,a,r,u,s,w,a,y
 
 /* ----------------------------------- */
-//*          array.sort([type]         */
+//*        array.sort([function]       */
 /* ----------------------------------- */
 //? to display an array in order. As default it uses string
 //! mutates the original array
@@ -290,5 +290,14 @@ const sort = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
 sort.sort();
 console.log(sort); // [ 'Blue', 'Green', 'Green', 'Pink', 'Red', 'Yellow' ]
 
-const sort2 = sort2.sort(); // [1, 4, 6, 7, 8, 2, 5];
+const sort2 = [1, 4, 6, 7, 8, 2, 5];
+sort2.sort();
 console.log(sort2); // [1, 2, 4, 5,6, 7, 8]
+
+const sort3 = [1, 9, 234, 56, 85, 123, 457, 6];
+sort3.sort((a, b) => a - b); // Artan siralama
+console.log(sort3); // [1, 6, 9, 56, 85, 123, 234, 457]
+
+const sort4 = [1, 9, 234, 56, 85, 123, 457, 6];
+sort4.sort((a, b) => b - a); // Azalan siralama
+console.log(sort4); // [457, 234, 123, 85, 56, 9, 6 1]
