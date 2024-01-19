@@ -12,3 +12,14 @@ const getRandomColor = () => {
 };
 
 document.body.style.backgroundColor = getRandomColor();
+
+//& Example-2
+
+let colorsA = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+const getRandomBackgroundColor = (values) => {
+  let color = values[Math.floor(Math.random() * values.length)];
+  document.body.style.backgroundColor = color;
+};
+
+console.log(getRandomBackgroundColor(colorsA));

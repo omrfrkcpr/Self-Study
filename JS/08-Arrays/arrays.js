@@ -280,7 +280,7 @@ const join2 = ["C", "l", "a", "r", "u", "s", ["w", "a"], "y"];
 console.log(join2.join(",")); // C,l,a,r,u,s,w,a,y
 
 /* ----------------------------------- */
-//*        array.sort([function]       */
+//*       array.sort([function])       */
 /* ----------------------------------- */
 //? to display an array in order. As default it uses string
 //! mutates the original array
@@ -301,3 +301,28 @@ console.log(sort3); // [1, 6, 9, 56, 85, 123, 234, 457]
 const sort4 = [1, 9, 234, 56, 85, 123, 457, 6];
 sort4.sort((a, b) => b - a); // Azalan siralama
 console.log(sort4); // [457, 234, 123, 85, 56, 9, 6 1]
+
+/* ----------------------------------- */
+//*          array.includes()          */
+/* ----------------------------------- */
+//? to determine whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+const include = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+let checkElement = (element) => {
+  if (!include.includes(element)) {
+    include.push(element);
+    console.log(`${element} is added. ${include}`);
+  } else console.log(`This element is already exist. ${include}`);
+};
+
+checkElement("green");
+
+let colorsA = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+const getRandomColor = (values) => {
+  let color = values[Math.floor(Math.random() * values.length)];
+  document.body.style.backgroundColor = color;
+};
+
+console.log(getRandomColor(colorsA));
