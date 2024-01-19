@@ -456,3 +456,64 @@ prices.forEach((price) => {
   // if(price == 200) continue // error
   console.log(price);
 });
+
+/* ----------------------------------- */
+//*            array.map()             */
+/* ----------------------------------- */
+//? break ve continue cant be used here
+//? returns new array / default = doesnt mutates the original array
+
+const cars2 = ["bmw", "mercedes", "audi", "volvo"];
+
+const newCars = cars2.map((car) => car.toUpperCase());
+
+console.log(newCars); // [ 'BMW', 'MERCEDES', 'AUDI', 'VOLVO' ]
+console.log(cars2); // [ 'bmw', 'mercedes', 'audi', 'volvo' ]
+
+//! Example
+
+const prices4 = [100, 200, 300, 400, 50, 70];
+// +%20 => >= 300 / +%50 => < 300
+
+prices4.map((price, i, arr) => {
+  if (price < 300) arr[i] *= 1.5;
+  else arr[i] *= 1.2;
+});
+
+console.log(prices4); // [ 150, 300, 360, 480, 75, 105 ]
+
+//! Example2
+
+const prices5 = [100, 200, 300, 400, 50, 70];
+
+const dolar = 30.2;
+const euro = 33.6;
+
+prices5.map((price, i, arr) => {
+  arr[i] = `${arr[i]} = ${(price / dolar).toFixed(2)} $ | ${(
+    price / euro
+  ).toFixed(2)} €`;
+});
+
+console.log(prices5);
+/*
+[
+  '100 = 3.31 $ | 2.98 €',
+  '200 = 6.62 $ | 5.95 €',
+  '300 = 9.93 $ | 8.93 €',
+  '400 = 13.25 $ | 11.90 €',
+  '50 = 1.66 $ | 1.49 €',
+  '70 = 2.32 $ | 2.08 €'
+]
+*/
+
+//& Alternative 2
+
+const prices6 = [100, 200, 300, 400, 50, 70];
+
+const dolarArr = prices6.map((price) => +(price / dolar).toFixed(2));
+
+const euroArr = prices6.map((price) => +(price / euro).toFixed(2));
+
+console.log(dolarArr); // [ 3.31, 6.62, 9.93, 13.25, 1.66, 2.32 ]
+console.log(euroArr); // [ 2.98, 5.95, 8.93, 11.9, 1.49, 2.08 ]
