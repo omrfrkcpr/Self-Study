@@ -322,7 +322,15 @@ let colorsA = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
 
 const getRandomColor = (values) => {
   let color = values[Math.floor(Math.random() * values.length)];
-  document.body.style.backgroundColor = color;
+  // document.body.style.backgroundColor = color;
 };
 
 console.log(getRandomColor(colorsA));
+
+/* ----------------------------------- */
+//*            Nested Arrays           */
+/* ----------------------------------- */
+//? Elements in an Array can be any type. So it can also include Arrays
+
+const nested = ["1", 2, true, [4, 5, 6], [2]];
+console.log(nested.length); // 5
