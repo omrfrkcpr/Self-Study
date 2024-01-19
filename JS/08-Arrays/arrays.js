@@ -420,3 +420,39 @@ for (let car of cars) {
 }
 
 console.log(result); // bmwmercedesaudivolvo
+
+/* ----------------------------------- */
+//*          array.foreach()           */
+/* ----------------------------------- */
+//? The forEach() method of Array instances executes a provided function once for each array element.
+//! break ve continue cant be used here!
+//! cant be used in string, just with arrays
+//! cant display empty items , jump over!
+//! doesnt mutate the original array
+
+const prices = [100, 200, 300, 400, 50, 70];
+
+prices.forEach((a) => console.log(a)); /* 100
+200
+300
+400
+50
+70
+*/
+
+let sum = 0;
+
+prices.forEach((a) => (sum += a));
+console.log(sum / prices.length); // 186.66666666666666
+
+prices.forEach((price, i, arr) => {
+  arr[i] = price * 2;
+});
+
+console.log(prices); // [ 200, 400, 600, 800, 100, 140 ]
+
+prices.forEach((price) => {
+  // if(price == 200) break // error
+  // if(price == 200) continue // error
+  console.log(price);
+});
