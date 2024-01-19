@@ -577,3 +577,34 @@ const newNamesReverse = names
   .map((name) => name.split("").reverse().join(""));
 
 console.log(newNamesReverse); // [ 'nhoJ', 'nasuS', 'nevetS', 'nitraM', 'nairB', 'neraK' ]
+
+/* ----------------------------------- */
+//*          array.reduce()            */
+/* ----------------------------------- */
+//? returns one output
+//? doesnt mutate the original array
+//? doesnt return Array, returns value (string, number, ...)
+
+const salaries = [30000, 17000, 20000, 7500, 10000];
+
+console.log(salaries.reduce((sum, salary) => sum + salary, 0)); // 84500
+console.log(salaries.reduce((sum, salary) => sum + salary, 15500)); // 100000 == take 15500 as default salary
+console.log(salaries); // [ 30000, 17000, 20000, 7500, 10000 ]
+
+//! Example
+
+const words2 = ["Hello", " ", "World", "!"];
+
+const newWords2 = words2.reduce((newWord, current) => newWord + current, "");
+console.log(newWords2); // Hello World!
+
+//! Example2
+
+const nums2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const newNums = nums2
+  .filter((num) => num % 2 == 0) // even numbers are filtered = 2,4,6,8,10
+  .map((num) => num * 2) // even numbers are multiplied by 2 = 4,8,12,16,20
+  .reduce((sum, num) => sum + num, 0); // sum multiplied even numbers = 60
+
+console.log(newNums); // 60
