@@ -395,3 +395,18 @@ for (let item of items) {
   Green
   */
 }
+
+//! Example - negative positive number filter
+
+const nums = [100, 20, -5, 9, -3, -87, 30];
+
+const negative = [];
+const positive = [];
+
+for (let num of nums) {
+  if (num < 0) negative.push(num);
+  else positive.push(num);
+}
+
+console.log(negative); // [ -5, -3, -87 ]
+console.log(positive); // [ 100, 20, 9, 30 ]
