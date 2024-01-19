@@ -517,3 +517,63 @@ const euroArr = prices6.map((price) => +(price / euro).toFixed(2));
 
 console.log(dolarArr); // [ 3.31, 6.62, 9.93, 13.25, 1.66, 2.32 ]
 console.log(euroArr); // [ 2.98, 5.95, 8.93, 11.9, 1.49, 2.08 ]
+
+/* ----------------------------------- */
+//*          array.filter()            */
+/* ----------------------------------- */
+//? to filter the specific items in an array with new array
+//? doesnt mutate the original array
+
+const prices7 = [100, 200, 300, 400, 50, 70];
+
+const newArr7 = prices7.filter((price) => price < 250);
+
+console.log(newArr7); // [ 100, 200, 50, 70 ]
+
+//! Example
+
+const words = ["apple", "banana", "grape", "orange", "kiwi"];
+
+const newWords = words.filter((word) => word.length === 5);
+
+console.log(newWords); // [ 'apple', 'grape' ]
+
+//! Example2
+
+const names = [
+  "John",
+  "Jane",
+  "Robert",
+  "Susan",
+  "Steven",
+  "Katherine",
+  "Martin",
+  "Melissa",
+  "Brian",
+  "Karen",
+];
+
+const newNames = names.filter((name) => name[name.length - 1] === "n");
+
+console.log(newNames); // [ 'John', 'Susan', 'Steven', 'Martin', 'Brian', 'Karen' ]
+
+//& Alternative
+
+const newNames2 = names.filter((name) => name.endsWith("n"));
+console.log(newNames2); // [ 'John', 'Susan', 'Steven', 'Martin', 'Brian', 'Karen' ]
+
+//! Example3
+
+const prices8 = [100, 200, 300, 800, 600, 70];
+
+const newArr8 = prices8.filter((price) => price > 300).map((inc) => inc * 1.2);
+
+console.log(newArr8); // [ 960, 720 ]
+
+//! Example4
+
+const newNamesReverse = names
+  .filter((name) => name[name.length - 1] === "n")
+  .map((name) => name.split("").reverse().join(""));
+
+console.log(newNamesReverse); // [ 'nhoJ', 'nasuS', 'nevetS', 'nitraM', 'nairB', 'neraK' ]
