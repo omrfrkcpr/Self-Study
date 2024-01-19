@@ -411,7 +411,7 @@ for (let num of nums) {
 console.log(negative); // [ -5, -3, -87 ]
 console.log(positive); // [ 100, 20, 9, 30 ]
 
-//! Example2
+//! Example2 - join an array without using join() method
 
 const cars = ["bmw", "mercedes", "audi", "volvo"];
 let result = "";
