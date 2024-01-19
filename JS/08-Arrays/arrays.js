@@ -410,3 +410,13 @@ for (let num of nums) {
 
 console.log(negative); // [ -5, -3, -87 ]
 console.log(positive); // [ 100, 20, 9, 30 ]
+
+//! Example2
+
+const cars = ["bmw", "mercedes", "audi", "volvo"];
+let result = "";
+for (let car of cars) {
+  result += car;
+}
+
+console.log(result); // bmwmercedesaudivolvo
