@@ -334,3 +334,64 @@ console.log(getRandomColor(colorsA));
 
 const nested = ["1", 2, true, [4, 5, 6], [2]];
 console.log(nested.length); // 5
+
+/* ----------------------------------- */
+//*        Looping Over Arrays         */
+/* ----------------------------------- */
+//? There ara many ways of looping or iterating over arrays.
+
+//! For Loop
+
+const qwe = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+for (let i = 0; i < colors.length; i++) {
+  console.log(colors[i].toUpperCase()); /* RED
+  BLUE
+  PURPLE
+  WHITE
+  ORANGE
+  WHITE
+  */
+}
+
+//! While Loop
+
+let i = 0;
+
+while (i < qwe.length) {
+  if (qwe[i] == "Red") {
+    i++;
+    continue;
+  }
+  console.log(qwe[i].toLowerCase());
+  i++;
+}
+
+//! For-in (empty itemlari atlar)
+
+const abc = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+
+for (let i in abc) {
+  console.log(abc[i]); /* Red
+  Yellow
+  Green
+  Blue
+  Pink
+  Green
+  */
+}
+
+//! For-of (ES6) - Empty itemlari atlamaz!
+
+const items = ["Red", "Yellow", , "Green", "Blue", "Pink", "Green"];
+
+for (let item of items) {
+  console.log(item); /* Red
+  Yellow
+  undefined
+  Green
+  Blue
+  Pink
+  Green
+  */
+}
