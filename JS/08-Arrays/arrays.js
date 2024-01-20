@@ -463,6 +463,10 @@ prices.forEach((price) => {
 //? break ve continue cant be used here
 //? returns new array / default = doesnt mutates the original array
 
+const cars3 = [];
+const newCars3 = cars3.map((car) => car.toUpperCase());
+console.log(newCars3); // []
+
 const cars2 = ["bmw", "mercedes", "audi", "volvo"];
 
 const newCars = cars2.map((car) => car.toUpperCase());
