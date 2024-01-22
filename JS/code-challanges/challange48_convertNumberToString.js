@@ -88,7 +88,7 @@ const convertNumberToString = (num) => {
       }
       break;
     default:
-      result.push("Please enter a valid number"); // for the inputs ==> !typeof number, negative or > 9999
+      result.push("Please enter a valid number"); // for the inputs ==> num > 9999
   }
 
   return result.join(""); // array to string
