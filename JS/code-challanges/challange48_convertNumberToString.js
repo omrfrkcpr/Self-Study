@@ -1,4 +1,4 @@
-//& Example-10 = function that converts the given number (between 0-9999) into text ==> 349 : threehundrednine
+//& write a function called convertNumberToString(num) that converts the given number (between 0-9999) into text ==> 349 : threehundrednine
 
 const convertNumberToString = (num) => {
   // define => units / teens / tens objects
@@ -85,7 +85,7 @@ const convertNumberToString = (num) => {
       }
       break;
     default:
-      result.push("Please enter a valid number"); // for the inputs ==> !typeof number, negative or > 9999 
+      result.push("Please enter a valid number"); // for the inputs ==> !typeof number, negative or > 9999
   }
 
   return result.join("");
