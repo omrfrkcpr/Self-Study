@@ -635,3 +635,79 @@ function changeWord(newSentence) {
 }
 
 console.log(changeWord(sentence)); // DE-08 COHORT MERHABA
+
+//& Example-4 = find specific word in Sentence
+
+const sentence2 = "I like Clarusway";
+
+const findSpecificWord = (ourSentence, specificWord) => {
+  const stringToArray = ourSentence.split(/\s+/);
+  for (let i = 0; i < stringToArray.length; i++) {
+    if (stringToArray.includes(specificWord))
+      return `I found ${specificWord} at ${
+        stringToArray.indexOf(specificWord) + 1
+      }!`;
+    else return `I cant find ${specificWord}!`;
+  }
+};
+
+console.log(findSpecificWord(sentence2, "Clarusway"));
+
+//? 2.Method
+
+const findClarusway = (sentence) => {
+  let index = sentence.split(" ").indexOf("Clarusway");
+  return index !== -1
+    ? `I found Clarusway at ${index + 1}!`
+    : "I can't find Clarusway";
+};
+console.log(findClarusway("I like Clarusway"));
+
+//& Example-5 = Function that converts "six,one,two,four,five,three,seven,eight,nine" to 612453789
+
+function convertToNumber(text) {
+  const numberMap = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
+  };
+
+  // toLowerCase() and remove items
+  const lowerCaseText = text.toLowerCase().split(",");
+
+  // string to number
+  const result = [];
+  for (let value of Object.values(lowerCaseText)) {
+    let stringToNum = numberMap[value];
+    result.push(stringToNum);
+  }
+
+  return result;
+}
+
+const textNumber = "six,one,two,four,five,three,seven,eight,nine";
+console.log(convertToNumber(textNumber));
+
+//& Example-6 = Bir öğe dizisini alan, tüm yinelenen öğeleri kaldıran ve eski diziyle aynı sırada yeni bir dizi döndüren bir fonksiyon oluşturan program
+
+const inputArray = [1, 0, 1, 0, 1];
+const inputArray2 = ["the", "small", "cat", "the", "cat"];
+
+function removedDuplicated(arr) {
+  let uniqueArray = [];
+  arr.forEach((element) => {
+    if (!uniqueArray.includes(element)) {
+      uniqueArray.push(element);
+    }
+  });
+  return uniqueArray;
+}
+console.log(removedDuplicated(inputArray)); // Output [1,0]
+console.log(removedDuplicated(inputArray2)); // ouput["the","small","cat"]
