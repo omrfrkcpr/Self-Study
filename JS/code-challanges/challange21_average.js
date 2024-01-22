@@ -11,6 +11,7 @@ for (i = 0; i < 5; i++) {
 */
 
 //& While
+/*
 let sum = 0;
 let repeat = 0;
 while (repeat < 5) {
@@ -20,11 +21,16 @@ while (repeat < 5) {
   console.log(repeat);
 }
 console.log("Average: ", sum / repeat);
+*/
 
 //& with using array.reduce() method in function
 
 function average(arr) {
-  const sum = numbers.reduce((x, y) => x + y, 0);
+  const valid = arr.filter((num) => num === typeof "number" && !isNaN(num));
+
+  if (valid.length > 0) {
+    const sum = numbers.reduce((x, y) => x + y, 0);
+  }
   return sum / numbers.length;
 }
 const numbers = [34, 56, 56, 87, 98];
