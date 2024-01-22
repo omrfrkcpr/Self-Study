@@ -731,3 +731,159 @@ const numbersUnfiltered = [1, 2, 3, 45, 6, 7, 87, 8, 9, 10, 12, 13, 14, 17];
 const primeNumbers = findPrimesInArray(numbersUnfiltered);
 
 console.log("Prime Numbers:", primeNumbers);
+
+//& Example-8 = Function that takes the elements in an array whose first letter starts with A into a new array
+
+const unfilteredWords = [
+  "Apple",
+  "Banana",
+  "Orange",
+  "Avocado",
+  "Grape",
+  "Apricot",
+];
+
+const filterWords = (arr) => {
+  return arr.filter((word) => word[0] === "A");
+};
+
+console.log(filterWords(unfilteredWords)); // [ 'Apple', 'Avocado', 'Apricot' ]
+
+//? 2.Method
+
+const filterWords2 = (arr) => {
+  return arr.filter((word) => word.startsWith("A"));
+};
+
+console.log(filterWords2(unfilteredWords)); // [ 'Apple', 'Avocado', 'Apricot' ]
+
+//& Example-9 = Create a function with map() method that reverses an array.
+
+const unMapArray = ["Apple", "Banana", "Orange", "Avocado", "Grape", "Apricot"];
+
+function reverseArray(arr) {
+  return arr.map((element, index) => arr[arr.length - index - 1]);
+}
+
+console.log(reverseArray(unMapArray)); // [ 'Apricot', 'Grape', 'Avocado', 'Orange', 'Banana', 'Apple' ]
+
+//& Example-10 = Function that converts the given number to text ==> 349 : threehundrednine
+
+const convertNumberToString = (num) => {
+  // define => units / teens / tens objects
+  const units = {
+    0: "zero",
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
+    7: "seven",
+    8: "eight",
+    9: "nine",
+  };
+  const teens = {
+    0: "ten",
+    1: "eleven",
+    2: "twelve",
+    3: "thirteen",
+    4: "fourteen",
+    5: "fifteen",
+    6: "sixteen",
+    7: "seventeen",
+    8: "eighteen",
+    9: "nineteen",
+  };
+  const tens = {
+    2: "twenty",
+    3: "thirty",
+    4: "forty",
+    5: "fifty",
+    6: "sixty",
+    7: "seventy",
+    8: "eighty",
+    9: "ninety",
+  };
+
+  // hundred and thousand strings for 3 and 4 digit numbers
+  const hundreds = "hundred";
+  const thousands = "thousand";
+
+  // convert num to array
+  const numString = num.toString();
+  const numArray = [];
+  for (let i = 0; i < numString.length; i++) {
+    numArray.push(Number(numString[i]));
+  }
+
+  // empty result array for pushing strings
+  const result = [];
+
+  // switch-case statement => according to array.length
+  switch (numArray.length) {
+    case 1:
+      result.push(units[numArray[0]]);
+      break;
+    case 2:
+      if (numArray[0] === 1) {
+        result.push(teens[numArray[1]]);
+      } else {
+        result.push(tens[numArray[0]]);
+        if (numArray[1] !== 0) {
+          result.push(units[numArray[1]]);
+        }
+      }
+      break;
+    case 3:
+      result.push(units[numArray[0]] + hundreds);
+      if (numArray[1] !== 0 || numArray[2] !== 0) {
+        result.push(
+          convertNumberToString(Number(`${numArray[1]}${numArray[2]}`))
+        );
+      }
+      break;
+    case 4:
+      result.push(units[numArray[0]] + thousands);
+      if (numArray[1] !== 0 || numArray[2] !== 0 || numArray[3] !== 0) {
+        result.push(
+          convertNumberToString(
+            Number(`${numArray[1]}${numArray[2]}${numArray[3]}`)
+          )
+        );
+      }
+      break;
+    default:
+      result.push("Please enter a valid number");
+  }
+
+  return result.join("");
+};
+
+console.log(convertNumberToString(5768)); // "fivethousandsevenhundredsixtyeight"
+
+//& Example-11 = There will be a 10% increase in the salaries given in a TV series, but additional payments will be planned for those who are still below 20000. How many people stay below 20000 even if there is a raise?
+
+let salaries2 = [18000, 13000, 17000, 24000, 18500, 21000, 19300];
+
+const under20k = (salaries) => {
+  return salaries.filter((salary) => salary + salary / 10 < 20000);
+};
+
+console.log(under20k(salaries2).length); // 3
+
+//? Extra Task = Function that shows how much money is needed to raise salaries below 20000 to 20000
+
+const howMuch = (salaries) => {
+  return salaries
+    .filter((salary) => salary + salary / 10 < 20000)
+    .map((salary) => 20000 - salary)
+    .reduce((acc, salary) => acc + salary, 0);
+};
+
+console.log(howMuch(salaries2));
+
+let num2 = 349;
+let numArray2 = Array.from(num2.toString(), Number);
+
+console.log(numArray2);
