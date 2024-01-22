@@ -20,3 +20,12 @@ while (repeat < 5) {
   console.log(repeat);
 }
 console.log("Average: ", sum / repeat);
+
+//& with using array.reduce() method in function
+
+function average(arr) {
+  const sum = numbers.reduce((x, y) => x + y, 0);
+  return sum / numbers.length;
+}
+const numbers = [34, 56, 56, 87, 98];
+console.log(average(numbers));
