@@ -695,7 +695,7 @@ function convertToNumber(text) {
 const textNumber = "six,one,two,four,five,three,seven,eight,nine";
 console.log(convertToNumber(textNumber));
 
-//& Example-6 = Bir öğe dizisini alan, tüm yinelenen öğeleri kaldıran ve eski diziyle aynı sırada yeni bir dizi döndüren bir fonksiyon oluşturan program
+//& Example-6 = Create a function that takes an array of elements, removes all duplicate elements and returns a new array in the same order as the old array
 
 const inputArray = [1, 0, 1, 0, 1];
 const inputArray2 = ["the", "small", "cat", "the", "cat"];
@@ -711,3 +711,23 @@ function removedDuplicated(arr) {
 }
 console.log(removedDuplicated(inputArray)); // Output [1,0]
 console.log(removedDuplicated(inputArray2)); // ouput["the","small","cat"]
+
+//& Example-7 = Create a function that filters the prime numbers in an array (recommended to be done with a filter).
+
+function findPrimesInArray(numbers) {
+  return numbers.filter(function (num) {
+    if (num < 2) return false;
+    for (let i = 2; i < Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+const numbersUnfiltered = [1, 2, 3, 45, 6, 7, 87, 8, 9, 10, 12, 13, 14, 17];
+
+const primeNumbers = findPrimesInArray(numbersUnfiltered);
+
+console.log("Prime Numbers:", primeNumbers);
