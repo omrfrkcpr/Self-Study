@@ -1,6 +1,9 @@
 //& write a function called convertNumberToString(num) that converts the given number (between 0-9999) into text ==> 349 : threehundrednine
 
 const convertNumberToString = (num) => {
+  // check if num is negative or positive number
+  if (num < 0) return "Please enter a valid number";
+
   // define => units / teens / tens objects
   const units = {
     0: "zero",
@@ -88,7 +91,17 @@ const convertNumberToString = (num) => {
       result.push("Please enter a valid number"); // for the inputs ==> !typeof number, negative or > 9999
   }
 
-  return result.join("");
+  return result.join(""); // array to string
 };
 
+console.log(convertNumberToString(349)); // "threehundredfortynine"
 console.log(convertNumberToString(5768)); // "fivethousandsevenhundredsixtyeight"
+console.log(convertNumberToString(106)); // "onehundredsix"
+console.log(convertNumberToString(839)); // "eighthundredthirtynine"
+console.log(convertNumberToString(36)); // "thirtysix"
+console.log(convertNumberToString(0)); // "zero"
+console.log(convertNumberToString(10)); // "ten"
+console.log(convertNumberToString(29)); // "twentynine"
+console.log(convertNumberToString(9999)); // "ninethousandninehundredninetynine"
+console.log(convertNumberToString(10000)); // "Please enter a valid number"
+console.log(convertNumberToString(-100)); // "Please enter a valid number"
