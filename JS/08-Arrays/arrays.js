@@ -612,3 +612,26 @@ const newNums = nums2
   .reduce((sum, num) => sum + num, 0); // sum multiplied even numbers = 60
 
 console.log(newNums); // 60
+
+//! CODE Class
+
+//& Example-1 = Average of numbers
+function average(arr) {
+  const sum = numbers.reduce((x, y) => x + y, 0);
+  return sum / numbers.length;
+}
+const numbers = [34, 56, 56, 87, 98];
+console.log(average(numbers)); // 66.2
+
+//& Example-2 = how many words?
+let sentence = "Merhaba Cohort DE-08";
+const sumWords = sentence.split(" ").length;
+console.log(sumWords); // 3
+
+//& Example-3 = Function that reverses the sentence and prints it as a string in uppercase letters
+function changeWord(newSentence) {
+  let changedSentence = sentence.toUpperCase().split(/\s+/).reverse().join(" ");
+  return changedSentence;
+}
+
+console.log(changeWord(sentence)); // DE-08 COHORT MERHABA
