@@ -1,4 +1,4 @@
-//!
+//! Write the code that takes the username and password from the user and checks them. If it matches, it logs in. If it does not match, it warns you that you could not log in.
 
 const user = "Mark";
 const psswd = "1234";
