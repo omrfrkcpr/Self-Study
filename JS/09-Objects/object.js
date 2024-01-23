@@ -199,6 +199,7 @@ console.log(Object.values(employeesList)); /* [
 //*        JSON - Javascript Script Object Notation           */
 /* ---------------------------------------------------------- */
 //? employeeList.forEach((m)=> console.log(m.name)) // Map, forEach, filter, reduce are not used on objects. Since JSon is an object in an array, array methods map, filter, reduce, forEach can be used.
+
 //? Different data types can be hosted with JSON
 //? Independent of languages.
 //? uses key-value pairs to represent objects. This allows data to be better organized and correlated.
@@ -261,3 +262,138 @@ ELIF
 ESRA
 NIDA
 */
+
+/* ---------------------------------------------------------- */
+//*                     OBJECT ITERATION                      */
+/* ---------------------------------------------------------- */
+//? Since the keys do not have a specific order (index), the object search will have a more consistent search performance if we put them in an array. Also looping through arrays is faster than looping through keys, so if you plan to operate on all elements it might be wise to put them in an array.
+
+const people = [
+  {
+    name: "Mustafa",
+    surname: "Gertrud",
+    job: "developer",
+    age: 30,
+  },
+  {
+    name: "Halo",
+    surname: "Müller",
+    job: "tester",
+    age: 35,
+  },
+  {
+    name: "Mehmet",
+    surname: "Rosenberg",
+    job: "team lead",
+    age: 40,
+  },
+  {
+    name: "Ozkul",
+    surname: "Gutenberg",
+    job: "developer",
+    age: 26,
+  },
+
+  {
+    name: "Baser",
+    surname: "Shaffer",
+    job: "tester",
+    age: 24,
+  },
+];
+
+//! Example-1 : display persons' jobs in people array
+
+people.forEach((person) => console.log(person.job)); /* developer
+tester
+team lead
+developer
+tester */
+
+//! Example-2 : increase every each of persons' ages and assign it to a new array
+
+const newAges = people.map((person) => person.age + 1);
+console.log(newAges); // [ 31, 36, 41, 27, 25 ]
+console.table(people);
+/*
+┌─────────┬───────────┬─────────────┬─────────────┬─────┐
+│ (index) │   name    │   surname   │     job     │ age │
+├─────────┼───────────┼─────────────┼─────────────┼─────┤
+│    0    │ 'Mustafa' │  'Gertrud'  │ 'developer' │ 30  │
+│    1    │  'Halo'   │  'Müller'   │  'tester'   │ 35  │
+│    2    │ 'Mehmet'  │ 'Rosenberg' │ 'team lead' │ 40  │
+│    3    │  'Ozkul'  │ 'Gutenberg' │ 'developer' │ 26  │
+│    4    │  'Baser'  │  'Shaffer'  │  'tester'   │ 24  │
+└─────────┴───────────┴─────────────┴─────────────┴─────┘
+*/
+
+//! Example-3 : increase every each of persons' ages in people array permanently!
+
+people.map((person, index, array) => (array[index].age = person.age += 1)); //* change ages permanently
+console.log(people[0].age); // 31
+console.log(people[1].age); // 36
+console.log(people[2].age); // 41
+console.log(people[3].age); // 27
+console.log(people[4].age); // 25
+
+//! Example-4 : create a new object with new keys array from the people (object) array, with their ages changed by 5 and salary added.
+
+const newPeople = people.map((person) => ({
+  name1: person.name,
+  surname1: person.surname,
+  job1: person.job,
+  age1: person.age + 5,
+  salary1: 30000,
+}));
+
+console.table(newPeople);
+/*
+┌─────────┬───────────┬─────────────┬─────────────┬──────┬─────────┐
+│ (index) │   name1   │  surname1   │    job1     │ age1 │ salary1 │
+├─────────┼───────────┼─────────────┼─────────────┼──────┼─────────┤
+│    0    │ 'Mustafa' │  'Gertrud'  │ 'developer' │  36  │  30000  │
+│    1    │  'Halo'   │  'Müller'   │  'tester'   │  41  │  30000  │
+│    2    │ 'Mehmet'  │ 'Rosenberg' │ 'team lead' │  46  │  30000  │
+│    3    │  'Ozkul'  │ 'Gutenberg' │ 'developer' │  32  │  30000  │
+│    4    │  'Baser'  │  'Shaffer'  │  'tester'   │  30  │  30000  │
+└─────────┴───────────┴─────────────┴─────────────┴──────┴─────────┘
+*/
+
+//! Example-5 : Change the name of each element in capital letters, double their age, add the word senior in front of their jobs and assign them to a new array.
+
+const updatePeople = people.map((person) => ({
+  name: person.name.startsWith("M") ? person.name.toUpperCase() : person.name,
+  surname: person.surname,
+  job: "Senior " + person.job,
+  age: person.age * 2,
+}));
+
+console.table(updatePeople);
+
+//! Example-6 : Find the average age of the people in the people (object)
+
+console.log(
+  people.reduce((sum, person) => sum + person.age, 0) / people.length
+);
+console.log(people);
+
+//! Example-7 : Save the names and ages of developers as a new object
+
+const devNameAge = people
+  .filter((person) => person.job === "developer")
+  .map((person) => ({
+    name: person.name,
+    age: person.age,
+  }));
+
+console.log(devNameAge); // [ { name: 'Mustafa', age: 31 }, { name: 'Ozkul', age: 27 } ]
+
+//! Example-8 : List the names of people over the age of 33
+
+const oldPeople = people
+  .filter((person) => person.age > 33)
+  .map((person) => ({
+    name: person.name,
+  }));
+
+console.log(oldPeople); // [ { name: 'Halo' }, { name: 'Mehmet' } ]
