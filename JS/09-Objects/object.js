@@ -194,3 +194,70 @@ console.log(Object.values(employeesList)); /* [
       job: 'devops'
     }
   ] */
+
+/* ---------------------------------------------------------- */
+//*        JSON - Javascript Script Object Notation           */
+/* ---------------------------------------------------------- */
+//? employeeList.forEach((m)=> console.log(m.name)) // Map, forEach, filter, reduce are not used on objects. Since JSon is an object in an array, array methods map, filter, reduce, forEach can be used.
+//? Different data types can be hosted with JSON
+//? Independent of languages.
+//? uses key-value pairs to represent objects. This allows data to be better organized and correlated.
+//? JSON is fast in terms of data processing. Therefore, it is widely used in web applications and services.
+
+let employeesList2 = [
+  {
+    name1: "Abdulkadir",
+    lastName: "BAKI",
+    datOfBirth: 1980,
+    salary: 20000,
+    job: "developer",
+  },
+  {
+    name2: "Elif",
+    lastName: "AKALIN",
+    datOfBirth: 1990,
+    salary: 18000,
+    job: "tester",
+  },
+  {
+    name3: "Esra",
+    lastName: "BILGIN",
+    datOfBirth: 1985,
+    salary: 15000,
+    job: "devops",
+  },
+];
+
+//* add an element to json
+
+employeesList2.push({
+  name4: "Nida",
+  lastName: "GULER",
+  datOfBirth: "1995",
+  salary: 1995,
+  job: "devops",
+});
+
+console.log(employeesList2.length); // 4
+employeesList2.forEach((t) => console.log(t.lastName)); /* BAKI
+AKALIN
+BILGIN
+GULER */
+
+employeesList2.map((a) => Object.values(a)).forEach((a) => console.log(a));
+/*
+[ 'Abdulkadir', 'BAKI', 1980, 20000, 'developer' ]
+[ 'Elif', 'AKALIN', 1990, 18000, 'tester' ]
+[ 'Esra', 'BILGIN', 1985, 15000, 'devops' ]
+[ 'Nida', 'GULER', '1995', 1995, 'devops' ]
+*/
+
+employeesList2
+  .map((a) => Object.values(a)[0].toUpperCase())
+  .forEach((a) => console.log(a));
+/*
+ABDULKADIR
+ELIF
+ESRA
+NIDA
+*/
