@@ -245,3 +245,121 @@ const show = (name, surname, ...info) => {
 };
 
 show("asiye", "yildiz", "developer", "mom", "teacher", "computer science");
+
+//? ------------------------------------------------------
+//?  SPREAD==>> parçala (yapısını boz)-> istenilen diziye ekle,içinde gezin vs
+//? ------------------------------------------------------
+
+//* Ornek people (object li ) dizisinden yaşları değişmiş olarak yeni bir object li dizi oluşturalım
+
+const menschen = [
+  {
+    name: "Mustafa",
+    surname: "Gertrud",
+    job: "developer",
+    age: 30,
+  },
+  {
+    name: "Halo",
+    surname: "Müller",
+    job: "tester",
+    age: 35,
+  },
+  {
+    name: "Mehmet",
+    surname: "Rosenberg",
+    job: "team lead",
+    age: 40,
+  },
+  {
+    name: "Ozkul",
+    surname: "Gutenberg",
+    job: "developer",
+    age: 26,
+  },
+
+  {
+    name: "Baser",
+    surname: "Shaffer",
+    job: "tester",
+    age: 24,
+  },
+];
+
+const neuMenschen = menschen.map((mensch) => ({
+  name: mensch.name,
+  surname: mensch.surname,
+  job: mensch.job,
+  age: mensch.age + 5,
+}));
+console.log(neuMenschen);
+/*
+[
+  { name: 'Mustafa', surname: 'Gertrud', job: 'developer', age: 35 },
+  { name: 'Halo', surname: 'Müller', job: 'tester', age: 40 },
+  { name: 'Mehmet', surname: 'Rosenberg', job: 'team lead', age: 45 },
+  { name: 'Ozkul', surname: 'Gutenberg', job: 'developer', age: 31 },
+  { name: 'Baser', surname: 'Shaffer', job: 'tester', age: 29 }
+]
+*/
+
+//^ Copy Object (spread)
+
+//* SPREAD  obje de değişmesini istemediğimiz elemanlar için ... kullanıyoruz ÖNEMLİ***!!!!!
+
+//! Example-1
+
+const neuMensch = menschen.map((mensch) => ({
+  ...mensch,
+  age: mensch.age + 6,
+}));
+console.log(neuMensch);
+/*
+[
+  { name: 'Mustafa', surname: 'Gertrud', job: 'developer', age: 36 },
+  { name: 'Halo', surname: 'Müller', job: 'tester', age: 41 },
+  { name: 'Mehmet', surname: 'Rosenberg', job: 'team lead', age: 46 },
+  { name: 'Ozkul', surname: 'Gutenberg', job: 'developer', age: 32 },
+  { name: 'Baser', surname: 'Shaffer', job: 'tester', age: 30 }
+]
+*/
+
+//! Example-2
+
+const fahrzeuge = ["Aircraft", "Helicopter", "Bicycle"];
+const modelle = ["Trucks", "Bus", "Car", "SUV"];
+
+console.log(fahrzeuge, modelle); // [ 'Aircraft', 'Helicopter', 'Bicycle' ] [ 'Trucks', 'Bus', 'Car', 'SUV' ]
+console.log(fahrzeuge.concat(modelle)); // [ 'Aircraft', 'Helicopter', 'Bicycle', 'Trucks', 'Bus', 'Car', 'SUV' ]
+console.log([...fahrzeuge, "Tram", ...modelle, "Hatchback"]); /* [
+    'Aircraft',  'Helicopter',
+    'Bicycle',   'Tram',
+    'Trucks',    'Bus',
+    'Car',       'SUV',
+    'Hatchback'
+] */
+
+//! Example-3
+
+// ******************* job:father olsun ve location:USA ekleyelim (spread ile yapalım) sonucu yeni bir diziye atalım
+
+const personell = {
+  pName: "Johny",
+  surname: "DEEP",
+  job: "actor",
+  age: 55,
+  salary: 30000,
+};
+
+const personell2 = { ...personell, job: "father", location: "USA" };
+console.log(personell2);
+/*
+{
+  pName: 'Johny',
+  surname: 'DEEP',
+  job: 'father',
+  age: 55,
+  salary: 30000,
+  location: 'USA'
+}
+*/
