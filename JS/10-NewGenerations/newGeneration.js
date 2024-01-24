@@ -153,3 +153,95 @@ const control2 = ({ name, color, star }) => {
 };
 
 control2({ name: "BJK", color: "black-white", star: 2 });
+
+// ====================================================== //
+//*     NEW GENERATION OPERATORS: SPREAD OR REST (...)    //
+// ====================================================== //
+//? ------------------------------------------------------
+//?  REST =>>[...name]=diziden (ya da object den) alınmayan, geri kalanları yeni bir (diziyse) diziye,(object se)object e atıyor
+//? ------------------------------------------------------
+
+//! 1- Bir dizi veya object'deki bazi degerlerden geri kalanlarini
+//!    ayri dizi yada objelere kopyalanmasini saglayabilir.
+
+//*REST OBJECT***************************************
+
+const personel = {
+  pName: "Johny",
+  surname: "DEEP",
+  job: "actor",
+  age: 55,
+  salary: 30000,
+};
+
+const { pName, surname, ...rest } = personel;
+console.log(pName); // Johny
+console.log(surname); // DEEP
+console.log(rest); // { job: 'actor', age: 55, salary: 30000 }
+
+//^ Copy Object (rest)
+
+// Define new variable (dependent each other)
+const twinPersonel = personel;
+
+// Copy from the original object with rest operator (independent)
+const { ...personel2 } = personel;
+console.log(personel2);
+/*
+{
+  pName: 'Johny',
+  surname: 'DEEP',
+  job: 'actor',
+  age: 55,
+  salary: 30000
+}
+*/
+
+//***** orjinal diziyle aynı şartlarda bir kopya oluşturduk, bu yüzden kopyada yapılan değişiklik orjinal diziyi de etkiledi */
+twinPersonel.job = "father";
+console.log(personel.job); // father
+console.log(personel2.job); // actor
+console.log(twinPersonel.job); // father
+
+//*** orjinal diziden farklı bir kopya oluşturduğumuz için, bu kopyaya yapılan değişiklik orjinal diziyi bozmaz*/
+personel2.age = 56;
+console.log(personel.age); // 55
+console.log(personel2.age); // 56
+console.log(twinPersonel.age); // 55
+
+//^ Copy Array (rest)
+
+const autos = ["anadol", "renault", "tofas", "ferrari"];
+const twinAutos = autos; // new array define
+const [...autos2] = autos; // copy of array
+
+autos2.push("bmw");
+console.log(autos); // [ 'anadol', 'renault', 'tofas', 'ferrari' ]
+console.log(autos2); //* [ 'anadol', 'renault', 'tofas', 'ferrari', 'bmw' ]
+console.log(twinAutos); // [ 'anadol', 'renault', 'tofas', 'ferrari' ]
+
+twinAutos.unshift("mercedes");
+console.log(autos); // [ 'mercedes', 'anadol', 'renault', 'tofas', 'ferrari' ]
+console.log(autos2); //* [ 'anadol', 'renault', 'tofas', 'ferrari', 'bmw' ]
+console.log(twinAutos); // [ 'mercedes', 'anadol', 'renault', 'tofas', 'ferrari' ]
+
+//^ Function Argument to Array (rest)
+
+//! Example-1
+
+//? Wrong Way
+const sum = (x, y) => x + y;
+console.log(sum(1, 2, 3, 4, 5, 6)); // 3 (just first 2 index)
+
+//? Right Way
+const sum2 = (...x) => console.log(x.reduce((acc, num) => acc + num, 0)); // 21
+sum2(1, 2, 3, 4, 5, 6);
+
+//! Example-2
+
+const show = (name, surname, ...info) => {
+  console.log(info); // [ 'developer', 'mom', 'teacher', 'computer science' ]
+  console.log(`${name} ${surname} is a ${info.join(" and ")}`); // asiye yildiz is a developer and mom and teacher and computer science
+};
+
+show("asiye", "yildiz", "developer", "mom", "teacher", "computer science");
