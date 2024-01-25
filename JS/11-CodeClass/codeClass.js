@@ -1,6 +1,7 @@
 /* -------------------------------------------------------------------------- */
-/*                                 1.QUESTION                                 */
+//*                                 1.QUESTION                                */
 /* -------------------------------------------------------------------------- */
+
 const userTodos = [
   {
     userId: 1,
@@ -609,3 +610,38 @@ const userTodos = [
     completed: false,
   },
 ];
+
+// userTodos.forEach((user) => {
+//   console.log(user.title + " : " + user.completed);
+// });
+
+//^============================================================================
+
+// userTodos
+//   .filter((user) => user.id === 1)
+//   .forEach((person) => console.log(`${person.title} : ${person.completed}`));
+
+//^============================================================================
+
+// userTodos
+//   .filter((user) => user.userId === 1 && user.completed === true)
+//   .forEach((user) => console.log(user.title));
+
+//^============================================================================
+
+// const id = +prompt("Please enter a userId number (1-5)");
+
+// userTodos
+//   .filter((user) => user.userId === id && user.completed === true)
+//   .forEach((user) => console.log(user.title));
+
+//^============================================================================
+
+// userTodos.push({
+//   userId: 6,
+//   id: userTodos.length + 1,
+//   title: "excepturi a et neque qui expedita vel voluptate",
+//   completed: true,
+// });
+
+//^============================================================================
