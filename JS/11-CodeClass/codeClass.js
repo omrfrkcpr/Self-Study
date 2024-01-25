@@ -1249,3 +1249,17 @@ const products = [
 //   });
 
 //^============================================================================
+
+// products
+//   .filter((product) => product.category !== "home-decoration")
+//   .forEach((product) => console.log(product));
+
+//^============================================================================
+
+// const productId = +prompt("Please enter a product id you wanna remove");
+// const newProducts = products.filter(({ id }) => id !== productId);
+// console.log(newProducts);
+
+//^============================================================================
+
+//& CRUD => create / read / update / delete
