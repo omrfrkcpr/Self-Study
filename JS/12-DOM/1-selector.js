@@ -72,7 +72,7 @@ title[1].textContent = "Are u allright?";
 //*======================================================
 
 document.querySelector("title").textContent = "DOM MANIPULATION :)";
-document.querySelector("#body").style.backgroundImage =
+document.querySelector("#badi").style.backgroundImage =
   "linear-gradient(green,pink)";
 document.querySelector(".H2").style.color = "pink";
 
