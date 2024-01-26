@@ -31,7 +31,7 @@ par1.textAlign = "center";
 
 const image = document.getElementsByTagName("img");
 
-image[0].style.width = "100%";
+image[0].style.width = "50%";
 image[1].style.border = "5px solid red";
 image[1].style.width = "300px";
 
@@ -66,3 +66,45 @@ title[0].style.padding = "1rem";
 
 //^ sadece içerik değişecekse textContent tercih edilir, ama innerHTML de etiketi değiştirebildiği gibi, sadece içeriği de değiştirebilir
 title[1].textContent = "Are u allright?";
+
+//* ======================================================
+//*           QUERYSELECTOR,QUERYSELECTORALL
+//*======================================================
+
+document.querySelector("title").textContent = "DOM MANIPULATION :)";
+document.querySelector("#body").style.backgroundImage =
+  "linear-gradient(green,pink)";
+document.querySelector(".H2").style.color = "pink";
+
+const parag = document.querySelectorAll("p");
+console.log(parag); //? NodeList
+
+parag[1].style.fontSize = "3rem";
+parag[1].style.textAlign = "right";
+parag[1].style.marginRight = "3rem";
+
+// Bir NodeList ve bir HTMLcollection hemen hemen aynı şeydir.
+
+// Her ikisi de bir belgeden çıkarılan düğümlerin (öğelerin-node) dizi benzeri koleksiyonlarıdır (listeleridir). Düğümlere indeks numaraları ile erişilebilir. indeks 0'dan başlar.
+
+// Her ikisinin de listedeki (koleksiyon) öğelerin sayısını döndüren bir uzunluk özelliği (length) vardır.
+
+// HTMLCollection öğelerine adları, kimlikleri veya dizin numaralarıyla erişilebilir.
+// baslik.namedItem("id1").style.color = "red";
+//  baslik[0].style.color="red";
+
+// NodeList öğelerine yalnızca dizin numaralarıyla erişilebilir.
+
+// Bir HTMLCollection her zaman canlı bir koleksiyondur. Örnek: DOM'daki bir listeye bir <li> öğesi eklerseniz, HTMLCollection'daki liste de değişecektir.
+
+// Bir NodeList genellikle statik bir koleksiyondur. Örnek: DOM'daki bir listeye bir <li> öğesi eklerseniz, NodeList'teki liste değişmez.
+// getElementsByClassName()ve yöntemleri , getElementsByTagName() canlı bir HTMLCollection döndürür.
+
+// querySelectorAll(), statik bir NodeList döndürür.
+// !burada netten https://softauthor.com/javascript-htmlcollection-vs-nodelist/ adresinden göster
+// Dizi Değil!
+// Bir NodeList bir dizi gibi görünebilir ama öyle değildir.
+
+// Bir NodeList içinde döngü yapabilir ve düğümlerine dizine göre başvurabilirsiniz.
+
+// Ancak, bir NodeList'te push(), pop() veya join() gibi Array yöntemlerini kullanamazsınız.
