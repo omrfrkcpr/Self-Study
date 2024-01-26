@@ -18,9 +18,16 @@
       <section id="input-section" class="border border-3 border-black p-4 m-5">
         <label for="radius" class="fs-2 border-bottom border-2"
           >Please enter radius</label
-        ><br />
+        ><br /><br />
+        <label for="mm">millimeter</label>
+        <input type="radio" id="mm" name="type" class="type" />
+        <label for="cm">centimeter</label>
+        <input type="radio" id="cm" name="type" class="type" />
+        <label for="m">meter</label>
+        <input type="radio" id="m" name="type" class="type" /><br />
+
         <input type="number" id="radius" class="mt-4" /><br />
-        <button class="mt-4 border border-1 border-black bg-warning">
+        <button class="calculate mt-4 border border-1 border-black bg-warning">
           Calculate
         </button>
       </section>
@@ -38,8 +45,6 @@
           <span class="circumference text-black">0</span>
         </p>
       </section>
-
-      <div class="circle"></div>
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
