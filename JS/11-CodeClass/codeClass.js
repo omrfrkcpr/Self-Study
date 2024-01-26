@@ -611,11 +611,17 @@ const userTodos = [
   },
 ];
 
+
+//! Bir Todo Uygulamasında 5 tane kullanıcının todolistinin olduğu Json dosyasında
+//!a-Kullanıcıların yapılacak title'ını ve completed durumunu listeleyelim
+
 // userTodos.forEach((user) => {
 //   console.log(user.title + " : " + user.completed);
 // });
 
 //^============================================================================
+
+//! b- Birinci kullanıcının todo bilgisi ve yapılıp yapılmama durumunu listeleyin
 
 // userTodos
 //   .filter((user) => user.id === 1)
@@ -623,11 +629,15 @@ const userTodos = [
 
 //^============================================================================
 
+//! c- Birinci kullanıcının (id si 1 olan) sadece bitirdiği işlerin listesi
+
 // userTodos
 //   .filter((user) => user.userId === 1 && user.completed === true)
 //   .forEach((user) => console.log(user.title));
 
 //^============================================================================
+
+//! d- Kullanıcının girdiği id'ye sahip kişinin bitirdiği işlerin listesi
 
 // const id = +prompt("Please enter a userId number (1-5)");
 
@@ -636,6 +646,8 @@ const userTodos = [
 //   .forEach((user) => console.log(user.title));
 
 //^============================================================================
+
+//! e - Bu yapıya yeni bir eleman ekleyelim
 
 // userTodos.push({
 //   userId: 6,
@@ -1227,11 +1239,25 @@ let products = [
   },
 ];
 
+//! a- Ürün ve fiyatları listeyelim 
+
 // products.forEach((product) =>
 //   console.log(`${product.title} : ${product.price}`)
 // );
 
+//& Altermative with Destructuring
+
+// products.forEach(({ title, price }) =>
+//   console.log(`${title} ürün fiyatı : ${price}`)
+// );
+
 //^============================================================================
+
+//! b- İlk ürünün bilgilerini object destructure yöntemi ile  gösterelim
+// title
+// description
+// price
+// category
 
 // products
 //   .filter((product) => product.id === 1)
@@ -1242,6 +1268,8 @@ let products = [
 
 //^============================================================================
 
+// ! c- laptopların adını ve fiyatlarını listeleyelim
+
 // products
 //   .filter((product) => product.category == "laptops")
 //   .forEach(({ title, price }) => {
@@ -1250,11 +1278,15 @@ let products = [
 
 //^============================================================================
 
+//! d- Firmamız home-decoration categorisine sahip ürünleri ayrı bir sitede yayınlama kararı aldığı için bu ürünleri pörtföyünden çıkartacak. Bu karategorideki ürünleri listeden çıkaralım.
+
 // products
 //   .filter((product) => product.category !== "home-decoration")
 //   .forEach((product) => console.log(product));
 
 //^============================================================================
+
+//! e- Kullanıcının seçtiği ürünü (id si girilen ürünü) silelim  -delete
 
 // const productId = +prompt("Please enter a product id you wanna remove");
 // const newProducts = products.filter(({ id }) => id !== productId);
@@ -1265,6 +1297,8 @@ let products = [
 //& CRUD => create / read / update / delete
 
 //^============================================================================
+
+//! f- Yeni ürün ekleyelim - create
 
 // products.push({
 //   id: products.length + 1,
@@ -1285,7 +1319,7 @@ let products = [
 //   ],
 // });
 
-// //& Alternative with using Spread operator
+//& Alternative with using Spread operator
 
 // const addNewProduct = {
 //   id: products.length + 1,
@@ -1311,6 +1345,8 @@ let products = [
 
 //^============================================================================
 
+//! g- Rest operatorunu kullanarak, fiyatları indirimli fiyatlar ile güncelleyelim  - Update
+
 // let discountedProducts = products.map((product) => ({
 //   ...product,
 //   price: +(
@@ -1322,6 +1358,9 @@ let products = [
 // console.log(discountedProducts);
 
 //^============================================================================
+
+//! h- Her kategoride kaç ürün olduğunu gösterelim
+
 /*
 function getCategoryAndProductCounts(productList) {
   // Create an empty object to store the number of products for each category.
@@ -1588,15 +1627,14 @@ const customerList = [
   },
 ];
 
-//!1- Müşteri bilgilerini düzenli bir şekilde göstermek istiyor.Bunun için
-//   İsim - adres ve telefonlarını yeni bir listeye alarak düzenli bir şekide gösterecektir.
+//! 1- Müşteri bilgilerini düzenli bir şekilde göstermek istiyor.Bunun için isim - adres ve telefonlarını yeni bir listeye alarak düzenli bir şekide gösterecektir.
 
-// Beklenen Sonuç:
-// [
-//     {name: 'LEANNE GRAHAM', adress: 'Gwenborough city, Kulas Light street Apt. 556 suite', phone: '1-770-736-8031 x56442'}
-//     {name: 'ERVIN HOWELL', adress: 'Wisokyburgh city, Victor Plains street Suite 879 suite', phone: '010-692-6593 x09125'}
-//     {name: 'CLEMENTINE BAUCH', adress: 'McKenziehaven city, Douglas Extension street Suite 847 suite', phone: '1-463-123-4447'}
-// ]
+//! Beklenen Sonuç:
+//! [
+//!     {name: 'LEANNE GRAHAM', adress: 'Gwenborough city, Kulas Light street Apt. 556 suite', phone: '1-770-736-8031 x56442'}
+//!     {name: 'ERVIN HOWELL', adress: 'Wisokyburgh city, Victor Plains street Suite 879 suite', phone: '010-692-6593 x09125'}
+//!     {name: 'CLEMENTINE BAUCH', adress: 'McKenziehaven city, Douglas Extension street Suite 847 suite', phone: '1-463-123-4447'}
+//! ]
 
 const sortedCustomerList = (arr) => {
   return arr.map((list) => ({
@@ -1608,18 +1646,18 @@ const sortedCustomerList = (arr) => {
 console.log(sortedCustomerList(customerList));
 
 /* -------------------------------------------------------------------------- */
-//!2- Müşterilerinin bazılarına telefon ile arayıp memnuniyet anketi yapacaktır
-// Baş harfi e ile başlıyorsa Pazartesi,
-// Baş harfi C ile başlıyorsa Çarşamba arayacaktır
+//! 2- Müşterilerinin bazılarına telefon ile arayıp memnuniyet anketi yapacaktır
+//! Baş harfi e ile başlıyorsa Pazartesi,
+//! Baş harfi C ile başlıyorsa Çarşamba arayacaktır
 
-// Beklenen Sonuç:
-// Pazartesi Aranacaklar
-// {name: 'ERVIN HOWELL', phone: '010-692-6593 x09125'}
+//! Beklenen Sonuç:
+//! Pazartesi Aranacaklar
+//! {name: 'ERVIN HOWELL', phone: '010-692-6593 x09125'}
 
-// Çarşamba Aranacaklar
-// {name: 'CLEMENTINE BAUCH', phone: '1-463-123-4447'}
-// {name: 'CHELSEY DIETRICH', phone: '(254)954-1289'}
-// {name: 'CLEMENTINA DUBUQUE', phone: '024-648-3804'}
+//! Çarşamba Aranacaklar
+//! {name: 'CLEMENTINE BAUCH', phone: '1-463-123-4447'}
+//! {name: 'CHELSEY DIETRICH', phone: '(254)954-1289'}
+//! {name: 'CLEMENTINA DUBUQUE', phone: '024-648-3804'}
 
 const callOrder = (list) => {
   const monday = list
@@ -1640,11 +1678,11 @@ const callOrder = (list) => {
 console.log(callOrder(customerList));
 
 /* -------------------------------------------------------------------------- */
-//!3- id Ad-ve email adreslerini ayrı bir listeye alıp, id numaraları tek sayı olanlara yeni çıkan elektronik cihazları ile ilgili mesaj ekleyecek, çift sayı olanlara yeni çıkan küçük ev aleti mesajını ekleyecektir
+//! 3- id Ad-ve email adreslerini ayrı bir listeye alıp, id numaraları tek sayı olanlara yeni çıkan elektronik cihazları ile ilgili mesaj ekleyecek, çift sayı olanlara yeni çıkan küçük ev aleti mesajını ekleyecektir
 
-// Beklenen Sonuc
-// {name: 'Leanne Graham', phone: 'Sincere@april.biz', mesaj: 'Yeni çıkan XXX elektronik cihazımızı mutlaka denemelisiniz '}
-// {name: 'Ervin Howell', phone: 'Shanna@melissa.tv', mesaj: ' Yeni Çıkan kahve yapma makinamızı deneyin.Memnun kalacaksınız'}
+//! Beklenen Sonuc
+//! {name: 'Leanne Graham', phone: 'Sincere@april.biz', mesaj: 'Yeni çıkan XXX elektronik cihazımızı mutlaka denemelisiniz '}
+//! {name: 'Ervin Howell', phone: 'Shanna@melissa.tv', mesaj: ' Yeni Çıkan kahve yapma makinamızı deneyin.Memnun kalacaksınız'}
 
 const newCustomerList = customerList.map((list) => ({
   id: list.id,
