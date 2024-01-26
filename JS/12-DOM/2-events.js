@@ -10,8 +10,8 @@ js.onmouseover = () => {
   badi.style.backgroundColor = "pink";
 };
 
-js.onmouseover = () => {
-  badi.style.backgroundColor = "red";
+js.onmouseout = () => {
+  badi.style.backgroundColor = "lightgreen";
 };
 
 //^ Example-2 (onclick-ondoubleclick (ondblclick))
@@ -40,3 +40,26 @@ btn.onclick = () => {
   document.querySelector("#par1").style.fontSize = "3rem";
   btn.textContent = "Clicked!";
 };
+
+//* METHOD-2 (Only using JS)
+//* ---------------------------------------------------------------
+//? addEventListener([event name],[event function])
+
+//^ Example-3 (addEventListener())
+
+btn.addEventListener("click", () => {
+  badi.style.backgroundImage = "linear-gradient(to right, purple, gray)";
+  document.querySelector("#par1").style.fontSize = "3rem";
+  btn.textContent = "Clicked!";
+});
+
+//* METHOD-3 (HTML-INLINE)
+//* ---------------------------------------------------------------
+
+//^ EXAMPLE-4 (Mouse Over, Mouse Out )
+
+/*
+<!--! EVENTS -->
+    <!-- inline js kodlari -->
+    <h1 onmouseover="style.color='yellow'" onmouseout="style.color='red'">DOM IN JAVASCRIPT</h1>
+*/
