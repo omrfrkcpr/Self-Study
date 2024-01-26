@@ -45,3 +45,45 @@ textInput.onkeyup = () => {
     ? (textInput.value = textInput.value.toUpperCase())
     : (textInput.value = textInput.value.toLowerCase());
 };
+
+//? adding h1 element and to index.html (Programming Languages) - long way
+
+// create h1 tag
+const title2 = document.createElement("h1");
+{
+  /* <h1></h1> */
+}
+
+// add class name into h1
+title2.className = "title2";
+{
+  /* <h1 class="title2"></h1> */
+}
+
+// add text (Programming Languages)
+const text = document.createTextNode("Programming Languages");
+
+// make text appendChild of h1
+title2.appendChild(text);
+{
+  /* <h1 class="title2">Programming Languages</h1> */
+}
+
+// make h1(text) lastChild of inputdiv
+const inputdiv = document.querySelector(".input-div");
+inputdiv.appendChild(title2);
+
+// place our h1 after the div called input-div
+inputdiv.after(title2);
+//!!  "append" metodu ile seçtiğimiz Html etiketi bitmeden önceki son kısma ekleme yapabiliriz (<div>merhaba -buraya-  </div>).  "prepend" metodu ile seçtiğimiz Html etiketi başladıktan sonraki ilk kısma ekleme yapabiliriz  (<div> -buraya-  merhaba   </div>).  "after" metodu ile ile seçtiğimiz Html etiketi bittikten sonraki ilk kısma ekleme yapabiliriz (<div> merhaba </div>  -buraya-). before ile de etiketin önüne ekleyebiliriz
+
+//? adding h1 element and to index.html (Programming Languages) - short way(backtick = ``)
+
+// const inputdiv = document.querySelector(".input-div");
+// inputdiv.innerHTML = inputdiv.innerHTML+h1
+
+inputdiv.innerHTML += `<h1 class="shortTitle text-primary">Programming Languages</h1>`; // input div in icinde
+
+//! kisayol ile daha once event yapilmis bir tag in icerisine ekleme yaparsak eventler dogru calismayabilir. Bu yuzden yeri olmayan bir etiketi kisayol ile eklemek istiyorsak, html de onun icin bos bir div acmakta fayda var
+
+document.querySelector(".must").innerHTML +=  `<h1 class="shortTitle text-primary">Programming Languages</h1>`;
