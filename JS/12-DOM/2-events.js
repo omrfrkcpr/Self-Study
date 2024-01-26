@@ -32,3 +32,11 @@ img2.onclick = () => {
 img2.ondblclick = () => {
   img2.src = "./img/bir.jpeg";
 }; // change the img by double click
+
+const btn = document.querySelector("#btn");
+
+btn.onclick = () => {
+  badi.style.backgroundImage = "linear-gradient(to right, purple, gray)";
+  document.querySelector("#par1").style.fontSize = "3rem";
+  btn.textContent = "Clicked!";
+};
