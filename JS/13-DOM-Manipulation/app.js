@@ -34,3 +34,14 @@ image.addEventListener("mouseout", () => {
   image.src = "./img/aslan1.jpeg";
   document.querySelector(".tone2").pause();
 });
+
+//? after type something get input from boxes (onkeyup)
+
+const textInput = document.querySelector(".textbox");
+const checkInput = document.querySelector(".checkbox");
+
+textInput.onkeyup = () => {
+  checkInput.checked
+    ? (textInput.value = textInput.value.toUpperCase())
+    : (textInput.value = textInput.value.toLowerCase());
+};
