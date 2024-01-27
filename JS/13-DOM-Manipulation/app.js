@@ -82,8 +82,8 @@ inputdiv.after(title2);
 // const inputdiv = document.querySelector(".input-div");
 // inputdiv.innerHTML = inputdiv.innerHTML+h1
 
-inputdiv.innerHTML += `<h1 class="shortTitle text-primary">Programming Languages</h1>`; // input div in icinde
+// inputdiv.innerHTML += `<h1 class="shortTitle text-primary">Programming Languages</h1>`; // input div in icinde
 
 //! kisayol ile daha once event yapilmis bir tag in icerisine ekleme yaparsak eventler dogru calismayabilir. Bu yuzden yeri olmayan bir etiketi kisayol ile eklemek istiyorsak, html de onun icin bos bir div acmakta fayda var
 
-document.querySelector(".must").innerHTML +=  `<h1 class="shortTitle text-primary">Programming Languages</h1>`;
+// document.querySelector(".must").innerHTML +=  `<h1 class="shortTitle text-primary">Programming Languages</h1>`;
