@@ -1,4 +1,4 @@
-//! Write a program that prints the greates and smallest values among n numbers.
+//! Write a program that prints the biggest and smallest values among n numbers.
 
 let n = 4;
 let num = +prompt("Enter a number:");
