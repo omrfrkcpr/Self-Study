@@ -12,7 +12,7 @@ for (num = 1000; num < 2000; num++) {
 */
 
 //& while
-/*
+
 let num = 1000;
 let order = 1;
 
@@ -23,4 +23,3 @@ while (num <= 2000) {
   }
   num++;
 }
-*/
