@@ -1,9 +1,11 @@
+// Write the codes that give output in accordance with the * notations given below.
+
 //! #
 //! ##
 //! ###
 //! ####
 //! #####
-/*
+
 let size = 5;
 for (i = 1; i < size + 1; i++) {
   let row = " ";
@@ -12,19 +14,18 @@ for (i = 1; i < size + 1; i++) {
   }
   console.log(row);
 }
-*/
 
 //!     #
 //!    ###
 //!   #####
 //!  #######
 //! #########
-/*
-let size = 5;
+
+let size2 = 5;
 let output = "";
-for (let i = 0; i < size; i++) {
+for (let i = 0; i < size2; i++) {
   let row = "";
-  for (let s = 0; s < size - i - 1; s++) {
+  for (let s = 0; s < size2 - i - 1; s++) {
     row += " ";
   }
   for (let j = 1; j <= 2 * i + 1; j++) {
@@ -33,4 +34,3 @@ for (let i = 0; i < size; i++) {
   console.log(row + output);
   output = "";
 }
-*/
