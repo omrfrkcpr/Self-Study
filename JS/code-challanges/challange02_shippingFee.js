@@ -1,4 +1,10 @@
 // Shipping Fee Calculator
+//! Write the code that asks the user for the distance in km and calculates the shipping cost accordingly.
+
+//! Distance;
+//! 50 € / km = 0-500 km
+//! 100 € / km = 500-1000 km
+//! 500 € / km = +1000 km
 
 let a = prompt("Enter a distance in kilometers");
 console.log("Distance: ", a, "km");
