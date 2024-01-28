@@ -1,4 +1,10 @@
 // Body Mass Index (BMI) Calculator
+//! Ask the user for his height and weight, then calculate his BMI based on this information and write the code that outputs the person's weight status.
+
+//! low weight = < 18.5
+//! Normal Weight = 18.5 - 24.99
+//! High Weight = 25.0 - 29.99
+//! Obesity = > 30
 
 let a = prompt("Enter your weight in kilograms");
 console.log("Your weight is :", a, "kg");
