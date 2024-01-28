@@ -1,4 +1,4 @@
-//! Write a program that prints the sum, multiply, smallest and largest of 3 different integers entered.
+//! Write a program that prints the sum, multiply, smallest and biggest of 3 different integers entered.
 
 const num1 = +prompt("Enter your first number:");
 const num2 = +prompt("Enter your second number:");
