@@ -46,7 +46,7 @@ textInput.onkeyup = () => {
     : (textInput.value = textInput.value.toLowerCase());
 };
 
-//? adding h1 element and to index.html (Programming Languages) - long way
+//^ adding h1 element and to index.html (Programming Languages) - long way
 
 // create h1 tag
 const title2 = document.createElement("h1");
@@ -77,7 +77,7 @@ inputdiv.appendChild(title2);
 inputdiv.after(title2);
 //!!  "append" metodu ile seçtiğimiz Html etiketi bitmeden önceki son kısma ekleme yapabiliriz (<div>merhaba -buraya-  </div>).  "prepend" metodu ile seçtiğimiz Html etiketi başladıktan sonraki ilk kısma ekleme yapabiliriz  (<div> -buraya-  merhaba   </div>).  "after" metodu ile ile seçtiğimiz Html etiketi bittikten sonraki ilk kısma ekleme yapabiliriz (<div> merhaba </div>  -buraya-). before ile de etiketin önüne ekleyebiliriz
 
-//? adding h1 element and to index.html (Programming Languages) - short way(backtick = ``)
+//^ adding h1 element and to index.html (Programming Languages) - short way(backtick = ``)
 
 // const inputdiv = document.querySelector(".input-div");
 // inputdiv.innerHTML = inputdiv.innerHTML+h1
@@ -87,3 +87,40 @@ inputdiv.after(title2);
 //! kisayol ile daha once event yapilmis bir tag in icerisine ekleme yaparsak eventler dogru calismayabilir. Bu yuzden yeri olmayan bir etiketi kisayol ile eklemek istiyorsak, html de onun icin bos bir div acmakta fayda var
 
 // document.querySelector(".must").innerHTML +=  `<h1 class="shortTitle text-primary">Programming Languages</h1>`;
+
+//^ languages inputuna girilen değerleri, ul ye eklemek
+
+const inputLang = document.querySelector("#inputs");
+const inputList = document.querySelector(".list");
+
+document.querySelector(".add").onclick = () => {
+  //^  long way
+  // yeni girilen satiri saklamak icin bir li olusturduk.
+  // const newLi = document.createElement("li");
+
+  // yeni li icin textnode olusturduk
+  // const newText = document.createTextNode(inputLang.value);
+
+  // olusturdugumuz texnode'u yeni li'ye bagladik.
+  // newLi.appendChild(newText);
+
+  // yeni eklenen satiri var olan listeye (ul) baglayalim.
+  // inputList.appendChild(newLi);
+
+  //^ short way
+  if (inputLang.value != "") {
+    inputList.innerHTML += `<li>${inputLang.value}</li>`;
+  } else alert("Please enter a programming language!");
+
+  // eklendikten sonra input u resetle
+  inputLang.value = "";
+};
+
+document.querySelector(".delete").onclick = () => {
+  inputList.removeChild(inputList.lastElementChild);
+};
+
+inputLang.onkeydown = (e) => {
+  if (e.key == "Enter") document.querySelector(".add").onclick();
+  if (e.key == "Delete") document.querySelector(".delete").onclick();
+};
