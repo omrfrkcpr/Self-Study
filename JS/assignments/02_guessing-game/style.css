@@ -46,7 +46,6 @@ body {
   cursor: pointer;
   background-color: #eee;
   text-align: center;
-  
 }
 
 .check {
@@ -103,7 +102,7 @@ main {
   margin-bottom: 20px;
   padding: 50px;
 }
-.begin {
+.msg {
   margin-bottom: 150px;
 }
 .remain {

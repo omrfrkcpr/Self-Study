@@ -11,15 +11,19 @@ const getRandomColor = () => {
   return `rgb(${r}, ${g}, ${b})`;
 };
 
-document.body.style.backgroundColor = getRandomColor();
+const f = () => {
+  document.body.style.backgroundColor = getRandomColor();
+};
+
+setTimeout(f, 3000);
 
 //& Example-2
 
-let colorsA = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
+// let colorsA = ["Red", "Yellow", "Green", "Blue", "Pink", "Green"];
 
-const getRandomBackgroundColor = (values) => {
-  let color = values[Math.floor(Math.random() * values.length)];
-  document.body.style.backgroundColor = color;
-};
+// const getRandomBackgroundColor = (values) => {
+//   let color = values[Math.floor(Math.random() * values.length)];
+//   document.body.style.backgroundColor = color;
+// };
 
-console.log(getRandomBackgroundColor(colorsA));
+// console.log(getRandomBackgroundColor(colorsA));
