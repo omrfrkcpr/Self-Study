@@ -8,7 +8,7 @@ body {
 
 .logo {
   display: block;
-  margin-top: 1rem;
+  margin-top: 3rem !important;
   margin: auto;
   width: 40vw;
 }
