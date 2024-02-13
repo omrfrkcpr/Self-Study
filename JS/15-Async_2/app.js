@@ -17,8 +17,9 @@ getNews();
 
 const renderNews = (news) => {
   news.forEach((item) => {
+    const { urlToImage } = item; //~ destructuring
     document.querySelector("#news").innerHTML += `
-            <img src="${item.urlToImage ? item.urlToImage : defaultImage}"/>
+            <img src="${urlToImage ? urlToImage : defaultImage}"/>
         `;
   });
 };
