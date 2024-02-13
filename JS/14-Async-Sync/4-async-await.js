@@ -47,7 +47,9 @@ const showScreen = (data) => {
           <h1 class="mt-4"><span class="text-danger">${
             item.show.name
           }</span><h1>
-          <img src=${item.show.image?.medium || defaultImage} width="50%"></img>
+          <img src="${
+            item.show.image?.medium || defaultImage
+          }" width="50%"></img>
           <h3>${item.show.genres}</h3>
           `;
   });
