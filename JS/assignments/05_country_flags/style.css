@@ -1,0 +1,14 @@
+.fas {
+  font-size: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.card {
+  min-width: 300px !important;
+}
