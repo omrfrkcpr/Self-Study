@@ -50,6 +50,9 @@ const printScreen = (countries) => {
                       ? Object.values(country.languages)[0]
                       : "N/A"
                   }</span></li>
+                  <li class="list-group-item"><i class="fas fa-solid fa-user"></i><span class="ms-1">${country.population.toLocaleString(
+                    "tr-TR"
+                  )}</span></li>
                   <li class="list-group-item"><i class="fas fa-lg fa-money-bill-wave"></i><span class="ms-1">${
                     country.currencies
                       ? `${Object.values(country.currencies)[0].name} (${
