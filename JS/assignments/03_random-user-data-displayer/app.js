@@ -6,6 +6,8 @@ const getUser = async () => {
   renderUser(data.results);
 };
 
+getUser();
+
 const renderUser = (users) => {
   users.forEach((user) => {
     const { name, email, phone, picture } = user; //~ destructure user
