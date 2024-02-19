@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+      body {
+        background: linear-gradient(to right, #0091ea, #8463bd);
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Roboto Mono", monospace;
+      }
+
+      .clock {
+        font-size: 4rem;
+        text-shadow: 0.25rem 0.25rem 0.6rem rgba(255, 255, 255, 0.1);
+        display: flex;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1rem 3rem;
+        border: 30px double #02d9f8;
+        border-radius: 100px;
+        background-color: rgb(50, 142, 223);
+        animation: glow 1.5s ease-in-out infinite alternate;
+      }
+
+      #seconds {
+        min-width: 5.5rem;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #02d9f8, 0 0 20px #02d9f8, 0 0 30px #02d9f8;
+        }
+        to {
+          text-shadow: 0 0 20px #02d9f8, 0 0 30px #02d9f8, 0 0 40px #02d9f8;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <span id="hours">00</span>
+      <span>:</span>
+      <span id="minutes">00</span>
+      <span>:</span>
+      <span id="seconds">00</span>
+      <span id="ampm"></span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
