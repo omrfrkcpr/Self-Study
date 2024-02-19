@@ -22,6 +22,10 @@ class Book {
   }
 }
 
+// The new keyword calls the Book Constructor with parameters.
+// Constructor creates an instance of the Book object.
+// All variables and functions in the Constructor are added to each single instance created
+
 const Book1 = new Book("safahat", "M.Akif Ersoy", 1910);
 
 console.log(Book1);
