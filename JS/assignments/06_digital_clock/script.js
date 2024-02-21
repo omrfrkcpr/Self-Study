@@ -12,10 +12,15 @@ function updateTime() {
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  document.getElementById("hours").textContent = hours;
-  document.getElementById("minutes").textContent = minutes;
-  document.getElementById("seconds").textContent = seconds;
-  document.getElementById("ampm").textContent = ampm;
+  // document.getElementById("hours").textContent = hours;
+  // document.getElementById("minutes").textContent = minutes;
+  // document.getElementById("seconds").textContent = seconds;
+  // document.getElementById("ampm").textContent = ampm;
+
+  document.querySelector(".clock").textContent = now.toLocaleTimeString(
+    "en-US",
+    { hour: "2-digit", minute: "2-digit", second: "2-digit" }
+  );
 }
 
 setInterval(updateTime, 1000);
