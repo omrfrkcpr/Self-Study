@@ -18,6 +18,7 @@ import "./Msg.css"; //External css . harici css dosyaları direk import edilir h
 
 // import Local images
 import img2 from "../img/dunya-haritasi-min.jpg";
+import Clock from "../clock/Clock"; // nimm mich mit
 
 const Msg = () => {
   //! JavaScript field
@@ -38,6 +39,7 @@ const Msg = () => {
       <h2 style={styleA}>This is MSG.jsx file</h2>
       {/* inline css */}
       <p style={{ color: "red", fontSize: "30px" }}>Welcome to REACT</p>
+      <Clock />
       {/* direct browser src */}
       <img
         className="img"
@@ -46,6 +48,7 @@ const Msg = () => {
       />
       {/* from local img folder with import*/}
       <img className="img" style={styleImg} src={img2} alt="img2" />
+      <Clock />
       {/* from public folder relative-path src */}
       <img
         className="img"
