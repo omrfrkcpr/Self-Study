@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <style>
+      body {
+        background: #4d8076;
+        color: #ccf5eb;
+      }
+      .container {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .time {
+        font-size: 3rem;
+      }
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.545);
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        font-size: 3rem;
+      }
+      .stopwatch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .control-btn {
+        display: flex;
+        gap: 1rem;
+      }
+      i {
+        font-size: 3rem;
+        cursor: pointer;
+      }
+      i:hover {
+        transform: scale(0.95);
+      }
+
+      span {
+        padding: 0.5rem;
+        width: 250px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="stopwatch">
+        <div class="circle">
+          <span class="time"> 00 : 00 : 00</span>
+        </div>
+        <div class="control-btn">
+          <i class="bi bi-play-circle play" onclick="startStopwatch()"></i>
+          <i class="bi bi-pause-circle pause" onclick="pauseStopwatch()"></i>
+          <i class="bi bi-stop-circle reset" onclick="resetStopwatch()"></i>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
