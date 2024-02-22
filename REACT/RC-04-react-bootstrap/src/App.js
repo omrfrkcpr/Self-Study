@@ -6,6 +6,7 @@ import React from "react";
 import dataParent from "./data";
 import CourseCard from "./components/CourseCard";
 import MyNavBar from "./components/MyNavBar";
+import Slider from "./components/Slider";
 
 const App = () => {
   console.log(dataParent);
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div>
       <MyNavBar />
+      <Slider />
       <CourseCard dataChild={dataParent} />
     </div>
   );
