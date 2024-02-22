@@ -1,0 +1,11 @@
+@use "./scss/button";
+@use "./scss/reset";
+@use "./scss/variable";
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  color: variable.$orange;
+}

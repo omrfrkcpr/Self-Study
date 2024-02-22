@@ -1,0 +1,35 @@
+@use "../../scss/variable";
+@use "../../scss/reset";
+
+.container {
+  @extend .flexCenter;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  .card {
+    width: 50%;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding-bottom: 1rem;
+
+    img {
+      border-radius: 80px;
+      width: 50%;
+      margin-top: 10px;
+    }
+
+    h1 {
+      color: variable.$lightOrange;
+      background-color: variable.$midGreen;
+    }
+    h2 {
+      color: variable.$blue;
+      margin-top: 1rem;
+    }
+
+    p {
+      color: variable.$red;
+    }
+  }
+}

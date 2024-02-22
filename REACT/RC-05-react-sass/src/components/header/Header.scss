@@ -1,0 +1,10 @@
+//! Only variable style scss (where I collect my own style with $) should be imported from wherever they will be called.
+
+@use "../../scss/variable";
+
+h1 {
+  color: variable.$darkGreen;
+  text-align: center;
+  background-color: variable.$lightOrange;
+  padding: 3rem;
+}
