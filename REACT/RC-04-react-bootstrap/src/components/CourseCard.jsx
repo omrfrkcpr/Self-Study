@@ -6,7 +6,7 @@ const CourseCard = ({ dataChild }) => {
   console.log({ dataChild });
   return (
     <Container>
-      <Row className="justify-content-center g-4">
+      <Row className="justify-content-center g-4 mt-2">
         {/* //! In the react field, only map is supported as a loop, and only ternary is supported among conditions. */}
         {dataChild.map(({ img, name, text, id }) => {
           //* arrow (map) asks for a return when you use a fancy. You can not use a fancy in React, then there is no need for a return.
@@ -26,7 +26,7 @@ const CourseCard = ({ dataChild }) => {
                 <Card.Body>
                   <Card.Title>{name}</Card.Title>
                   <Card.Text>{text}</Card.Text>
-                  <Button variant="success">Primary</Button>
+                  <Button variant="success">Info</Button>
                 </Card.Body>
               </Card>
             </Col>

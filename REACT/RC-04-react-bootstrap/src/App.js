@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import dataParent from "./data";
 import CourseCard from "./components/CourseCard";
+import MyNavBar from "./components/MyNavBar";
 
 const App = () => {
   console.log(dataParent);
@@ -12,6 +13,7 @@ const App = () => {
   //? it should return only one div. But inside it it can be lots of divs !
   return (
     <div>
+      <MyNavBar />
       <CourseCard dataChild={dataParent} />
     </div>
   );
