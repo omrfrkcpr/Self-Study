@@ -5,7 +5,7 @@ import Card from "./Card";
 
 export const Main = () => {
   return (
-    <div className="card-container">
+    <div className="cards-container">
       {data.map((item) => (
         <Card {...item} key={item.id} />
       ))}
