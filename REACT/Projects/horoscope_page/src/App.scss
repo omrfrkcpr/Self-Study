@@ -1,3 +1,8 @@
 @use "./scss/mixins";
 @use "./scss/reset";
 @use "./scss/variables";
+
+body {
+  font-family: variables.$ff-concert;
+  background-color: variables.$body-bg-color;
+}
