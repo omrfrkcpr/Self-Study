@@ -1,0 +1,38 @@
+@use "../../scss/variables";
+
+.navbar {
+  background-color: variables.$cardNavBgColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 1rem;
+
+  &--logo {
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &--links {
+    display: flex;
+    font-size: 1.5rem;
+    gap: 10px;
+    a {
+      text-decoration: none;
+      color: variables.$fontColor;
+      text-transform: uppercase;
+      padding: 0.5rem;
+
+      &:hover {
+        background-color: variables.$fontColor;
+        transition-duration: 0.5s;
+        color: variables.$cardNavBgColor;
+        border-radius: 5px;
+      }
+    }
+  }
+}
