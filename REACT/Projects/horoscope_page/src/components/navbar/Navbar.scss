@@ -1,4 +1,5 @@
 @use "../../scss/variables";
+@use "../../scss/mixins";
 
 .navbar {
   background-color: variables.$cardNavBgColor;
@@ -34,6 +35,34 @@
         color: variables.$cardNavBgColor;
         border-radius: 5px;
       }
+    }
+  }
+}
+
+@include mixins.media-xsm {
+  .navbar {
+    &--logo {
+      img {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    &--links {
+      flex-direction: column;
+    }
+  }
+}
+
+@include mixins.media-lg {
+  .navbar {
+    &--logo {
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    &--links {
+      flex-direction: row;
     }
   }
 }
