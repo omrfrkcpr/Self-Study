@@ -30,6 +30,8 @@ const Events = () => {
   return (
     // JSX field
     <div className="container text-center mt-4">
+      <h2>***************************</h2>
+      <h2>***************************</h2>
       <h1>
         Title: <span className="title-span">{title}</span>
       </h1>
