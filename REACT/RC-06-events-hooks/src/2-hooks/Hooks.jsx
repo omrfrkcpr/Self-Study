@@ -42,6 +42,7 @@ const Hooks = () => {
     // counter++;
     setCounter(counter + 1); // counter=1
   };
+
   //? Object 1.Method */
   // const handleToggle = () => {
   //   if (person.name === "Saban") {
@@ -94,8 +95,14 @@ const Hooks = () => {
       <h2>***************************</h2>
       <h1>USE STATE</h1>
       <h2>Count: {counter}</h2>
-      <button onClick={increaseCount} className="btn btn-primary">
+      <button onClick={increaseCount} className="btn btn-primary m-1">
         Increase
+      </button>
+      <button
+        onClick={() => counter > 0 && setCounter(counter - 1)}
+        className="btn btn-primary m-1"
+      >
+        Decrease
       </button>
       <h2 className="mt-5">***************************</h2>
       <h2>***************************</h2>
