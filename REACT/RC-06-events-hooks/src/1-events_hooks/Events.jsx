@@ -10,7 +10,7 @@ const Events = () => {
   const increase = () => {
     count++;
     console.log(count);
-    document.querySelector("span").textContent = count;
+    document.querySelector(".count").textContent = count;
   };
 
   const changeTitle = (a) => {
@@ -18,6 +18,10 @@ const Events = () => {
     document.querySelector(".title-span").textContent = a;
   };
 
+  const reset = () => {
+    document.querySelector(".count").textContent = 0;
+    document.querySelector(".title-span").textContent = "Hello";
+  };
   //? Bir componentin return kismi 3 farkli yontem ile yeniden render edilir.
   //? 1- Herhangi bir state degisirse
   //? 2- Props degisirse
@@ -30,7 +34,7 @@ const Events = () => {
         Title: <span className="title-span">{title}</span>
       </h1>
       <h2>
-        COUNT: <span className="text-danger">{count}</span>
+        COUNT: <span className="text-danger count">{count}</span>
       </h2>
       <button onClick={increase} className="btn btn-primary m-1">
         Increase
@@ -41,7 +45,9 @@ const Events = () => {
       >
         Change Title
       </button>
-      <button className="btn btn-info m-1">Clicked!</button>
+      <button onClick={reset} className="btn btn-info m-1">
+        Reset
+      </button>
     </div>
   );
 };
