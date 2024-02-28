@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import Hooks from "./2-hooks/Hooks";
 // import Counter from "./3-classComponents/Counter";
 // import Form from "./4-form/Form";
-import FormObject from "./4-form/FormObject";
+// import FormObject from "./4-form/FormObject";
+import MouseKeyboard from "./5-mouse-keyboard/MouseKeyboard";
 
 const App = () => {
   //? it should return only one div. But inside it it can be lots of divs !
@@ -15,7 +16,8 @@ const App = () => {
       {/* <Counter /> */}
       {/* <Counter count={20} /> */}
       {/* <Form /> */}
-      <FormObject />
+      {/* <FormObject /> */}
+      <MouseKeyboard />
     </div>
   );
 };
