@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightcoral;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*! Player Card Component Styling */
+
+.card-container {
+  background-image: url(https://p4.wallpaperbetter.com/wallpaper/661/973/110/cool-nba-logo-wallpaper-preview.jpg);
+  padding: 2rem;
+}
+
+.player-card {
+  height: 400px;
+  max-width: 280px;
+}
+
+.player-card:hover {
+  box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.player-logo {
+  height: 350px;
+}
+
+.player-card:hover .player-logo {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
