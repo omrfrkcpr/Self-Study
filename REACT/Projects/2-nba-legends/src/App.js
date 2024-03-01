@@ -1,8 +1,15 @@
 import React from "react";
+import Header from "./components/Header";
+import { Container } from "react-bootstrap";
 
 const App = () => {
-  //? it should return only one div. But inside it it can be lots of divs !
-  return <div>App</div>;
+  return (
+    <div>
+      <Container className="text-center mt-5">
+        <Header />
+      </Container>
+    </div>
+  );
 };
 
 export default App;
