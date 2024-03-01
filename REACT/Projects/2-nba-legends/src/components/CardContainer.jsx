@@ -7,7 +7,7 @@ const CardContainer = () => {
   const [search, setSearch] = useState("");
 
   //! Be Careful! data is not changable, but dataFilter is changable
-  const dataFilter = data.filter((a) => a.name.includes(search));
+  // const dataFilter = data.filter((a) => a.name.includes(search));
 
   return (
     <>
@@ -19,13 +19,22 @@ const CardContainer = () => {
       />
       <Container className="card-container rounded-4">
         <Row className="g-4">
-          {dataFilter.map((player, index) => {
+          {data
+            .filter((a) => a.name.toLowerCase().includes(search.toLowerCase()))
+            .map((player, index) => {
+              return (
+                <Col md={6} lg={6} xl={4} xxl={3} className="text-center">
+                  <PlayerCard {...player} key={index} />
+                </Col>
+              );
+            })}
+          {/* {dataFilter.map((player, index) => {
             return (
               <Col md={6} lg={6} xl={4} xxl={3} className="text-center">
                 <PlayerCard {...player} key={index} />
               </Col>
             );
-          })}
+          })} */}
         </Row>
       </Container>
     </>
