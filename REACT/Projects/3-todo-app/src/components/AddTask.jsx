@@ -8,7 +8,12 @@ const AddTask = ({ todos, setTodos }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // const id = Math.ceil(Math.random() * 100) + 6;
-    const id = todos.length + 1;
+
+    // find the biggest id number in todos
+    const id =
+      todos.reduce((maxId, todo) => {
+        return todo.id > maxId ? todo.id : maxId;
+      }, 0) + 1;
     const newTodos = { id: id, text: texT, day: day, isDone: false };
 
     //! 1.Method (temporary storage)

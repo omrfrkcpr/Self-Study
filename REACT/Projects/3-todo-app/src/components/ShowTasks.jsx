@@ -3,7 +3,27 @@ import { FaTimesCircle } from "react-icons/fa";
 
 const ShowTasks = ({ todos, setTodos }) => {
   const deleteTodo = (rmv) => {
-    setTodos(todos.filter((i) => i.id !== rmv));
+    //! 1. Method (local storage)
+    // todos = todos.filter((i) => i.id !== rmv);
+    // setTodos(todos);
+    // localStorage.setItem("todo:tasks", JSON.stringify(todos));
+
+    //! 2. Method (local storage - best)
+    localStorage.setItem(
+      "todo:tasks",
+      JSON.stringify(todos.filter((i) => i.id !== rmv))
+    );
+    setTodos(JSON.parse(localStorage.getItem("todo:tasks")));
+  };
+
+  const styleStorage = (x) => {
+    localStorage.setItem(
+      "todo:tasks",
+      JSON.stringify(
+        todos.map((a) => (a.id === x.id ? { ...a, isDone: !a.isDone } : a))
+      )
+    );
+    setTodos(JSON.parse(localStorage.getItem("todo:tasks")));
   };
 
   return (
@@ -12,13 +32,7 @@ const ShowTasks = ({ todos, setTodos }) => {
         return (
           <div
             className={x.isDone ? "done" : "task"}
-            onDoubleClick={() =>
-              setTodos(
-                todos.map((a) =>
-                  a.id === x.id ? { ...a, isDone: !a.isDone } : a
-                )
-              )
-            }
+            onDoubleClick={() => styleStorage(x)}
           >
             <h3>
               {x.text}{" "}
