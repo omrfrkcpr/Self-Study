@@ -4,7 +4,9 @@ import ShowTasks from "../components/ShowTasks";
 import data from "../helper/Data";
 
 const Home = () => {
-  const [todos, setTodos] = useState(data);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todo:tasks")) || data
+  );
 
   return (
     <div>

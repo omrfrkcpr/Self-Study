@@ -9,10 +9,19 @@ const AddTask = ({ todos, setTodos }) => {
     e.preventDefault();
     // const id = Math.ceil(Math.random() * 100) + 6;
     const id = todos.length + 1;
-
-    // setTodos([{id:id,text:texT,day:day,isDone:false},...todos])
     const newTodos = { id: id, text: texT, day: day, isDone: false };
-    setTodos([newTodos, ...todos]);
+
+    //! 1.Method (temporary storage)
+    // setTodos([{id:id,text:texT,day:day,isDone:false},...todos])
+
+    //! 2.Method (local storage - 1)
+    // todos = [newTodos, ...todos];
+    // setTodos(todos);
+    // localStorage.setItem("todo:tasks", JSON.stringify(todos));
+
+    //! 3. Method (local storage - 2 (best))
+    localStorage.setItem("todo:tasks", JSON.stringify([newTodos, ...todos]));
+    setTodos(JSON.parse(localStorage.getItem("todo:tasks")));
 
     setText("");
     setDay("");
