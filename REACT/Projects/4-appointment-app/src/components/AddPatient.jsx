@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import uuid from "react-uuid";
 
-const AddPatient = ({ hastalar, setHastalar }) => {
+const AddPatient = ({ hastalar, setHastalar, doctors }) => {
   const [hastaName, setHastaName] = useState("");
   const [date, setDate] = useState("");
+
+  console.log(doctors);
+  console.log(hastalar);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,11 +14,11 @@ const AddPatient = ({ hastalar, setHastalar }) => {
     setHastalar([
       ...hastalar,
       {
-        id: 7,
+        id: uuid(),
         patientName: hastaName,
         day: date,
         isDone: false,
-        myDoctor: "oya başar",
+        myDoctor: doctors[0].doctorName,
       },
     ]);
     setHastaName("");
@@ -44,7 +48,7 @@ const AddPatient = ({ hastalar, setHastalar }) => {
         </div>
         <div>
           <button className="doc" type="submit">
-            Create an appointment for <span>Oya basar</span>
+            Create an appointment for <span>{doctors[0].doctorName}</span>
           </button>
         </div>
       </form>

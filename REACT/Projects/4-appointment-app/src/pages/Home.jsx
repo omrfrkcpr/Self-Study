@@ -55,9 +55,19 @@ const Home = () => {
           </div>
         </header>
 
-        {!show && <AddPatient hastalar={hastalar} setHastalar={setHastalar} />}
+        {!show && (
+          <AddPatient
+            hastalar={hastalar}
+            setHastalar={setHastalar}
+            doctors={doctors}
+          />
+        )}
       </div>
-      <PatientList hastalar={hastalar} setHastalar={setHastalar} />
+      <PatientList
+        hastalar={hastalar}
+        setHastalar={setHastalar}
+        doctors={doctors}
+      />
     </div>
   );
 };
