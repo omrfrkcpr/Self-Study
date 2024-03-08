@@ -1,9 +1,10 @@
 import "./App.css";
 import React from "react";
-// import LifeCycleMethods from "./components/LifeCycleMethods";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Clock from "./components/Clock";
+import UseEffectAxiosFect from "./components/UseEffectAxiosFect";
+// import LifeCycleMethods from "./components/LifeCycleMethods";
+// import Clock from "./components/Clock";
 
 const App = () => {
   const [show, setShow] = useState(true);
@@ -13,8 +14,8 @@ const App = () => {
         SHOW
       </button>
       {/* {show && <LifeCycleMethods />} */}
-
-      {show && <Clock />}
+      {/* {show && <Clock />} */}
+      <UseEffectAxiosFect />
     </div>
   );
 };
