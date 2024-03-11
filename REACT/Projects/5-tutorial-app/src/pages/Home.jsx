@@ -51,10 +51,27 @@ const Home = () => {
     }
   };
 
+  //! PUT smt. in database
+  const putTutorial = async (item) => {
+    try {
+      await axios.put(`${BASE_URL}${item.id}/`, item);
+      getTutorials();
+    } catch (error) {
+      console.log(
+        "An error occurred while editing a data with axios in the API:",
+        error
+      );
+    }
+  };
+
   return (
     <div>
       <AddInfo postTutorial={postTutorial} />
-      <InfosList tutorials={tutorials} deleteTutorial={deleteTutorial} />
+      <InfosList
+        tutorials={tutorials}
+        deleteTutorial={deleteTutorial}
+        putTutorial={putTutorial}
+      />
     </div>
   );
 };

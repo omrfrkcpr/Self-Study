@@ -9,9 +9,6 @@ const AddInfo = ({ postTutorial }) => {
 
     //! POST into database
     postTutorial({ title: title, description: desc });
-
-    setTitle("");
-    setDesc("");
   };
 
   return (

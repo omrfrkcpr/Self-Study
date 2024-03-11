@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
+import EditInfo from "./EditInfo";
 
-const InfosList = ({ tutorials, deleteTutorial }) => {
+const InfosList = ({ tutorials, deleteTutorial, putTutorial }) => {
   console.log(tutorials);
+  const [item, setItem] = useState("");
 
   return (
     <div className="container mt-4">
@@ -35,13 +37,23 @@ const InfosList = ({ tutorials, deleteTutorial }) => {
                     size={22}
                     onClick={() => deleteTutorial(id)}
                   />
-                  <FaEdit type="button" style={{ color: "orange" }} size={22} />
+                  <FaEdit
+                    type="button"
+                    style={{ color: "orange" }}
+                    size={22}
+                    data-bs-toggle="modal"
+                    data-bs-target="#editModal"
+                    onClick={() => setItem({ id, title, description })}
+                  />
                 </td>
               </tr>
             );
           })}
         </tbody>
       </table>
+
+      {/* Modal */}
+      <EditInfo item={item} setItem={setItem} putTutorial={putTutorial} />
     </div>
   );
 };
