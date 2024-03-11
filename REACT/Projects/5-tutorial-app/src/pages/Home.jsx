@@ -6,12 +6,13 @@ import AddInfo from "../components/AddInfo";
 const Home = () => {
   const [tutorials, setTutorials] = useState([]);
 
-  const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
-  const getTutorial = async () => {
+  //! GET from database
+  const getTutorials = async () => {
     try {
-      const response = await axios.get(url);
-      setTutorials(response.data);
+      const request = await axios.get(BASE_URL);
+      setTutorials(request.data);
     } catch (error) {
       console.error(
         "An error occurred while fetching data with axios from the API:",
@@ -21,13 +22,39 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getTutorial();
+    getTutorials();
   }, []);
+
+  //! POST into database
+  const postTutorial = async (newData) => {
+    try {
+      await axios.post(BASE_URL, newData);
+      getTutorials(); //* after posting new data, get the updated data
+    } catch (err) {
+      console.log(
+        "An error occurred while posting new data with axios into the API:",
+        err
+      );
+    }
+  };
+
+  //! DELETE from database
+  const deleteTutorial = async (id) => {
+    try {
+      await axios.delete(`${BASE_URL}${id}/`);
+      getTutorials(); //* after deleting a data, get the updated data
+    } catch (error) {
+      console.log(
+        "An error occurred while deleting a data with axios from the API:",
+        error
+      );
+    }
+  };
 
   return (
     <div>
-      <AddInfo />
-      <InfosList tutorials={tutorials} />
+      <AddInfo postTutorial={postTutorial} />
+      <InfosList tutorials={tutorials} deleteTutorial={deleteTutorial} />
     </div>
   );
 };

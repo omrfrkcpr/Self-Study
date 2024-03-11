@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
-const InfosList = ({ tutorials }) => {
+const InfosList = ({ tutorials, deleteTutorial }) => {
   console.log(tutorials);
 
   return (
@@ -33,6 +33,7 @@ const InfosList = ({ tutorials }) => {
                       marginRight: ".5rem",
                     }}
                     size={22}
+                    onClick={() => deleteTutorial(id)}
                   />
                   <FaEdit type="button" style={{ color: "orange" }} size={22} />
                 </td>
