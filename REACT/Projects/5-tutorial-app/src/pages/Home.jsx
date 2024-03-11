@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import InfosList from "../components/InfosList";
+import AddInfo from "../components/AddInfo";
 
 const Home = () => {
   const [tutorials, setTutorials] = useState([]);
@@ -25,6 +26,7 @@ const Home = () => {
 
   return (
     <div>
+      <AddInfo />
       <InfosList tutorials={tutorials} />
     </div>
   );
