@@ -14,11 +14,11 @@ const MyNavbar = () => {
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto text-center">
             <NavLink
               style={({ isActive }) => ({
                 color: isActive && "red",
-                width: "50px",
+                width: "100px",
                 marginLeft: "auto",
               })}
               className="nav-link"
@@ -29,7 +29,7 @@ const MyNavbar = () => {
             <NavLink
               style={({ isActive }) => ({
                 fontSize: isActive && "50px",
-                width: "50px",
+                width: "100px",
                 marginLeft: "auto",
               })}
               className="nav-link"
@@ -40,7 +40,7 @@ const MyNavbar = () => {
             <NavLink
               style={({ isActive }) => ({
                 border: isActive && "2px solid blue",
-                width: "50px",
+                width: "100px",
                 marginLeft: "auto",
               })}
               className="nav-link"
@@ -51,7 +51,7 @@ const MyNavbar = () => {
             <NavLink
               style={({ isActive }) => ({
                 backgroundColor: isActive && "yellow",
-                width: "50px",
+                width: "100px",
                 marginLeft: "auto",
               })}
               className="nav-link"
@@ -63,7 +63,7 @@ const MyNavbar = () => {
               href="https://github.com/clarusway"
               className="nav-link"
               style={{
-                width: "50px",
+                width: "100px",
                 marginLeft: "auto",
               }}
               target="blank"

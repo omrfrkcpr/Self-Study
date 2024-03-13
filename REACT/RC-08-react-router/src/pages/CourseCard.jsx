@@ -1,10 +1,12 @@
 import React from "react";
 import data from "../data.js";
 import { Container, Col, Card, Row, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CourseCard = () => {
+  const navigate = useNavigate();
   return (
-    <Container>
+    <Container style={{ marginBottom: "5rem" }}>
       <Row className="justify-content-center g-4 mt-2">
         {data.map(({ img, name, text, id }) => {
           return (
@@ -18,7 +20,12 @@ const CourseCard = () => {
                 <Card.Body>
                   <Card.Title>{name}</Card.Title>
                   <Card.Text>{text}</Card.Text>
-                  <Button variant="success">Info</Button>
+                  <Button
+                    onClick={() => navigate(`/courses/${name}`)}
+                    variant="success"
+                  >
+                    DETAILS
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
