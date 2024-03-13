@@ -24,8 +24,6 @@ const ContactForm = () => {
   };
   return (
     <div className="container text-center mt-4">
-      <h1>*********************************************</h1>
-
       <h1 className="text-danger m-4 mb-5">FORM(EVENTS)</h1>
 
       <form onSubmit={getDatabase}>
