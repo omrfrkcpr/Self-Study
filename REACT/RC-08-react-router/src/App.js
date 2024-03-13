@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ContactForm from "./pages/ContactForm";
 import Login from "./pages/Login";
+import TeacherDetails from "./pages/TeacherDetails";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/teacher" element={<Teacher />} />
+          <Route path="/teacher/:teacherId" element={<TeacherDetails />} />
           <Route path="/courses" element={<CourseCard />} />
           <Route path="/courses/:namee" element={<CardDetails />} />
           <Route path="/contact" element={<ContactForm />} />
