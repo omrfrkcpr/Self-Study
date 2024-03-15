@@ -35,21 +35,25 @@ const Teacher = () => {
   return (
     <div className="container text-center mt-4">
       <div className="row">
-        {people.map(({ id, name, username, phone }) => {
+        {people.map((user) => {
           return (
             <div
-              key={id}
+              key={user.id}
               className="col-12 col-sm-6 col-md-4 border border-2 p-2"
             >
               <img
-                onClick={() => navigate(`/teacher/${id}`)}
-                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`}
+                // onClick={() => navigate(`/teacher/${user.id}`)}
+                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.name}`}
                 alt="avatar"
+                onClick={() =>
+                  navigate(`/teacher/${user.id}`, { state: { user } })
+                }
                 className="mb-3"
+                style={{ cursor: "pointer" }}
               />
-              <p className="fw-bold ">{name}</p>
-              <p>{username}</p>
-              <p>{phone}</p>
+              <p className="fw-bold ">{user.name}</p>
+              <p>{user.username}</p>
+              <p>{user.phone}</p>
             </div>
           );
         })}
