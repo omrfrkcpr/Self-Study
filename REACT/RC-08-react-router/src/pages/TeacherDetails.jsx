@@ -1,14 +1,17 @@
-// import axios from "axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import spinner from "../img/Spin-1s-200px.gif";
+import NotFound from "./NotFound";
 
 const TeacherDetails = () => {
   const navigate = useNavigate();
-  // 1. Method: stateless navigate
+
+  //! 1. Method: stateless navigate
 
   // const [user, setUser] = useState({});
   // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(false);
   // const { teacherId } = useParams();
 
   // const axiosData = async () => {
@@ -21,8 +24,9 @@ const TeacherDetails = () => {
   //     }
   //     setUser(response.data);
   //     setLoading(false);
-  //   } catch (error) {
-  //     console.error("There was a problem with the fetch operation:", error);
+  //   } catch (err) {
+  //     setError(true);
+  //     console.error("There was a problem with the fetch operation:", err);
   //   }
   // };
 
@@ -30,7 +34,9 @@ const TeacherDetails = () => {
   //   axiosData();
   // });
 
-  // if (loading) {
+  // if (error) {
+  //   return <NotFound />;
+  // } else if (loading) {
   //   return (
   //     <div
   //       className=" border border-2 p-2 d-flex justify-content-center align-items-center"
@@ -43,7 +49,10 @@ const TeacherDetails = () => {
 
   // const { id, name, username, phone } = user;
 
-  // 2. Method: statefull navigate
+  //! 2. Method: statefull navigate
+
+  //? useLocation.//  navigate ile gonderilen state'i yakalamak icin useLocation Hook'u kullanilabilir.
+  //? Bu durumda veri, state ile geldigi icin yeniden fetch yapilmasina gerek kalmaz
 
   const {
     state: { user },
