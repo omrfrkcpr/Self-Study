@@ -79,7 +79,7 @@ body {
 .fonts {
   font-size: 11px;
 }
-
+/* about sayfasındaki iconlar */
 .social-list {
   display: flex;
   list-style: none;
@@ -107,7 +107,7 @@ body {
 }
 
 
-
+/* about taki butonlar */
 
 .buttons button:nth-child(1) {
   border: 1px solid #135058 !important;

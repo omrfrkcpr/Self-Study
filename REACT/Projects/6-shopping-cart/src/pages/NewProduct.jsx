@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-import axios from "axios";
+
+
+import axios from "axios"
+import ProductForm from "../components/ProductForm";
 
 const NewProduct = () => {
-  const initialFormData = {
-    name: "",
-    price: 0,
-    amount: 0,
-    image: "",
-    dampingRate: 0.8,
-  };
-  const [formData, setFormData] = useState(initialFormData);
+ 
+const initialValue = {
+  name: "",
+  price: 0,
+  amount: 0,
+  image: "",
+  dampingRate: 0.8,
+};
 
-  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+const [formData,setFormData]=useState(initialValue)
 
-  const { name, price, amount, image, dampingRate } = formData;
+const handleSubmit=async(e)=>{
+e.preventDefault()
+await axios.post("https://63f4e5583f99f5855db9e941.mockapi.io/products",formData);
 
-  const handlePostSubmit = async (e) => {
-    e.preventDefault();
+setFormData(initialValue);
+}
 
-    await axios.post(`${BASE_URL}`, formData);
-
-    setFormData(initialFormData);
-  };
 
   return (
     <div className="container">
@@ -31,7 +32,7 @@ const NewProduct = () => {
       >
         <h1 className="text-center"> New Product</h1>
 
-        <form onSubmit={handlePostSubmit} className="p-2">
+        {/* <form onSubmit={handleSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -40,7 +41,7 @@ const NewProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={name}
+              value={formData.name}
               required
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -55,7 +56,7 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={price}
+              value={formData.price}
               required
               onChange={(e) =>
                 setFormData({ ...formData, price: e.target.value })
@@ -70,7 +71,7 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={amount}
+              value={formData.amount}
               required
               onChange={(e) =>
                 setFormData({ ...formData, amount: e.target.value })
@@ -88,7 +89,7 @@ const NewProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={image}
+              value={formData.image}
               aria-describedby="basic-addon3"
               required
               onChange={(e) =>
@@ -104,7 +105,13 @@ const NewProduct = () => {
               <i className="fa-solid fa-cart-plus me-2"></i>Save To Product
             </button>
           </div>
-        </form>
+        </form> */}
+
+        <ProductForm
+          handleSubmit={handleSubmit}
+          formData={formData}
+          setFormData={setFormData}
+        />
       </article>
     </div>
   );
