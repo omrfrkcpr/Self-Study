@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #f1f2b5;
+  /* background: -webkit-linear-gradient(to right, #135058, #f1f2b5);
+  background: linear-gradient(to right, #135058, #f1f2b5); */
+}
+
+.main {
+  background: url(./assets/shopping.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: calc(100vh - 60px);
+  position: relative;
+  > div {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    .main-buttons {
+      margin-top: 1rem;
+    }
+  }
+}
+.nav-link {
+  color: white !important;
+  &:hover {
+    color: red !important;
+  }
+}
+.active {
+  text-decoration: underline !important;
+}
+
+.card {
+  border: none;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #f1f2b5;
+  transform: scaleY(1);
+  transition: all 0.5s;
+  transform-origin: bottom;
+}
+
+.card:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #135058;
+  transform: scaleY(0);
+  transition: all 0.5s;
+  transform-origin: bottom;
+}
+
+.card:hover::after {
+  transform: scaleY(1);
+}
+
+.fonts {
+  font-size: 11px;
+}
+
+.social-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+.social-list li {
+  padding: 10px;
+  color: #135058;
+  font-size: 19px;
+}
+/* main deki button */
+.main-buttons button:nth-child(1) {
+  border: 1px solid white !important;
+  background-color: white;
+  color: #135058;
+  height: 40px;
+}
+.main-buttons button:nth-child(1):hover {
+  border: 1px solid #135058 !important;
+  color: #fff;
+  height: 40px;
+  background-color: #135058;
+}
+
+
+
+
+.buttons button:nth-child(1) {
+  border: 1px solid #135058 !important;
+  color: #135058;
+  height: 40px;
+}
+
+.buttons button:nth-child(1):hover {
+  border: 1px solid #135058 !important;
+  height: 40px;
+  background-color: #135058;
+  & a {
+    color: #fff !important;
+  }
+}
+
+.buttons button:nth-child(2) {
+  border: 1px solid #135058 !important;
+  background-color: #135058;
+  color: #fff;
+  height: 40px;
+}
+
+.main-buttons button:nth-child(2) {
+  border: 1px solid #135058 !important;
+  background-color: #135058;
+  color: #fff;
+  height: 40px;
+}
