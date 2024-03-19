@@ -2,6 +2,27 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const NewProduct = () => {
+  const initialFormData = {
+    name: "",
+    price: 0,
+    amount: 0,
+    image: "",
+    dampingRate: 0.8,
+  };
+  const [formData, setFormData] = useState(initialFormData);
+
+  const BASE_URL = "https://63f4e5583f99f5855db9e941.mockapi.io/products";
+
+  const { name, price, amount, image, dampingRate } = formData;
+
+  const handlePostSubmit = async (e) => {
+    e.preventDefault();
+
+    await axios.post(`${BASE_URL}`, formData);
+
+    setFormData(initialFormData);
+  };
+
   return (
     <div className="container">
       <article
@@ -10,7 +31,7 @@ const NewProduct = () => {
       >
         <h1 className="text-center"> New Product</h1>
 
-        <form className="p-2">
+        <form onSubmit={handlePostSubmit} className="p-2">
           <div className="mb-3">
             <label htmlFor="add-name" className="form-label">
               Product Name
@@ -19,8 +40,11 @@ const NewProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={""}
+              value={name}
               required
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
           </div>
           <div className="mb-3">
@@ -31,8 +55,11 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={""}
+              value={price}
               required
+              onChange={(e) =>
+                setFormData({ ...formData, price: e.target.value })
+              }
             />
           </div>
           <div className="mb-3">
@@ -43,8 +70,11 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={""}
+              value={amount}
               required
+              onChange={(e) =>
+                setFormData({ ...formData, amount: e.target.value })
+              }
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -58,9 +88,12 @@ const NewProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={""}
+              value={image}
               aria-describedby="basic-addon3"
               required
+              onChange={(e) =>
+                setFormData({ ...formData, image: e.target.value })
+              }
             />
           </div>
           <div className="text-center">
