@@ -1,15 +1,13 @@
-import React from 'react'
-
-
-import GosterUsers from './pages/GosterUsers'
+import React from "react";
+import ShowUsers from "./pages/ShowUsers";
+import UsersProvider from "./context/UsersProvider";
 
 const App = () => {
   return (
-    <div>
+    <UsersProvider>
+      <ShowUsers />
+    </UsersProvider>
+  );
+};
 
-      <GosterUsers/>
-    </div>
-  )
-}
-
-export default App
+export default App;
