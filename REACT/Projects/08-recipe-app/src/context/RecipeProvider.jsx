@@ -11,7 +11,9 @@ const API_KEY = "7445e3656ca5026352eee8a94611c23e";
 const RecipeProvider = ({ children }) => {
   //! for login and privateRouter components
   const [name, setName] = useState(localStorage.getItem("username") || "");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(
+    localStorage.getItem("password") || ""
+  );
 
   //! for home, header and recipeCard pages
   const [recipes, setRecipes] = useState([]);
