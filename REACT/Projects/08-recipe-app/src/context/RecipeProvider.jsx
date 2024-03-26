@@ -1,5 +1,7 @@
+import axios from "axios";
 import React from "react";
-import { useContext } from "react";
+import { useEffect } from "react";
+// import { useContext } from "react";
 import { createContext } from "react";
 import { useState } from "react";
 
@@ -18,9 +20,14 @@ const RecipeProvider = ({ children }) => {
   //! for home, header and recipeCard pages
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
-  const [mealType, setMealType] = useState("Breakfast");
+  const [mealType, setMealType] = useState("breakfast");
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}&mealType=${mealType}`;
+
+  const getData = async () => {
+    const { data } = await axios.get(url);
+    setRecipes(data.hits);
+  };
 
   return (
     <RecipeContext.Provider
@@ -32,6 +39,7 @@ const RecipeProvider = ({ children }) => {
         setQuery,
         setMealType,
         recipes,
+        getData,
       }}
     >
       {children}
