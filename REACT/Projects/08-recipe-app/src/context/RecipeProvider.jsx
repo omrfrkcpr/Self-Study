@@ -1,8 +1,9 @@
 import React from "react";
+import { useContext } from "react";
 import { createContext } from "react";
 import { useState } from "react";
 
-export const RecipeContext = createContext;
+export const RecipeContext = createContext();
 
 const APP_ID = "716bd830";
 const API_KEY = "7445e3656ca5026352eee8a94611c23e";
@@ -35,5 +36,9 @@ const RecipeProvider = ({ children }) => {
     </RecipeContext.Provider>
   );
 };
+
+// export const RecipeContextComp = () => {
+//   return useContext(RecipeContext);
+// };
 
 export default RecipeProvider;
