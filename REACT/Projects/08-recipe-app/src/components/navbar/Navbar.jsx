@@ -1,28 +1,32 @@
-import React from 'react'
-import {  Hamburger, Logo, Menu, MenuLink, Nav } from './NavbarStyles'
+import React from "react";
+import { Hamburger, Logo, Menu, MenuLink, Nav } from "./NavbarStyles";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from 'react';
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 const Navbar = () => {
-
-
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
   return (
     <Nav>
-      <Logo to="/home">
-        <i>{"<Clarusway/>"} </i>
-        <span>recipe</span>
+      <Logo to="/home" onClick={() => setOpen(false)}>
+        <span>Recipe App</span>
       </Logo>
 
-      <Hamburger >
+      <Hamburger onClick={() => setOpen(!open)}>
         <GiHamburgerMenu />
       </Hamburger>
 
-      <Menu >
+      <Menu fatma={open} onClick={() => setOpen(false)}>
         <MenuLink to="/about"> about</MenuLink>
-        <a href="https://github.com/" target='blank'>github</a>
-        <MenuLink to="/">logout</MenuLink>
+        <a href="https://github.com/" target="blank">
+          github
+        </a>
+        <MenuLink to="/">
+          {location.pathname === "/home" ? "logout" : "login"}
+        </MenuLink>
       </Menu>
     </Nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

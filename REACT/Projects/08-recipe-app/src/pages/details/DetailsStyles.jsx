@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const DetailContainer = styled.div`
   /* en dış container */
+ 
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

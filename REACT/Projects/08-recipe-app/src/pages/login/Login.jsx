@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import {
   FormContainer,
   Header,
@@ -8,15 +7,16 @@ import {
   StyledImg,
   StyledInput,
 } from "./LoginStyles";
+
 import mealSvg from "../../assets/meal.svg";
-import { RecipeContext } from "../../context/RecipeProvider";
 import { useContext } from "react";
+import { RecipeContext } from "../../context/RecipeProvider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { name, password, setName, setPassword } = useContext(RecipeContext);
+  const { name, setName, password, setPassword } = useContext(RecipeContext);
 
   const navigate = useNavigate();
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -30,14 +30,13 @@ const Login = () => {
     <LoginContainer>
       <FormContainer>
         <StyledImg src={mealSvg} />
-        <Header>{"<Clarusway/>"}Recipe</Header>
+        <Header>Recipe App</Header>
 
         <StyledForm onSubmit={handleSubmit}>
           <StyledInput
             type="text"
             placeholder="username"
             required
-            value={name}
             onChange={(e) => setName(e.target.value)}
           />
 
@@ -45,7 +44,6 @@ const Login = () => {
             type="password"
             placeholder="password"
             required
-            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 

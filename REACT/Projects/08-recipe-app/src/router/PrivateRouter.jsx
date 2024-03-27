@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 const PrivateRouter = () => {
   const { name, password } = useContext(RecipeContext);
 
-  return name === "omr" && password === "1234" ? (
+  return name === "omrfrkcpr" && password === "1234" ? (
     <Outlet />
   ) : (
     <Navigate to="/" />
