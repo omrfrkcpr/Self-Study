@@ -11,24 +11,52 @@ const Register = () => {
           <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
             Sign Up
           </h2>
-          <div>
-            <input name="floating_text" type="text" required />
-            <label htmlFor="floating_text">First Name</label>
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              class="peer"
+              placeholder=" "
+              required
+            />
+            <label htmlFor="firstName">First Name</label>
           </div>
-          <div>
-            <input name="floating_text" type="text" required />
-            <label htmlFor="floating_text">Last Name</label>
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              class="peer"
+              placeholder=" "
+              required
+            />
+            <label htmlFor="lastName">Last Name</label>
           </div>
-          <div>
-            <input name="floating_email" type="email" />
-            <label htmlFor="floating_email">Email</label>
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              name="email"
+              id="email"
+              class="peer"
+              placeholder=" "
+              type="email"
+            />
+            <label htmlFor="email">Email</label>
           </div>
-          <div>
-            <input name="floating_password" type="password" />
-            <label htmlFor="floating_password">Password</label>
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              name="password"
+              id="password"
+              class="peer"
+              placeholder=" "
+              type="password"
+            />
+            <label htmlFor="password">Password</label>
           </div>
-          <button type="submit">Register</button>
-          <button type="button">
+          <button className="btn-danger" type="submit">
+            Register
+          </button>
+          <button className="btn-danger flex justify-between" type="button">
             Continue with Google
             <GoogleIcon color="currentColor" />
           </button>
