@@ -1,7 +1,9 @@
 import React from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
+import { useAuthContext } from "../context/AuthContext";
 
 const Register = () => {
+  const { register } = useAuthContext();
   return (
     <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
       <div
