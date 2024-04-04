@@ -71,7 +71,7 @@ const Login = () => {
             <GoogleIcon color="currentColor" />
           </button>
           <div>
-            <p className="text-sm text-center mt-5">
+            <p className="text-sm text-black dark:text-white text-center mt-5">
               Forgot Password?{" "}
               <span
                 onClick={() => navigate("/reset")}
