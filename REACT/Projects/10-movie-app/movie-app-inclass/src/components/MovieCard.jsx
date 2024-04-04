@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { toastWarnNotify } from "../helpers/toastNotify";
 
 const defaultImage =
   "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"; //* resim yoksa default resmi göster diyecez
@@ -12,12 +13,17 @@ const MovieCard = ({ id, poster_path, overview, vote_average, title }) => {
   const tagColor =
     vote_average >= 8 ? "green" : vote_average >= 6 ? "orange" : "red";
 
+  const handleGoDetails = () => {
+    if (currentUser) {
+      navigate(`/details/${id}`);
+    } else {
+      toastWarnNotify("Please login to see details");
+      navigate("/login");
+    }
+  };
+
   return (
-    <div
-      className="movie"
-      id="container"
-      onClick={() => navigate(`/details/${id}`)}
-    >
+    <div className="movie" id="container" onClick={handleGoDetails}>
       <img
         loading="lazy"
         src={
