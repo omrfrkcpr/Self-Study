@@ -20,7 +20,7 @@ const SearchUser = ({ setUsername }) => {
             aria-label="Github's username"
             aria-describedby="basic-addon2"
             id="query"
-            onKeyDown={(e) => e.key === "Enter" && handleSearch()} // Enter tuşuna basıldığında handleSearch'i tetikle
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
           <Button
             variant="outline-secondary"

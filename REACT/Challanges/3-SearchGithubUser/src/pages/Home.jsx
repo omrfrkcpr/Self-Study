@@ -36,8 +36,8 @@ const Home = () => {
     <Container className="text-center">
       <InputSearch setUsername={setUsername} />
       {loading ? (
-        <div className="text-center">
-          <Image src={spinner} alt="loading" />
+        <div>
+          <Image src={spinner} alt="loading-spinner" />
         </div>
       ) : error ? (
         <Row className="justify-content-center h-25 w-100">
