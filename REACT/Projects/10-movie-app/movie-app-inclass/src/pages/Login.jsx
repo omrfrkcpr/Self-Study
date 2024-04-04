@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login, signGoogleProvider } = useAuthContext();
@@ -9,6 +10,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -67,6 +70,17 @@ const Login = () => {
             Continue with Google
             <GoogleIcon color="currentColor" />
           </button>
+          <div>
+            <p className="text-sm text-center mt-5">
+              Forgot Password?{" "}
+              <span
+                onClick={() => navigate("/reset")}
+                className="text-yellow-500 hover:text-red-600 hover:underline cursor-pointer"
+              >
+                Reset Password
+              </span>
+            </p>
+          </div>
         </form>
       </div>
     </div>

@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -65,6 +66,17 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const resetPassword = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      toastSuccessNotify("Password reset email sent successfully.");
+    } catch (error) {
+      toastErrorNotify("Error sending password reset email:", error.message);
+    } finally {
+      navigate("/login");
+    }
+  };
+
   const userObserver = () => {
     //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
     onAuthStateChanged(auth, (user) => {
@@ -90,7 +102,14 @@ const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ currentUser, register, login, logout, signGoogleProvider }}
+      value={{
+        currentUser,
+        register,
+        login,
+        logout,
+        signGoogleProvider,
+        resetPassword,
+      }}
     >
       {children}
     </AuthContext.Provider>
