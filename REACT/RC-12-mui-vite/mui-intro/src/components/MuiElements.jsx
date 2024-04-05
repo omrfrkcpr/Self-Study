@@ -1,10 +1,10 @@
 import Container from "@mui/material/Container"; //performans açısından verimli
 import React from "react";
 // import {Container} from '@mui/material';//performans açısından problemli ama yazım açısından daha kolay
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 const MuiElements = () => {
   return (
@@ -46,8 +46,9 @@ const MuiElements = () => {
         }}
       >
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
-        distinctio quibusdam vero quidem voluptates, exercitationem consequatur
-        cum similique id voluptatibus accusantium quasi velit facere fugit?
+        distinctio quibusdam <i>vero</i> quidem voluptates, exercitationem
+        consequatur cum similique id voluptatibus accusantium quasi velit facere
+        fugit?
       </Typography>
 
       <Box
@@ -57,10 +58,10 @@ const MuiElements = () => {
         gap={3}
         my={4}
         // sx={{
-        //   display: "flex",
-        //   justifyContent: "center",
-        //   alignItems: "center",
-        //   gap: 3,
+        //     display:"flex",
+        //     justifyContent:"center",
+        //     alignItems:"center",
+        //     gap: 3,
         // }}
       >
         <Button variant="text">Text</Button>
@@ -68,19 +69,13 @@ const MuiElements = () => {
         <Button variant="outlined">Outlined</Button>
       </Box>
       <Stack
-        direction={{ sm: "column", md: "row" }}
+        direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2, md: 4 }}
-        sx={{ justifyContent: "center" }}
+        justifyContent="center"
       >
-        <Button variant="outlined" color="success">
-          Outlined
-        </Button>
-        <Button variant="contained" color="error">
-          Outlined
-        </Button>
-        <Button variant="outlined" size="large">
-          Outlined
-        </Button>
+        <Button variant="outlined" color="success">Outlined</Button>
+        <Button variant="contained" color="error">Outlined</Button>
+        <Button variant="outlined" size="large">Outlined</Button>
       </Stack>
     </Container>
   );
