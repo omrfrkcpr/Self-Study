@@ -11,7 +11,7 @@ function App() {
       <Provider store={store}>
         <ErrorBoundary>
           <Counter />
-          {/* <Todo /> */}
+          <Todo />
         </ErrorBoundary>
       </Provider>
     </div>
