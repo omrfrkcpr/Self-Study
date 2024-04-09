@@ -1,22 +1,30 @@
-import * as React from "react"
-import Button from "@mui/material/Button"
-import TextField from "@mui/material/TextField"
-import Link from "@mui/material/Link"
-import Box from "@mui/material/Box"
-import Avatar from "@mui/material/Avatar"
-import Typography from "@mui/material/Typography"
-import Container from "@mui/material/Container"
-import { useState } from "react"
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../features/authSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setEmail("")
-    setPassword("")
-  }
+    e.preventDefault();
+    console.log({ email, password });
+    dispatch(loginSuccess({ email }));
+    navigate("/");
+    setEmail("");
+    setPassword("");
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -66,7 +74,7 @@ export default function Login() {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2,backgroundColor: "morcivert.dark" }}
+            sx={{ mt: 3, mb: 2, backgroundColor: "morcivert.dark" }}
           >
             Sign In
           </Button>
@@ -82,5 +90,5 @@ export default function Login() {
         {"."}
       </Typography>
     </Container>
-  )
+  );
 }
