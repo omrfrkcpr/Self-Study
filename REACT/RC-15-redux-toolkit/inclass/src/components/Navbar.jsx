@@ -13,6 +13,7 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 import { logoutSuccess } from "../features/authSlice";
 import { useDispatch } from "react-redux";
+import { clearProductsData } from "../features/productSlice";
 
 function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -29,6 +30,7 @@ function ResponsiveAppBar() {
 
   const handleLogout = () => {
     dispatch(logoutSuccess());
+    dispatch(clearProductsData());
   };
 
   return (
