@@ -1,15 +1,21 @@
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Avatar from "@mui/material/Avatar";
 import LockIcon from "@mui/icons-material/Lock";
-import image from "../assets/regi.avif";
+import { Box, Button, TextField } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import { Box } from "@mui/material";
+import RegisterForm from "../components/RegisterForm";
+import image from "../assets/regi.avif";
 import AuthHeader from "../components/AuthHeader";
 import AuthImage from "../components/AuthImage";
+import useAuthCall from "../hooks/useAuthCall";
+import { SignupSchema } from "../components/RegisterForm";
 
 const Register = () => {
+  const { register } = useAuthCall();
+
   return (
     <Container maxWidth="lg">
       <Grid
@@ -41,15 +47,32 @@ const Register = () => {
             mb={2}
             color="secondary.light"
           >
-            Register
+            SIGN UP
           </Typography>
 
-          <Box sx={{ textAlign: "center", mt: 2, color:"secondary.main" }}>
+          <Formik
+            initialValues={{
+              username: "",
+              firstName: "",
+              lastName: "",
+              email: "",
+              password: "",
+            }}
+            validationSchema={SignupSchema}
+            onSubmit={(values, actions) => {
+              register(values);
+              actions.resetForm();
+              actions.setSubmitting(false);
+            }}
+            component={(props) => <RegisterForm {...props} />}
+          ></Formik>
+
+          <Box sx={{ textAlign: "center", mt: 2, color: "secondary.main" }}>
             <Link to="/">Already have an account? Sign in</Link>
           </Box>
         </Grid>
 
-    <AuthImage image={image} />
+        <AuthImage image={image} />
       </Grid>
     </Container>
   );
