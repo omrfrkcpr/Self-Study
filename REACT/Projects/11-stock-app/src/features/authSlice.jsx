@@ -23,13 +23,11 @@ const authSlice = createSlice({
      loginSuccess: (state, { payload }) => {
       state.loading = false;
       state.currentUser = payload?.user?.username;
-      state.isAdmin = payload?.user?.isAdmin;
       state.token = payload?.token;
     },
     logoutSuccess: (state) => {
       state.loading = false;
       state.currentUser = null;
-      state.isAdmin = false;
       state.token = null;
     },
     fetchFail: state => {

@@ -10,6 +10,9 @@ import {
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 const useAuthCall = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +21,7 @@ const useAuthCall = () => {
     dispatch(fetchStart());
     try {
       const { data } = await axios.post(
-        "https://18102.fullstack.clarusway.com/users/",
+        `${BASE_URL}users/`,
         userInfo
       );
       console.log("register", data);
@@ -32,7 +35,7 @@ const useAuthCall = () => {
     dispatch(fetchStart());
     try {
       const { data } = await axios.post(
-        `https://18102.fullstack.clarusway.com/auth/login/`,
+        `${BASE_URL}auth/login/`,
         userInfo
       );
       dispatch(loginSuccess(data));
@@ -49,7 +52,7 @@ const useAuthCall = () => {
   const logout = async () => {
     dispatch(fetchStart());
     try {
-      await axios.get(`https://18102.fullstack.clarusway.com/auth/logout/`, {
+      await axios.get(`${BASE_URL}auth/logout/`, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -64,7 +67,7 @@ const useAuthCall = () => {
     }
   };
 
-  return { register, login, logout };
+  return { register, login , logout };
 };
 
 export default useAuthCall;
