@@ -3,10 +3,6 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { Form } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 //! Yup ile istediğimiz alanlara istediğimiz validasyon koşullarını
 //  oluşturuyoruz. Sonra oluşturduğumuz bu şemayı formike tanımlayarak
@@ -37,12 +33,9 @@ export const SignupSchema = Yup.object().shape({
       "Muss mindestens ein Sonderzeichen (@$!%*?&) enthalten!"
     )
     .required(),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Confirm Password is required"),
 });
 
-const RegisterForm = ({
+const SignUpForm = ({
   values,
   handleChange,
   errors,
@@ -50,18 +43,6 @@ const RegisterForm = ({
   handleBlur,
   isSubmitting,
 }) => {
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const handlePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const handleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
-  };
-
   return (
     <div>
       <Form>
@@ -71,7 +52,7 @@ const RegisterForm = ({
             name="username" //formik name attributedından eşleştirme yapıyor.
             label="Username"
             inputProps={{
-              autoComplete: "off", // Burada "autoComplete" kullanılmalıdır.
+              autoComplete: "off"  // Burada "autoComplete" kullanılmalıdır.
             }}
             value={values.username}
             onChange={handleChange}
@@ -85,7 +66,7 @@ const RegisterForm = ({
             name="firstName"
             id="firstName"
             inputProps={{
-              autoComplete: "off", // Burada "autoComplete" kullanılmalıdır.
+              autoComplete: "off"  // Burada "autoComplete" kullanılmalıdır.
             }}
             type="text"
             variant="outlined"
@@ -119,66 +100,26 @@ const RegisterForm = ({
             helperText={touched.email && errors.email}
             error={touched.email && Boolean(errors.email)}
           />
-          <Box sx={{ position: "relative" }}>
-            <TextField
-              id="password"
-              sx={{ width: "100%" }}
-              name="password"
-              inputProps={{ "auto-complete": "off" }}
-              type={`${showPassword ? "text" : "password"}`}
-              label="Password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.password && Boolean(errors.password)}
-              helperText={touched.password && errors.password}
-            />
-            <Box sx={{ position: "absolute", top: 15, right: 15 }}>
-              {showPassword ? (
-                <VisibilityOffIcon
-                  size={32}
-                  onClick={handlePasswordVisibility}
-                />
-              ) : (
-                <VisibilityIcon size={32} onClick={handlePasswordVisibility} />
-              )}
-            </Box>
-          </Box>
-          <Box sx={{ position: "relative" }}>
-            <TextField
-              id="confirmPassword"
-              sx={{ width: "100%" }}
-              name="confirmPassword"
-              inputProps={{ "auto-complete": "off" }}
-              type={`${showConfirmPassword ? "text" : "password"}`}
-              label="Confirm Password"
-              value={values.confirmPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-              helperText={touched.confirmPassword && errors.confirmPassword}
-            />
-            <Box sx={{ position: "absolute", top: 15, right: 15 }}>
-              {showConfirmPassword ? (
-                <VisibilityOffIcon
-                  size={32}
-                  onClick={handleConfirmPasswordVisibility}
-                />
-              ) : (
-                <VisibilityIcon
-                  size={32}
-                  onClick={handleConfirmPasswordVisibility}
-                />
-              )}
-            </Box>
-          </Box>
+          <TextField
+            label="Password"
+            name="password"
+            id="password"
+            type="password"
+            variant="outlined"
+            value={values.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            helperText={touched.password && errors.password}
+            error={touched.password && Boolean(errors.password)}
+          />
+
           <Button
             type="submit"
             variant="contained"
             size="large"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Loading" : "Sign Up"}
+            {isSubmitting ? "Loading..." : "Sign Up"}
           </Button>
         </Box>
       </Form>
@@ -186,4 +127,4 @@ const RegisterForm = ({
   );
 };
 
-export default RegisterForm;
+export default SignUpForm;

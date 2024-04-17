@@ -1,4 +1,3 @@
-// Dashboard.jsx
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -9,12 +8,7 @@ import Typography from "@mui/material/Typography";
 import useAuthCall from "../hooks/useAuthCall";
 
 function Dashboard() {
-  const { logout } = useAuthCall();
-
-  const handleLogout = () => {
-    logout();
-  };
-
+  const {logout} = useAuthCall()
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -23,9 +17,7 @@ function Dashboard() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             STOCK APP
           </Typography>
-          <Button color="inherit" onClick={handleLogout}>
-            Logout
-          </Button>
+          <Button color="inherit" onClick={logout}>Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>
