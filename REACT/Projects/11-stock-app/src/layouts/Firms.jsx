@@ -52,7 +52,7 @@ const Firms = () => {
           Firms
         </Typography>
         <Button variant="contained">New Firm</Button>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} mt={3}>
           {firms.map((firm) => (
             <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>
               <FirmCard {...firm} />
