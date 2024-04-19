@@ -26,10 +26,10 @@ const Firms = () => {
   //   }
   // }
 
-  const { getFirms } = useStockCall();
+  const { getStockData } = useStockCall();
 
   useEffect(() => {
-    getFirms();
+    getStockData("firms");
   }, []);
 
   return <div>Firms</div>;

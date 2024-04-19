@@ -19,11 +19,20 @@ const stockSlice = createSlice({
       state.loading = true;
       state.error = false;
     },
-    firmsSuccess: (state, { payload }) => {
-      state.loading = false;
-      state.firms = payload;
-    },
 
+    // base success reducer for all success cases. We should not use dot notation for dynamic object keys.(payload) Instead of we should use square bracket notation.
+    getSuccess: (state, { payload: { data, url } }) => {
+      state.loading = false;
+      state[url] = data;
+    },
+    // firmsSuccess: (state, { payload }) => {
+    //   state.loading = false;
+    //   state.firms = payload;
+    // },
+    // brandsSuccess: (state, { payload }) => {
+    //   state.loading = false;
+    //   state.brands = payload;
+    // },
     fetchFail: (state) => {
       state.loading = false;
       state.error = true;
@@ -31,5 +40,11 @@ const stockSlice = createSlice({
   },
 });
 
-export const { fetchStart, firmsSuccess, fetchFail } = stockSlice.actions;
+export const {
+  fetchStart,
+  getSuccess,
+  // firmsSuccess,
+  // brandsSuccess,
+  fetchFail,
+} = stockSlice.actions;
 export default stockSlice.reducer;
