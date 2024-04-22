@@ -17,12 +17,12 @@ const style = {
   p: 4,
 };
 
-const modalFields = [
+const brandModalFields = [
   { name: "name", label: "Brand Name", type: "text" },
   { name: "image", label: "Image Url", type: "text" },
 ];
 
-export default function FirmModal({ open, handleClose, initialState }) {
+export default function BrandModal({ open, handleClose, initialState }) {
   const [info, setInfo] = React.useState(initialState);
   const { postStockData, putStockData } = useStockCall();
 
@@ -59,7 +59,7 @@ export default function FirmModal({ open, handleClose, initialState }) {
             onSubmit={handleSubmit}
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
-            {modalFields.map((field) => (
+            {brandModalFields.map((field) => (
               <FormTextField
                 key={field.name}
                 {...field}

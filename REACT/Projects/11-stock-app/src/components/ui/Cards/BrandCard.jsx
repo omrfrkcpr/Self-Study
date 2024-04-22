@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import useStockCall from "../../../hooks/useStockCall";
 
-export default function FirmCard({
+export default function BrandCard({
   _id,
   name,
   image,

@@ -18,7 +18,7 @@ const style = {
   p: 4,
 };
 
-const modalFields = [
+const firmModalFields = [
   { name: "name", label: "Firm Name", type: "text" },
   { name: "address", label: "Firm Address", type: "text" },
   { name: "phone", label: "Firm Phone", type: "text" },
@@ -67,7 +67,7 @@ export default function FirmModal({ open, handleClose, initialState }) {
             onSubmit={handleSubmit}
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
-            {modalFields.map((field) => (
+            {firmModalFields.map((field) => (
               <FormTextField
                 key={field.name}
                 {...field}
