@@ -7,9 +7,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useSelector } from "react-redux";
-import useStockCall from "../hooks/useStockCall";
 import FirmCard from "../components/ui/Cards/FirmCard";
 import FirmModal from "../components/ui/Modals/FirmModal";
+import useStockCall from "../hooks/useStockCall";
 
 const Firms = () => {
   //? firms verileri bana birden fazla yerde lazım olduğu için fonksiyonu burada değil de her yerden erişebileceğim bir noktada tanımlıyorum. İçerisinde react hookları lazım olduğu için de bu ortak nokta en iyi custom hook olmuş oluyor.
@@ -40,8 +40,23 @@ const Firms = () => {
   const { firms } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setInitialState({
+      name: "",
+      phone: "",
+      address: "",
+      image: "",
+    });
+  };
+  const [initialState, setInitialState] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    image: "",
+  });
   console.log("firms:", firms);
+  console.log("firms:", initialState);
   useEffect(() => {
     // getFirms()
     getStockData("firms");
@@ -63,11 +78,21 @@ const Firms = () => {
       <Grid container spacing={2} mt={3}>
         {firms.map((firm) => (
           <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>
-            <FirmCard {...firm} handleOpen={handleOpen} />
+            <FirmCard
+              {...firm}
+              handleOpen={handleOpen}
+              setInitialState={setInitialState}
+            />
           </Grid>
         ))}
       </Grid>
-      <FirmModal open={open} handleClose={handleClose} />
+      {open && (
+        <FirmModal
+          open={open}
+          handleClose={handleClose}
+          initialState={initialState}
+        />
+      )}
     </Container>
   );
 };

@@ -1,7 +1,8 @@
 import { Button, CircularProgress } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import { Form } from "formik";
+import FormTextField from "./ui/TextFields/FormTextField";
 import { useSelector } from "react-redux";
 import { object, string } from "yup"; //! bu şekilde de direk olarak metodları alıp yine validasyon şemamızı oluşturabiliriz.
 
@@ -12,41 +13,27 @@ export const loginScheme = object({
   password: string().required("password zorunludur"),
 });
 
+const loginFormFields = [
+  { name: "email", label: "Email", type: "email" },
+  { name: "password", label: "Şifre", type: "password" },
+];
+
 const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
   const { loading } = useSelector((state) => state.auth); // storeda yaptığımız fetchStart işlemini kullanmış olduk.
   return (
     <Form>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        <TextField
-          label="Email"
-          name="email"
-          id="email"
-          inputProps={{
-            autoComplete: "off",
-          }}
-          type="email"
-          variant="outlined"
-          value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          helperText={touched.email && errors.email}
-          error={touched.email && Boolean(errors.email)}
-        />
-        <TextField
-          label="password"
-          name="password"
-          id="password"
-          inputProps={{
-            autoComplete: "off",
-          }}
-          type="password"
-          variant="outlined"
-          value={values.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          helperText={touched.password && errors.password}
-          error={touched.password && Boolean(errors.password)}
-        />
+        {loginFormFields.map((field) => (
+          <FormTextField
+            key={field.name}
+            {...field}
+            value={values[field.name]}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            helperText={touched[field.name] && errors[field.name]}
+            error={touched[field.name] && Boolean(errors[field.name])}
+          />
+        ))}
         {!loading ? (
           <Button variant="contained" type="submit">
             Sign In

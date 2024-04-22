@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 // import TextField from "@mui/material/TextField";
 import { Form } from "formik";
 import * as Yup from "yup";
-import RegisterTextField from "./ui/TextFields/RegisterTextField";
+import FormTextField from "./ui/TextFields/FormTextField";
 
 //! Yup ile istediğimiz alanlara istediğimiz validasyon koşullarını
 //  oluşturuyoruz. Sonra oluşturduğumuz bu şemayı formike tanımlayarak
@@ -56,8 +56,8 @@ const SignUpForm = ({
     <div>
       <Form>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {formFields.map((field) => (
-            <RegisterTextField
+          {registerFormFields.map((field) => (
+            <FormTextField
               key={field.name}
               {...field}
               value={values[field.name]}

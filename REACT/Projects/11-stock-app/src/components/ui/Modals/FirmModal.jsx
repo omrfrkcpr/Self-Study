@@ -1,10 +1,10 @@
-import * as React from "react";
-import { useState } from "react";
+import { TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
+import * as React from "react";
+import useStockCall from "../../../hooks/useStockCall";
+import FormTextField from "../TextFields/FormTextField";
 
 const style = {
   position: "absolute",
@@ -18,25 +18,39 @@ const style = {
   p: 4,
 };
 
-export default function FirmModal({ open, handleClose }) {
-  //   const [open, setOpen] = useState(false);
+const modalFields = [
+  { name: "name", label: "Firm Name", type: "text" },
+  { name: "address", label: "Firm Address", type: "text" },
+  { name: "phone", label: "Firm Phone", type: "text" },
+  { name: "image", label: "Firm Logo", type: "text" },
+];
+
+export default function FirmModal({ open, handleClose, initialState }) {
+  //   const [open, setOpen] = React.useState(false);
   //   const handleOpen = () => setOpen(true);
   //   const handleClose = () => setOpen(false);
-  const initialInfoState = {
-    name: "",
-    phone: "",
-    address: "",
-    image: "",
-  };
-  const [info, setInfo] = useState(initialInfoState);
+  const [info, setInfo] = React.useState(initialState);
+  const { postStockData, putStockData } = useStockCall();
 
   const handleChange = (e) => {
+    console.log(e.target.id);
+    console.log(e.target.name);
+    // setInfo({...info,[e.target.id]:e.target.value})
     setInfo({ ...info, [e.target.name]: e.target.value });
+    //console.log(info)//*setter asenkron çalışır o nedenle güncel çıktıyı yakalayamam
   };
+  console.log(info);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit", info);
+
+    if (info._id) {
+      putStockData("firms", info);
+    } else {
+      postStockData("firms", info);
+    }
+    handleClose();
   };
 
   return (
@@ -50,48 +64,23 @@ export default function FirmModal({ open, handleClose }) {
         <Box sx={style}>
           <Box
             component="form"
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             onSubmit={handleSubmit}
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
-            //TODO: TextField icin bir reusable comp olustur.
-            <TextField
-              label="Firm Name"
-              name="name"
-              id="name"
-              type="text"
-              variant="outlined"
-              value={info.name}
-              onChange={handleChange}
-            />
-            <TextField
-              label="Firm Address"
-              name="address"
-              id="address"
-              type="text"
-              variant="outlined"
-              value={info.address}
-              onChange={handleChange}
-            />
-            <TextField
-              label="Firm Phone"
-              name="phone"
-              id="phone"
-              type="text"
-              variant="outlined"
-              value={info.phone}
-              onChange={handleChange}
-            />
-            <TextField
-              label="Firm Logo"
-              name="image"
-              id="image"
-              type="text"
-              variant="outlined"
-              value={info.image}
-              onChange={handleChange}
-            />
-            <Button type="submit" variant="contained">
-              Submit Firm
+            {modalFields.map((field) => (
+              <FormTextField
+                key={field.name}
+                {...field}
+                value={info[field.name]}
+                onChange={handleChange}
+              />
+            ))}
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ backgroundColor: `${info._id ? "green" : "indianred"}` }}
+            >
+              {info._id ? "Update Firm" : "Submit Firm"}
             </Button>
           </Box>
         </Box>

@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 
-const RegisterTextField = ({
+const FormTextField = ({
   name,
   label,
   type,
@@ -26,11 +26,11 @@ const RegisterTextField = ({
       variant={variant || "outlined"}
       value={value}
       onChange={onChange}
-      onBlur={onBlur}
-      helperText={helperText}
-      error={error}
+      onBlur={onBlur || undefined}
+      helperText={helperText || ""}
+      error={error || false}
     />
   );
 };
 
-export default RegisterTextField;
+export default FormTextField;
