@@ -3,28 +3,29 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import useStockCall from "../../hooks/useStockCall";
+import useStockCall from "../../../hooks/useStockCall";
 
-export default function FirmsCard({
+export default function FirmCard({
   _id,
   name,
   address,
-  phone,
   image,
-  // createdAt,
-  // updatedAt,
+  phone,
+  handleOpen,
 }) {
   const { deleteStockData } = useStockCall();
   return (
     <Card
       sx={{
-        height: "390px",
+        height: 390,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-evenly",
+        justifyContent: "space-between",
+        padding: "0.5rem",
       }}
     >
       <CardContent>
@@ -36,27 +37,34 @@ export default function FirmsCard({
         </Typography>
       </CardContent>
       <CardMedia
-        sx={{ height: 140, objectFit: "contain", padding: ".5rem" }}
+        sx={{ height: 140, objectFit: "contain" }}
         component="img"
         image={image}
-        title={`${name}-logo`}
+        title={name}
       />
       <CardContent>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ textAlign: "center" }}
-        >
-          Phone: {phone}
+        <Typography variant="body2" color="text.secondary">
+          Phone : {phone}
         </Typography>
       </CardContent>
+
       <CardActions
-        sx={{ justifyContent: "center", alignItems: "center", gap: 1 }}
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 2,
+        }}
       >
-        <EditIcon sx={{ cursor: "pointer" }} />
+        <EditIcon
+          onClick={handleOpen}
+          sx={{
+            cursor: "pointer",
+            "&:hover": { color: "orange", scale: "125%" },
+          }}
+        />
         <DeleteOutlineIcon
-          sx={{ cursor: "pointer" }}
           onClick={() => deleteStockData("firms", _id)}
+          sx={{ cursor: "pointer", "&:hover": { color: "red", scale: "125%" } }}
         />
       </CardActions>
     </Card>
