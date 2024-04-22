@@ -1,20 +1,19 @@
 import { Button, CircularProgress } from "@mui/material";
-import Box from "@mui/material/Box"
-import TextField from "@mui/material/TextField"
-import { Form } from "formik"
-import { useSelector } from "react-redux"
-import { object, string } from "yup"; //! bu şekilde de direk olarak metodları alıp yine validasyon şemamızı oluşturabiliriz. 
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Form } from "formik";
+import { useSelector } from "react-redux";
+import { object, string } from "yup"; //! bu şekilde de direk olarak metodları alıp yine validasyon şemamızı oluşturabiliriz.
 
 export const loginScheme = object({
   email: string()
     .email("Lutfen valid bir email giriniz")
     .required("Email zorunludur"),
-  password: string()
-    .required("password zorunludur")
-})
+  password: string().required("password zorunludur"),
+});
 
 const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
-  const { loading } = useSelector(state => state.auth);// storeda yaptığımız fetchStart işlemini kullanmış olduk.
+  const { loading } = useSelector((state) => state.auth); // storeda yaptığımız fetchStart işlemini kullanmış olduk.
   return (
     <Form>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -22,6 +21,9 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
           label="Email"
           name="email"
           id="email"
+          inputProps={{
+            autoComplete: "off",
+          }}
           type="email"
           variant="outlined"
           value={values.email}
@@ -34,6 +36,9 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
           label="password"
           name="password"
           id="password"
+          inputProps={{
+            autoComplete: "off",
+          }}
           type="password"
           variant="outlined"
           value={values.password}
@@ -44,7 +49,7 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
         />
         {!loading ? (
           <Button variant="contained" type="submit">
-           Sign In
+            Sign In
           </Button>
         ) : (
           <Button variant="contained" disabled={loading}>
@@ -62,6 +67,6 @@ const LoginForm = ({ values, handleChange, errors, touched, handleBlur }) => {
       </Box>
     </Form>
   );
-}
+};
 
-export default LoginForm
+export default LoginForm;
