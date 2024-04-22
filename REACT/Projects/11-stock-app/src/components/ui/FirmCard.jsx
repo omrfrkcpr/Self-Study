@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
+import useStockCall from "../../hooks/useStockCall";
 
 export default function FirmsCard({
   _id,
@@ -16,6 +17,7 @@ export default function FirmsCard({
   // createdAt,
   // updatedAt,
 }) {
+  const { deleteStockData } = useStockCall();
   return (
     <Card
       sx={{
@@ -51,8 +53,11 @@ export default function FirmsCard({
       <CardActions
         sx={{ justifyContent: "center", alignItems: "center", gap: 1 }}
       >
-        <EditIcon />
-        <DeleteOutlineIcon />
+        <EditIcon sx={{ cursor: "pointer" }} />
+        <DeleteOutlineIcon
+          sx={{ cursor: "pointer" }}
+          onClick={() => deleteStockData("firms", _id)}
+        />
       </CardActions>
     </Card>
   );

@@ -7,6 +7,7 @@ import {
   // firmsSuccess,
   getSuccess,
 } from "../features/stockSlice";
+import { toastSuccessNotify } from "../helper/ToastNotify";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const useStockCall = () => {
@@ -23,11 +24,29 @@ const useStockCall = () => {
           // Authorization: `Bearer ${accesstoken}` //* jwt için
         },
       });
-      console.log(data.data);
       dispatch(getSuccess({ data: data.data, url: url }));
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
+    }
+  };
+
+  const deleteStockData = async (url, id) => {
+    if (confirm("Are you sure you want to delete this firm?")) {
+      dispatch(fetchStart());
+      try {
+        await axios.delete(`${BASE_URL}${url}/${id}`, {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        });
+        toastSuccessNotify("Firm successfully deleted");
+      } catch (error) {
+        console.log(error);
+        dispatch(fetchFail());
+      } finally {
+        getStockData(url);
+      }
     }
   };
 
@@ -65,7 +84,7 @@ const useStockCall = () => {
   //   }
   // };
 
-  return { getStockData };
+  return { getStockData, deleteStockData };
 };
 
 export default useStockCall;

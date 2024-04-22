@@ -15,35 +15,30 @@ const links = [
     url: "/stock",
     icon: getIcon("ic_analytics"),
   },
-
   {
     title: "Purchases",
     url: "/stock/purchases",
     icon: getIcon("purchase"),
   },
-
-  {
-    title: "Brands",
-    url: "/stock/brands",
-    icon: getIcon("brand"),
-  },
-
-  {
-    title: "Products",
-    url: "/stock/products",
-    icon: getIcon("ic_cart"),
-  },
-
   {
     title: "Sales",
     url: "/stock/sales",
     icon: getIcon("sales"),
   },
-
   {
     title: "Firms",
     url: "/stock/firms",
     icon: getIcon("firms"),
+  },
+  {
+    title: "Brands",
+    url: "/stock/brands",
+    icon: getIcon("brand"),
+  },
+  {
+    title: "Products",
+    url: "/stock/products",
+    icon: getIcon("ic_cart"),
   },
 ];
 
