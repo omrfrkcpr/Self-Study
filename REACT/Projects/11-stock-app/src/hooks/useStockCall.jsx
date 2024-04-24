@@ -121,6 +121,8 @@ const useStockCall = () => {
   };
 
   // Get all datas after all fullfilled with Promise.all()
+  //!Promise.all()
+  //* eş zamanlı istek atma. aynı anda istek atılıyor aynı anda responselar gelmeye başlıyor. Zaman noktasında da avantajlı. En uzun hangi istek sürdüyse veriler ondan sonra valid olur. Birbirine bağımlı isteklerde en büyük avantajı hata durumu. İsteklerden biri bile hatalı olursa hepsi iptal olur.
   const getProCatBrand = async () => {
     dispatch(fetchStart());
     try {
