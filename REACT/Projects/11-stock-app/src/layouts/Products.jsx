@@ -8,7 +8,8 @@ import useStockCall from "../hooks/useStockCall";
 import ProductTable from "../components/ui/Tables/ProductTable";
 
 const Products = () => {
-  const { getStockData } = useStockCall();
+  // const { getStockData } = useStockCall();
+  const { getProCatBrand } = useStockCall();
   const { products } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -18,9 +19,10 @@ const Products = () => {
 
   console.log("products:", products);
   useEffect(() => {
-    getStockData("products");
-    getStockData("categories");
-    getStockData("brands");
+    // getStockData("products");
+    // getStockData("categories");
+    // getStockData("brands");
+    getProCatBrand();
   }, []);
 
   return (

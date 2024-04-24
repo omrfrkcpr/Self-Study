@@ -5,10 +5,10 @@ import {
   fetchFail,
   fetchStart,
   // firmsSuccess,
+  getProCatBrandSuccess,
   getSuccess,
 } from "../features/stockSlice";
 import useAxios from "./useAxios";
-import { toast } from "react-toastify";
 import { toastSuccessNotify } from "../helper/ToastNotify";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -120,6 +120,29 @@ const useStockCall = () => {
     }
   };
 
+  // Get all datas after all fullfilled with Promise.all()
+  const getProCatBrand = async () => {
+    dispatch(fetchStart());
+    try {
+      // const [a,b] = [1,2] // array destructuring
+      const [products, categories, brands] = await Promise.all([
+        axiosWithToken("products"),
+        axiosWithToken("categories"),
+        axiosWithToken("brands"),
+      ]);
+      dispatch(
+        getProCatBrandSuccess([
+          products?.data?.data,
+          categories?.data?.data,
+          brands?.data?.data,
+        ])
+      );
+    } catch (error) {
+      console.log(error);
+      dispatch(fetchFail());
+    }
+  };
+
   return {
     // getFirms,
     // getBrands,
@@ -127,6 +150,7 @@ const useStockCall = () => {
     getStockData,
     postStockData,
     putStockData,
+    getProCatBrand,
   };
 };
 

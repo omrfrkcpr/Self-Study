@@ -1,6 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import useStockCall from "../../../hooks/useStockCall";
@@ -118,6 +118,9 @@ export default function ProductTable() {
               pageSize: 5,
             },
           },
+        }}
+        slots={{
+          toolbar: GridToolbar,
         }}
         getRowId={getRowId}
         pageSizeOptions={[5, 10, 25]}
