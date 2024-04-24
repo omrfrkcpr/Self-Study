@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import loadingGif from "../assets/loading.gif";
 
 const Brands = () => {
   const {
@@ -18,7 +19,7 @@ const Brands = () => {
     getStockData("brands");
   }, []);
 
-  const { brands } = useSelector((state) => state.stock);
+  const { brands, loading } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -49,15 +50,19 @@ const Brands = () => {
         New Brand
       </Button>
       <Grid container spacing={2} mt={3}>
-        {brands.map((firm) => (
-          <Grid item xs={12} md={6} lg={4} xl={3} key={firm._id}>
-            <BrandCard
-              {...firm}
-              handleOpen={handleOpen}
-              setInitialState={setInitialState}
-            />
-          </Grid>
-        ))}
+        {loading ? (
+          <img src={loadingGif} alt="loading..." height={500} />
+        ) : (
+          brands.map((brand) => (
+            <Grid item xs={12} md={6} lg={4} xl={3} key={brand._id}>
+              <BrandCard
+                {...brand}
+                handleOpen={handleOpen}
+                setInitialState={setInitialState}
+              />
+            </Grid>
+          ))
+        )}
       </Grid>
       {open && (
         <BrandModal
