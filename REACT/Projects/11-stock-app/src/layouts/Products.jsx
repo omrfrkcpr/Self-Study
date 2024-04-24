@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ProductModal from "../components/ui/Modals/ProductModal";
 import useStockCall from "../hooks/useStockCall";
+import ProductTable from "../components/ui/Tables/ProductTable";
 
 const Products = () => {
   const { getStockData } = useStockCall();
@@ -35,6 +36,7 @@ const Products = () => {
       <Button variant="contained" onClick={handleOpen}>
         New Product
       </Button>
+      <ProductTable />
       {open && <ProductModal open={open} handleClose={handleClose} />}
     </Container>
   );
