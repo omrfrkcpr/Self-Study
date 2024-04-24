@@ -58,7 +58,7 @@ export default function BrandCard({
           }}
         />
         <DeleteOutlineIcon
-          onClick={() => deleteStockData("firms", _id)}
+          onClick={() => deleteStockData("brands", _id)}
           sx={{
             cursor: "pointer",
             "&:hover": {
