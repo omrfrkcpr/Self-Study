@@ -8,6 +8,7 @@ import MyButton from "../components/Commons/MyButton";
 import PageHeader from "../components/Commons/PageHeader";
 import BrandForm from "../components/Forms/BrandForm";
 import useStockCall from "../hooks/useStockCall";
+import StockModal from "../components/Commons/StockModal";
 
 const Brands = () => {
   const { getStockData } = useStockCall();
