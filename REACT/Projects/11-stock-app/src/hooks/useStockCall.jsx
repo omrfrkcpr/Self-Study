@@ -7,6 +7,7 @@ import {
   getProCatBrandSuccess,
   getProPurcFirBrandsSuccess,
   getProSalBrandsSuccess,
+  getPurcSalesSuccess,
   // firmsSuccess,
   getSuccess,
 } from "../features/stockSlice";
@@ -17,7 +18,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const useStockCall = () => {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
-  const axiosWithToken = useAxios()
+  const axiosWithToken = useAxios();
   // const getFirms = async () => {
   //   dispatch(fetchStart());
   //   try {
@@ -74,8 +75,8 @@ const useStockCall = () => {
       dispatch(fetchFail());
     }
   };
- //! istek atarken ortak olan base_url  ve token gibi değerleri her seferinde yazmak yerine axios instance kullanarak bunları orada tanımlıyoruz. Ve sonrasında sadece istek atmak istediğimiz end pointi yazmamız yeterli oluyor.
-  const deleteStockData = async (url,id) => {
+  //! istek atarken ortak olan base_url  ve token gibi değerleri her seferinde yazmak yerine axios instance kullanarak bunları orada tanımlıyoruz. Ve sonrasında sadece istek atmak istediğimiz end pointi yazmamız yeterli oluyor.
+  const deleteStockData = async (url, id) => {
     dispatch(fetchStart());
     try {
       // await axios.delete(`${BASE_URL}${url}/${id}`, {
@@ -89,36 +90,42 @@ const useStockCall = () => {
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
-      toastErrorNotify(error?.response?.data?.message || "Operation not success")
+      toastErrorNotify(
+        error?.response?.data?.message || "Operation not success"
+      );
     } finally {
       getStockData(url);
     }
   };
 
-  const postStockData = async (url,info) => {
+  const postStockData = async (url, info) => {
     dispatch(fetchStart());
     try {
-      await axiosWithToken.post(`${url}`,info);
+      await axiosWithToken.post(`${url}`, info);
       // getStockData(url)
       toastSuccessNotify("Operation succes");
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
-      toastErrorNotify(error?.response?.data?.message || "Operation not success")
+      toastErrorNotify(
+        error?.response?.data?.message || "Operation not success"
+      );
     } finally {
       getStockData(url);
     }
   };
-  const putStockData = async (url,info) => {
+  const putStockData = async (url, info) => {
     dispatch(fetchStart());
     try {
-      await axiosWithToken.put(`${url}/${info._id}`,info);
+      await axiosWithToken.put(`${url}/${info._id}`, info);
       // getStockData(url)
       toastSuccessNotify("Operation succes");
     } catch (error) {
       console.log(error);
       dispatch(fetchFail());
-      toastErrorNotify(error?.response?.data?.message || "Operation not success")
+      toastErrorNotify(
+        error?.response?.data?.message || "Operation not success"
+      );
     } finally {
       getStockData(url);
     }
@@ -130,16 +137,22 @@ const useStockCall = () => {
     dispatch(fetchStart());
     try {
       // const [a,b] = [1,2] // array destructuring
-      const [products,categories,brands] = await Promise.all([
+      const [products, categories, brands] = await Promise.all([
         axiosWithToken("products"),
         axiosWithToken("categories"),
         axiosWithToken("brands"),
-      ])
-      dispatch(getProCatBrandSuccess([products?.data?.data,categories?.data?.data,brands?.data?.data]))
+      ]);
+      dispatch(
+        getProCatBrandSuccess([
+          products?.data?.data,
+          categories?.data?.data,
+          brands?.data?.data,
+        ])
+      );
     } catch (error) {
       dispatch(fetchFail());
     }
-  }
+  };
   const getProSalBrands = async () => {
     dispatch(fetchStart());
     try {
@@ -180,6 +193,19 @@ const useStockCall = () => {
       dispatch(fetchFail());
     }
   };
+  const getPurcSales = async () => {
+    dispatch(fetchStart());
+    try {
+      const [sales, purchases] = await Promise.all([
+        axiosWithToken.get(`sales/`),
+        axiosWithToken.get(`purchases/`),
+      ]);
+
+      dispatch(getPurcSalesSuccess([sales?.data, purchases?.data]));
+    } catch (error) {
+      dispatch(fetchFail());
+    }
+  };
   return {
     // getFirms,
     // getBrands,
@@ -189,12 +215,12 @@ const useStockCall = () => {
     getStockData,
     getProCatBrand,
     getProSalBrands,
-    getProPurcFirBrands
+    getProPurcFirBrands,
+    getPurcSales,
   };
 };
 
 export default useStockCall;
-
 
 //* promise.all
 // Eğer sayfanın yüklenmesi için birbirine bağımlı olmayan birden fazla asenkron işlemi tamamlamanız gerekiyorsa, Promise.all() bu durum için ideal bir yöntemdir. Promise.all() kullanarak birden fazla bağımsız işlemi paralel olarak başlatabilir ve tüm işlemlerin tamamlanmasını bekleyebilirsiniz. Bu, sayfanızın daha hızlı yüklenmesine yardımcı olur çünkü işlemler eş zamanlı olarak gerçekleştirilir ve en uzun süren işlem kadar beklersiniz.
