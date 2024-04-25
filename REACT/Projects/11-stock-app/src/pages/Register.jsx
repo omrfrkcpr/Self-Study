@@ -1,19 +1,19 @@
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Avatar from "@mui/material/Avatar";
 import LockIcon from "@mui/icons-material/Lock";
-import image from "../assets/regi.avif";
-import Grid from "@mui/material/Grid";
-import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
-import AuthHeader from "../components/AuthHeader";
-import AuthImage from "../components/AuthImage";
-import { Formik} from "formik";
+import Avatar from "@mui/material/Avatar";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { Formik } from "formik";
+import { Link } from "react-router-dom";
+import image from "../assets/regi.avif";
+import AuthHeader from "../components/Commons/AuthHeader";
+import AuthImage from "../components/Commons/AuthImage";
+import RegisterForm, { SignupSchema } from "../components/Forms/RegisterForm";
 import useAuthCall from "../hooks/useAuthCall";
-import RegisterForm, { SignupSchema } from "../components/RegisterForm";
 
 const Register = () => {
-  const {register} = useAuthCall()
+  const { register } = useAuthCall();
   return (
     <Container maxWidth="lg">
       <Grid

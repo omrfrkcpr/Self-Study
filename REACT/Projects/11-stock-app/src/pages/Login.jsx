@@ -1,16 +1,16 @@
+import LockIcon from "@mui/icons-material/Lock";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import LockIcon from "@mui/icons-material/Lock";
-import image from "../assets/hero.png";
-import { Link } from "react-router-dom";
-import AuthHeader from "../components/AuthHeader";
-import AuthImage from "../components/AuthImage";
 import { Formik } from "formik";
+import { Link } from "react-router-dom";
+import image from "../assets/hero.png";
+import AuthHeader from "../components/Commons/AuthHeader";
+import AuthImage from "../components/Commons/AuthImage";
+import LoginForm, { loginScheme } from "../components/Forms/LoginForm";
 import useAuthCall from "../hooks/useAuthCall";
-import LoginForm, { loginScheme } from "../components/LoginForm";
 
 const Login = () => {
   const { login } = useAuthCall();
@@ -50,13 +50,10 @@ const Login = () => {
               actions.resetForm();
               actions.setSubmitting(false);
             }}
-            component={props => <LoginForm {...props} />}>
-              
-            </Formik>
+            component={(props) => <LoginForm {...props} />}
+          ></Formik>
           <Box sx={{ textAlign: "center", mt: 2, color: "secondary.main" }}>
-            <Link to="/register">
-              Don't have an account? Sign Up
-            </Link>
+            <Link to="/register">Don't have an account? Sign Up</Link>
           </Box>
         </Grid>
 

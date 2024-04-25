@@ -23,7 +23,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    stock: stockReducer,
+    stock:stockReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

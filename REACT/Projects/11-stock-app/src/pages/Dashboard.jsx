@@ -1,25 +1,66 @@
-import * as React from "react";
+// import React from "react";
+// import AppBar from "@mui/material/AppBar";
+// import Box from "@mui/material/Box";
+// import CssBaseline from "@mui/material/CssBaseline";
+// import Toolbar from "@mui/material/Toolbar";
+// import Button from "@mui/material/Button";
+// import Typography from "@mui/material/Typography";
+// import useAuthCall from "../hooks/useAuthCall";
+// import { Outlet } from "react-router-dom";
+
+// function Dashboard() {
+//   const {logout} = useAuthCall()
+//   return (
+//     <Box sx={{ display: "flex" }}>
+//       <CssBaseline />
+//       <AppBar position="fixed">
+//         <Toolbar>
+//           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+//             STOCK APP
+//           </Typography>
+//           <Button color="inherit" onClick={logout}>Logout</Button>
+//         </Toolbar>
+//       </AppBar>
+//       <div style={{marginTop:"10rem"}}>
+
+//       <Outlet />
+//       </div>
+//     </Box>
+//   );
+// }
+
+// export default Dashboard;
+
+import LogoutIcon from "@mui/icons-material/Logout";
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { Outlet } from "react-router-dom";
 import useAuthCall from "../hooks/useAuthCall";
-import Button from "@mui/material/Button";
-import LogoutIcon from "@mui/icons-material/Logout";
-import MenuListItems from "../components/MenuListItems";
+import MenuListItems from "../components/Navigation/MenuListItems";
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
+  const { logout } = useAuthCall();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const { logout } = useAuthCall();
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -36,6 +77,25 @@ function Dashboard(props) {
     }
   };
 
+  // const drawer = (
+  //   <div>
+  //     <Toolbar />
+  //     <List>
+  //       {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+  //         <ListItem key={text} disablePadding>
+  //           <ListItemButton>
+  //             <ListItemIcon>
+  //               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+  //             </ListItemIcon>
+  //             <ListItemText primary={text} />
+  //           </ListItemButton>
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //   </div>
+  // );
+
+  // Remove this const when copying and pasting into your project.
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -67,16 +127,15 @@ function Dashboard(props) {
           </Typography>
           <Button
             color="inherit"
-            onClick={logout}
             sx={{
-              gap: 1,
               "&:hover": {
-                backgroundColor: "secondary.second",
+                backgroundColor: "secondary.main",
                 color: "white",
               },
             }}
+            onClick={logout}
           >
-            Logout <LogoutIcon />
+            Logout <LogoutIcon sx={{ ml: "0.5rem" }} />
           </Button>
         </Toolbar>
       </AppBar>
@@ -103,7 +162,7 @@ function Dashboard(props) {
             },
           }}
         >
-          <MenuListItems />
+          <MenuListItems/>
         </Drawer>
         <Drawer
           variant="permanent"
@@ -116,7 +175,7 @@ function Dashboard(props) {
           }}
           open
         >
-          <MenuListItems />
+          <MenuListItems/>
         </Drawer>
       </Box>
       <Box

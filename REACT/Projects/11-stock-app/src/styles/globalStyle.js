@@ -22,8 +22,8 @@ export const modalStyle = {
   p: 4,
 };
 export const flex = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: 2,
-};
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 2,
+  };
