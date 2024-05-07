@@ -32,7 +32,6 @@ de08.addEvents('TS')
 
 console.log(de08) */
 
-
 /* interface NumKey {
     (key: number, value: string): void
   }
@@ -50,16 +49,14 @@ console.log(de08) */
   kvp = update
   kvp(2, 'Jane') */
 
+//generics
 
-  //generics
-
-  function getArray<T>(items: T[]): T[] {
-    return new Array<T>().concat(items)
-  }
-  let numArr = getArray([1, 2, 3])
-  let strArr = getArray(["John", "Jane"])
-  numArr.push(4); // OK
-  strArr.push("Jake"); // OK
-  numArr.push("Tim"); // Compiler Error
-  strArr.push(5); // Compiler Error
-
+// function getArray<T>(items: T[]): T[] {
+//   return new Array<T>().concat(items)
+// }
+// let numArr = getArray([1, 2, 3])
+// let strArr = getArray(["John", "Jane"])
+// numArr.push(4); // OK
+// strArr.push("Jake"); // OK
+// numArr.push("Tim"); // Compiler Error
+// strArr.push(5); // Compiler Error
