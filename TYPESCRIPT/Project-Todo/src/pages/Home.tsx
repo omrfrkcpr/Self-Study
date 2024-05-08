@@ -4,12 +4,6 @@ import axios from "axios";
 import AddTodoComp from "../components/AddTodoComp";
 import TodoList from "../components/TodoList";
 
-interface ITodoType {
-  id: string | number;
-  task: string;
-  isDone: boolean;
-}
-
 const url = "https://634ac3fc5df952851418480f.mockapi.io/api/todos";
 
 const Home = () => {
@@ -48,7 +42,7 @@ const Home = () => {
         ToDo App with TypeScript
       </Typography>
       <AddTodoComp addTodo={addTodo} />
-      <TodoList />
+      <TodoList todos={todos} />
     </Container>
   );
 };
