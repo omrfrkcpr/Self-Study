@@ -4,11 +4,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import { FC } from "react";
 
-interface ITodoListItem {
+// interface ITodoListItem {
+//   todo: ITodoType;
+//   deleteTodo: DeleteFunc;
+//   toggleTodo: ToggleFunc;
+// }
+interface ITodoListItem extends ITodoListFunc {
   todo: ITodoType;
 }
 
-const TodoListItem: FC<ITodoListItem> = ({ todo }) => {
+const TodoListItem: FC<ITodoListItem> = ({ todo, deleteTodo, toggleTodo }) => {
   return (
     <ListItem
       key={todo.id}
@@ -18,6 +23,7 @@ const TodoListItem: FC<ITodoListItem> = ({ todo }) => {
         <IconButton
           sx={{ "&:hover": { color: "indianred" } }}
           aria-label="delete"
+          onClick={() => deleteTodo(todo.id)}
         >
           <DeleteIcon />
         </IconButton>
@@ -26,6 +32,7 @@ const TodoListItem: FC<ITodoListItem> = ({ todo }) => {
       <ListItemText
         sx={{ wordWrap: "break-word", marginRight: "1rem" }}
         primary={todo.task}
+        onClick={() => toggleTodo(todo)}
       />
     </ListItem>
   );

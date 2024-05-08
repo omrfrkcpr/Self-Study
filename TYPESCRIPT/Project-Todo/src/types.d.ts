@@ -5,3 +5,12 @@ interface ITodoType {
 }
 
 type AddFunc = (text: string) => Promise<void>;
+
+type ToggleFunc = (todo: ITodoType) => Promise<void>;
+
+type DeleteFunc = (id: string | number) => Promise<void>;
+
+interface ITodoListFunc {
+  deleteTodo: DeleteFunc;
+  toggleTodo: ToggleFunc;
+}

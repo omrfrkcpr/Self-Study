@@ -2,11 +2,17 @@ import { Grid, Typography } from "@mui/material";
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-interface ITodoListProps {
+interface ITodoListProps extends ITodoListFunc {
   todos: ITodoType[];
+  // deleteTodo: DeleteFunc;
+  // toggleTodo: ToggleFunc;
 }
 
-const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
+const TodoList: React.FC<ITodoListProps> = ({
+  todos,
+  deleteTodo,
+  toggleTodo,
+}) => {
   const progressTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
 
@@ -40,7 +46,12 @@ const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
         </Typography>
         {progressTodos.length ? (
           progressTodos.map((todo) => (
-            <TodoListItem todo={todo} key={todo.id} />
+            <TodoListItem
+              todo={todo}
+              key={todo.id}
+              toggleTodo={toggleTodo}
+              deleteTodo={deleteTodo}
+            />
           ))
         ) : (
           <Typography color="error" mt={4}>
@@ -66,7 +77,14 @@ const TodoList: React.FC<ITodoListProps> = ({ todos }) => {
           Completed Todos
         </Typography>
         {doneTodos.length ? (
-          doneTodos.map((todo) => <TodoListItem todo={todo} key={todo.id} />)
+          doneTodos.map((todo) => (
+            <TodoListItem
+              todo={todo}
+              key={todo.id}
+              toggleTodo={toggleTodo}
+              deleteTodo={deleteTodo}
+            />
+          ))
         ) : (
           <Typography color="error" mt={4}>
             No Progress Todos!
