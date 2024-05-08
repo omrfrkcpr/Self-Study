@@ -32,7 +32,7 @@ const Home = () => {
   }, []);
 
   //? function type definition 2.Method
-  type AddFunc = (text: string) => Promise<void>;
+  // type AddFunc = (text: string) => Promise<void>;
   const addTodo: AddFunc = async (text) => {
     try {
       await axios.post(url, { task: text, isDone: false });

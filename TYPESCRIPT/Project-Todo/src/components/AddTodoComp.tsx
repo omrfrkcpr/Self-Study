@@ -11,7 +11,8 @@ import { useState } from "react";
 
 //! Second Method
 interface AddTodoComp {
-  addTodo: (text: string) => Promise<void>;
+  // addTodo: (text: string) => Promise<void>;
+  addTodo: AddFunc;
 }
 
 const AddTodoComp = ({ addTodo }: AddTodoComp) => {
