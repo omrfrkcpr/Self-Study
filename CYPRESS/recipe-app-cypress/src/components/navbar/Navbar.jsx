@@ -1,34 +1,44 @@
-
-import React,{useState} from 'react'
-import {Nav,Logo,Hamburger,Menu,MenuLink,A} from './NavbarStyles'
+import React, { useState } from "react";
+import { Nav, Logo, Hamburger, Menu, MenuLink, A } from "./NavbarStyles";
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  
- 
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Nav>
-      <Logo onClick={()=>setIsOpen(false)} to="/home">
-        <i>{`<Anthony/>`}</i>
-        <span >recipe</span>
+      <Logo data-test="homeLogo" onClick={() => setIsOpen(false)} to="/home">
+        <i>{`<Clarusway/>`}</i>
+        <span> recipe</span>
       </Logo>
-      
-      <Hamburger onClick={()=>setIsOpen(!isOpen)}>
-        <span/>
-        <span/>
-        <span/>
+
+      <Hamburger data-test="homeHamburger" onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
       </Hamburger>
       <Menu hamburOpen={isOpen}>
-        <MenuLink to="/about" onClick={()=>setIsOpen(!isOpen)}>About</MenuLink>
-        
-        <A href="https://github.com/anthonyharold67" target="_blank">
+        <MenuLink
+          data-test="homeAbout"
+          to="/about"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          About
+        </MenuLink>
+
+        <A data-test="homeGithub" href="https://github.com/" target="_blank">
           Github
         </A>
-        
-        <MenuLink onClick={()=>setIsOpen(!isOpen)} onMouseUp={()=>sessionStorage.clear()} to="/">LOGOUT</MenuLink>
-      </Menu> 
-    </Nav>
-  )
-}
 
-export default Navbar
+        <MenuLink
+          data-test="homeLogout"
+          onClick={() => setIsOpen(!isOpen)}
+          onMouseUp={() => sessionStorage.clear()}
+          to="/"
+        >
+          LOGOUT
+        </MenuLink>
+      </Menu>
+    </Nav>
+  );
+};
+
+export default Navbar;
