@@ -1,0 +1,32 @@
+/* Webkit tabanlı tarayıcılarda (Chrome, Safari) scrollbar özelleştirme */
+/* Genel scrollbar özellikleri */
+.myscrool::-webkit-scrollbar {
+  width: 8px; /* scrollbar genişliği */
+}
+
+/* Scroll çubuğu (kaydırma barı) */
+.scrool-progress::-webkit-scrollbar-thumb {
+  background-color: purple; /* scrollbar rengi */
+  border-radius: 6px; /* scrollbar köşe yuvarlaklığı */
+}
+.scrool-completed::-webkit-scrollbar-thumb {
+  background-color: green; /* scrollbar rengi */
+  border-radius: 6px; /* scrollbar köşe yuvarlaklığı */
+}
+/* Scroll çubuğunun üzerine gelindiğindeki efekt */
+.myscrool::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* scrollbar rengi hover durumunda */
+}
+
+/* Scroll track (kaydırma arka planı) */
+.myscrool::-webkit-scrollbar-track {
+  background: #f1f1f1; /* scrollbar arka plan rengi */
+}
+
+.title {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  padding-top: 0.5rem;
+}

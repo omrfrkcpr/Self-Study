@@ -1,0 +1,29 @@
+.footer-div {
+    width: 50%;
+    min-width: 100%;
+    background-color: #e1f1dd;
+    height: 50px;
+    font-size: 2rem;
+    color: #9d4d8c;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .brand {
+    color: grey;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 1.5rem;
+  }
+ 
+@media screen and (max-width: 600px) {
+  .footer-div {
+    font-size:1.5rem;
+    align-items: center;
+  }
+}
