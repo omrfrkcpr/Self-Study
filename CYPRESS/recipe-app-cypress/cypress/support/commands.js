@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("login", () => {
+  cy.url().should("include", "/");
+  cy.get('[data-test="loginHeader"]').should("be.visible").contains("Recipe");
+  cy.get('[data-test="loginName"]').should("be.visible").type("Anthony");
+  cy.get('[data-test="loginPassword"]').should("be.visible").type("Clarusway");
+  cy.get('[data-test="loginSubmit"]').should("be.visible").click();
+  cy.url().should("include", "/home");
+});
