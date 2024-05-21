@@ -1,0 +1,27 @@
+-- SQLite
+-- SELECT <table_col_name> FROM <table_name>
+--SELECT * FROM invoices ;
+--SELECT BillingCountry, InvoiceId FROM invoices ;
+--SELECT DISTINCT BillingCountry FROM invoices ;
+--SELECT * FROM invoices where BillingCountry="USA";
+--SELECT * FROM invoices where BillingCountry="USA" and BillingCity="Boston";
+--SELECT * FROM invoices where BillingCountry="USA" and BillingCity="Boston" and Total>5;
+--SELECT * FROM invoices where BillingCountry="USA" or BillingCountry="Canada";
+--SELECT * FROM artists order by Name;
+-- ORDER BY ASC = Ascendes, DESC = Descendes // Default - ASC
+--SELECT * FROM invoices order by BillingCountry ASC, BillingCity DESC;
+--SELECT * FROM invoices order by BillingCountry ASC, Total;
+--SELECT * FROM customers;
+--SELECT FirstName, LastName, Email FROM customers;
+--SELECT FirstName, LastName, Email FROM customers WHERE FirstName="Edward";
+-- "E%" = e ile baslayan, "%E%" = e iceren, "%E" = e ile biten (No Casesensitive with like)
+--SELECT FirstName, LastName, Email FROM customers WHERE FirstName like "E%"; 
+--SELECT FirstName, LastName, Email FROM customers WHERE FirstName like "%e";
+--SELECT FirstName, LastName, Email FROM customers WHERE FirstName like "%e%";
+-- ilk harfi ne olursa olsun ikinci harfi e olsun
+--SELECT FirstName, LastName, Email FROM customers WHERE FirstName like "_e%";
+--SELECT FirstName, LastName, Email FROM customers WHERE FirstName like "_e%r";
+--SELECT * FROM customers WHERE Email like "%@gmail%";
+--SELECT * FROM invoices WHERE Total>3 AND Total<5; -- 3 dahil degil
+--SELECT * FROM invoices WHERE Total BETWEEN 3 AND 5; -- between de 3 dahil / Total>=3.96
+SELECT * FROM invoices WHERE InvoiceDate BETWEEN "2009-01-02" AND "2009-04-02";
