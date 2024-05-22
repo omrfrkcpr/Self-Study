@@ -49,7 +49,31 @@
 --SELECT * FROM Invoice
 --SELECT SUM(Total) as "Total Invoices" FROM Invoice;
 
--- Relational Databases
+--- *** Relational Databases *** ---
 
 --SELECT * FROM Album a JOIN Artist c ON a.ArtistId = c.ArtistId;
-SELECT a.AlbumId, a.Title, r.Name FROM Album a JOIN Artist r ON a.ArtistId = r.ArtistId;
+--SELECT a.AlbumId, a.Title, r.Name FROM Album a JOIN Artist r ON a.ArtistId = r.ArtistId;
+--SELECT * FROM Artist a JOIN Album l ON a.ArtistId = l.ArtistId
+--SELECT * FROM Artist a LEFT JOIN Album l ON a.ArtistId = l.ArtistId
+
+--- *** Functions *** ---
+
+--SELECT i.Total as "Sum Inovices" FROM Invoice i JOIN InvoiceLine l ON i.InvoiceId = l.InvoiceId
+--SELECT count(i.InvoiceId) FROM Invoice i JOIN InvoiceLine l ON i.InvoiceId = l.InvoiceId;
+--SELECT count(i.InvoiceId) FROM Invoice i;
+--SELECT count(l.InvoiceLineId) FROM InvoiceLine l;
+--SELECT sum(i.Total) FROM Invoice i; 
+--SELECT i.InvoiceId, i.Total FROM Invoice i WHERE i.InvoiceId IN (1,5,9); 
+--SELECT sum(i.Total) FROM Invoice i WHERE i.InvoiceId IN (1,5,9); 
+--SELECT round(sum(i.Total)) FROM Invoice i WHERE i.InvoiceId IN (1,5,9); 
+--SELECT avg(i.Total) FROM Invoice i WHERE i.InvoiceId IN (1,5,9); 
+--SELECT min(i.Total) FROM Invoice i WHERE i.InvoiceId IN (1,5,9); 
+--SELECT max(i.Total) FROM Invoice i WHERE i.InvoiceId IN (1,5,9); 
+--SELECT a.AlbumId, a.Title, length(a.Title) as "Title Length", a.ArtistId FROM Album a
+
+
+--- *** GROUP BY *** ---
+
+--SELECT count(*), Country FROM Customer GROUP BY Country;
+--SELECT DISTINCT(Country) FROM Customer;
+
