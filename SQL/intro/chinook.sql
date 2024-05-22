@@ -24,4 +24,4 @@
 --SELECT * FROM customers WHERE Email like "%@gmail%";
 --SELECT * FROM invoices WHERE Total>3 AND Total<5; -- 3 dahil degil
 --SELECT * FROM invoices WHERE Total BETWEEN 3 AND 5; -- between de 3 dahil / Total>=3.96
-SELECT * FROM invoices WHERE InvoiceDate BETWEEN "2009-01-02" AND "2009-04-02";
+--SELECT * FROM invoices WHERE InvoiceDate BETWEEN "2009-01-02" AND "2009-04-02";
