@@ -77,3 +77,6 @@
 --SELECT count(*), Country FROM Customer GROUP BY Country;
 --SELECT DISTINCT(Country) FROM Customer;
 
+SELECT sum(total) FROM Invoice WHERE CustomerId = 2;
+
+SELECT * FROM Customer c JOIN Invoice i ON c.CustomerId = i.CustomerId WHERE c.CustomerId = 2;
