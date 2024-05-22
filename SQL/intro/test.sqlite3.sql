@@ -30,6 +30,7 @@
 --SELECT * FROM Customer WHERE Country = 'Canada' OR Country = 'Brazil' OR Country = 'USA';
 --SELECT * FROM Customer WHERE Country IN ('Canada', 'Brazil', 'USA');
 --SELECT * FROM Customer WHERE Country IN ('Cana', 'Brazil', 'USA'); -- Cana ile ilgili veri yok birebir eşleme lazım
+-- SELECT * FROM Customer WHERE Country NOT IN ('USA', 'Brazil', 'Denmark');
 --SELECT * FROM Customer WHERE CustomerId IN (1,4,8,45) OR Country = "Brazil";
 --SELECT * FROM Customer WHERE CustomerId IN (1,4,8,45) AND (Country = "Brazil" OR Country = "USA") OR CustomerId = 45;
 --SELECT * FROM Customer WHERE Country IN ("Brazil", "USA", "Denmark") AND CustomerId BETWEEN 25 AND 27;
@@ -77,6 +78,118 @@
 --SELECT count(*), Country FROM Customer GROUP BY Country;
 --SELECT DISTINCT(Country) FROM Customer;
 
-SELECT sum(total) FROM Invoice WHERE CustomerId = 2;
+--SELECT sum(total) FROM Invoice WHERE CustomerId = 2;
+--SELECT * FROM Customer c JOIN Invoice i ON c.CustomerId = i.CustomerId WHERE c.CustomerId = 2;
 
-SELECT * FROM Customer c JOIN Invoice i ON c.CustomerId = i.CustomerId WHERE c.CustomerId = 2;
+--- *** LIMIT - Belli sayıda kayıt getir. *** ---
+-- SELECT * FROM Customer LIMIT 0, 10;  -- LIMIT kaçıncı kayıttan itibaren, kaç ADET kayıt.
+-- SELECT * FROM Customer LIMIT 5 -- Başlangıç default: 0
+-- SELECT * FROM Customer LIMIT 10, 5;  -- 10. kayıttan sonraki (yani 11. kayıttan itibaren) 5 adet kaydı getir.
+
+-- * SUBQUERY (SELECT IN SELECT) (Nested Query)
+-- SELECT * FROM Album WHERE ArtistId = (SELECT ArtistId FROM Artist WHERE Name = 'Led Zeppeli'); -- Sanatçı ID'sini SubSelect'den aldık.
+-- SELECT AlbumId, Title, (SELECT Name FROM Artist WHERE ArtistId = a.ArtistId) AS Artist FROM Album AS a;
+/*
+-- SubSELECT sorgusunu tablo gibi kullanmak:
+SELECT FirstName, LastName
+FROM (
+	SELECT * FROM Customer WHERE Country = 'USA' AND CustomerId > 22
+) WHERE FirstName LIKE '%a%'
+*/
+
+
+-- -- -- -- -- -- -- -- JOINS -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- Birden fazla tablodaki kayıtları tek bir tabloda getirmek için kullanıyor.
+-- * INNER JOIN -- Yalnızca kesişen kayıtları getirir.
+-- * (Alternatif Yazım: JOIN) Default JOIN yöntemi INNER JOIN'dir. (Piyasa kullanımı: INNER JOIN)
+/*
+SELECT *
+FROM Artist AS art
+JOIN Album AS alb ON alb.ArtistId=art.ArtistId -- JOIN == INNER JOIN
+ORDER BY ArtistId ASC, AlbumId ASC
+*/
+/*
+SELECT c.FirstName, c.LastName, c.Country, i.InvoiceId, i.InvoiceDate, i.Total AS InvoiceTotal
+FROM Customer AS c
+INNER JOIN Invoice AS i ON i.CustomerId = c.CustomerId
+ORDER BY c.CustomerId
+*/
+/*
+SELECT t.Name Sarki, a.Title Album, m.Name Dosya, g.Name Tur
+FROM Track t
+INNER JOIN Album a ON a.AlbumId=t.AlbumId
+INNER JOIN MediaType m ON t.MediaTypeId=m.MediaTypeId
+INNER JOIN Genre g ON g.GenreID=t.GenreId
+*/
+-- * LEFT JOIN -- Üst (FROM) tablodaki BÜTÜN kayıtlar ve JOIN tablodaki KESİŞEN kayıtları getir.
+/*
+SELECT *
+FROM Artist AS art
+LEFT JOIN Album AS alb ON alb.ArtistId=art.ArtistId
+ORDER BY ArtistId ASC, AlbumId ASC
+*/
+-- * RIGHT JOIN -- Üst (FROM) tablodaki KESİŞEN kayıtlar ve JOIN tablodaki BÜTÜN kayıtları getir.
+/*
+SELECT *
+FROM Artist AS art
+RIGHT JOIN Album AS alb ON alb.ArtistId=art.ArtistId
+ORDER BY ArtistId ASC, AlbumId ASC
+*/
+-- * FULL OUTER JOIN -- Her iki tablonun BÜTÜN kayıtlarını göster, Eşleşenleri yanyana göster.
+/*
+SELECT *
+FROM Artist AS art
+FULL OUTER JOIN Album AS alb ON alb.ArtistId=art.ArtistId
+ORDER BY ArtistId ASC, AlbumId ASC
+*/
+-- * CROSS JOIN -- Her iki tablonun BÜTÜN kayıtlarını göster, İlişki gözetme.
+/*
+SELECT *
+FROM Artist AS art
+CROSS JOIN Album AS alb
+ORDER BY ArtistId ASC, AlbumId ASC
+*/
+/*
+-- Genel/Kısa Kullanım:
+SELECT *
+FROM Artist AS art, Album AS alb
+ORDER BY ArtistId ASC, AlbumId ASC
+*/
+-- * JOIN ÖRNEKLER
+/*
+-- Hangi sanatçı hangi albümleri çıkarmıştır. Bir albüme sahip olmayan sanatçıları gösterme. Sadece albüm sahibi olan sanatçıları göster.
+SELECT t1.ArtistId, t1.Name AS sanatci, t2.Title AS album
+FROM Artist AS t1
+INNER JOIN Album AS t2 ON t1.ArtistId=t2.ArtistId
+-- WHERE t1.Name = 'Led Zeppeli'
+ORDER BY t1.ArtistId
+/*
+-- Bütün sanatçıları göster. Hangi sanatçı hangi albüme sahip onu da göster. Ama albüm sahibi olmayan kayıtlara NULL yaz.
+SELECT t1.ArtistId, t1.Name AS sanatci, t2.Title AS album
+FROM Artist AS t1
+LEFT JOIN Album AS t2 ON t2.ArtistId=t1.ArtistId
+ORDER BY t1.ArtistId
+*/
+
+/* INSERT & UPDATE & DELETE */
+/*
+-- * INSERT -- Kayıt Ekleme
+INSERT INTO Artist (ArtistId, Name)
+VALUES (276, 'Qadir Adamson');
+*/
+/*
+-- * INSERT -- Çoklu Kayıt Ekleme
+INSERT INTO Artist (ArtistId, Name)
+VALUES
+	(277, 'Gümüş G'),
+	(278, 'Mehmet T'),
+	(279, 'Sinan Hoca'); -- En sonda noktalı-virgül.
+*/
+/*
+-- * UPDATE -- Kayıt Güncelleme
+UPDATE Artist SET Name='Abdullah A.' WHERE ArtistId=276;
+*/
+/*
+-- * DELETE -- Kayıt Silme
+DELETE FROM Artist WHERE ArtistId=276;
+*/
