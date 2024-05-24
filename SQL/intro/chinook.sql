@@ -24,4 +24,35 @@
 --SELECT * FROM customers WHERE Email like "%@gmail%";
 --SELECT * FROM invoices WHERE Total>3 AND Total<5; -- 3 dahil degil
 --SELECT * FROM invoices WHERE Total BETWEEN 3 AND 5; -- between de 3 dahil / Total>=3.96
-SELECT * FROM invoices WHERE InvoiceDate BETWEEN "2009-01-02" AND "2009-04-02";
+--SELECT * FROM invoices WHERE InvoiceDate BETWEEN "2009-01-02" AND "2009-04-02";
+
+----------- 24.05.2024 - Teamwork -----------
+
+--SELECT Name, Composer FROM tracks;
+--SELECT * FROM Tracks;
+--SELECT DISTINCT Composer FROM tracks;
+--SELECT DISTINCT AlbumId, MediaTypeId FROM tracks WHERE AlbumId = 1;
+--SELECT Name FROM tracks WHERE Composer = "Jorge Ben";
+--SELECT * FROM Invoices WHERE Total > 25;
+--SELECT * FROM invoices WHERE Total < 15 LIMIT 5;
+--SELECT * FROM invoices WHERE Total > 10 ORDER BY Total DESC LIMIT 2;
+--SELECT * FROM invoices WHERE BillingCountry <> "Canada" ORDER BY Total LIMIT 10;
+--SELECT InvoiceId, CustomerId, Total FROM invoices ORDER BY CustomerId, Total DESC; 
+--SELECT Name FROM tracks WHERE Name LIKE "B%S";
+--SELECT InvoiceDate FROM invoices WHERE InvoiceDate BETWEEN "2008-01-01" AND "2011-01-01" ORDER BY InvoiceDate DESC LIMIT 1;
+--SELECT FirstName, LastName FROM customers WHERE Country IN ("Norway", "Belgium");
+--SELECT Name FROM tracks WHERE Composer LIKE "%ZAPPA";
+--SELECT COUNT(*) FROM tracks;
+--SELECT COUNT(*) FROM invoices;
+--SELECT COUNT(DISTINCT Composer) FROM tracks;
+--SELECT AlbumId, COUNT(*) as number_of_tracks FROM tracks GROUP BY AlbumId ORDER BY number_of_tracks DESC;
+--SELECT Name, MIN(Milliseconds) as Min, MAX(Milliseconds) as Max FROM tracks;
+--SELECT AVG(Milliseconds) FROM tracks;
+--SELECT * FROM tracks WHERE Milliseconds < (SELECT AVG(Milliseconds) FROM tracks); 
+--SELECT Composer, COUNT(*) as number_of_tracks FROM tracks WHERE Composer IS NOT NULL GROUP BY Composer;
+--SELECT tracks.Name as track_name, genres.Name as genres_name FROM tracks JOIN genres ON tracks.GenreId = genres.GenreId;
+--SELECT albums.Title as albumTitle, artists.Name as artistsName FROM albums JOIN artists ON albums.ArtistId = artists.ArtistId;
+--SELECT tracks.AlbumId, albums.Title as Album_Title, MIN(tracks.Milliseconds) AS min_duration FROM tracks JOIN albums ON tracks.AlbumId = albums.AlbumId GROUP BY tracks.AlbumId ORDER BY min_duration DESC; 
+--SELECT albums.Title as Album_Title, SUM(tracks.Milliseconds) as Total_Duration FROM tracks JOIN albums ON tracks.AlbumId = albums.AlbumId GROUP BY tracks.AlbumId HAVING Total_Duration > 3600000 ORDER BY Total_Duration DESC;
+--SELECT TrackId, Name as TrackName, AlbumId FROM tracks WHERE AlbumId IN (SELECT AlbumId FROM albums WHERE Title IN ("Prenda Minha","Heart of the Night", "Out Of Exile"));
+--SELECT tracks.TrackId, tracks.Name as TrackName, albums.AlbumId FROM tracks JOIN albums ON tracks.AlbumId = albums.AlbumId WHERE albums.Title IN ("Prenda Minha","Heart of the Night","Out Of Exile");

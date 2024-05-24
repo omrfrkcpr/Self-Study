@@ -26,7 +26,6 @@
 --SELECT * FROM Customer WHERE Country = 'Canada';
 --SELECT * FROM Customer WHERE Country = 'Brazil';
 --SELECT * FROM Customer WHERE Country = 'Canada' OR Country = 'Brazil';
-
 --SELECT * FROM Customer WHERE Country = 'Canada' OR Country = 'Brazil' OR Country = 'USA';
 --SELECT * FROM Customer WHERE Country IN ('Canada', 'Brazil', 'USA');
 --SELECT * FROM Customer WHERE Country IN ('Cana', 'Brazil', 'USA'); -- Cana ile ilgili veri yok birebir eşleme lazım
@@ -196,11 +195,14 @@ DELETE FROM Artist WHERE ArtistId=276;
 
 --------------------  EXAMPLES -----------------------
 
-SELECT a.Title, b.Name FROM Album a JOIN Artist b ON a.ArtistId = b.ArtistId WHERE  
-b.Name LIKE "B%" ORDER BY a.Title DESC LIMIT 0,10;
+SELECT a.Title, b.Name FROM Album a JOIN Artist b ON a.ArtistId = b.ArtistId WHERE  b.Name LIKE "B%" ORDER BY a.Title DESC LIMIT 0,10;
 
-SELECT round(sum(UnitPrice)) FROM Track t JOIN MediaType m ON t.MediaTypeId = m.MediaTypeId WHERE t.Bytes > 5555555 and t.TrackId BETWEEN 1 AND 20;
+--SELECT round(sum(UnitPrice)) FROM Track t JOIN MediaType m ON t.MediaTypeId = m.MediaTypeId WHERE t.Bytes > 5555555 and t.TrackId BETWEEN 1 AND 20;
 
+-- SELECT DISTINCT = only Unique/Different Values 
+
+-- Q: What are some common clauses used with SELECT query in SQL?
+-- A: WHERE clause, ORDER BY clause, GROUP BY clause and HAVING clause
 
 
 
