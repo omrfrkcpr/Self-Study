@@ -284,3 +284,43 @@ const Mercedes = new Car("Mercedes", "CLA", 2020);
 
 // console.log(Mercedes.getPrice);
 // console.log(Mercedes.getColor());
+
+// ======================================
+
+class KdvCalculator {
+  static staticProp = "value";
+  #kdv;
+
+  constructor(price) {
+    this.price = price;
+  }
+
+  set setKdv(kdvRate) {
+    this.#kdv = kdvRate;
+  }
+
+  getKdvAmount() {
+    return this.#kdv * this.price;
+  }
+
+  getTotalAmount() {
+    return this.#kdv * this.price + this.price;
+  }
+}
+
+const payment = new KdvCalculator(100);
+
+payment.setKdv = 0.18;
+
+// console.log("price:", payment.price);
+// console.log("kdvAmount:", payment.getKdvAmount());
+// console.log("TotalAmount:", payment.getTotalAmount());
+
+// Bir degere direkt olarak class tan erismek icin kullanilir. Inheritance tan erisilemez.
+// console.log(payment.staticProp); // undefined
+// console.log(KdvCalculator.staticProp); // value
+
+/* --------------------------------------------- */
+//? ABSTRACTION: Soyutlama/Modelleme (Class ile obje üretebilme. Aynı amaç için kullanılan değişken ve methodların bir class içinde yazıyor olması)
+//? ENCAPCULLATION: Kapsülleme/Ayrıştırma (Kodların gizliliği, private değişkenlere erişilemiyor olması ve birbirinden bağımsız çalışmaları.)
+/* ------------------------------------------------------- */
