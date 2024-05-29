@@ -173,7 +173,7 @@ class Car extends Vehicle {
     }
 
     getType(vehicleType, brand){
-        console.log(`Vehicle/Brand type ${vehicleType} ${brand}`);
+        console.log(`Car/Brand type ${vehicleType} ${brand}`);
     }
 }
 
