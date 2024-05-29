@@ -316,7 +316,7 @@ payment.setKdv = 0.18;
 // console.log("kdvAmount:", payment.getKdvAmount());
 // console.log("TotalAmount:", payment.getTotalAmount());
 
-// Bir degere direkt olarak class tan erismek icin kullanilir. Inheritance tan erisilemez.
+// Bir degere direkt olarak class tan erismek icin kullanilir. Instance tan erisilemez.
 // console.log(payment.staticProp); // undefined
 // console.log(KdvCalculator.staticProp); // value
 
