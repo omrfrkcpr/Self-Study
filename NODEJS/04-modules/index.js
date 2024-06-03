@@ -47,7 +47,7 @@ console.log("module lesson - index.js");
 // console.log(require("module").builtinModules);
 require("http"); // first check if it exists in node_modules, then check it in global
 require("node:http"); // check directly in global
-require("dotenv").config(); // call config func from dotenv module
+require("dotenv").config(); // call config func from dotenv module. ENV dosyasindakileri alip, process.ENV icine ekliyor
 // console.log(process.env);
 console.log(process.env.ENV_HOST);
 console.log(process.env.ENV_PORT);
