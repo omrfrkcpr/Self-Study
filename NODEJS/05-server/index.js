@@ -3,11 +3,11 @@
     NODE JS SERVER
 */
 console.log("hi");
-const http = require("node:http");
+const http = require("node:http"); // http isteklerine response verebilmesi icin required
 
 // const dotenv=require(dotenv)
 // dotenv.config()
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv").config(); // env dosyasindaki verileri global e tasir
 
 //
 const PORT = process.env.PORT || 8000;
@@ -43,7 +43,7 @@ const app=http.createServer((req,res)=>{
 
 app.listen(PORT,()=>console.log(`server runned http://${HOST}`))
 */
-/* SERVER  */
+//* SERVER  */
 
 const app = http.createServer((req, res) => {
   /*
@@ -72,7 +72,8 @@ const app = http.createServer((req, res) => {
     }else
         res.end('<h1> no page </h1> ')
   */
-  // with statuscode
+
+  //? with statuscode
   // if(req.url=='/' && req.method=='GET'){
   if (req.url == "/") {
     if (req.method == "GET") {
@@ -83,9 +84,21 @@ const app = http.createServer((req, res) => {
       res.end("you can not use this method ");
     }
   } else if (req.url == "/DS") {
-    res.end("welcome DS");
+    const myObj = {
+      username: "user",
+      email: "example@cw.com",
+    };
+    // res.end("welcome DS");
+    res.end(JSON.stringify(myObj)); //! important
   } else if (req.url == "/FS") {
-    res.end("welcome FS");
+    res.writeHead(200, "successfull", {
+      "Content-Type": "text/html",
+      Header: "my-request",
+    });
+    res.write("welcome to\n");
+    res.write("Full Stack\n");
+    res.write("Course");
+    res.end();
   } else if (req.url == "/CW/api") {
     res.end("welcome api page");
   } else {
