@@ -52,31 +52,61 @@ const HOST = process.env.HOST || "127.0.0.1";
 // });
 
 //? 3.Method:
-const myMiddleware1 = function (req, res, next) {
-  // console.log("Middleware");
-  if (req.query?.username === "clarusway") {
-    console.log("first middleware");
-    next();
-  } else {
-    res.send("First Username is wrong!");
-  }
-};
+// const middlewareFunctionOne = (req, res, next) => {
+//   req.messageOne = "middleware one function called";
+//   next();
+// };
 
-const myMiddleware2 = function (req, res, next) {
-  // console.log("Middleware");
-  if (req.query?.username === "clarusway") {
-    console.log("second middleware");
-    next();
-  } else {
-    res.send("Second Username is wrong!");
-  }
-};
+// const middlewareFunctionTwo = (req, res, next) => {
+//   res.messageTwo = "middleware two function called";
+//   next();
+// };
 
-app.get("/", myMiddleware1, myMiddleware2, (req, res) => {
-  res.send("Welcome to clarusway");
-});
+// const middlewareFunctionThree = (req, res, next) => {
+//   res.messageThree = "middleware three function called";
+//   next();
+// };
+
+// const middlewares = [middlewareFunctionOne, middlewareFunctionTwo];
+
+// app.use(middlewares);
+// app.use(middlewareFunctionOne);
+// app.use(middlewareFunctionTwo);
+
+// app.get("/", (req, res) => {
+//   res.send({
+//     messageOne: req.messageOne,
+//     messageTwo: res.messageTwo,
+//     messageThree: res.messageThree,
+//     messageEnd: "welcome clarusway",
+//   });
+// });
+
+// app.get("/user", middlewareFunctionThree, (req, res) => {
+//   res.send({
+//     messageOne: req.messageOne,
+//     messageTwo: res.messageTwo,
+//     messageThree: res.messageThree,
+//     messageEnd: "welcome clarusway",
+//   });
+// });
 
 // Notice the call above to next(). Calling this function invokes the next middleware function in the app. The next() function is not a part of the Node.js or Express API, but is the third argument that is passed to the middleware function. The next() function could be named anything, but by convention it is always named “next”. To avoid confusion, always use this convention.
+
+//*  Move to file:   */
+
+const { middlewareOne, middlewareTwo } = require("./middlewares/");
+// app.use(middlewareOne, middlewareTwo);
+app.use(middlewareOne);
+
+app.get("/", middlewareTwo, (req, res) => {
+  res.send({
+    messageOne: req.messageOne,
+    messageTwo: req.messageTwo,
+    messageEnd: "welcome clarusway",
+  });
+});
+/* ----------------------------------------- */
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port http://${HOST}:${PORT}`);
