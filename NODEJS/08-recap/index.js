@@ -1,7 +1,7 @@
 "use strict";
 
 /* ---------------------------------- */
-/*            NODE.JS SERVER           */
+/*       NODE.JS HTTP SERVER          */
 /* ---------------------------------- */
 
 // const http = require("http");
@@ -36,6 +36,10 @@ const app = express();
 const products = require("./products.json");
 
 const PORT = 3000;
+
+app.listen(PORT, function () {
+  console.log(`Server started on ${PORT} Port`);
+});
 
 //* app.use() kullaniminda genel olan url leri sona koy. Use ilk calisani kullanir.
 // app.use("/products", (req, res) => {
@@ -77,12 +81,40 @@ app.use((req, res, next) => {
   }
 });
 
-// ============================================
+//! Example Middlewares
 
+// app.use((req, res, next) => {
+//   if (req.query.user) {
+//     next();
+//   } else {
+//     // res.status(401).send("Not authorized");
+//     req.query.user = {
+//       login: false,
+//     };
+//     next();
+//   }
+// });
+
+// app.use((req, res, next) => {
+//   if (req.query.admin) {
+//     next();
+//   } else {
+//     // res.status(401).send("Not authorized");
+//     req.query = {
+//       ...req.query,
+//       admin: false,
+//     };
+//     next();
+//   }
+// });
+
+// ============================================
+//* http://localhost:3000?user=Omer
 app.get("/", (req, res) => {
-  res.send({ message: "Hello World" });
+  res.send({ message: `Hello ${req.query.user}` });
 });
 
+//* http://localhost:3000/products?user=Omer&page=1&limit=10&category=Shop
 app.get("/products", (req, res) => {
   console.log(req.query);
   // const page = req.query.page || 1;
@@ -124,8 +156,4 @@ app.get("/products/:id", (req, res) => {
       message: "Not Found",
     });
   }
-});
-
-app.listen(PORT, function () {
-  console.log(`Server started on ${PORT} Port`);
 });
