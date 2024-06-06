@@ -20,10 +20,12 @@ app.listen(PORT, function () {
 //? Write the regex expression that matches the required conditions;
 
 //* 1 = Write a router that matches /abc or /acd path.
-// http://localhost:3000/abc
-// router.get(/\/abc|\/acd/, (req, res) => {
+//http://localhost:3000/abc
+// router.get(/^\/abc|\/acd/, (req, res) => {
 //   res.send("Matched /abc or /acd");
 // });
+
+//& ^ : baslangic noktasini simgeliyor.
 
 // ===========================================
 
@@ -38,6 +40,9 @@ app.listen(PORT, function () {
 //* 3 = Routes that must end with string "Hello" and can have any no. of any character before that.
 // http://localhost:3000/wqeqweHello
 // router.get(/.*Hello$/, (req, res) => {
+//   res.send("Matched any route ending with Hello");
+// });
+// router.get(/Hello$/, (req, res) => {
 //   res.send("Matched any route ending with Hello");
 // });
 
@@ -120,7 +125,7 @@ const students = [
   - Finally, srart the Express server and listen on port 3000.
 */
 
-//* Middleware
+// * Middleware
 // app.use((req, res, next) => {
 //   if (req.method == "GET") {
 //     console.log("Req method is GET");
@@ -130,7 +135,7 @@ const students = [
 //   }
 // });
 
-//* Main Route Handler
+// * Main Route Handler
 // app.get("/", (req, res) => {
 //   res.send("Hello GET method!");
 // });
@@ -140,21 +145,21 @@ const students = [
 //? In the code block below, a custom error middlaware is missing which returns a 500 status code and the detail of the error generated. Complete the code.
 
 //* Middleware to throw an error
-app.use((req, res, next) => {
-  throw new Error("Something went wrong!");
-});
+// app.use((req, res, next) => {
+//   throw new Error("Something went wrong!");
+// });
 
 //* Custom error-handling middleware
-const errorHandler = (err, req, res, next) => {
-  // console.error(err.stack); // Log the error stack trace for debugging
-  res.status(500).send({
-    status: 500,
-    message: err.message,
-    // stack: process.env.NODE_ENV === "development" ? err.stack : {}, // Only show stack trace in development
-  });
-};
+// const errorHandler = (err, req, res, next) => {
+//   // console.error(err.stack); // Log the error stack trace for debugging
+//   res.status(500).send({
+//     status: 500,
+//     message: err.message,
+//     // stack: process.env.NODE_ENV === "development" ? err.stack : {}, // Only show stack trace in development
+//   });
+// };
 
 //* Use the error-handling middleware
-app.use(errorHandler);
+// app.use(errorHandler);
 
 // ===========================================
