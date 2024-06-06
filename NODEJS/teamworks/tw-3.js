@@ -109,4 +109,52 @@ const students = [
 //   }
 // });
 
-//===========================================
+// ===========================================
+
+//? Code the instructions below.
+
+/*
+  - import the Express framework and create an Express application.
+  - define a middleware function using app.use(). This function logs a message and then calls next() to pass control to the next middleware or route handler.
+  - define a route handler for the root URL ('/') using app.get(). This handler will respond with "Hello!" when a GET request is made to the root URL.
+  - Finally, srart the Express server and listen on port 3000.
+*/
+
+//* Middleware
+// app.use((req, res, next) => {
+//   if (req.method == "GET") {
+//     console.log("Req method is GET");
+//     next();
+//   } else {
+//     res.status(403).send("Please use GET method");
+//   }
+// });
+
+//* Main Route Handler
+// app.get("/", (req, res) => {
+//   res.send("Hello GET method!");
+// });
+
+// ===========================================
+
+//? In the code block below, a custom error middlaware is missing which returns a 500 status code and the detail of the error generated. Complete the code.
+
+//* Middleware to throw an error
+app.use((req, res, next) => {
+  throw new Error("Something went wrong!");
+});
+
+//* Custom error-handling middleware
+const errorHandler = (err, req, res, next) => {
+  // console.error(err.stack); // Log the error stack trace for debugging
+  res.status(500).send({
+    status: 500,
+    message: err.message,
+    // stack: process.env.NODE_ENV === "development" ? err.stack : {}, // Only show stack trace in development
+  });
+};
+
+//* Use the error-handling middleware
+app.use(errorHandler);
+
+// ===========================================
