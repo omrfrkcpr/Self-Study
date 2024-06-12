@@ -1,19 +1,20 @@
-("use strict");
-
 //* db connect
 
 const { Sequelize } = require("sequelize");
 
-// Option 1: Passing a connection URI
-const sequelize = new Sequelize("sqlite:./db.sqlite3"); // Example for sqlite
+const sequelize = new Sequelize("sqlite:./db.sqlite3");
 
 (async () => {
   try {
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
   } catch (error) {
-    console.log("Unable to connect to the database", error);
+    console.error("Unable to connect to the database:", error);
   }
-})();
+})();//* IIFE
+// sequelize
+//   .authenticate()
+//   .then(() => console.log("Db connected"))
+//   .catch(() => console.log("Db not connected"));
 
 module.exports = { sequelize };

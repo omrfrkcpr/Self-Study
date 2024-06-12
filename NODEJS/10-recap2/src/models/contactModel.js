@@ -1,12 +1,8 @@
-("use strict");
-
 //* Contact Model
-
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../configs/db");
 
 const Contact = sequelize.define("contacts", {
-  // attributes
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -34,12 +30,7 @@ const Contact = sequelize.define("contacts", {
   },
 });
 
-sequelize.sync();
+// sequelize.sync();
 // sequelize.sync({ alter: true });
-
-// sequelize
-//   .authenticate()
-//   .then(() => console.log("DB connected"))
-//   .catch(() => console.log("DB not connected"));
 
 module.exports = Contact;
