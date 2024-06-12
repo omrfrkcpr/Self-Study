@@ -60,16 +60,25 @@ module.exports = {
   },
   get: async (req, res) => {
     const contact = await Contact.findByPk(req.params.id);
-    if (contact) {
-      res.status(200).send({
-        error: false,
-        contact,
-      });
-    }else {
-      res.errorStatusCode = 404;
-      throw new Error("İstenilen contact bilgisi bulunamadı",{cause: `Gönderilen contact id bilgisi : ${req.params.id}`})
-    }
+    res.status(201).send({
+      error: false,
+      contact,
+    });
   },
-  update: async (req, res) => {},
-  delete: async (req, res) => {},
+  update: async (req, res) => {
+    const contact = await Contact.findByPk(req.params.id);
+    const data = await contact.update(req.body);
+    res.status(201).send({
+      error: false,
+      contact: data,
+    });
+  },
+  delete: async (req, res) => {
+    const contact = await Contact.findByPk(req.params.id);
+    const data = await contact.destroy();
+    res.status(201).send({
+      error: false,
+      contact: data,
+    });
+  },
 };
