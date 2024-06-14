@@ -75,3 +75,9 @@ const blogPostSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+const BlogPostModel = mongoose.model("BlogPost", blogPostSchema);
+
+module.exports = { BlogPost: BlogPostModel };
+
+// module.exports = { BlogPost: mongoose.model("BlogPost", blogPostSchema };
