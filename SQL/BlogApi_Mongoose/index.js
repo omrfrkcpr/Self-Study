@@ -16,9 +16,9 @@ app.all("/", (req, res) => {
   );
 });
 
-app.use("/blogs", require("./src/routes/blogRoute"));
+app.use("/", require("./src/routes/blogRoute"));
 
-// errorHandler:
+// error handler:
 app.use(require("./src/middlewares/errorHandler"));
 
 app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
