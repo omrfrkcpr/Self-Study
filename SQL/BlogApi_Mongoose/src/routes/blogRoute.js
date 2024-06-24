@@ -1,7 +1,7 @@
 //* Blog Route
 
 const router = require("express").Router();
-const validateBlogIdHandler = require("../middlewares/validateBlogIdHandler");
+const { validateBlogId } = require("../middlewares/validateIdHandler");
 const {
   BlogPostController,
   BlogCategoryController,
@@ -27,18 +27,18 @@ const {
 } = BlogCategoryController;
 
 router
-  .route("/blogs")
+  .route("/posts")
   .get(list)
   .post(createMany)
   .put(togglePublished)
   .delete(destroyAll);
 router.route("/blog").post(create);
 
-//! :id => dinamik route oldugu icin en altta yazilmali ki /blogs/... herhangi bir route da karismasin
+//! :id => dinamik route oldugu icin en altta yazilmali ki /posts/... herhangi bir route da karismasin
 
 router
-  .route("/blogs/:id")
-  .all(validateBlogIdHandler)
+  .route("/posts/:id")
+  .all(validateBlogId)
   .get(read)
   .put(update)
   .delete(destroy);
