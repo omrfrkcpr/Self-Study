@@ -1,6 +1,6 @@
 "use strict";
 
-const User = require("../models/user.model");
+const { User } = require("../models/user.model");
 
 module.exports = {
   list: async (req, res) => {
@@ -19,7 +19,7 @@ module.exports = {
     });
   },
   read: async (req, res) => {
-    const user = await User.findOne({ _id: req.params.userId });
+    const user = await User.find({ _id: req.params.userId });
     res.status(200).send({
       error: false,
       data: user,
@@ -45,9 +45,7 @@ module.exports = {
     });
   },
   destroy: async (req, res) => {
-    const data = await User.deleteOne({
-      _id: req.params.userId,
-    });
+    const data = await User.deleteOne({ _id: req.params.userId });
     if (data.deletedCount) {
       res.status(204).send({
         error: false,
