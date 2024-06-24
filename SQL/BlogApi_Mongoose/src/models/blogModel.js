@@ -46,9 +46,33 @@ const exampleSchema = new mongoose.Schema(
 );
 */
 
+const blogCategoryShema = new mongoose.Schema(
+  {
+    // _id
+    name: {
+      type: String,
+      trim: true,
+      required: [true, "Please select a category for your post"],
+      maxlength: [50, "Title can not be more than 50 characters"],
+      minlength: [3, "Title can not be less than 3 characters"],
+    },
+    // createdAt
+    // updatedAt
+  },
+  {
+    collection: "blogCategories",
+    timestamps: true,
+  }
+);
+
 const blogPostSchema = new mongoose.Schema(
   {
     // _id
+    categoryId: {
+      type: mongoose.Schema.Types.ObjectId, // foreign key or relational id (in RDB)
+      ref: "BlogCategory",
+      required: [true, "Please select a category for your post"],
+    },
     title: {
       type: String,
       trim: true,
@@ -77,7 +101,8 @@ const blogPostSchema = new mongoose.Schema(
 );
 
 const BlogPostModel = mongoose.model("BlogPost", blogPostSchema);
+const BlogCategoryModel = mongoose.model("BlogCategory", blogCategoryShema);
 
-module.exports = { BlogPost: BlogPostModel };
+module.exports = { BlogPost: BlogPostModel, BlogCategory: BlogCategoryModel };
 
 // module.exports = { BlogPost: mongoose.model("BlogPost", blogPostSchema };

@@ -1,7 +1,56 @@
 //*Blog Controller
 
 require("express-async-errors");
-const { BlogPost } = require("../models/blogModel");
+const { BlogPost, BlogCategory } = require("../models/blogModel");
+
+module.exports.BlogCategoryController = {
+  list: async (req, res) => {
+    const data = await BlogCategory.find();
+
+    res.status(200).send({
+      error: false,
+      categories: data,
+    });
+  },
+  create: async (req, res) => {
+    const data = await BlogCategory.create(req.body);
+
+    res.status(201).send({
+      error: false,
+      category: data,
+    });
+  },
+  read: async (req, res) => {
+    const data = await BlogCategory.findOne({ _id: req.params.id });
+
+    res.status(200).send({
+      error: false,
+      category: data,
+    });
+  },
+  update: async (req, res) => {
+    const data = await BlogCategory.updateOne({ _id: req.params.id }, req.body);
+
+    res.status(202).send({
+      error: false,
+      category: data,
+      newData: await BlogCategory.findOne({ _id: req.params.id }),
+    });
+  },
+
+  destroy: async (req, res) => {
+    const data = await BlogCategory.deleteOne({ _id: req.params.id });
+    console.log(data);
+    if (data.deletedCount) {
+      res.sendStatus(204);
+    } else {
+      res.status(404).send({
+        error: true,
+        message: "Category not found",
+      });
+    }
+  },
+};
 
 module.exports.BlogPostController = {
   list: async (req, res) => {
