@@ -22,6 +22,9 @@ app.use(
   })
 );
 
+// User Control Middleware
+app.use(require("./src/middlewares/userControl"));
+
 // HomePage:
 // app.all("/", (req, res) => {
 //   res.send(
@@ -29,10 +32,13 @@ app.use(
 //   );
 // });
 app.all("/", (req, res) => {
-  res.send({
-    message: "WELCOME TO BLOG API",
-    session: req.session,
-  });
+  if (req.isLogin) {
+    res.send({
+      message: "WELCOME TO BLOG API",
+      session: req.session,
+      user: req.user,
+    });
+  }
 });
 
 // Routers

@@ -1,7 +1,8 @@
 //* Blog Route
 
 const router = require("express").Router();
-const { validateBlogId } = require("../middlewares/validateIdHandler");
+const { validateBlogId } = require("../middlewares/validateBlogId");
+const isAuth = require("../middlewares/isAuth");
 const {
   BlogPostController,
   BlogCategoryController,
@@ -41,7 +42,7 @@ router
   .all(validateBlogId)
   .get(read)
   .put(update)
-  .delete(destroy);
+  .delete(isAuth, destroy);
 
 router.route("/categories").get(listCat).post(createCat);
 
