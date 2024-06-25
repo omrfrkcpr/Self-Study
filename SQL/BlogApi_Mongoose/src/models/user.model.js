@@ -1,20 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const crypto = require("node:crypto");
-
-// Environment variables for encryption
-const saltKey = process.env.SECRET_SALT_KEY || "default_salt";
-const iterationCount = parseInt(process.env.SECRET_ITERATION_COUNT, 10);
-const charCount = 32; // 32 characters for 64bit
-const encryptType = "sha512";
-
-// Password encryption function
-const passwordEncrypt = (password) => {
-  return crypto
-    .pbkdf2Sync(password, saltKey, iterationCount, charCount, encryptType)
-    .toString("hex"); // Convert Buffer to hex string
-};
+const passwordEncrypt = require("../helpers/passwordEncrypt");
 
 // Custom password validation function
 const passwordValidation = (value) => {

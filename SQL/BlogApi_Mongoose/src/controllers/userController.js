@@ -1,10 +1,12 @@
 "use strict";
 
 const { User } = require("../models/user.model");
+const passwordEncrypt = require("../helpers/passwordEncrypt");
 
 module.exports = {
   list: async (req, res) => {
-    const users = await User.find();
+    const users = await User.find().select("-password");
+    // const users = await User.find();
     res.status(200).send({
       error: false,
       data: users,
@@ -58,4 +60,30 @@ module.exports = {
       });
     }
   },
+  login: async (req, res) => {
+    const { email, password } = req.body;
+    if (email && password) {
+      // const user = await User.findOne({ email: email });
+      const user = await User.findOne({ email });
+      if (user) {
+        if (user.password === passwordEncrypt(password)) {
+          res.status(200).send({
+            error: false,
+            message: "You're successfully logged in!",
+            data: user,
+          });
+        } else {
+          res.errorStatusCode = 401;
+          throw new Error("Incorrect password!");
+        }
+      } else {
+        res.errorStatusCode = 401;
+        throw new Error("User not found!");
+      }
+    } else {
+      res.errorStatusCode = 401;
+      throw new Error("Please provide email and password to log in");
+    }
+  },
+  logout: (req, res) => {},
 };
