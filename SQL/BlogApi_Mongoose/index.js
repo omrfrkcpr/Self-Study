@@ -11,22 +11,28 @@ require("./src/configs/dbConnection");
 
 // --------------------------------------- //
 // $ npm i cookie-session
-
+// https://expressjs.com/en/resources/middleware/cookie-session.html
+// https://www.npmjs.com/package/cookie-session
 const cookieSession = require("cookie-session");
-
 app.use(
   cookieSession({
     name: "session",
     secret: process.env.SECRET_SALT_KEY,
-    maxAge: 24 * 60 * 60 * 1000, // milliseconds (for 24 hours)
+    // maxAge: 24 * 60 * 60 * 1000, // milliseconds (for 24 hours) => we use it in app when we want to set it as a cookie. But in controllers we can set it as a conditional based
   })
 );
 
 // HomePage:
+// app.all("/", (req, res) => {
+//   res.send(
+//     "<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>"
+//   );
+// });
 app.all("/", (req, res) => {
-  res.send(
-    "<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>"
-  );
+  res.send({
+    message: "WELCOME TO BLOG API",
+    session: req.session,
+  });
 });
 
 // Routers
