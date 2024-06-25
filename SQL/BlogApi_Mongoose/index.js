@@ -23,7 +23,7 @@ app.use(
 );
 
 // User Control Middleware
-app.use(require("./src/middlewares/userControl"));
+// app.use(require("./src/middlewares/userControl"));
 
 // HomePage:
 // app.all("/", (req, res) => {

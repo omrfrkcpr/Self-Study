@@ -1,12 +1,14 @@
-//* Blog Route
-
-const router = require("express").Router();
-const { validateBlogId } = require("../middlewares/validateBlogId");
-const isAuth = require("../middlewares/isAuth");
+// routes/blogRoutes.js
+const express = require("express");
+const router = express.Router();
 const {
-  BlogPostController,
   BlogCategoryController,
+  BlogPostController,
 } = require("../controllers/blogController");
+const authenticate = require("../middlewares/authenticate");
+const validateBlogId = require("../middlewares/validateBlogId");
+
+router.use(authenticate);
 
 const {
   list,
@@ -27,22 +29,18 @@ const {
   destroy: destroyCat,
 } = BlogCategoryController;
 
-router
-  .route("/posts")
-  .get(list)
-  .post(createMany)
-  .put(togglePublished)
-  .delete(destroyAll);
-router.route("/blog").post(create);
+// Blog Post Routes
+router.route("/posts").get(list).delete(destroyAll).post(create);
 
-//! :id => dinamik route oldugu icin en altta yazilmali ki /posts/... herhangi bir route da karismasin
+router.route("/posts/many").post(createMany);
+router.route("/posts/togglePublished").patch(togglePublished);
 
 router
   .route("/posts/:id")
   .all(validateBlogId)
   .get(read)
   .put(update)
-  .delete(isAuth, destroy);
+  .delete(destroy);
 
 router.route("/categories").get(listCat).post(createCat);
 

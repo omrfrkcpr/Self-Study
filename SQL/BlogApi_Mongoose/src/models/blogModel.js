@@ -1,6 +1,7 @@
 //? Blog Models
 
 const mongoose = require("mongoose");
+const { User } = require("./user.model");
 
 /*
 const exampleSchema = new mongoose.Schema(
@@ -68,6 +69,11 @@ const blogCategoryShema = new mongoose.Schema(
 const blogPostSchema = new mongoose.Schema(
   {
     // _id
+    userId: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+      required: [true, "Please select a user for your post"],
+    },
     categoryId: {
       type: mongoose.Schema.Types.ObjectId, // foreign key or relational id (in RDB)
       ref: "BlogCategory",
