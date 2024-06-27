@@ -32,6 +32,10 @@ app.use(
 //   );
 // });
 
+// Middlewares
+app.use(require("./src/middlewares/userControl"));
+app.use(require("./src/middlewares/findAndSearch"));
+
 app.all("/", (req, res) => {
   if (req.isLogin) {
     res.send({
@@ -41,8 +45,6 @@ app.all("/", (req, res) => {
     });
   }
 });
-
-app.use(require("./src/middlewares/findAndSearch"));
 
 // Routers
 app.use("/blogs", require("./src/routes/blogRoute"));
