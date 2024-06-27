@@ -31,6 +31,7 @@ app.use(
 //     "<h1 style='text-align:center;margin-top:150px'>WELCOME TO BLOG API</h1>"
 //   );
 // });
+
 app.all("/", (req, res) => {
   if (req.isLogin) {
     res.send({
@@ -40,6 +41,8 @@ app.all("/", (req, res) => {
     });
   }
 });
+
+app.use(require("./src/middlewares/findAndSearch"));
 
 // Routers
 app.use("/blogs", require("./src/routes/blogRoute"));

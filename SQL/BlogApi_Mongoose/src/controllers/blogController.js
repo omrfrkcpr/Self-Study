@@ -4,7 +4,8 @@ const { BlogPost, BlogCategory } = require("../models/blogModel");
 
 module.exports.BlogCategoryController = {
   list: async (req, res) => {
-    const data = await BlogCategory.find();
+    // const data = await BlogCategory.find();
+    const data = await res.getModelList(BlogCategory);
     res.status(200).send({
       error: false,
       categories: data,
@@ -47,34 +48,14 @@ module.exports.BlogCategoryController = {
 
 module.exports.BlogPostController = {
   list: async (req, res) => {
-    //! Filtering
-    // URL?filter[key1]=value&filter[key2]=value2 => url array parameter
-    const filter = req.query?.filter || {};
-    console.log("Filter: ", filter);
-
-    //! Searching => gelen ifade icerisinde geciyor mu?
-    // https://www.mongodb.com/docs/manual/reference/operator/query/regex/
-    const search = req.query?.search || {};
-    // console.log("Search: ", search);
-    // {title: "Testuser1", content: "Testuser"} => {title: {$regex: "Testuser1", content:{ $regex: "Testuser"}}}
-    for (let key in search) {
-      search[key] = { $regex: search[key] };
-    }
-    console.log("Search2: ", search);
-
-    //! Sorting
-    // https://mongoosejs.com/docs/api/query.html#Query.prototype.sort()
-    // URL?sort[key1]=value&sort[key2]=value2
-    const sort = req.query?.sort || {};
-    // 1: A-Z, -1:Z-A (deprecated)
-    // asc: A-Z, desc: Z-A
-    console.log("Sort: ", sort);
-
-    const userId = req.session.id;
-    const data = await BlogPost.find({ userId, ...filter, ...search })
-      .sort(sort)
-      .populate("categoryId")
-      .populate("userId");
+    // const userId = req.session.id;
+    // const data = await BlogPost.find({ ...filter, ...search })
+    //   .sort(sort)
+    //   .limit(limit)
+    //   .skip(skip)
+    //   .populate("categoryId")
+    //   .populate("userId");
+    const data = await res.getModelList(BlogPost);
     res.status(200).send({
       error: false,
       blogs: data,
