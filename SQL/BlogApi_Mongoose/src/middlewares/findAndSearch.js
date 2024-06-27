@@ -50,11 +50,39 @@ module.exports = (req, res, next) => {
   //   .populate("userId");
 
   //* response a ekliyoruz
-  res.getModelList = async function (Model) {
+  res.getModelList = async function (Model, populate = null) {
     return await Model.find({ ...filter, ...search })
       .sort(sort)
       .limit(limit)
-      .skip(skip);
+      .skip(skip)
+      .populate(populate);
+  };
+
+  res.getModelListResults = async (Model) => {
+    const availables = await Model.find({ ...filter, ...search });
+
+    let results = {
+      filter,
+      search,
+      sort,
+      skip,
+      limit,
+      page,
+      total: availables.length,
+      pages: {
+        previous: page > 0 ? page : false,
+        current: page + 1,
+        next: page < +2,
+        totalPage: Math.ceil(availables.length / limit),
+      },
+    };
+    const resultPage = results.pages;
+    resultPage.next =
+      resultPage.next > resultPage.totalPage ? false : resultPage.next;
+
+    if (results.total <= limit) details.pages = false;
+
+    return results;
   };
 
   next();

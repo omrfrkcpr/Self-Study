@@ -5,6 +5,7 @@ const { BlogPost, BlogCategory } = require("../models/blogModel");
 module.exports.BlogCategoryController = {
   list: async (req, res) => {
     // const data = await BlogCategory.find();
+    //^ Reusable pagination,searching,filtering
     const data = await res.getModelList(BlogCategory);
     res.status(200).send({
       error: false,
@@ -49,17 +50,29 @@ module.exports.BlogCategoryController = {
 module.exports.BlogPostController = {
   list: async (req, res) => {
     // const userId = req.session.id;
+    //! Populate v2 => {path:"categoryId",select:"name -_id"}
+
     // const data = await BlogPost.find({ ...filter, ...search })
     //   .sort(sort)
     //   .limit(limit)
     //   .skip(skip)
     //   .populate("categoryId")
     //   .populate("userId");
-    const data = await res.getModelList(BlogPost);
+    //^ Custom searching
+    // const query = req.query?._q || ""
+    // const data = await BlogPost.find({ $or : [ {title: {$regex:query,$options:"i"}},{content: {$regex:query,$options:"i"}} ]}) // insensitive
+    //^ Reusable pagination,searching,filtering
+    const data = await res.getModelList(BlogPost, [
+      { path: "categoryId", select: "name -_id" },
+      { path: "userId" },
+    ]);
+    const results = await res.getModelListResults(BlogPost);
     res.status(200).send({
       error: false,
+      results,
       blogs: data,
     });
+    //*http://127.0.0.1:8000/blogs/posts?limit=22&filter[userId]=667d117b7bd72c2d9bdad341&search[title]=test&search[content]=test 1&sort[title]=desc
   },
   create: async (req, res) => {
     req.body.userId = req.session.id;
