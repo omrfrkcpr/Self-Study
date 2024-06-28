@@ -21,7 +21,7 @@ const EditBilgi = ({ item, setItem, getTutorials }) => {
     setDescription(eskiDesc);
   }, [eskiDesc, eskiTitle]);
 
-  const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+  const url = "http://127.0.0.1:8000/tutorials/";
 
   // const putTutorial = async () => {
   //   try {

@@ -5,7 +5,7 @@ import AddBilgi from "../components/AddBilgi";
 const Home = () => {
   const [tutorials, setTutorials] = useState([]);
 
-  const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+  const url = "http://127.0.0.1:8000/tutorials/";
 
   //!GET (READ)
 
@@ -25,34 +25,31 @@ const Home = () => {
 
   //!POST (create database e veri gönderme)
 
- const postTutorial=async(yeniVeri)=>{
+  const postTutorial = async (yeniVeri) => {
+    await axios.post(url, yeniVeri);
 
-  await axios.post(url,yeniVeri)
+    //tekrar verilerin güncel halini çekip diziye atmış olduk ve ekran güncellendi
+    getTutorials();
+  };
 
-  //tekrar verilerin güncel halini çekip diziye atmış olduk ve ekran güncellendi
-  getTutorials()
-  
- }
+  //!DELETE (database den silme)
 
-//!DELETE (database den silme)
+  const deleteTutorial = async (id) => {
+    await axios.delete(`${url}${id}/`);
 
-const deleteTutorial=async(id)=>{
+    getTutorials();
+  };
 
-  await axios.delete(`${url}${id}/`)
-
-getTutorials()
-
-}
-
-
-
-  return <>
-
-  <AddBilgi postTutorial={postTutorial}/>
-<BilgiList tutorials={tutorials} deleteTutorial={deleteTutorial} getTutorials={getTutorials}/>
-
-
-  </>;
+  return (
+    <>
+      <AddBilgi postTutorial={postTutorial} />
+      <BilgiList
+        tutorials={tutorials}
+        deleteTutorial={deleteTutorial}
+        getTutorials={getTutorials}
+      />
+    </>
+  );
 };
 
 export default Home;

@@ -8,6 +8,18 @@ const PORT = process.env?.PORT || 8000;
 const app = express();
 app.use(express.json());
 
+//!  CORS
+const cors = require("cors");
+// app.use(cors()); // Tum url isteklerine cevap ver.
+app.use(
+  cors({
+    origin: "http://localhost:3000", // sondaki slash yok!
+    method: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
+
 app.all("/", (req, res) => {
   res.send("Hello TutorialApp");
 });
