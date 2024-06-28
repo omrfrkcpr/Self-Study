@@ -1,4 +1,5 @@
 "use strict";
+
 require("express-async-errors");
 const express = require("express");
 const PORT = process.env?.PORT || 8000;
@@ -9,5 +10,7 @@ app.use(express.json());
 app.all("/", (req, res) => {
   res.send("Hello TutorialApp");
 });
+
+app.use(require("./middlewares/errorHandler"));
 
 app.listen(PORT, () => console.log("Listening http://127.0.0.1:" + PORT));
