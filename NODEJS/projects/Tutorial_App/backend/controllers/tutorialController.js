@@ -2,7 +2,7 @@
 const { CustomError } = require("../errors/customError");
 //*Tutorial Controller
 
-const { Tutorial } = require("../models/tutorialModel");
+const Tutorial = require("../models/tutorialModel");
 
 module.exports.TutorialController = {
   list: async (req, res) => {
@@ -11,7 +11,6 @@ module.exports.TutorialController = {
   },
   create: async (req, res) => {
     const data = await Tutorial.create(req.body);
-
     res.status(201).send({
       error: false,
       tutorial: data,
@@ -19,7 +18,6 @@ module.exports.TutorialController = {
   },
   read: async (req, res) => {
     const data = await Tutorial.findOne({ _id: req.params.id });
-
     res.status(200).send({
       error: false,
       tutorial: data,
