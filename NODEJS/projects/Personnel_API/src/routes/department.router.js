@@ -13,11 +13,14 @@ const {
   read,
   update,
   destroy,
+  personnels,
 } = require("../controllers/department.controller");
 
 //* Base_URL = /departments
 
 router.route("/").get(list).post(create);
+
+router.route("/:id/personnels").get(personnels);
 
 router
   .route("/:id")
