@@ -19,7 +19,7 @@ module.exports = {
     const data = await DepartmentModel.create(req.body);
     res.status(201).send({
       error: false,
-      message: "Department successfully created",
+      message: "New Department successfully created",
       data,
     });
   },

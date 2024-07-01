@@ -16,8 +16,9 @@ module.exports = {
   },
   create: async (req, res) => {
     const isLead = req.body?.isLead || false;
+    let isUpdated;
     if (isLead) {
-      await PersonnelModel.updateMany(
+      isUpdated = await PersonnelModel.updateMany(
         {
           departmentId: req.body.departmentId,
           isLead: true,
@@ -28,7 +29,10 @@ module.exports = {
     const data = await PersonnelModel.create(req.body);
     res.status(201).send({
       error: false,
-      message: "Personnel successfully created",
+      message:
+        isUpdated.modifiedCount > 0
+          ? "Old lead informations are updated and new personnel successfully created"
+          : "New personnel successfully created",
       data,
     });
   },
