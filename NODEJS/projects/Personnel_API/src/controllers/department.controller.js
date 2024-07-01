@@ -5,13 +5,13 @@
 
 const DepartmentModel = require("../models/department.model");
 
-module.exports.departmentController = {
+module.exports = {
   list: async (req, res) => {
     // const departments = await res.getModelList(Department)
     const data = await res.getModelList(DepartmentModel);
     res.status(200).send({
       error: false,
-      detail: await res.getModelListDetails(Department),
+      detail: await res.getModelListDetails(DepartmentModel),
       data,
     });
   },
@@ -47,9 +47,16 @@ module.exports.departmentController = {
   },
   destroy: async (req, res) => {
     const data = await DepartmentModel.deleteOne({ _id: req.params.id });
-    res.status(data.deletedCount > 0 ? 201 : 404).send({
-      error: !data.deletedCount,
-      message: "Department successfully deleted",
-    });
+    if (data.deletedCount) {
+      res.status(201).send({
+        error: false,
+        message: "Department successfully deleted",
+      });
+    } else {
+      res.status(404).send({
+        error: true,
+        message: "Department not found",
+      });
+    }
   },
 };

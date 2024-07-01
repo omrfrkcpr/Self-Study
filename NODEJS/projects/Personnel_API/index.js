@@ -15,7 +15,7 @@ const { dbConnection } = require("./src/configs/dbConnection");
 dbConnection();
 
 // Filter,Search,Sort,Pagination(res.getModelList)
-require("./src/middlewares/findSearchSortPagi");
+app.use(require("./src/middlewares/findSearchSortPagi"));
 
 // ROUTERS
 app.all("/", (req, res) => {

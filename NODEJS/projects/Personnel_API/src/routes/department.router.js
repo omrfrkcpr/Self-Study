@@ -3,6 +3,8 @@
 /*          EXPRESS - Personnel API           */
 /* ------------------------------------------ */
 
+const idValidation = require("../middlewares/idValidation");
+
 const router = require("express").Router();
 
 const {
@@ -17,6 +19,6 @@ const {
 
 router.route("/").get(list).post(create);
 
-router.route("/:id").get(read).put(update).delete(destroy);
+router.route("/:id").all(idValidation).get(read).put(update).delete(destroy);
 
 module.exports = router;
