@@ -35,7 +35,7 @@ module.exports.departmentController = {
       { _id: req.params.id },
       req.body,
       {
-        runValidators: true,
+        runValidators: true, // model optionslarimiza gore tekrar validate eder. By default false
       }
     );
     res.stauts(202).send({
