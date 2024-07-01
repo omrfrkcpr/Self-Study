@@ -20,7 +20,7 @@ const {
 
 router.route("/").get(list).post(create);
 
-router.route("/:id/personnels").get(personnels);
+router.route("/:id/personnels").get(personnels); // list personnels base on specific department
 
 router
   .route("/:id")
