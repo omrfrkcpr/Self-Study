@@ -19,6 +19,12 @@ const {
 
 router.route("/").get(list).post(create);
 
-router.route("/:id").all(idValidation).get(read).put(update).delete(destroy);
+router
+  .route("/:id")
+  .all(idValidation)
+  .get(read)
+  .put(update)
+  .patch(update)
+  .delete(destroy);
 
 module.exports = router;

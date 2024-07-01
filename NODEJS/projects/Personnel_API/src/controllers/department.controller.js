@@ -7,7 +7,7 @@ const DepartmentModel = require("../models/department.model");
 
 module.exports = {
   list: async (req, res) => {
-    // const departments = await res.getModelList(Department)
+    // const departments = await res.getModelList(DepartmentModel)
     const data = await res.getModelList(DepartmentModel);
     res.status(200).send({
       error: false,
