@@ -45,7 +45,7 @@ module.exports.departmentController = {
       newData: await DepartmentModel.findOne({ _id: req.params.id }),
     });
   },
-  delete: async (req, res) => {
+  destroy: async (req, res) => {
     const data = await DepartmentModel.deleteOne({ _id: req.params.id });
     res.status(data.deletedCount > 0 ? 201 : 404).send({
       error: !data.deletedCount,

@@ -17,9 +17,12 @@ dbConnection();
 // Filter,Search,Sort,Pagination(res.getModelList)
 require("./src/middlewares/findSearchSortPagi");
 
+// ROUTERS
 app.all("/", (req, res) => {
   res.send("Welcome to Personnel API");
 });
+
+app.use("/departments", require("./src/routes/department.router"));
 
 // errorHandler:
 app.use(require("./src/middlewares/errorHandler"));
