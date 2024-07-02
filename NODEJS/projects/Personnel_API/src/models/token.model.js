@@ -1,19 +1,17 @@
 "use strict";
-
-/* ---------------------------------- */
-/*       EXPRESS - PERSONNEL API      */
-/* ---------------------------------- */
-
+/* -------------------------------------------------------
+    EXPRESS - Personnel API
+------------------------------------------------------- */
 const { mongoose } = require("../configs/dbConnection");
 
-const tokenSchema = new mongoose.Schema(
+const TokenSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Personnel",
       required: true,
       index: true,
-      unique: true, // birden fazla sisteme izin verilip verilmemesiyle alakali bir durum. Ayni anda hem telefon, hem pc den acilmasi gerekiyorsa. Unique olmamali. Unique olursa ornegin cikis yapildiginda tum acik sistemlerden logout olur.
+      unique: true,
     },
     token: {
       type: String,
@@ -21,7 +19,6 @@ const tokenSchema = new mongoose.Schema(
       required: true,
       index: true,
       unique: true,
-      // expires: 86400, // 24 hours
     },
   },
   {
@@ -30,6 +27,6 @@ const tokenSchema = new mongoose.Schema(
   }
 );
 
-const TokenModel = mongoose.model("Token", tokenSchema);
+const TokenModel = mongoose.model("Token", TokenSchema);
 
 module.exports = TokenModel;

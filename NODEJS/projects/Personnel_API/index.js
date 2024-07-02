@@ -16,10 +16,16 @@ dbConnection();
 
 // Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
+app.use(require("./src/middlewares/authentication"));
 
 // ROUTERS
 app.all("/", (req, res) => {
-  res.send("Welcome to Personnel API");
+  // res.send("Welcome to Personnel API");
+  console.log(req.user);
+  res.send({
+    message: "Welcome to Personnel API",
+    user: req.user,
+  });
 });
 
 app.use(require("./src/routes/")); // default olarak index i arar.
@@ -38,8 +44,9 @@ app.use((req, res, next) => {
 
 // errorHandler:
 app.use(require("./src/middlewares/errorHandler"));
-
 // RUN SERVER:
 app.listen(PORT, () => console.log("http://127.0.0.1:" + PORT));
 
 /* ------------------------------------------- */
+
+// require("./src/helpers/sync")();
