@@ -3,11 +3,15 @@
 /*          EXPRESS - Personnel API           */
 /* ------------------------------------------ */
 
+const idValidation = require("../middlewares/idValidation");
+
 const router = require("express").Router();
 
-router.use("/auth", require("./auth.router"));
-router.use("/tokens", require("./token.router"));
-router.use("/departments", require("./department.router"));
-router.use("/personnels", require("./personnel.router"));
+const { login, logout } = require("../controllers/auth.controller");
+
+//* Base_URL = /auth
+
+router.port("/login", login);
+router.port("/logout", logout);
 
 module.exports = router;
