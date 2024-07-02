@@ -1,7 +1,7 @@
 "use strict";
-/* -------------------------------------------------------
-EXPRESS - Personnel API
-------------------------------------------------------- */
+/* ------------------------------------------ */
+/*          EXPRESS - Personnel API           */
+/* ------------------------------------------ */
 
 const Personnel = require("../models/personnel.model");
 const TokenModel = require("../models/token.model");

@@ -4,6 +4,7 @@
 /* ------------------------------------------ */
 
 const idValidation = require("../middlewares/idValidation");
+const { isLogin, isAdmin } = require("../middlewares/permissions");
 
 const router = require("express").Router();
 
@@ -18,16 +19,16 @@ const {
 
 //* Base_URL = /departments
 
-router.route("/").get(list).post(create);
+router.route("/").get(isLogin, list).post(isAdmin, create);
 
 router.route("/:id/personnels").get(personnels); // list personnels base on specific department
 
 router
   .route("/:id")
   .all(idValidation)
-  .get(read)
-  .put(update)
-  .patch(update)
-  .delete(destroy);
+  .get(isLogin, read)
+  .put(isAdmin, update)
+  .patch(isAdmin, update)
+  .delete(isAdmin, destroy);
 
 module.exports = router;

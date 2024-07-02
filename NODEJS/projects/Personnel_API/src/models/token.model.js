@@ -1,7 +1,8 @@
 "use strict";
-/* -------------------------------------------------------
-    EXPRESS - Personnel API
-------------------------------------------------------- */
+/* ------------------------------------------ */
+/*          EXPRESS - Personnel API           */
+/* ------------------------------------------ */
+
 const { mongoose } = require("../configs/dbConnection");
 
 const TokenSchema = new mongoose.Schema(

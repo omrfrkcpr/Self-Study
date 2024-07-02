@@ -2,7 +2,7 @@
 
 const { mongoose } = require("../configs/dbConnection");
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
   const idIsValid = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!idIsValid) {
     res.errorStatusCode = 404;

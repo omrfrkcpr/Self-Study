@@ -38,7 +38,7 @@ module.exports = {
         runValidators: true, // model optionslarimiza gore tekrar validate eder. By default false
       }
     );
-    res.stauts(202).send({
+    res.status(202).send({
       error: false,
       message: "Department successfully updated",
       data,

@@ -44,6 +44,48 @@ module.exports = {
     });
   },
   update: async (req, res) => {
+    if (!req.user.isAdmin) {
+      //^ 1. Method
+      // //* If user is not admin, then user can only update firstName, lastName, email, phone, description
+      // req.body.isAdmin = false; // personnels are not allowed to update your status as a Admin. Their status can not be admin (always false)
+      // delete req.body.isLead;
+      // delete req.body.isActive;
+      // delete req.body.salary;
+      // delete req.body.title;
+      // delete req.body.startedAt;
+
+      //^ 2. Method
+      // * If user is not admin, then user can only update certain fields
+      const allowedFields = [
+        "firstName",
+        "lastName",
+        "email",
+        "phone",
+        "description",
+      ];
+      const forbiddenFields = [
+        "isAdmin",
+        "isLead",
+        "isActive",
+        "salary",
+        "title",
+        "startedAt",
+      ];
+
+      // Ensure the user cannot set themselves as admin
+      req.body.isAdmin = false;
+
+      // Remove forbidden fields
+      forbiddenFields.forEach((field) => delete req.body[field]);
+
+      // Remove any fields that are not allowed
+      Object.keys(req.body).forEach((field) => {
+        if (!allowedFields.includes(field)) {
+          delete req.body[field];
+        }
+      });
+    }
+
     const isLead = req.body?.isLead || false;
     if (isLead) {
       const { departmentId } = await PersonnelModel.findOne({
@@ -65,7 +107,7 @@ module.exports = {
         runValidators: true, // model optionslarimiza gore tekrar validate eder. By default false
       }
     );
-    res.stauts(202).send({
+    res.status(202).send({
       error: false,
       message: "Personnel successfully updated",
       data,

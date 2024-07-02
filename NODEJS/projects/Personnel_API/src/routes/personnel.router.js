@@ -4,6 +4,7 @@
 /* ------------------------------------------ */
 
 const idValidation = require("../middlewares/idValidation");
+const { isAdmin, isAdminOrOwn } = require("../middlewares/permissions");
 
 const router = require("express").Router();
 
@@ -17,14 +18,14 @@ const {
 
 //* Base_URL = /personnels
 
-router.route("/").get(list).post(create);
+router.route("/").get(isAdmin, list).post(isAdmin, create);
 
 router
   .route("/:id")
   .all(idValidation)
-  .get(read)
-  .put(update)
-  .patch(update)
-  .delete(destroy);
+  .get(isAdminOrOwn, read)
+  .put(isAdminOrOwn, update)
+  .patch(isAdminOrOwn, update)
+  .delete(isAdmin, destroy);
 
 module.exports = router;
