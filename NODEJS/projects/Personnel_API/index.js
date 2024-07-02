@@ -22,8 +22,11 @@ app.all("/", (req, res) => {
   res.send("Welcome to Personnel API");
 });
 
-app.use("/departments", require("./src/routes/department.router"));
-app.use("/personnels", require("./src/routes/personnel.router"));
+app.use(require("./src/routes/")); // default olarak index i arar.
+app.use(require("./src/routes/index"));
+// app.use("/departments", require("./src/routes/department.router"));
+// app.use("/personnels", require("./src/routes/personnel.router"));
+// app.use("/tokens", require("./src/routes/token.router"));
 
 // Not matched url requests
 app.use((req, res, next) => {
