@@ -4,6 +4,7 @@
 /* ------------------------------------------ */
 
 const idValidation = require("../middlewares/idValidation");
+const { isAdmin } = require("../middlewares/permissions");
 
 const router = require("express").Router();
 
@@ -17,6 +18,7 @@ const {
 
 //* Base_URL = /tokens
 
+router.use(isAdmin); // if we want to add this middleware to all routes in this router
 router.route("/").get(list).post(create);
 
 router

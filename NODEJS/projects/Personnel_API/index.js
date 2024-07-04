@@ -7,18 +7,28 @@ const express = require("express");
 require("express-async-errors");
 const app = express();
 require("dotenv").config();
-app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
+
+/* ---------------------------------- */
+/*         DATABASE CONNECTION        */
+/* ---------------------------------- */
 
 const { dbConnection } = require("./src/configs/dbConnection");
 dbConnection();
 
+/* ---------------------------------- */
+/*             MIDDLEWARES            */
+/* ---------------------------------- */
+app.use(express.json());
+app.use(require("./src/middlewares/logging"));
 // Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
 app.use(require("./src/middlewares/authentication"));
 
-// ROUTERS
+/* ---------------------------------- */
+/*               ROUTERS              */
+/* ---------------------------------- */
 app.all("/", (req, res) => {
   // res.send("Welcome to Personnel API");
   console.log(req.user);
