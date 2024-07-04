@@ -4,7 +4,11 @@
 /* ------------------------------------------ */
 
 const idValidation = require("../middlewares/idValidation");
-const { isLogin, isAdmin } = require("../middlewares/permissions");
+const {
+  isLogin,
+  isAdmin,
+  isAdminorLead,
+} = require("../middlewares/permissions");
 
 const router = require("express").Router();
 
@@ -21,7 +25,7 @@ const {
 
 router.route("/").get(isLogin, list).post(isAdmin, create);
 
-router.route("/:id/personnels").get(personnels); // list personnels base on specific department
+router.route("/:id/personnels").get(isAdminorLead, personnels); // list personnels base on specific department
 
 router
   .route("/:id")
