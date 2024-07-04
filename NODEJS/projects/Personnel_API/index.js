@@ -18,6 +18,30 @@ const { dbConnection } = require("./src/configs/dbConnection");
 dbConnection();
 
 /* ---------------------------------- */
+/*            DOCUMENTATION           */
+/* ---------------------------------- */
+// https://swagger-autogen.github.io/docs
+// $ npm i swagger-autogen
+// $ npm i swagger-ui-express
+// $ npm i redoc-express
+
+app.use("documents/json", (req, res) => {
+  res.send("swagger.json", { root: "." });
+});
+
+//! SWAGGER
+const swaggerUI = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
+app.use(
+  "/documents/swagger",
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerDocument, {
+    swaggerOptions: { persisAuthorization: true },
+  })
+);
+
+/* ---------------------------------- */
 /*             MIDDLEWARES            */
 /* ---------------------------------- */
 app.use(express.json());
