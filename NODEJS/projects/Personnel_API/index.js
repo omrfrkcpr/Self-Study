@@ -21,7 +21,7 @@ dbConnection();
 /*             MIDDLEWARES            */
 /* ---------------------------------- */
 app.use(express.json());
-app.use(require("./src/middlewares/logging")); // vercel de deploy ederken yoruma al calismiyor.
+app.use(require("./src/middlewares/logging")); // vercel de deploy ederken yoruma al izin verilmiyor ucretsiz hesapta.
 // Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
 app.use(require("./src/middlewares/authentication"));

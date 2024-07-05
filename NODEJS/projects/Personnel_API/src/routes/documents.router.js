@@ -12,6 +12,7 @@ const router = require("express").Router();
 // $ npm i swagger-ui-express
 // $ npm i redoc-express
 
+// vercel swagger surumden kaynakli dogrudan cekemiyor. O neden cdn linklerini bagladik.
 const options = {
   customCssUrl:
     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.0.0/swagger-ui.css",
