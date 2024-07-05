@@ -21,7 +21,7 @@ dbConnection();
 /*             MIDDLEWARES            */
 /* ---------------------------------- */
 app.use(express.json());
-app.use(require("./src/middlewares/logging"));
+app.use(require("./src/middlewares/logging")); // vercel de deploy ederken yoruma al calismiyor.
 // Filter,Search,Sort,Pagination(res.getModelList)
 app.use(require("./src/middlewares/findSearchSortPagi"));
 app.use(require("./src/middlewares/authentication"));
@@ -46,7 +46,7 @@ app.all("/", (req, res) => {
 });
 
 app.use(require("./src/routes/")); // default olarak index i arar.
-app.use(require("./src/routes/index"));
+// app.use(require("./src/routes/index"));
 // app.use("/departments", require("./src/routes/department.router"));
 // app.use("/personnels", require("./src/routes/personnel.router"));
 // app.use("/tokens", require("./src/routes/token.router"));
