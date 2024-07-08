@@ -20,11 +20,10 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
-      validate: {
-        validator: (email) =>
-          email.includes("@") && email.split("@")[1].includes("."),
-        message: "Email is invalid. Please provide a valid email address.",
-      },
+      validate: [
+        (email) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email),
+        "Email is invalid. Please provide a valid email address.",
+      ],
     },
     password: {
       type: String,
