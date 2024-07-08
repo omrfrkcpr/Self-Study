@@ -56,6 +56,7 @@ const orderSchema = new mongoose.Schema(
 );
 
 //& 3.Method: Pre Middleware
+// https://mongoosejs.com/docs/middleware.html#pre
 
 const Order = mongoose.model("Order", orderSchema);
 
