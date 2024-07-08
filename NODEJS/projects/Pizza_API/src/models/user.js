@@ -5,6 +5,7 @@
 
 const { mongoose } = require("../configs/dbConnection");
 const passwordEncrypt = require("../helpers/passwordEncrypt");
+const { CustomError } = require("../errors/customError");
 
 const userSchema = mongoose.Schema(
   {
@@ -29,7 +30,27 @@ const userSchema = mongoose.Schema(
       type: String,
       trim: true,
       required: true,
-      set: (password) => passwordEncrypt(password),
+      // validate: [
+      //   (password) => {
+      //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!-\*?+&%{}])[A-Za-z\d!-\*?+&%{}]{8,}$/.test(
+      //       password
+      //     );
+      //   },
+      //   "Password validation failed. Please try again",
+      // ],
+      set: (password) => {
+        if (
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!-\*?+&%{}])[A-Za-z\d!-\*?+&%{}]{8,}$/.test(
+            password
+          )
+        )
+          return passwordEncrypt(password);
+        else return "novalid";
+      }, // setter her zaman ilk calisir. Validation gecersiz olur birlikte kullanildiginda.
+      validate: [
+        (password) => password !== "novalid",
+        "Password validation failed. Please try again",
+      ],
     },
     isActive: {
       type: Boolean,
@@ -43,6 +64,6 @@ const userSchema = mongoose.Schema(
   { collection: "users", timestamps: true }
 );
 
-const User = mongoose.Model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
