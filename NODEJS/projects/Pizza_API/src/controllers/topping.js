@@ -47,6 +47,7 @@ module.exports = {
         error: false,
         message: "Topping successfully updated",
         data,
+        updatedData: await Topping.findOne({ _id: req.params.id }),
       });
     } else {
       res.status(404).send({

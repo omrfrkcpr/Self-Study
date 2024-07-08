@@ -47,6 +47,7 @@ module.exports = {
         error: false,
         message: "Order successfully updated",
         data,
+        updatedData: await Order.findOne({ _id: req.params.id }),
       });
     } else {
       res.status(404).send({

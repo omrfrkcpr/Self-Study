@@ -47,6 +47,7 @@ module.exports = {
         error: false,
         message: "Token successfully updated",
         data,
+        updatedData: await Token.findOne({ _id: req.params.id }),
       });
     } else {
       res.status(404).send({

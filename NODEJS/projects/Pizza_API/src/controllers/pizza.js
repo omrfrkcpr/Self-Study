@@ -47,6 +47,7 @@ module.exports = {
         error: false,
         message: "Pizza successfully updated",
         data,
+        updatedData: await Pizza.findOne({ _id: req.params.id }),
       });
     } else {
       res.status(404).send({

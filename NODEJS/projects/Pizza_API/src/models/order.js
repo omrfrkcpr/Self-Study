@@ -35,6 +35,12 @@ const orderSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
+      default: function () {
+        return this.price * this.quantity; // update te calismiyor.
+      },
+      transform: function () {
+        return this.price * this.quantity; // update icin
+      },
     },
   },
   { collection: "orders", timestamps: true }
