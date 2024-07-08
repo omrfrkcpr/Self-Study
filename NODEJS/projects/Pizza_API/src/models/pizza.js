@@ -22,7 +22,7 @@ const pizzaSchema = new mongoose.Schema(
       required: true,
       min: 0,
     },
-    toppingsId: [
+    toppingsIds: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Topping",
