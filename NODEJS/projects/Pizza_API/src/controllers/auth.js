@@ -23,14 +23,12 @@ module.exports = {
               userId: user._id,
               token: tokenKey,
             });
-            res
-              .status(200)
-              .send({
-                error: false,
-                message: "You are successfully logged in!",
-                token: tokenData.token,
-                user,
-              });
+            res.status(200).send({
+              error: false,
+              message: "You are successfully logged in!",
+              token: tokenData.token,
+              user,
+            });
           }
         } else {
           throw new CustomError("This Account is inactive!", 401);
@@ -48,5 +46,19 @@ module.exports = {
       );
     }
   },
-  logout: async (req, res) => {},
+  logout: async (req, res) => {
+    const auth = req.headers?.authorization;
+    const tokenKey = auth ? auth.split(" ") : null;
+    let deleted = null;
+    if (tokenKey && tokenKey[0] == "Token") {
+      deleted = await Token.deleteOne({ token: tokenKey[1] });
+    }
+    res.status(deleted !== null ? 200 : 400).send({
+      error: !deleted !== null,
+      message:
+        deleted !== null
+          ? "You are successfully logged out!"
+          : "Logout failed. Please try again!",
+    });
+  },
 };
