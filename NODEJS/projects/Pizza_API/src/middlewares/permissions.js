@@ -2,9 +2,9 @@
 
 const { CustomError } = require("../errors/customError")
 
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
+/* ---------------------------------- */
+/*     NODEJS EXPRESS | PIZZA API     */
+/* ---------------------------------- */
 
 module.exports = {
 

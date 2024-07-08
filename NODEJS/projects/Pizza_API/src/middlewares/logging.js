@@ -1,7 +1,7 @@
 "use strict";
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
+/* ---------------------------------- */
+/*     NODEJS EXPRESS | PIZZA API     */
+/* ---------------------------------- */
 // $ npm i morgan
 // app.use(require('./src/middlewares/logging')):
 

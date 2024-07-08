@@ -1,5 +1,7 @@
 "use strict"
-
+/* ---------------------------------- */
+/*     NODEJS EXPRESS | PIZZA API     */
+/* ---------------------------------- */
 class CustomError extends Error {
     name="CustomError"
     constructor (msg,statusCode = 500){

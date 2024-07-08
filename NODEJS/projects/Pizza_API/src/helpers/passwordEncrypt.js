@@ -1,7 +1,7 @@
 "use strict"
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
+/* ---------------------------------- */
+/*     NODEJS EXPRESS | PIZZA API     */
+/* ---------------------------------- */
 // passwordEncrypt(password:string):
 
 const crypto = require('node:crypto'),
