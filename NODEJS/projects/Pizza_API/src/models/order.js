@@ -36,10 +36,10 @@ const orderSchema = new mongoose.Schema(
     amount: {
       type: Number,
       default: function () {
-        return this.price * this.quantity; // update te calismiyor.
+        return this.price * this.quantity; // update te calismiyor. Create icin
       },
       transform: function () {
-        return this.price * this.quantity; // update icin
+        return this.price * this.quantity; // update te database i guncellemek icin
       },
     },
   },
