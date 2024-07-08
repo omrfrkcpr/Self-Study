@@ -35,16 +35,27 @@ const orderSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
+      //& 1. Method: Default function
       default: function () {
         return this.price * this.quantity; // update te calismiyor. Create icin
       },
       transform: function () {
         return this.price * this.quantity; // update te database i guncellemek icin
       },
+      //& 2.Method: Getter
+      //   get: function () {
+      //     return this.price * this.quantity;
+      //   },
     },
   },
-  { collection: "orders", timestamps: true }
+  {
+    collection: "orders",
+    timestamps: true,
+    // toJSON: { getters: true }, // for 2.method
+  }
 );
+
+//& 3.Method: Pre Middleware
 
 const Order = mongoose.model("Order", orderSchema);
 

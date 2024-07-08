@@ -38,6 +38,7 @@ module.exports = {
     }
   },
   updateOrder: async (req, res) => {
+    // delete req.body.amount // look amount in Order Model => for 2.method : Amount alanini db ye eklemeden, UI da gosterebilmek icin
     const data = await Order.updateOne({ _id: req.params.id }, req.body, {
       runValidators: true,
     });
@@ -57,6 +58,7 @@ module.exports = {
     }
   },
   deleteOrder: async (req, res) => {
+    // delete req.body.amount // look amount in Order Model => for 2.method : Amount alanini db ye eklemeden, UI da gosterebilmek icin
     const data = await Order.deleteOne({ _id: req.params.id });
     if (data.deletedCount > 0) {
       res.status(204).send({
