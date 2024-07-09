@@ -43,7 +43,7 @@ module.exports = {
           // accessToken
           const accessInfo = {
             key: process.env.ACCESS_KEY,
-            time: process.env.ACCESS_EXP || "5m",
+            time: process.env.ACCESS_EXP || "30m",
             data: {
               _id: user._id,
               username: user.username,
@@ -122,7 +122,7 @@ module.exports = {
             bearer: {
               // JWT data yi JSON formatinda kabul ediyor. Ne olur ne olmaz JSON a ceviriyoruz.
               access: jwt.sign(user.toJSON(), process.env.ACCESS_KEY, {
-                expiresIn: process.env.ACCESS_EXP || "5m",
+                expiresIn: process.env.ACCESS_EXP || "30m",
               }),
             },
           });
