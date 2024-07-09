@@ -24,8 +24,8 @@ const orderSchema = new mongoose.Schema(
     },
     quantity: {
       type: Number,
-      min: 1,
       default: 1,
+      validate: (quantity) => quantity > 0,
     },
     price: {
       type: Number,
@@ -36,12 +36,12 @@ const orderSchema = new mongoose.Schema(
     amount: {
       type: Number,
       //& 1. Method: Default function
-      default: function () {
-        return this.price * this.quantity; // update te calismiyor. Create icin
-      },
-      transform: function () {
-        return this.price * this.quantity; // update te database i guncellemek icin
-      },
+      // default: function () {
+      //   return this.price * this.quantity; // update te calismiyor. Create icin
+      // },
+      // transform: function () {
+      //   return this.price * this.quantity; // update te database i guncellemek icin
+      // },
       //& 2.Method: Getter
       //   get: function () {
       //     return this.price * this.quantity;
@@ -57,6 +57,29 @@ const orderSchema = new mongoose.Schema(
 
 //& 3.Method: Pre Middleware
 // https://mongoosejs.com/docs/middleware.html#pre
+orderSchema.pre("save", function (next) {
+  //do stuff
+  this.amount = this.price * this.quantity;
+  next();
+});
+
+orderSchema.pre("updateOne", async function (next) {
+  //do stuff
+  const updateData = this.getUpdate(); // update edilen datayi yakaliyoruz.
+  console.log(updateData);
+  let newPrice = updateData.price;
+  let newQuantity = updateData.quantity;
+
+  if (newPrice || newQuantity) {
+    if (!newPrice || !newQuantity) {
+      const oldData = await this.model.findOne(this.getQuery());
+      newPrice = newPrice || oldData.price;
+      newQuantity = newQuantity || oldData.quantity;
+    }
+    this.set({ amount: newPrice * newQuantity }); // yeni fiyat ve adetteki yeni toplam hesapla
+  }
+  next();
+});
 
 const Order = mongoose.model("Order", orderSchema);
 
