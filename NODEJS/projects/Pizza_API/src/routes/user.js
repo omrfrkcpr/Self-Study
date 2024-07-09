@@ -12,16 +12,17 @@ const {
   updateUser,
 } = require("../controllers/user");
 const idValidation = require("../middlewares/idValidation");
+const { isAdmin, isLogin } = require("../middlewares/permissions");
 
 //! Base_URL = /users
 
-router.route("/").get(listUsers).post(createUser);
+router.route("/").get(isLogin, listUsers).post(createUser);
 router
   .route("/:id")
   .all(idValidation)
-  .get(readUser)
-  .put(updateUser)
-  .patch(updateUser)
-  .delete(deleteUser);
+  .get(isLogin, readUser)
+  .put(isLogin, updateUser)
+  .patch(isLogin, updateUser)
+  .delete(isAdmin, deleteUser);
 
 module.exports = router;

@@ -12,16 +12,17 @@ const {
   updateOrder,
 } = require("../controllers/order");
 const idValidation = require("../middlewares/idValidation");
+const { isLogin, isAdmin } = require("../middlewares/permissions");
 
 //! Base_URL = /orders
 
-router.route("/").get(listOrders).post(createOrder);
+router.route("/").get(isLogin, listOrders).post(isLogin, createOrder);
 router
   .route("/:id")
   .all(idValidation)
-  .get(readOrder)
-  .put(updateOrder)
-  .patch(updateOrder)
-  .delete(deleteOrder);
+  .get(isLogin, readOrder)
+  .put(isAdmin, updateOrder)
+  .patch(isAdmin, updateOrder)
+  .delete(isAdmin, deleteOrder);
 
 module.exports = router;

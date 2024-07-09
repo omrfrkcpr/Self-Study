@@ -20,7 +20,19 @@ module.exports = {
             </ul>
         `
     */
-    const data = await res.getModelList(Order);
+    let customFilter = {};
+
+    if (!req.user.idAdmin) {
+      customFilter = { userId: req.user._id };
+    }
+    const data = await res.getModelList(Order, customFilter, [
+      "userId",
+      {
+        path: "pizzaId",
+        select: "-__v",
+        populate: [{ path: "toppingsIds", select: "name" }],
+      },
+    ]);
     res.status(200).send({
       error: false,
       defails: await res.getModelListDetails,
@@ -33,6 +45,10 @@ module.exports = {
         #swagger.summary = "Create Order"
     */
     // delete req.body.amount // look amount in Order Model => for 2.method : Amount alanini db ye eklemeden, UI da gosterebilmek icin
+
+    if (!req.body.isAdmin) {
+      req.body.userId = req.user._id;
+    }
     const data = await Order.create(req.body);
     res.status(201).send({
       error: false,
@@ -45,7 +61,16 @@ module.exports = {
         #swagger.tags = ["Orders"]
         #swagger.summary = "Get Single Order"
     */
-    const data = await Order.findOne({ _id: req.params.id });
+
+    let customFilter = {};
+
+    if (!req.user.isAdmin) {
+      customFilter = { userId: req.user._id };
+    }
+    const data = await Order.findOne({
+      _id: req.params.id,
+      ...customFilter,
+    }).populate("userId, pizzaId");
 
     if (data) {
       res.status(200).send({
