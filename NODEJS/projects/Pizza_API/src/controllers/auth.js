@@ -97,6 +97,45 @@ module.exports = {
       );
     }
   },
+  refresh: async (req, res) => {
+    /*
+        #swagger.tags = ["Authentication"]
+        #swagger.summary = "JWT: Refresh Token"
+        #swagger.description = 'Refresh JWT token.'
+        #swagger.parameters["body"] = {
+            in: "body",
+            required: true,
+            schema: {
+                "refreshToken": "your_refresh_token",
+            }
+        }
+    */
+    const refreshToken = req.body?.bearer.refresh;
+
+    if (refreshToken) {
+      const refreshData = jwt.verify(refreshToken, process.env.REFRESH_KEY);
+      if (refreshData) {
+        const user = await User.findOne({ _id: refreshData._id });
+        if (user && user.password == refreshData.password) {
+          res.status(200).send({
+            error: false,
+            bearer: {
+              // JWT data yi JSON formatinda kabul ediyor. Ne olur ne olmaz JSON a ceviriyoruz.
+              access: jwt.sign(user.toJSON(), process.env.ACCESS_KEY, {
+                expiresIn: process.env.ACCESS_EXP || "5m",
+              }),
+            },
+          });
+        } else {
+          throw new CustomError("Wrong user data!", 401);
+        }
+      } else {
+        throw new CustomError("Invalid refresh data!", 401);
+      }
+    } else {
+      throw new CustomError("No refresh token provided!", 401);
+    }
+  },
   logout: async (req, res) => {
     /*
         #swagger.tags = ["Authentication"]
