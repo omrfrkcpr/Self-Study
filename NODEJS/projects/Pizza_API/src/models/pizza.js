@@ -13,10 +13,16 @@ const pizzaSchema = new mongoose.Schema(
       unique: true,
       trim: true,
     },
-    image: {
-      type: String,
-      trim: true,
-    },
+    // image: {
+    //   type: String,
+    //   trim: true,
+    // },
+    images: [
+      {
+        type: String,
+        trim: true,
+      },
+    ], // database e resim kaydedemiyoruz. Sadece path ini kaydedecegiz.
     price: {
       type: Number,
       required: true,
