@@ -51,8 +51,8 @@ router
   .route("/:id")
   .all(idValidation)
   .get(readPizza)
-  .put(isAdmin, updatePizza)
-  .patch(isAdmin, updatePizza)
+  .put(isAdmin, upload.array("images", 10), updatePizza)
+  .patch(isAdmin, upload.array("images", 10), updatePizza)
   .delete(isAdmin, deletePizza);
 
 module.exports = router;

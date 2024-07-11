@@ -79,6 +79,36 @@ module.exports = {
         #swagger.tags = ["Pizzas"]
         #swagger.summary = "Update Pizza"
     */
+
+    const oldPizza = await Pizza.findOne(
+      { _id: req.params.id },
+      { _id: 0, images: 1 }
+    ); // sadece images array ini aldik. Baska hicbir sey yok. ID de yok.
+
+    //TODO = Sadece ekleme yapiyoruz burada. Silme icin ayri bir controller yazilabilir.
+    if (req.files) {
+      req.files.forEach((image) =>
+        oldPizza.images.push(`/uploads/${image.filename}`)
+      );
+      // req.body.images = req.body.images
+      //   ? Array.isArray(req.body.images)
+      //     ? [...req.body.images, ...oldPizza.images] // spread all images array items
+      //     : [req.body.images, ...oldPizza.images] // just get single image
+      //   : images; // ayni anda hem url hem de upload olarak gonderebilsin kullanici.
+    }
+    // else if (req.body.images) {
+    //   if (Array.isArray(req.body.images)) {
+    //     req.body.images = [...oldPizza.images, ...req.body.images];
+    //   } else {
+    //     req.body.images = [...oldPizza.images, req.body.images];
+    //   }
+
+    req.body.images = req.body.images
+      ? Array.isArray(req.body.images)
+        ? [...req.body.images, ...oldPizza.images] // spread all images array items
+        : [req.body.images, ...oldPizza.images] // just get single image
+      : images; // ayni anda hem url hem de upload olarak gonderebilsin kullanici.
+
     const data = await Pizza.updateOne({ _id: req.params.id }, req.body, {
       runValidators: true,
     });
@@ -103,7 +133,16 @@ module.exports = {
         #swagger.summary = "Delete Pizza"
     */
     const data = await Pizza.deleteOne({ _id: req.params.id });
-    if (data.deletedCount > 0) {
+
+    if (data.images) {
+      data.images.forEach((image) => {
+        if (!image.startsWith("http")) {
+          fs.unlink(`.${image}`, (err) => console.log(err)); // . for root directory
+        }
+      });
+    }
+
+    if (data) {
       res.status(204).send({
         error: false,
         message: "Pizza successfully deleted",
