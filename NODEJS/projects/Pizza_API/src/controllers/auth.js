@@ -147,13 +147,18 @@ module.exports = {
     let deleted = null;
     if (tokenKey && tokenKey[0] == "Token") {
       deleted = await Token.deleteOne({ token: tokenKey[1] });
+      res.status(deleted !== null ? 200 : 400).send({
+        error: !deleted !== null,
+        message:
+          deleted !== null
+            ? "You are successfully logged out!"
+            : "Logout failed. Please try again!",
+      });
+    } else {
+      res.status(200).send({
+        error: false,
+        message: "You are successfully logged out!",
+      });
     }
-    res.status(deleted !== null ? 200 : 400).send({
-      error: !deleted !== null,
-      message:
-        deleted !== null
-          ? "You are successfully logged out!"
-          : "Logout failed. Please try again!",
-    });
   },
 };
