@@ -46,7 +46,7 @@ dbConnection();
 // Accept JSON:
 app.use(express.json());
 
-// Accept FormData 
+// Accept FormData
 app.use(express.urlencoded({ extended: false }));
 
 // Logger:
@@ -143,6 +143,11 @@ app.all("/", (req, res) => {
 
 // routes/index.js:
 app.use(require("./src/routes/")); //* default yazmadığımızda kök route u esas alır.
+
+// Static files
+app.use("/uploads", express.static("./uploads")); // http://127.0.0.1:8000/uploads/1720689676651-clarinet2.JPG
+
+// Not matched url requests
 app.use("/", require("./src/routes/"));
 
 //* eşleşmeyen routeları yakalar

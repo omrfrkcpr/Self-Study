@@ -41,7 +41,11 @@ module.exports = {
       req.files.forEach((file) => {
         images.push(`/uploads/${file.filename}`);
       });
-      req.body.images = images;
+      req.body.images = req.body.images
+        ? Array.isArray(req.body.images)
+          ? [...req.body.images, ...images] // spread all images array items
+          : [req.body.images, ...images] // just get single image
+        : images; // ayni anda hem url hem de upload olarak gonderebilsin kullanici.
     }
 
     const data = await Pizza.create(req.body);
