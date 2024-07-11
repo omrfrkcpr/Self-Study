@@ -1,9 +1,11 @@
 "use strict";
+const sendMail = require("../helpers/sendMail");
 /* ---------------------------------- */
 /*     NODEJS EXPRESS | Pizza API     */
 /* ---------------------------------- */
 
 const Order = require("../models/order");
+const Pizza = require("../models/pizza");
 
 module.exports = {
   listOrders: async (req, res) => {
@@ -50,6 +52,93 @@ module.exports = {
       req.body.userId = req.user._id;
     }
     const data = await Order.create(req.body);
+    const pizzaData = await Pizza.findOne({ _id: data.pizzaId });
+
+    sendMail(
+      req.user.email,
+      "Order Create",
+      `<!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Order Confirmation</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  background-color: #f4f4f4;
+                  margin: 0;
+                  padding: 0;
+              }
+              .container {
+                  width: 80%;
+                  margin: 0 auto;
+                  background-color: #ffffff;
+                  padding: 20px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              }
+              .header {
+                  background-color: #ff6600;
+                  color: #ffffff;
+                  padding: 10px 0;
+                  text-align: center;
+              }
+              .header h1 {
+                  margin: 0;
+              }
+              .order-details {
+                  margin: 20px 0;
+              }
+              .order-details h2 {
+                  color: #ff6600;
+              }
+              .order-details p {
+                  margin: 5px 0;
+              }
+              .order-details .pizza-image {
+                  max-width: 100%;
+                  height: auto;
+              }
+              .footer {
+                  text-align: center;
+                  margin: 20px 0;
+              }
+          </style>
+      </head>
+      <body>
+          <div class="container">
+              <div class="header">
+                  <h1>ClarusPizzas</h1>
+              </div>
+              <div class="order-details">
+                  <h2>Order Confirmation</h2>
+                  <p>Order Number: <strong>${data._id}</strong></p>
+                  <p>Date: <strong>${new Date(
+                    data.createdAt
+                  ).toLocaleDateString()}</strong></p>
+                  <p>Time: <strong>${new Date(
+                    data.createdAt
+                  ).toLocaleTimeString()}</strong></p>
+                  <hr>
+                  <h3>Pizza Details</h3>
+                  <p>Pizza: <strong>${pizzaData.name}</strong></p>
+                  <p>Size: <strong>${data.size}</strong></p>
+                  <p>Quantity: <strong>${data.quantity}</strong></p>
+                  <p>Total Price: <strong>${data.amount}</strong></p>
+                  <div>
+                      <img src="https://yuvamaya.com.tr/upload/recipes/pizza.jpg" alt="Pizza Image" class="pizza-image">
+                  </div>
+              </div>
+              <div class="footer">
+                  <p>Thank you for your order!</p>
+                  <p>ClarusPizzas Team</p>
+              </div>
+          </div>
+      </body>
+      </html>
+      `
+    );
+
     res.status(201).send({
       error: false,
       message: "New Order successfully created",

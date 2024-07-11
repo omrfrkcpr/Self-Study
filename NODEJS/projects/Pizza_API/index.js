@@ -8,6 +8,7 @@
     $ npm init -y
     $ npm i express dotenv mongoose express-async-errors
     $ npm i morgan swagger-autogen swagger-ui-express redoc-express
+    $ npm i nodemailer multer
     $ mkdir logs
     $ nodemon
 */
@@ -53,6 +54,72 @@ app.use(require("./src/middlewares/authentication"));
 
 // findSearchSortPage / res.getModelList:
 app.use(require("./src/middlewares/queryHandler"));
+
+/* ---------------------------------- */
+/*                Email               */
+/* ---------------------------------- */
+
+//! nodemailer
+// https://nodemailer.com/
+// https://ethereal.email/ (testing email)
+
+const nodemailer = require("nodemailer");
+
+// nodemailer.createTestAccount().then((data) => console.log(data));
+/*
+  {
+    user: 'gd4o5zgbci3zrido@ethereal.email',
+    pass: 'Eu1pTf5GzBWegY9gEf',
+    smtp: { host: 'smtp.ethereal.email', port: 587, secure: false },
+    imap: { host: 'imap.ethereal.email', port: 993, secure: true },
+    pop3: { host: 'pop3.ethereal.email', port: 995, secure: true },
+    web: 'https://ethereal.email',
+    mxEnabled: false
+  }
+*/
+
+//* Connect Nodemailer
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.ethereal.email",
+//   port: 587,
+//   secure: false, // Use `true` for port 465, `false` for all other ports
+//   auth: {
+//     user: "gd4o5zgbci3zrido@ethereal.email",
+//     pass: "Eu1pTf5GzBWegY9gEf",
+//   },
+// });
+
+//* SendMail
+// transporter.sendMail(
+//   {
+//     from: `"Omer Faruk" <gd4o5zgbci3zrido@ethereal.email>`, // sender adress
+//     to: "gd4o5zgbci3zrido@ethereal.email",
+//     // to: "gd4o5zgbci3zrido@ethereal.email, qweqweqweeqw@ethereal.email",
+//     subject: "Test Mail", // Subject line
+//     text: "Hello World!", // plain text body
+//     html: "<b>Hello World?</b>", // html body
+//   },
+//   (error, success) => {
+//     error ? console.log(error) : console.log(success);
+//   }
+// );
+
+//* GoogleMail (gmail)
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: "example@gmail.com",
+//     pass: "Eu1pTf5GzBWegY9gEf", // received from Google App passwords
+//   },
+// });
+
+// transporter.sendMail({
+//   // from: "example@gmail.com",
+//   to: "devfs99@gmail.com",
+//   subject: "Test Mail", // Subject line
+//   text: "Hello World!", // plain text body
+//   html: "<b>Hello World?</b>", // html body
+// });
 
 /* ------------------------------------------------------- */
 // Routes:
