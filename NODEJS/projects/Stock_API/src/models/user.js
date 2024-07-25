@@ -81,7 +81,6 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
-
     isStaff: {
         type: Boolean,
         default: false
@@ -110,6 +109,7 @@ UserSchema.pre(['save', 'updateOne'], function (next) {
 
     if(isEmailValidated) {
         if(data?.password) {
+            // kalitenizi gösterir
             const isPasswordValidated = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/.test(data.password)
 
             if(isPasswordValidated){

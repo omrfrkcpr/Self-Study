@@ -26,6 +26,7 @@ module.exports = {
 
         // Sadece kendi kayıtlarını görebilir:
         // Çalışanlarımız ve Admin tük kullanıcıları görebilir
+        // Şirket politikası na göre isStaff kaldırılabilir
         const customFilters = (req.user?.isAdmin || req.user?.isStaff) ? {} : { _id: req.user._id }
 
         const data = await res.getModelList(User, customFilters)
