@@ -1,0 +1,16 @@
+# Structure
+
+FROM node:current-alpine3.20
+
+# Workspace
+
+WORKDIR /intro
+
+# Import files
+
+# COPY hello.js /intro  => For single file
+COPY . .
+
+# Run command
+
+CMD node hello.js
