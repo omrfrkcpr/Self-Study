@@ -172,6 +172,7 @@ npm-debug.log
 * https://docs.docker.com/compose/compose-file/
 
 /docker-compose.yml:
+/docker-compose.yaml:
 
 ```yml
 version: "3.9" # opsiyonel.
