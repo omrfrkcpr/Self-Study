@@ -23,6 +23,9 @@ app.set("view engine", "ejs");
 //! yeri onemli yukarıda kalsın
 app.use(express.json());
 
+// accept form data => default option - extended: true
+app.use(express.urlencoded());
+
 app.all("/", (req, res) => {
   //   res.send("Welcome to My App");
   const title = "TodoApp-EJS";
