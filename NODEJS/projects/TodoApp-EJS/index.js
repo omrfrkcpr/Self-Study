@@ -32,7 +32,9 @@ app.all("/", (req, res) => {
 });
 
 // ROUTER
-app.use(require("./src/routers/todoRouter"));
+// app.use(require("./src/routers/todoRouter"));
+app.use("/api", require("./src/routers/todoRouter"));
+app.use("/view", require("./src/routers/todoTemplate"));
 
 // errorHAndler
 app.use(require("./src/middlewares/errorHandler"));
