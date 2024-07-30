@@ -18,7 +18,7 @@
         <h1 class="text-danger mb-2">Todo List</h1>
         <strong class="mb-2">Todo Count: <%= data.count %></strong>
         <div>
-          <a class="btn btn-sm btn-primary mb-4" href="/view/create"
+          <a class="btn btn-sm btn-success mb-4" href="/view/create"
             >New Todo</a
           >
         </div>
@@ -31,6 +31,7 @@
               <th scope="col">Priority</th>
               <th scope="col">Is Done ?</th>
               <th scope="col">Created Date</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -43,6 +44,20 @@
               <td><%= priority %></td>
               <td><%= !isDone ? '❌' : '✅' %></td>
               <td><%= createdAt.toLocaleDateString() %></td>
+              <td>
+                <a class="btn btn-sm btn-secondary me-1" href="/view/<%= id %>"
+                  >Read</a
+                ><a
+                  class="btn btn-sm btn-warning me-1"
+                  href="/view/update/<%= id %>"
+                  >Edit</a
+                ><a
+                  onclick="return confirm(`Are you sure?`)"
+                  class="btn btn-sm btn-danger"
+                  href="/view/delete/<%= id %>"
+                  >Delete</a
+                >
+              </td>
             </tr>
             <% } %>
           </tbody>
