@@ -12,7 +12,7 @@
     <title>Document</title>
   </head>
   <body>
-    <% console.log(data) %>
+    <% console.log(data) %> <% console.log(priorityList) %>
     <div class="container py-4">
       <div class="row">
         <h1 class="text-danger mb-2">Todo List</h1>
@@ -41,7 +41,7 @@
               <td><%= id %></td>
               <td><%= title %></td>
               <td><%= description %></td>
-              <td><%= priority %></td>
+              <td><%= priorityList[priority] %></td>
               <td><%= !isDone ? '❌' : '✅' %></td>
               <td><%= createdAt.toLocaleDateString() %></td>
               <td>

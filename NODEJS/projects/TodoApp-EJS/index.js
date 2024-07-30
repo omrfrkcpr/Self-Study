@@ -18,6 +18,7 @@ require("express-async-errors");
 // https://expressjs.com/de/guide/using-template-engines.html
 // https://ejs.co/
 app.set("view engine", "ejs");
+// default folder "./views" //! klasor app.js /index.js ile ayni dizinde olmali
 
 // json to obj  and obj to json
 //! yeri onemli yukarıda kalsın
