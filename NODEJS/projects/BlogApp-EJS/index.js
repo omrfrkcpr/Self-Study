@@ -32,6 +32,9 @@ app.set("views", "./public");
 // app.use(express.urlencoded({ extended: false })); // accept string as form Data
 app.use(express.urlencoded({ extended: true })); // default = accept JSON
 
+// serve static files
+app.use("/assets", express.static("./public/assets"));
+
 //? user control
 app.use(require("./src/middlewares/userControl"));
 
@@ -66,4 +69,4 @@ app.use(require("./src/middlewares/errorHandler"));
 
 app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
 
-// require("./src/configs/sync")()
+// require("./src/configs/sync")();
