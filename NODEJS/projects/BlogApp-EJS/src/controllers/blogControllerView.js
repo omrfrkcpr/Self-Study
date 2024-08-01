@@ -118,8 +118,8 @@ module.exports.BlogPostController = {
     //   error: false,
     //   blog: data,
     // });
-// console.log("merhaba",data)
-    res.render('postRead',{post:data})
+    // console.log("merhaba",data)
+    res.render("postRead", { post: data });
   },
   update: async (req, res) => {
     // const data = await BlogPost.findByIdAndUpdate(req.params.id,req.body,{new:true}) // {new:true} => return new data
@@ -136,24 +136,26 @@ module.exports.BlogPostController = {
     const data = await BlogPost.deleteOne({ _id: req.params.postId });
     if (data.deletedCount) {
       // console.log(req);
-      // console.log(
-      //   req.rawHeaders[
-      //     req.rawHeaders.findIndex((item) =>
-      //       item.includes("http://127.0.0.1:8000")
-      //     )
-      //   ]
-      // );
+      console.log(
+        req.rawHeaders[
+          req.rawHeaders.findIndex((item) =>
+            item.includes("http://localhost:8000" || "http://127.0.0.1:8000")
+          )
+        ]
+      );
       // res.redirect('/post')
       res.redirect(
         req.rawHeaders[
           req.rawHeaders.findIndex((item) =>
-            item.includes("http://127.0.0.1:8000")
+            item.includes("http://localhost:8000" || "http://127.0.0.1:8000")
           )
         ].includes(req.params.postId)
           ? "/post"
           : req.rawHeaders[
               req.rawHeaders.findIndex((item) =>
-                item.includes("http://127.0.0.1:8000")
+                item.includes(
+                  "http://localhost:8000" || "http://127.0.0.1:8000"
+                )
               )
             ]
       );
