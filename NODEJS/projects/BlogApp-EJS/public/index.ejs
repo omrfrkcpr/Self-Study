@@ -45,32 +45,21 @@
         </div>
       </header>
       <!-- Blog Categories -->
+      <%# console.log(categories) %>
       <div class="nav-scroller py-1 mb-3 border-bottom">
         <nav class="nav nav-underline justify-content-between">
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
+          <a
+            class="nav-item nav-link link-body-emphasis <% if(!selectedCategory){ %> active <% } %>"
+            href="/post"
+            >All</a
           >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
+          <% categories.forEach(category => { %>
+          <a
+            class="nav-item nav-link link-body-emphasis <% if(selectedCategory == category.id){ %> active <% } %>"
+            href="/post?filter[blogCategoryId]=<%= category.id %>"
+            ><%= category.name %></a
           >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
-          >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
-          >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
-          >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
-          >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
-          >
-          <a class="nav-item nav-link link-body-emphasis" href="#"
-            >CategoryName</a
-          >
+          <% }) %>
         </nav>
       </div>
     </div>
@@ -91,47 +80,24 @@
               <a
                 href="/post/:id"
                 class="link-body-emphasis text-decoration-none"
-                >Sample Blog Post</a
+                ><%= post.title %></a
               >
             </h2>
-            <p class="blog-post-meta">January 1, 2021</p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique labore repellendus quibusdam consequuntur quae illum
-              excepturi maxime expedita voluptatum, numquam rem distinctio
-              pariatur magnam, voluptas odit reiciendis amet praesentium qui.
-              Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque
-              voluptate corporis. Facilis voluptatem ea aperiam eveniet hic
-              atque ducimus doloribus, dolorem, vero labore porro earum, nostrum
-              dolore vitae suscipit.
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique labore repellendus quibusdam consequuntur quae illum
-              excepturi maxime expedita voluptatum, numquam rem distinctio
-              pariatur magnam, voluptas odit reiciendis amet praesentium qui.
-              Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque
-              voluptate corporis. Facilis voluptatem ea aperiam eveniet hic
-              atque ducimus doloribus, dolorem, vero labore porro earum, nostrum
-              dolore vitae suscipit.
-            </p>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Similique labore repellendus quibusdam consequuntur quae illum
-              excepturi maxime expedita voluptatum, numquam rem distinctio
-              pariatur magnam, voluptas odit reiciendis amet praesentium qui.
-              Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque
-              voluptate corporis. Facilis voluptatem ea aperiam eveniet hic
-              atque ducimus doloribus, dolorem, vero labore porro earum, nostrum
-              dolore vitae suscipit.
-            </p>
-            <div class="admin-area text-end">
-              <a class="btn btn-sm btn-primary" href="/post/:id/update"
+            <p class="blog-post-meta"><%= post.createdAt.toLocaleString() %></p>
+            <!-- <div class="line-clamp-3">
+              <%# post.content %> <%- post.content %>
+            </div> -->
+            <div><%- post.content.substring(0,400) %>...</div>
+
+            <div class="admin-area text-end mt-2">
+              <a
+                class="btn btn-sm btn-primary"
+                href="/post/<%= post.id %>/update"
                 >Update</a
               >
               <a
                 class="btn btn-sm btn-danger"
-                href="/post/:id/delete"
+                href="/post/<%= post.id %>/delete"
                 onclick="return confirm('Are you sure?')"
                 >Delete</a
               >
