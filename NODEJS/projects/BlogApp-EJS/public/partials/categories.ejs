@@ -1,0 +1,8 @@
+<div class="nav-scroller py-1 mb-3 border-bottom">
+            <nav class="nav nav-underline justify-content-between">
+                <a class="nav-item nav-link link-body-emphasis <%= !selectedCategory ? 'active' : '' %>" href="/post">All</a>
+                <% categories.forEach(category => { %>
+                 <a class="nav-item nav-link link-body-emphasis <% if(category.id == selectedCategory) { %> active <%}%>" href="/post?filter[blogCategoryId]=<%= category.id %>"><%= category.name %></a>
+                <% }) %>
+            </nav>
+        </div>
