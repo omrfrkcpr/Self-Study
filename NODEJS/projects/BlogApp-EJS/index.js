@@ -41,6 +41,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/assets", express.static("./public/assets"));
 //* /assets uzantısı görürsen bunun için public klasöründeki assetse erişim sağla.
 
+app.use("/libs", express.static("./node_modules")); //! /libs uzantisi gorursen node_modules icerisinde arama yap
+
 //? user control
 app.use(require("./src/middlewares/userControl"));
 
