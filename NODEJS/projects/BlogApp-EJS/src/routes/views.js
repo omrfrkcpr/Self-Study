@@ -3,7 +3,7 @@
 const router = require("express").Router();
 
 const { BlogPostController:BlogPostControllerView,BlogCategoryController } = require("../controllers/blogControllerView");
-// const isAuth = require("../middlewares/isAuth")
+const isAuth = require("../middlewares/isAuth")
 
 
 //? Browserlardan sadce ve sadece GET isteği gelir. HTML Form aracılığıyla sadece GET ve POST isteği gelir. O nedenle route planlaması yaparken diğer istekler için ona uygun bir planlama yapılmalıdır.
@@ -18,10 +18,10 @@ router.all('/', (req,res)=>{
 })
 
 router.all("/post", BlogPostControllerView.list);
-router.all("/post/create", BlogPostControllerView.create);
-router.all("/post/:postId/update", BlogPostControllerView.update); 
-router.all("/post/:postId", BlogPostControllerView.read); 
-router.all("/post/:postId/delete", BlogPostControllerView.delete); 
+router.all("/post/create",isAuth, BlogPostControllerView.create);
+router.all("/post/:postId/update", isAuth, BlogPostControllerView.update); 
+router.all("/post/:postId", isAuth, BlogPostControllerView.read); 
+router.all("/post/:postId/delete", isAuth, BlogPostControllerView.delete); 
 
 const UserView = require("../controllers/user.controller.view");
 

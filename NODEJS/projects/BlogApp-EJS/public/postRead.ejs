@@ -12,7 +12,7 @@
             <!-- BlogPost Read -->
             <div class="admin-area text-end">
                 <% if (user.id == post.userId) { %>
-                 <a class="btn btn-sm btn-primary" href="/post/<%= post.id %>/update">Update</a>
+                 <a class="btn btn-sm btn-primary" href="/post/<%= post._id %>/update">Update</a>
                 <a class="btn btn-sm btn-danger" href="/post/<%= post._id %>/delete" onclick="return confirm('Are you sure?')">Delete</a>
                 <% } %>
                 Published: <%= post.published %>

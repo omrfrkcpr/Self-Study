@@ -1,85 +1,75 @@
 <%- include('partials/head') %>
-<title>Clarusway FullStakc Team - Post Form</title>
+<title>Clarusway FullStack Team - Post Form</title>
 </head>
-<body> 
+<body>
     <div class="container">
         <%- include('partials/header') %>
     </div>
-    <!-- main start -->
-    <main class="container">
-      <div class="row g-5">
+<!-- main start -->
+<main class="container">
+    <div class="row g-5">
         <div class="col-md-12 p-3">
-          <p>
-            <a class="btn btn-sm btn-secondary" href="/">Go Home</a>
-          </p>
-          <h1><%= title %></h1>
-          <form action="" method="POST">
-            <table class="table table-striped">
-                <% if (post.id) { %>
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th><%= post.id %></th>
-                      </tr>
-                    </thead>
-                <% } %>
-              <tbody>
-                <tr>
-                  <td>Category</td>
-                  <td>
-                    <select name="blogCategoryId" class="form-select">
-                        <% categories.forEach(category => { %>      
-                            <option value="<%= category.id %>" <%= category.id == post?.blogCategoryId ? "selected" : "" %>><%= category.name %></option>
-                        <% }) %>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Title</td>
-                  <td>
-                    <input
-                      type="text"
-                      name="title"
-                      required
-                      class="form-control"
-                      value="<%= post?.content %>"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Content</td>
-                  <td>
-                    <textarea name="content" class="form-control"><%= post?.content %></textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Published</td>
-                  <td>
-                    <select name="published" class="form-select">
-                      <option value="0" <%= post?.published ? "" : "selected" %>>No</option>
-                      <option value="1" <%= post?.published ? "selected" : "" %>>Yes</option>
-                    </select>
-                  </td>
-                </tr>
-                <!-- <tr>
-                    <input type="hidden" name="userId" value="<%= user.id %>">
-                </tr> -->
-                <% if (post.createdAt) { %>
-                    <tr>
-                      <td>Created</td>
-                      <td><%= post?.createdAt %></td>
-                    </tr>
-                <% } %>
-              </tbody>
-            </table>
             <p>
-              <button class="btn btn-primary" type="submit">SUBMIT</button>
+                <a class="btn btn-sm btn-secondary" href="/">Go Home</a>
             </p>
-          </form>
+            <h1><%= title %></h1>
+            <form action="" method="POST">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th># <%= post?.id %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Category</td>
+                            <td>
+                                <select name="blogCategoryId" class="form-select">
+                                    <% categories.forEach(category => { %>
+                                     <option value="<%= category.id %>" <%= category.id == post?.blogCategoryId ? 'selected' : '' %>><%= category.name %></option>
+                                    <% }) %>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Title</td>
+                            <td><input type="text" name="title" required class="form-control" value="<%= post?.title %>"></td>
+                        </tr>
+                        <tr>
+                            <td>Content</td>
+                            <td>
+                                <textarea name="content" class="form-control">
+                                    <%= post?.content %>
+                                </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Published</td>
+                            <td>
+                                <select name="published" class="form-select">
+                                    <option value="0" <%= post?.published ? '' : 'selected' %>>No</option>
+                                    <option value="1" <%= post?.published ? 'selected' : '' %>>Yes</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <input type="hidden" name="userId" value="<%#= user.id %>">
+                        </tr> -->
+                        <!-- <tr>
+                            <td>Created</td>
+                            <td>2022-10-10</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <p>
+                    <button class="btn btn-primary" type="submit">SUBMIT</button>
+                </p>
+            </form>
         </div>
-      </div>
-    </main>
-    <!-- main end -->
-     <%- include('partials/footer') %>
+    </div>
+</main>
+<!-- main end -->
+<%- include('partials/footer') %>
 </body>
 </html>

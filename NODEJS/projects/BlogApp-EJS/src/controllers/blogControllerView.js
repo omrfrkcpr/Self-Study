@@ -100,26 +100,26 @@ module.exports.BlogPostController = {
       recentPosts,
       details: await res.getModelListDetails(BlogPost),
       pageUrl: req.url,
-      user: req.session,
+      user: req.session
     });
   },
   create: async (req, res) => {
-    if (req.method == "POST") {
-      req.body.userId = req.session.id;
+    if(req.method == 'POST'){
+      req.body.userId = req.session.id
       const data = await BlogPost.create(req.body);
 
       // res.status(201).send({
       //   error: false,
       //   blog: data,
       // });
-      res.redirect("/post/" + data._id);
-    } else {
-      res.render("postForm", {
+      res.redirect("/post/"+ data._id)
+    }else{
+      res.render('postForm',{
         user: req.session,
         categories: await BlogCategory.find(),
-        title: "New Post",
-        post: {},
-      });
+        title:"New Post",
+        post:null
+      })
     }
   },
   read: async (req, res) => {
@@ -130,11 +130,11 @@ module.exports.BlogPostController = {
     //   error: false,
     //   blog: data,
     // });
-    // console.log("merhaba",data)
-    res.render("postRead", { post: data, user: req.session });
+// console.log("merhaba",data)
+    res.render('postRead',{post:data,user:req.session})
   },
   update: async (req, res) => {
-    if (req.method == "POST") {
+    if(req.method == 'POST'){
       // const data = await BlogPost.findByIdAndUpdate(req.params.id,req.body,{new:true}) // {new:true} => return new data
       const data = await BlogPost.updateOne(
         { _id: req.params.postId },
@@ -146,13 +146,13 @@ module.exports.BlogPostController = {
       //   blog: data,
       //   newData: await BlogPost.findOne({ _id: req.params.id }),
       // });
-      res.redirect("/post/" + req.params.postId);
-    } else {
+      res.redirect('/post/'+ req.params.postId)
+    }else{
       res.render("postForm", {
         user: req.session,
         categories: await BlogCategory.find(),
-        post: await BlogPost.findOne({ _id: req.params.postId }),
-        title: "Update Post",
+        title: 'Update Post',
+        post: await BlogPost.findOne({_id:req.params.postId})
       });
     }
   },
