@@ -33,7 +33,7 @@
                     <!-- <%#- post.content.substring(0,400) %>... -->
                      <% if (user.id == post.userId._id) { %>
                       <div class="admin-area text-end">
-                        <a class="btn btn-sm btn-primary" href="/post/:id/update">Update</a>
+                        <a class="btn btn-sm btn-primary" href="/post/<%= post.id %>/update">Update</a>
                         <a class="btn btn-sm btn-danger" href="/post/<%= post.id %>/delete" onclick="return confirm('Are you sure?')">Delete</a>
                     </div>
                      <% } %>

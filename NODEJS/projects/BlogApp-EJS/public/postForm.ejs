@@ -15,19 +15,21 @@
           <h1><%= title %></h1>
           <form action="" method="POST">
             <table class="table table-striped">
-              <!-- <thead>
-                <tr>
-                  <th>ID</th>
-                  <th># 1</th>
-                </tr>
-              </thead> -->
+                <% if (post.id) { %>
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th><%= post.id %></th>
+                      </tr>
+                    </thead>
+                <% } %>
               <tbody>
                 <tr>
                   <td>Category</td>
                   <td>
                     <select name="blogCategoryId" class="form-select">
                         <% categories.forEach(category => { %>      
-                            <option value="<%= category.id %>"><%= category.name %></option>
+                            <option value="<%= category.id %>" <%= category.id == post?.blogCategoryId ? "selected" : "" %>><%= category.name %></option>
                         <% }) %>
                     </select>
                   </td>
@@ -40,32 +42,34 @@
                       name="title"
                       required
                       class="form-control"
-                      value=""
+                      value="<%= post?.content %>"
                     />
                   </td>
                 </tr>
                 <tr>
                   <td>Content</td>
                   <td>
-                    <textarea name="content" class="form-control"></textarea>
+                    <textarea name="content" class="form-control"><%= post?.content %></textarea>
                   </td>
                 </tr>
                 <tr>
                   <td>Published</td>
                   <td>
                     <select name="published" class="form-select">
-                      <option value="0">No</option>
-                      <option value="1">Yes</option>
+                      <option value="0" <%= post?.published ? "" : "selected" %>>No</option>
+                      <option value="1" <%= post?.published ? "selected" : "" %>>Yes</option>
                     </select>
                   </td>
                 </tr>
                 <!-- <tr>
                     <input type="hidden" name="userId" value="<%= user.id %>">
                 </tr> -->
-                <!-- <tr>
-                  <td>Created</td>
-                  <td>2022-10-10</td>
-                </tr> -->
+                <% if (post.createdAt) { %>
+                    <tr>
+                      <td>Created</td>
+                      <td><%= post?.createdAt %></td>
+                    </tr>
+                <% } %>
               </tbody>
             </table>
             <p>
