@@ -100,17 +100,26 @@ module.exports.BlogPostController = {
       recentPosts,
       details: await res.getModelListDetails(BlogPost),
       pageUrl: req.url,
-      user: req.session
+      user: req.session,
     });
   },
   create: async (req, res) => {
-    // req.body.userId = req.session.id
-    const data = await BlogPost.create(req.body);
+    if (req.method == "POST") {
+      req.body.userId = req.session.id;
+      const data = await BlogPost.create(req.body);
 
-    res.status(201).send({
-      error: false,
-      blog: data,
-    });
+      // res.status(201).send({
+      //   error: false,
+      //   blog: data,
+      // });
+      res.redirect("/post/" + data._id);
+    } else {
+      res.render("postForm", {
+        user: req.session,
+        categories: await BlogCategory.find(),
+        title: "New Post",
+      });
+    }
   },
   read: async (req, res) => {
     const data = await BlogPost.findOne({ _id: req.params.postId }).populate(
@@ -120,8 +129,8 @@ module.exports.BlogPostController = {
     //   error: false,
     //   blog: data,
     // });
-// console.log("merhaba",data)
-    res.render('postRead',{post:data,user:req.session})
+    // console.log("merhaba",data)
+    res.render("postRead", { post: data, user: req.session });
   },
   update: async (req, res) => {
     // const data = await BlogPost.findByIdAndUpdate(req.params.id,req.body,{new:true}) // {new:true} => return new data
