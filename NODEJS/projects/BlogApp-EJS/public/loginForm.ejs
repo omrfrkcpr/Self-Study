@@ -1,4 +1,10 @@
-
+<%- include('partials/head.ejs') %>
+<title>Clarusway FullStack Team - Login</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/header') %>
+    </div>
 <!-- main start -->
 <main class="container">
     <div class="row g-5">
@@ -20,7 +26,7 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td><label><input type="checkbox" name="rememberMe" value="1"> Remember Me</label></td>
+                            <td><label><input type="checkbox" name="remindMe" value="1"> Remember Me</label></td>
                         </tr>
                     </tbody>
                 </table>
@@ -31,4 +37,8 @@
         </div>
     </div>
 </main>
+
+<%- include('partials/footer') %>
 <!-- main end -->
+</body>
+</html>

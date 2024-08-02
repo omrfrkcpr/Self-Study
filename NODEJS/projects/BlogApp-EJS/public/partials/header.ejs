@@ -5,8 +5,15 @@
                 <div class="col-4 text-center">
                     <a class="blog-header-logo text-body-emphasis text-decoration-none" href="/">MY BLOG</a>
                 </div>
+                <% if (user.email) { %>
+                 <div class="col-4 d-flex justify-content-end align-items-center">
+                    <span class="px-3"><%= user.email %></span>
+                    <a class="btn btn-sm btn-outline-secondary" href="/logout">Logout</a>
+                </div>
+                <% } else { %>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <a class="btn btn-sm btn-outline-secondary" href="/login">Login</a>
                 </div>
+                <% } %>
             </div>
         </header>

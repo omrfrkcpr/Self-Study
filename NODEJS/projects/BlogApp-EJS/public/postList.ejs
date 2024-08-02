@@ -2,6 +2,7 @@
 <title>Clarusway FullStack Team - PostList</title>
 </head>
 <body>
+    <% console.log("postlist", user) %>
     <div class="container">
         <%- include('partials/header') %>
         <%- include('partials/categories') %>
@@ -9,9 +10,12 @@
     <main class="container">
         <div class="row g-5">
             <div class="col-md-8">
-                <div class="admin-area text-end">
+                <% if (user.email) { %>
+                 <div class="admin-area text-end">
                     <a class="btn btn-primary" href="/post/create">New Post</a>
                 </div>
+                <% } %>
+                
                 <h3 class="pb-4 fst-italic border-bottom">
                     Welcome to my blog site.
                 </h3>
@@ -27,125 +31,15 @@
                         <%- post.content %>
                     </div>
                     <!-- <%#- post.content.substring(0,400) %>... -->
-                    <div class="admin-area text-end">
+                     <% if (user.id == post.userId._id) { %>
+                      <div class="admin-area text-end">
                         <a class="btn btn-sm btn-primary" href="/post/:id/update">Update</a>
                         <a class="btn btn-sm btn-danger" href="/post/<%= post.id %>/delete" onclick="return confirm('Are you sure?')">Delete</a>
                     </div>
+                     <% } %>
+                    
                 </article>
                 <% }) %> 
-                
-                <!-- <article class="blog-post">
-                    <h2 class="display-5 mb-1">
-                        <a href="/post/:id" class="link-body-emphasis text-decoration-none">Sample Blog Post</a>
-                    </h2>
-                    <p class="blog-post-meta">January 1, 2021</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <div class="admin-area text-end">
-                        <a class="btn btn-sm btn-primary" href="/post/:id/update">Update</a>
-                        <a class="btn btn-sm btn-danger" href="/post/:id/delete" onclick="return confirm('Are you sure?')">Delete</a>
-                    </div>
-                </article>
-                <article class="blog-post">
-                    <h2 class="display-5 mb-1">
-                        <a href="/post/:id" class="link-body-emphasis text-decoration-none">Sample Blog Post</a>
-                    </h2>
-                    <p class="blog-post-meta">January 1, 2021</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <div class="admin-area text-end">
-                        <a class="btn btn-sm btn-primary" href="/post/:id/update">Update</a>
-                        <a class="btn btn-sm btn-danger" href="/post/:id/delete" onclick="return confirm('Are you sure?')">Delete</a>
-                    </div>
-                </article>
-                <article class="blog-post">
-                    <h2 class="display-5 mb-1">
-                        <a href="/post/:id" class="link-body-emphasis text-decoration-none">Sample Blog Post</a>
-                    </h2>
-                    <p class="blog-post-meta">January 1, 2021</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <div class="admin-area text-end">
-                        <a class="btn btn-sm btn-primary" href="/post/:id/update">Update</a>
-                        <a class="btn btn-sm btn-danger" href="/post/:id/delete" onclick="return confirm('Are you sure?')">Delete</a>
-                    </div>
-                </article>
-                <article class="blog-post">
-                    <h2 class="display-5 mb-1">
-                        <a href="/post/:id" class="link-body-emphasis text-decoration-none">Sample Blog Post</a>
-                    </h2>
-                    <p class="blog-post-meta">January 1, 2021</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique labore repellendus quibusdam
-                        consequuntur quae illum excepturi maxime expedita voluptatum, numquam rem distinctio pariatur
-                        magnam, voluptas odit reiciendis amet praesentium qui.
-                        Fugit dicta quos porro dolor, assumenda aperiam magnam sit eaque voluptate corporis. Facilis
-                        voluptatem ea aperiam eveniet hic atque ducimus doloribus, dolorem, vero labore porro earum,
-                        nostrum dolore vitae suscipit.</p>
-                    <div class="admin-area text-end">
-                        <a class="btn btn-sm btn-primary" href="/post/:id/update">Update</a>
-                        <a class="btn btn-sm btn-danger" href="/post/:id/delete" onclick="return confirm('Are you sure?')">Delete</a>
-                    </div>
-                </article> -->
                 <!-- Pagination -->
                  <% console.log(details) %>
                 <nav class="blog-pagination" aria-label="Pagination">
@@ -165,7 +59,7 @@
                              <% recentPosts.forEach(item => { %>
                               <li>
                                 <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                                    href="/post/:id">
+                                    href="/post/<%= item.id %>">
                                     <div class="col-lg-8">
                                         <h5><%= item.title %></h5>
                                         <!-- <p class="my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p> -->
