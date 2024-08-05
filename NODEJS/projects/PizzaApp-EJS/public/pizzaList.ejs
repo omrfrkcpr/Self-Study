@@ -4,21 +4,21 @@
 <div class="pb-5">
   <div class="row"></div>
   <div class="d-flex flex-wrap justify-content-center pt-5">
-    {% for (let pizza of pizzas) { %} {% console.log(pizza) %}
-    <div class="card m-3 shadow" style="max-width: 640px">
-      <div class="row">
-        <div class="col-md-6">
+    {% for (let pizza of pizzas) { %} {%# console.log(pizza) %}
+    <div class="card m-3 shadow" style="max-width: 640px; height: 350px">
+      <div class="row w-100 h-100">
+        <div class="col-md-6 h-100">
           {% if (pizza?.images.length) { %}
           <img
             src="{%= pizza.images[0] %}"
             class="img-fluid rounded-start"
-            style="width: 350px; height: 275px"
+            style="width: 350px; height: 100%; object-fit: cover"
           />
           {% } else { %}
           <img
             src="https://via.placeholder.com/350x275"
             class="img-fluid rounded-start"
-            style="width: 350px; height: 275px"
+            style="width: 350px; height: 100%; object-fit: cover"
           />
           {% } %}
         </div>
@@ -39,6 +39,11 @@
                 class="btn btn-warning"
                 >Order</a
               >
+              {% if (user?.isAdmin) { %}
+              <a href="/pizzas/{%= pizza.id %}" class="btn btn-secondary"
+                >Details</a
+              >
+              {% } %}
             </div>
           </div>
         </div>
