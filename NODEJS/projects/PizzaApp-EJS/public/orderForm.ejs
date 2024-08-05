@@ -41,7 +41,7 @@
                                 </tr>
                                 <tr>
                                     <td>Price</td>
-                                    <td><input type="text" name="price" required class="form-control" value="{%= order?.price || pizza?.price %}"></td>
+                                    <td><input type="text" name="price" required class="form-control" value="{%= order?.price || pizza?.price %}" {%= !user.isAdmin ? "disabled" : "" %}></td>
                                 </tr>
                             </tbody>
                         </table>

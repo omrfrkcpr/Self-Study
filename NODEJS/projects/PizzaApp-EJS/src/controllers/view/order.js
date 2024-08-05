@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 /* -------------------------------------------------------
     NODEJS EXPRESS | CLARUSWAY FullStack Team
 ------------------------------------------------------- *
@@ -12,142 +12,137 @@
 ------------------------------------------------------- */
 // Order Controller:
 
-const Pizza = require('../../models/pizza')
-const Order = require('../../models/order')
+const Pizza = require("../../models/pizza");
+const Order = require("../../models/order");
 
-const pizzaSizes = ['Small', 'Medium', 'Large', 'XLarge']
+const pizzaSizes = ["Small", "Medium", "Large", "XLarge"];
 
 module.exports = {
+  list: async (req, res) => {
+    // only self-records:
+    const filter = req.session?.user?.isAdmin
+      ? {}
+      : { userId: req.session.user.id };
 
-    list: async (req, res) => {
+    // const data = await res.getModelList(Order, {}, ['userId', 'pizzaId'])
+    const data = await res.getModelList(Order, filter, [
+      "userId",
+      { path: "pizzaId", populate: "toppingIds" },
+    ]);
 
-        // only self-records:
-        const filter = req.session?.user?.isAdmin ? {} : { userId: req.session.user.id }
+    // res.status(200).send({
+    //     error: false,
+    //     details: await res.getModelListDetails(Order),
+    //     data
+    // })
 
-        // const data = await res.getModelList(Order, {}, ['userId', 'pizzaId'])
-        const data = await res.getModelList(Order, filter, [
-            'userId',
-            { path: 'pizzaId', populate: 'toppings' }
-        ])
+    // Add '?' parameters to url if there is not:
+    if (!req.originalUrl.includes("?")) req.originalUrl += "?";
 
-        // res.status(200).send({
-        //     error: false,
-        //     details: await res.getModelListDetails(Order),
-        //     data
-        // })
+    // console.log(data)
+    res.render("orderList", {
+      details: await res.getModelListDetails(Order, filter),
+      orders: data,
+      pageUrl: req.originalUrl.replace(/[?|&]page=([^&]+)/gi, ""),
+      user: req.session?.user,
+    });
+  },
 
-        // Add '?' parameters to url if there is not:
-        if (!req.originalUrl.includes('?')) req.originalUrl += '?'
+  create: async (req, res) => {
+    if (req.method == "POST") {
+      // Add userId from session:
+      req.body.userId = req.session.user.id;
+      // Add pizzaId from req.query:
+      req.body.pizzaId = req.query.pizza;
 
-        // console.log(data)
-        res.render('orderList', {
-            details: await res.getModelListDetails(Order, filter),
-            orders: data,
-            pageUrl: req.originalUrl.replace(/[?|&]page=([^&]+)/gi, ''),
-            user:req.session?.user
-        })
-    },
+      // Calculatings:
+      req.body.quantity = req.body?.quantity || 1; // default: 1
+      if (!req.body?.price) {
+        const dataPizza = await Pizza.findOne(
+          { _id: req.body.pizzaId },
+          { _id: 0, price: 1 }
+        );
+        req.body.price = dataPizza.price;
+      }
+      req.body.totalPrice = req.body.price * req.body.quantity;
 
-    create: async (req, res) => {
+      const data = await Order.create(req.body);
 
-        if (req.method == 'POST') {
+      // res.status(201).send({
+      //     error: false,
+      //     data
+      // })
 
-            // Add userId from session:
-            req.body.userId = req.session.user.id
-            // Add pizzaId from req.query:
-            req.body.pizzaId = req.query.pizza
+      res.redirect("/orders/" + data.id);
+    } else {
+      res.render("orderForm", {
+        order: null,
+        pizzas: null,
+        pizza: await Pizza.findOne({ _id: req.query.pizza }),
+        pizzaSizes,
+        user: req.session?.user,
+      });
+    }
+  },
 
-            // Calculatings:
-            req.body.quantity = req.body?.quantity || 1 // default: 1
-            if (!req.body?.price) {
-                const dataPizza = await Pizza.findOne({ _id: req.body.pizzaId }, { _id: 0, price: 1 })
-                req.body.price = dataPizza.price
-            }
-            req.body.totalPrice = req.body.price * req.body.quantity
+  read: async (req, res) => {
+    const data = await Order.findOne({ _id: req.params.id }).populate([
+      "userId",
+      { path: "pizzaId", populate: "toppingIds" },
+    ]);
 
-            const data = await Order.create(req.body)
+    // res.status(200).send({
+    //     error: false,
+    //     data
+    // })
 
-            // res.status(201).send({
-            //     error: false,
-            //     data
-            // })
+    res.render("orderRead", {
+      order: data,
+      user: req.session?.user,
+    });
+  },
 
-            res.redirect('/orders/' + data.id)
+  update: async (req, res) => {
+    if (req.method == "POST") {
+      // Calculatings:
+      req.body.quantity = req.body?.quantity || 1; // default: 1
+      if (!req.body?.price) {
+        const dataOrder = await Order.findOne(
+          { _id: req.params.id },
+          { _id: 0, price: 1 }
+        );
+        req.body.price = dataOrder.price;
+      }
+      req.body.totalPrice = req.body.price * req.body.quantity;
 
-        } else {
+      console.log(req.body);
 
-            res.render('orderForm', {
-                order: null,
-                pizzas: null,
-                pizza: await Pizza.findOne({ _id: req.query.pizza }),
-                pizzaSizes,
-                user:req.session?.user
-            })
-        }
-    },
+      const data = await Order.updateOne({ _id: req.params.id }, req.body, {
+        runValidators: true,
+      });
 
-    read: async (req, res) => {
+      // res.status(202).send({
+      //     error: false,
+      //     data,
+      //     new: await Order.findOne({ _id: req.params.id })
+      // })
 
-        const data = await Order.findOne({ _id: req.params.id }).populate([
-            'userId',
-            { path: 'pizzaId', populate: 'toppings' }
-        ])
+      res.redirect("/orders/" + req.params.id);
+    } else {
+      console.log(await Order.findOne({ _id: req.params.id }));
+      res.render("orderForm", {
+        order: await Order.findOne({ _id: req.params.id }),
+        pizzas: await Pizza.find(),
+        pizzaSizes,
+        user: req.session?.user,
+      });
+    }
+  },
 
-        // res.status(200).send({
-        //     error: false,
-        //     data
-        // })
-        
-        res.render('orderRead', {
-            order: data,
-            user:req.session?.user
-        })
+  delete: async (req, res) => {
+    const data = await Order.deleteOne({ _id: req.params.id });
 
-    },
-
-    update: async (req, res) => {
-
-        if (req.method == 'POST') {
-
-            // Calculatings:
-            req.body.quantity = req.body?.quantity || 1 // default: 1
-            if (!req.body?.price) {
-                const dataOrder = await Order.findOne({ _id: req.params.id }, { _id: 0, price: 1 })
-                req.body.price = dataOrder.price
-            }
-            req.body.totalPrice = req.body.price * req.body.quantity
-
-            console.log(req.body)
-
-            const data = await Order.updateOne({ _id: req.params.id }, req.body, { runValidators: true })
-
-            // res.status(202).send({
-            //     error: false,
-            //     data,
-            //     new: await Order.findOne({ _id: req.params.id })
-            // })
-
-            res.redirect('/orders/' + req.params.id)
-
-        } else {
-
-            console.log(await Order.findOne({ _id: req.params.id }))
-            res.render('orderForm', {
-                order: await Order.findOne({ _id: req.params.id }),
-                pizzas: await Pizza.find(),
-                pizzaSizes,
-                user:req.session?.user
-            })
-        }
-
-    },
-
-    delete: async (req, res) => {
-
-        const data = await Order.deleteOne({ _id: req.params.id })
-        
-        // Go to home:
-        res.redirect('/orders')
-
-    },
-}
+    // Go to home:
+    res.redirect("/orders");
+  },
+};
