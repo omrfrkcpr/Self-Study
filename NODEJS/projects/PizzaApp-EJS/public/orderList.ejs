@@ -1,0 +1,47 @@
+{%- include('partials/header') -%}
+
+    <!-- content start -->
+    <div class="pb-5">
+        <div class="d-flex flex-column justify-content-center mx-auto pt-5 col-9">
+            <div class="alert alert-warning text-center p-1">
+                <h1>{%= user?.username %}'s Orders</h1>
+            </div>
+            {% for (let order of orders) { %}
+            <div class="card m-2 shadow p-2">
+                <div class="row g-0 d-flex justify-content-between">
+                    <div class="col-md-1 d-flex align-items-center">
+                        {% if (order.pizzaId?.images?.length) { %}
+                        <img src="{%= order.pizzaId.images[0] %}" style=" border-radius: 50%; width: 60px; height: 60px">
+                        {% } %}
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-start flex-fill">
+                        <div class="card-body">
+                            <p class="card-title">
+                                <label>🍕 Pizza: <strong> {%= order.pizzaId?.name %} </strong></label>
+                                <label>🍕 Size: <strong> {%= order.size %}</strong></label>
+                                <label>🍕 Quantitiy: <strong> {%= order.quantity %} </strong></label>
+                                <label>🍕 Total: {%= order.price %} x {%= order.quantity %} = <strong> {%= order.totalPrice %} </strong></label>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- admin-area-start -->
+                    {% if (user) { %}
+                    <div class="col-md-3 d-flex align-items-center rounded">
+                        <a href="/orders/{%= order.id %}"> <button class="btn btn-sm btn-info me-1">Detail</button></a>
+                        <a href="/orders/{%= order.id %}/update"> <button class="btn btn-sm btn-warning me-1">Update</button></a>
+                        {% if (user.isAdmin) { %}
+                        <a href="/orders/{%= order.id %}/delete"> <button class="btn btn-sm btn-danger me-1">Delete</button></a>
+                        <span>{%= order.userId.username %}</span>
+                        {% } %}
+                    </div>
+                    {% } %}
+                    <!-- admin-area-end -->
+                </div>
+            </div>
+            {% } %}
+        </div>
+        {%- include('partials/pagination') -%}
+    </div>
+    <!-- content end -->
+
+{%- include('partials/footer') -%}

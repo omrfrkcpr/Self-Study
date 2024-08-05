@@ -1,0 +1,57 @@
+{%- include('partials/header') -%}
+
+    <!-- content start -->
+    <div class="pb-5">
+        <div class="mx-auto d-flex justify-content-center align-items-center pt-5">
+            <div class="card w-50">
+                <div class="card-body">
+                    <h2>{%= (order ? 'Update' : 'Create') %}</h2>
+                    <hr>
+                    <form action="" method="POST">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Pizza</td>
+                                    <td>
+                                        {% if (pizzas) { %}
+                                        <select name="pizzaId" class="form-select">
+                                            {% for (pizza of pizzas) { %}
+                                            <option value="{%= pizza.id %}" {%= (pizza.id == order?.pizzaId ? 'selected' : '') %}>{%= pizza.name %}</option>
+                                            {% } %}
+                                        </select>
+                                        {% } else { %}
+                                        <span>{%= pizza.name %}</span>
+                                        <!-- <input type="hidden" name="pizzaId" value="{%= pizza.id %}"> -->
+                                        {% } %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Size</td>
+                                    <td>
+                                        <select name="size" class="form-select">
+                                            {% for (let pizzaSize of pizzaSizes) { %}
+                                            <option value="{%= pizzaSize %}" {%= (pizzaSize == order?.size ? 'selected' : '') %}>{%= pizzaSize %}</option>
+                                            {% } %}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity</td>
+                                    <td><input type="text" name="quantity" required class="form-control" value="{%= order?.quantity || 1 %}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td><input type="text" name="price" required class="form-control" value="{%= order?.price || pizza?.price %}"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <input class="btn btn-primary" type="submit" value="OK">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+
+{%- include('partials/footer') -%}

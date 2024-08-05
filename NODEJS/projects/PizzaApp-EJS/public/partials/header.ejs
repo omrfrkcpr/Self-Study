@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <title>Pizza App</title>
+    <style>
+        input {
+            width: 100%;
+        }
+
+        table th,
+        table td {
+            vertical-align: top;
+            padding: 5px;
+        }
+
+        span.helptext {
+            font-size: 50%;
+            opacity: 0.75;
+        }
+
+        img {
+            max-width: 500px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg navbar navbar-white">
+        <div class="container-fluid ">
+            <a class="navbar-brand alert-warning" href="/">
+                <img src="/assets/images/nadia.jpeg" width="80" height="80">
+                <span>Nadia's Garden Pizza</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbars-host">
+                <!-- admin-area-begin -->
+                {% if (user) { %}
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><span class="nav-link text-danger"><b>{%= user.username %}</b></span></li>
+                    <li class="nav-item"><a class="btn btn-secondary mx-3" href="/orders">My Orders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/auth/logout"><b>Logout</b></a></li>
+                </ul>
+                {% } else { %}
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/users/create">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/auth/login"><b>Login</b></a></li>
+                </ul>
+                {% } %}
+                <!-- admin-area-start -->
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->

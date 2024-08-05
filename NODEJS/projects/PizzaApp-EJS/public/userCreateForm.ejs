@@ -1,0 +1,36 @@
+{%- include('partials/header') -%}
+
+    <!-- content start -->
+    <div class="pb-5">
+        <div class="mx-auto d-flex justify-content-center align-items-center pt-5">
+            <div class="card w-50">
+                <div class="card-body">
+                    <h2>User Register</h2>
+                    <hr>
+                    <form action="" method="POST">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Username</td>
+                                    <td><input type="text" name="username" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input type="password" name="password" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>E-Mail</td>
+                                    <td><input type="email" name="email" required class="form-control"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <input class="btn btn-primary" type="submit" value="OK">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+
+{%- include('partials/footer') -%}

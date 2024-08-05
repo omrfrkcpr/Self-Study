@@ -1,0 +1,53 @@
+{%- include('partials/header') -%}
+
+<!-- content start -->
+<div class="pb-5">
+  <div class="row"></div>
+  <div class="d-flex flex-wrap justify-content-center pt-5">
+    {% for (let pizza of pizzas) { %} {% console.log(pizza) %}
+    <div class="card m-3 shadow" style="max-width: 640px">
+      <div class="row">
+        <div class="col-md-6">
+          {% if (pizza?.images.length) { %}
+          <img
+            src="{%= pizza.images[0] %}"
+            class="img-fluid rounded-start"
+            style="width: 350px; height: 275px"
+          />
+          {% } else { %}
+          <img
+            src="https://via.placeholder.com/350x275"
+            class="img-fluid rounded-start"
+            style="width: 350px; height: 275px"
+          />
+          {% } %}
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h4 class="card-title">{%= pizza.name %}</h4>
+            <div class="card-text">
+              <ul>
+                {% for (let topping of pizza.toppingIds) { %}
+                <li>{%= topping.name %}</li>
+                {% } %}
+              </ul>
+              <strong> {%= pizza.price %} $</strong>
+            </div>
+            <div class="pt-3">
+              <a
+                href="/orders/create?pizza={%= pizza.id %}"
+                class="btn btn-warning"
+                >Order</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% } %}
+  </div>
+  {%- include('partials/pagination') -%}
+</div>
+<!-- content end -->
+
+{%- include('partials/footer') -%}

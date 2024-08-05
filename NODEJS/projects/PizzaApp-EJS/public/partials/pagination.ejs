@@ -1,0 +1,27 @@
+        <!-- Pagination -->
+        {% if (details.pages) { %}
+        <nav class="p-3 text-center" aria-label="Pagination">
+            {% if (details.pages.previous) { %}
+            <a class="btn btn-primary" href="{%= pageUrl %}&page=1">&laquo;</a>
+            <a class="btn btn-primary me-2" href="{%= pageUrl %}&page={%= details.pages.previous %}">&larr;</a>
+            {% } else { %}
+            <span class="btn btn-light disabled me-2">&laquo;</span>
+            <span class="btn btn-light disabled me-2">&larr;</span>
+            {% } %}
+            {% for (let pageNo = 1; pageNo <= details.pages.totalPage; pageNo++) { %}
+            <a class="btn btn-{%= pageNo == details.pages.activePage ? 'primary' : 'secondary' %}"
+                href="{%= pageUrl %}&page={%= pageNo %}">{%= pageNo %}</a>
+            {% } %}
+            {% if (details.pages.next) { %}
+            <a class="btn btn-primary me-2" href="{%= pageUrl %}&page={%= details.pages.next %}">&rarr;</a>
+            <a class="btn btn-primary" href="{%= pageUrl %}&page={%= details.pages.total %}">&raquo;</a>
+            {% } else { %}
+            <span class="btn btn-light disabled me-2">&rarr;</span>
+            <span class="btn btn-light disabled me-2">&raquo;</span>
+            {% } %}
+        </nav>
+        {% } %}
+        <!-- totalRecords -->
+        <p class="text-center">
+            <span class="p-2 bg-dark text-white">Total {%= details.total %} Records</span>
+        </p>

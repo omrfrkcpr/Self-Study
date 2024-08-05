@@ -1,0 +1,47 @@
+{%- include('partials/header') -%}
+
+    <!-- content start -->
+    <div class="pb-5">
+        <div class="mx-auto d-flex justify-content-center align-items-center pt-5">
+            <div class="card">
+                {% if (order.pizzaId?.images?.length) { %}
+                <img src="{%= order.pizzaId.images[0] %}" class="card-img-top" style="width:400px; height:300px;">
+                {% } %}
+                <!-- admin-area-start -->
+                {% if (user) { %}
+                <div class="col-md-3 d-flex align-items-center rounded p-2">
+                    <a href="/orders/{%= order.id %}/update"><button class="btn btn-sm btn-warning me-1">Update</button></a>
+                </div>
+                {% } %}
+                <!-- admin-area-end -->
+                <div class="card-body">
+                    <h5 class="card-title">{%= order.pizzaId.name %}</h5>
+                    <ul class="card-text">
+                        <li>
+                            Toppings:
+                            <ul>
+                                {% for (let topping of order.pizzaId.toppingIds) { %}
+                                <li>{%= topping.name %}</li>
+                                {% } %}
+                            </ul>
+                        </li>
+                        <li>
+                            Size: <strong> {%= order.size %}</strong>
+                        </li>
+                        <li>
+                            Quantitiy: <strong> {%= order.quantity %}</strong>
+                        </li>
+                        <li>
+                            Price: <strong> {%= order.price %}</strong>
+                        </li>
+                        <li>
+                            Total: <strong> {%= order.totalPrice %}</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+
+{%- include('partials/footer') -%}
