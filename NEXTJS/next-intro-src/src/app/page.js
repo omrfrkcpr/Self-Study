@@ -1,4 +1,4 @@
-import Image from "next/image";
+// app folder icindeki page.js "/" route olan home sayfasidir
 
 export default function Home() {
   return (
