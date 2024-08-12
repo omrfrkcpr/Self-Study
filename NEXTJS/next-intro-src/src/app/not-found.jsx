@@ -1,6 +1,10 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const NotFound = () => {
+  const router = useRouter();
   return (
     <div className="max-w-screen-xl m-auto px-4 flex items-center justify-center h-screen">
       <div className="max-w-lg mx-auto space-y-3 text-center">
@@ -11,10 +15,16 @@ const NotFound = () => {
           removed.
         </p>
         <div className="flex gap-2 justify-center pt-4">
-          <button className="py-2 px-3 text-white bg-main duration-150 hover:bg-orange-600 rounded-md">
+          <button
+            onClick={() => router.back()}
+            className="py-2 px-3 text-white bg-main duration-150 hover:bg-orange-600 rounded-md"
+          >
             Go Back
           </button>
-          <button className="py-2 px-3 text-gray-700 duration-150 hover:text-white hover:bg-gray-700 rounded-md border border-gray-700">
+          <button
+            onClick={() => router.push("/")}
+            className="py-2 px-3 text-gray-700 duration-150 hover:text-white hover:bg-gray-700 rounded-md border border-gray-700"
+          >
             Go Home
           </button>
         </div>

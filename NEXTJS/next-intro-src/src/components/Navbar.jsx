@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const navigation = [
@@ -19,7 +20,9 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between py-4 px-8 border-b border-black sticky top-0 bg-navbarColor">
       <div>
-        <img src="/clarusway-logo.png" width="150px" alt="clarusway-logo" />
+        <Link href="/" className="flex items-center">
+          <img src="/clarusway-logo.png" width="150px" alt="clarusway-logo" />
+        </Link>
       </div>
       <ul className="flex gap-4">
         {navigation.map((navItem) => (
@@ -27,7 +30,7 @@ const Navbar = () => {
             key={navItem.path}
             className={`font-medium hover:bg-gray-300 rounded-full border border-gray-300 flex justify-center items-center px-3 py-1 text-lg duration-150`}
           >
-            <a href={navItem.path}>{navItem.title}</a>
+            <Link href={navItem.path}>{navItem.title}</Link>
           </li>
         ))}
       </ul>
