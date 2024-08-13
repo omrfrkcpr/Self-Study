@@ -17,9 +17,18 @@ const UserDetail = ({ params }) => {
 
 export default UserDetail;
 
+// return a list of params to populate the [slug] dynamic segment. (To change dynamic page to static page) => we give information how many page exist in this dynamic route
 export async function generateStaticParams() {
   const usersArr = [1, 2, 3, 4]; // api den gelecek veri
   return usersArr.map((userId) => ({
     userId: userId.toString(),
   }));
+}
+
+// Create meta data for dynamic pages
+export async function generateMetadata({ params: { userId } }) {
+  return {
+    title: `User Detail - ${userId}`,
+    description: `User Detail Page for user ${userId}`,
+  };
 }
