@@ -17,8 +17,14 @@ export default UserDetail;
 
 // Create meta data for dynamic pages
 export async function generateMetadata({ params: { id } }) {
+  const person = await getUsersDetail(id);
   return {
-    title: `User Detail - ${id}`,
-    description: `User Detail Page for user ${id}`,
+    title: `${person.first_name} ${person.last_name}`,
+    description: `Person Detail Page for user ${id}`,
   };
+}
+
+export async function generateStaticParams() {
+  const person = await getUsersDetail();
+  return person.map((user) => ({ params: { id: user.id.toString() } }));
 }
