@@ -10,7 +10,7 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const { createUser } = useAuthCalls();
+  const { createUser, signUpProvider } = useAuthCalls();
 
   const { email, password, firstName, lastName } = info;
 
@@ -77,6 +77,7 @@ const Register = () => {
             </div>
             <button className="btn-danger">Register</button>
             <button
+              onClick={signUpProvider}
               type="button"
               className="btn-danger flex justify-between text-center "
             >

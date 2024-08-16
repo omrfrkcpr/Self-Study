@@ -3,8 +3,11 @@ import toastNotify from "@/helpers/toastNofity";
 import { login, logout } from "@/redux/feature/authSlice";
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
@@ -42,6 +45,12 @@ const useAuthCalls = () => {
     }
   };
 
+  const logOut = () => {
+    signOut(auth);
+    toastNotify("success", "Logged out successully!");
+    router.push("/");
+  };
+
   const userObserver = async () => {
     //? Kullanicinin signin olup olmadigini takip eden ve kullanici degistiginde yeni kullaniciyi response olarak donen firebase metodu
     onAuthStateChanged(auth, (user) => {
@@ -51,15 +60,32 @@ const useAuthCalls = () => {
         const { email, displayName, photoURL } = user;
 
         dispatch(login({ email, displayName, photoURL }));
+        sessionStorage.setItem(
+          "user",
+          JSON.stringify({ email, displayName, photoURL })
+        );
       } else {
         // User is signed out
         dispatch(logout());
-        toastNotify("info", "Logged Out successfully!");
       }
     });
   };
 
-  return { createUser, signIn, userObserver };
+  const signUpProvider = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        router.push("/profile");
+        toastNotify("success", "Logged in with Google!");
+        console.log("Google Profile: ", result);
+      })
+      .catch((error) => {
+        toastNotify("Error:", error.message); // Access the error message properly
+        console.error("Error during sign-in:", error);
+      });
+  };
+
+  return { createUser, signIn, logOut, userObserver, signUpProvider };
 };
 
 export default useAuthCalls;

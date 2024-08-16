@@ -9,7 +9,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { signIn } = useAuthCalls();
+  const { signIn, signUpProvider } = useAuthCalls();
 
   const { email, password } = info;
 
@@ -64,6 +64,7 @@ const Login = () => {
             </div>
             <button className="btn-danger">Login</button>
             <button
+              onClick={signUpProvider}
               type="button"
               className="btn-danger flex justify-between text-center "
             >
