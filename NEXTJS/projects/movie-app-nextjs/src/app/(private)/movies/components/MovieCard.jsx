@@ -22,9 +22,9 @@ const MovieCard = ({ poster_path, vote_average, id, title }) => {
         height={160}
         alt="movie-poster"
       />
-      <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-full h-full px-2 text-center m-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-white group-hover:bg-black/50">
+      <div className="absolute inset-0 px-2 flex items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-white bg-black/50">
         {title}
-      </span>
+      </div>
       <span className="text-black absolute bottom-1 right-1 bg-white/70 rounded-full py-1 px-2">
         {vote_average.toFixed(1)}
       </span>

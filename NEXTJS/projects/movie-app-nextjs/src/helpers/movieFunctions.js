@@ -30,3 +30,18 @@ export const getVideoKey = async (movieId) => {
     console.log(error);
   }
 };
+
+export const getMovieDetails = async (movieId) => {
+  try {
+    const res = await fetch(`${BASE_URL}${movieId}?api_key=${API_KEY}`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const movie = await res.json();
+    return movie;
+  } catch (error) {
+    console.log(error);
+  }
+};
