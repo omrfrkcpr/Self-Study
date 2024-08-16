@@ -21,7 +21,7 @@ const Movies = async () => {
         <div>
           <HeroSection
             title={movieData[0]?.title}
-            overview={movieData[0].overview}
+            overview={movieData[0]?.overview}
             id={movieData[0]?.id}
           />
           <div className="py-10">

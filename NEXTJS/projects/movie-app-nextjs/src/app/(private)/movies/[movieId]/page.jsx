@@ -1,4 +1,8 @@
-import { getMovieDetails, getVideoKey } from "@/helpers/movieFunctions";
+import {
+  getMovieDetails,
+  getMovies,
+  getVideoKey,
+} from "@/helpers/movieFunctions";
 import React from "react";
 import VideoSection from "../components/VideoSection";
 import Link from "next/link";
@@ -30,3 +34,25 @@ const MovieDetail = async ({ params: { movieId } }) => {
 };
 
 export default MovieDetail;
+
+// For Static Pages
+export async function generateStaticParams() {
+  const [movies1, movies2, movies3, movies4] = await Promise.all([
+    getMovies("now_playing"),
+    getMovies("popular"),
+    getMovies("top_rated"),
+    getMovies("upcoming"),
+  ]);
+
+  return [...movies1, ...movies2, ...movies3, ...movies4].map((movie) => ({
+    movieId: movie.id.toString(),
+  }));
+}
+
+export async function generateMetadata({ params: { movieId } }) {
+  const { title } = await getMovieDetails(movieId);
+  return {
+    title: `${title} | Movie Details`,
+    description: `Check out ${title} movie details, trailers, and more`,
+  };
+}

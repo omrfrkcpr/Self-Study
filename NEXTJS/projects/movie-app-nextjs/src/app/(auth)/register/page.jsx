@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import GoogleIcon from "/public/icons/GoogleIcon";
 import useAuthCalls from "@/hooks/useAuthCalls";
+import Link from "next/link";
 
 const Register = () => {
   const [info, setInfo] = useState({
@@ -74,6 +75,15 @@ const Register = () => {
                 onChange={handleChange}
               />
               <label htmlFor="password">Password</label>
+            </div>
+            <div className="my-2 flex text-gray-500 gap-2 justify-center items-center">
+              <span>Already have an account?</span>
+              <Link
+                className="py-3 underline font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+                href="/login"
+              >
+                Sign In
+              </Link>
             </div>
             <button className="btn-danger">Register</button>
             <button
